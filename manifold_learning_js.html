@@ -11760,7 +11760,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this notebook, we'll go through some of the manifold learning and network graphing features of &lt;a href = "<a href="https://github.com/tynano/slicematrixIO-python"&gt;slicematrixIO">https://github.com/tynano/slicematrixIO-python"&gt;slicematrixIO</a>&lt;/a&gt;. To begin, let's fire up a client in our California data center. Remember to substitute your api key in the code below. <p>Don't have a key yet? <a href = "http://www.slicematrix.com">Get your api key here</a></p></p>
+<p>In this notebook, we'll go through some of the manifold learning and network graphing features of the <a href="https://github.com/tynano/slicematrixIO-python">SliceMatrix-IO</a> python client. To begin, let's fire up a client in our California data center. Remember to substitute your api key in the code below. <p>Don't have a key yet? <a href = "http://www.slicematrix.com">Get your api key here</a></p></p>
 
 </div>
 </div>
@@ -12120,7 +12120,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We all know that correlations spurious. Additionally we know that, in the financial markets in particular, correlations between assets can ebb and flow in the same manner as prices. We can use the Isomap algorithm to visualize how price structure, i.e. which assets herd together, has changed over the course of the last year.</p><p>To visualize this structure, let's create two different Isomap models: 1) for the first half of the year and 2) for the second half. This way we can compare the network graph structure between the two time periods.</p>
+<p>Now let's create an Isomap model to visualize the herding structure of the market:</p>
 
 </div>
 </div>
@@ -12130,8 +12130,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">iso1</span>  <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Isomap</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">diffs</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">0</span><span class="p">:(</span><span class="n">diffs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span> <span class="n">D</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
-<span class="n">iso2</span>  <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Isomap</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">diffs</span><span class="o">.</span><span class="n">ix</span><span class="p">[(</span><span class="n">diffs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">):],</span> <span class="n">D</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">iso</span>  <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Isomap</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">diffs</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12317,10 +12316,10 @@ div#notebook {
 
 
 
-<div id="615c88c9-c732-48e7-bcd6-2cd0bbfff615"></div>
+<div id="5045a7a3-7170-4bc0-a227-dd7416fd587c"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#615c88c9-c732-48e7-bcd6-2cd0bbfff615');
+var element = $('#5045a7a3-7170-4bc0-a227-dd7416fd587c');
 
 			window.graph_data = [];
 			window.current_graph_id = 0;
@@ -12349,7 +12348,7 @@ var element = $('#615c88c9-c732-48e7-bcd6-2cd0bbfff615');
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">drawNetworkGraph</span><span class="p">(</span><span class="n">iso1</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">min_node_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">charge</span> <span class="o">=</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="n">color_map</span> <span class="o">=</span> <span class="s2">&quot;Winter&quot;</span><span class="p">,</span> <span class="n">color_axis</span> <span class="o">=</span> <span class="s2">&quot;pagerank&quot;</span><span class="p">,</span> <span class="n">graph_layout</span> <span class="o">=</span> <span class="s2">&quot;force&quot;</span><span class="p">,</span> <span class="n">label_color</span> <span class="o">=</span> <span class="s2">&quot;#fff&quot;</span><span class="p">,</span> <span class="n">graph_style</span> <span class="o">=</span> <span class="s2">&quot;dark&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">drawNetworkGraph</span><span class="p">(</span><span class="n">iso</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">min_node_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">charge</span> <span class="o">=</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="n">color_map</span> <span class="o">=</span> <span class="s2">&quot;Winter&quot;</span><span class="p">,</span> <span class="n">color_axis</span> <span class="o">=</span> <span class="s2">&quot;pagerank&quot;</span><span class="p">,</span> <span class="n">graph_layout</span> <span class="o">=</span> <span class="s2">&quot;force&quot;</span><span class="p">,</span> <span class="n">label_color</span> <span class="o">=</span> <span class="s2">&quot;#fff&quot;</span><span class="p">,</span> <span class="n">graph_style</span> <span class="o">=</span> <span class="s2">&quot;dark&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12364,17 +12363,17 @@ var element = $('#615c88c9-c732-48e7-bcd6-2cd0bbfff615');
 
 
 
-<div id="68c48cf8-5fec-4a40-aa9f-19f765473f1e"></div>
+<div id="aa538d3f-a04b-428d-b8f1-15820e7e2f04"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#68c48cf8-5fec-4a40-aa9f-19f765473f1e');
+var element = $('#aa538d3f-a04b-428d-b8f1-15820e7e2f04');
 
 			require.config({
 				paths: {
 					d3: '//cdnjs.cloudflare.com/ajax/libs/d3/4.7.1/d3.min'
 				}
 			});
-		window.graph_data.push(JSON.parse('{"model_type": "raw_isomap", "graph_id": 0, "api_region": "us-west-1", "links": [["WDC", "NTAP"], ["WDC", "INTC"], ["WDC", "MU"], ["WDC", "ADI"], ["WDC", "STX"], ["WDC", "LRCX"], ["WDC", "PCAR"], ["WDC", "NXPI"], ["NFLX", "TXN"], ["NFLX", "ADP"], ["NFLX", "SIRI"], ["NFLX", "FOX"], ["NFLX", "AMGN"], ["NFLX", "ADI"], ["GOOGL", "GOOG"], ["GOOGL", "TXN"], ["GOOGL", "AAPL"], ["GOOGL", "FB"], ["GOOGL", "SBUX"], ["GOOGL", "ILMN"], ["GOOGL", "FISV"], ["GOOGL", "MSFT"], ["GOOGL", "JD"], ["GOOGL", "AMZN"], ["GOOGL", "CA"], ["GOOGL", "CMCSA"], ["AAPL", "GOOG"], ["AAPL", "TXN"], ["AAPL", "BIDU"], ["AAPL", "SIRI"], ["AAPL", "CMCSA"], ["AAPL", "ADI"], ["SRCL", "TXN"], ["SRCL", "PAYX"], ["SRCL", "ADP"], ["SRCL", "INTU"], ["SRCL", "CMCSA"], ["SRCL", "ADI"], ["SBAC", "LBTYA"], ["SBAC", "ADP"], ["SBAC", "VRSK"], ["SBAC", "LBTYK"], ["SBAC", "AMGN"], ["SBAC", "DISH"], ["SBAC", "EXPD"], ["SBAC", "CMCSA"], ["SBAC", "ADI"], ["JD", "GOOG"], ["JD", "TXN"], ["JD", "INTC"], ["JD", "BIDU"], ["JD", "YHOO"], ["XLNX", "TXN"], ["XLNX", "ADI"], ["XLNX", "AVGO"], ["XLNX", "ADBE"], ["XLNX", "INTC"], ["XLNX", "CSCO"], ["XLNX", "INTU"], ["XLNX", "LLTC"], ["XLNX", "NVDA"], ["XLNX", "LRCX"], ["XLNX", "NXPI"], ["NXPI", "TXN"], ["NXPI", "WYNN"], ["NXPI", "INTC"], ["NXPI", "SIRI"], ["NXPI", "MU"], ["NXPI", "AVGO"], ["NXPI", "SWKS"], ["NXPI", "ADI"], ["VRTX", "GILD"], ["VRTX", "INCY"], ["VRTX", "BIIB"], ["VRTX", "AMGN"], ["VRTX", "BMRN"], ["VRTX", "ALXN"], ["VRTX", "CELG"], ["SPLS", "ADBE"], ["SPLS", "SIRI"], ["SPLS", "CSCO"], ["SPLS", "INTU"], ["SPLS", "BBBY"], ["SPLS", "ADI"], ["MYL", "CERN"], ["MYL", "AMGN"], ["MYL", "ESRX"], ["MYL", "PCLN"], ["MYL", "CELG"], ["MYL", "ISRG"], ["KHC", "PAYX"], ["KHC", "VRSK"], ["KHC", "ADP"], ["KHC", "MNST"], ["KHC", "INTU"], ["KHC", "MDLZ"], ["KHC", "FISV"], ["KHC", "ROST"], ["KHC", "CMCSA"], ["HSIC", "GOOG"], ["HSIC", "TSCO"], ["HSIC", "ADP"], ["HSIC", "FOXA"], ["HSIC", "CA"], ["HSIC", "FOX"], ["HSIC", "TRIP"], ["HSIC", "CMCSA"], ["CTSH", "TXN"], ["CTSH", "ADP"], ["CTSH", "BIDU"], ["CTSH", "CSCO"], ["CTSH", "FISV"], ["CTSH", "YHOO"], ["CTSH", "CA"], ["CTSH", "ADI"], ["AMZN", "GOOG"], ["AMZN", "VRSK"], ["AMZN", "AMGN"], ["AMZN", "FB"], ["AMZN", "FISV"], ["AMZN", "TRIP"], ["AMZN", "CMCSA"], ["MAR", "VRSK"], ["MAR", "INTC"], ["MAR", "AAL"], ["MAR", "CA"], ["MAR", "SIRI"], ["MAR", "VIP"], ["MAR", "PCAR"], ["MAR", "ADI"], ["MAT", "ADP"], ["MAT", "SIRI"], ["MAT", "CSCO"], ["MAT", "INTU"], ["MAT", "CMCSA"], ["MAT", "EXPD"], ["VRSK", "ADBE"], ["VRSK", "TSLA"], ["VRSK", "WBA"], ["VRSK", "CHKP"], ["VRSK", "AKAM"], ["VRSK", "FB"], ["VRSK", "COST"], ["VRSK", "FISV"], ["VRSK", "INTC"], ["VRSK", "BIIB"], ["VRSK", "BBBY"], ["VRSK", "EXPD"], ["VRSK", "SYMC"], ["VRSK", "PAYX"], ["VRSK", "ADP"], ["VRSK", "CA"], ["VRSK", "SIRI"], ["VRSK", "ORLY"], ["VRSK", "YHOO"], ["VRSK", "ISRG"], ["VRSK", "SBUX"], ["VRSK", "CMCSA"], ["FOXA", "DISCA"], ["FOXA", "SIRI"], ["FOXA", "VIAB"], ["FOXA", "ADP"], ["FOXA", "TSCO"], ["FOXA", "DISCK"], ["FOXA", "FOX"], ["FOXA", "AMGN"], ["FOXA", "REGN"], ["FOXA", "DISH"], ["FOXA", "TRIP"], ["FOXA", "CMCSA"], ["FOXA", "LBTYA"], ["VIP", "DISCA"], ["VIP", "DISCK"], ["VIP", "CA"], ["VIP", "SIRI"], ["VIP", "PCAR"], ["ROST", "GOOG"], ["ROST", "PAYX"], ["ROST", "ADP"], ["ROST", "DLTR"], ["ROST", "ORLY"], ["ROST", "FISV"], ["WFM", "PAYX"], ["WFM", "ADP"], ["WFM", "CA"], ["WFM", "SIRI"], ["WFM", "CSCO"], ["WFM", "CMCSA"], ["CHKP", "GOOG"], ["CHKP", "ADP"], ["CHKP", "CA"], ["CHKP", "CSCO"], ["CHKP", "INTU"], ["PAYX", "CHRW"], ["PAYX", "VOD"], ["PAYX", "AKAM"], ["PAYX", "ADP"], ["PAYX", "MNST"], ["PAYX", "CA"], ["PAYX", "INTU"], ["PAYX", "GILD"], ["PAYX", "FISV"], ["PAYX", "MDLZ"], ["PAYX", "CMCSA"], ["PAYX", "EXPD"], ["ESRX", "INTC"], ["ESRX", "ADP"], ["ESRX", "AAL"], ["ESRX", "CA"], ["ESRX", "SIRI"], ["ESRX", "CSCO"], ["ESRX", "LVNTA"], ["ESRX", "DLTR"], ["ESRX", "ADI"], ["REGN", "INCY"], ["REGN", "FOX"], ["REGN", "AMGN"], ["REGN", "GILD"], ["REGN", "BMRN"], ["REGN", "CELG"], ["REGN", "CMCSA"], ["AMAT", "TXN"], ["AMAT", "AVGO"], ["AMAT", "INTC"], ["AMAT", "CSCO"], ["AMAT", "MU"], ["AMAT", "LRCX"], ["AMAT", "ADI"], ["CHTR", "GOOG"], ["CHTR", "ADBE"], ["CHTR", "ADP"], ["CHTR", "CA"], ["CHTR", "FISV"], ["CHTR", "CMCSA"], ["SWKS", "TXN"], ["SWKS", "AVGO"], ["SWKS", "INTC"], ["SWKS", "INTU"], ["SWKS", "ADI"], ["NVDA", "TXN"], ["NVDA", "ADBE"], ["NVDA", "INTC"], ["NVDA", "INTU"], ["NVDA", "ADI"], ["AVGO", "TXN"], ["AVGO", "INTC"], ["AVGO", "CSCO"], ["AVGO", "AMGN"], ["AVGO", "MU"], ["AVGO", "ADI"], ["LILA", "TXN"], ["LILA", "TSCO"], ["LILA", "SIRI"], ["LILA", "CSCO"], ["LILA", "LILAK"], ["LILA", "CMCSA"], ["PCLN", "TXN"], ["PCLN", "ADP"], ["PCLN", "INTC"], ["PCLN", "CA"], ["PCLN", "FOX"], ["PCLN", "TRIP"], ["PCLN", "PCAR"], ["CTXS", "TXN"], ["CTXS", "ADBE"], ["CTXS", "VIAB"], ["CTXS", "ADP"], ["CTXS", "CA"], ["CTXS", "INTU"], ["CTXS", "ADSK"], ["CTXS", "ADI"], ["LRCX", "TXN"], ["LRCX", "WYNN"], ["LRCX", "ADP"], ["LRCX", "INTC"], ["LRCX", "MU"], ["LRCX", "KLAC"], ["LRCX", "ADI"], ["LRCX", "NTAP"], ["SYMC", "ADP"], ["SYMC", "CA"], ["SYMC", "CSCO"], ["SYMC", "INTC"], ["SYMC", "ADI"], ["DISCA", "VIAB"], ["DISCA", "DISCK"], ["DISCA", "FOX"], ["DISCA", "PCAR"], ["DISCA", "CMCSA"], ["DISCA", "EXPD"], ["GRMN", "TXN"], ["GRMN", "INTC"], ["GRMN", "SIRI"], ["GRMN", "AMGN"], ["GRMN", "INTU"], ["GRMN", "ADI"], ["SIRI", "TSLA"], ["SIRI", "AAL"], ["SIRI", "COST"], ["SIRI", "LILAK"], ["SIRI", "DISH"], ["SIRI", "PCAR"], ["SIRI", "TXN"], ["SIRI", "FAST"], ["SIRI", "BBBY"], ["SIRI", "QVCA"], ["SIRI", "LLTC"], ["SIRI", "ADP"], ["SIRI", "EA"], ["SIRI", "CA"], ["SIRI", "FOX"], ["SIRI", "LVNTA"], ["SIRI", "QCOM"], ["SIRI", "ADI"], ["SIRI", "VOD"], ["SIRI", "VIAB"], ["SIRI", "CSCO"], ["SIRI", "EBAY"], ["SIRI", "CMCSA"], ["FOX", "DISCK"], ["FOX", "VIAB"], ["FOX", "ADP"], ["FOX", "TSCO"], ["FOX", "AMGN"], ["FOX", "LILAK"], ["FOX", "LBTYK"], ["FOX", "GILD"], ["FOX", "BBBY"], ["FOX", "DISH"], ["FOX", "CELG"], ["FOX", "CMCSA"], ["DISCK", "VIAB"], ["DISCK", "AMGN"], ["DISCK", "CMCSA"], ["DISCK", "PCAR"], ["EA", "GOOG"], ["EA", "ADP"], ["EA", "CA"], ["EA", "INTU"], ["EA", "FISV"], ["EA", "ATVI"], ["ORLY", "GOOG"], ["ORLY", "CHRW"], ["ORLY", "ADP"], ["ORLY", "TSCO"], ["ORLY", "DLTR"], ["ORLY", "FISV"], ["ORLY", "CMCSA"], ["LVNTA", "ADBE"], ["LVNTA", "ADP"], ["LVNTA", "INTU"], ["LVNTA", "ADI"], ["QCOM", "TXN"], ["QCOM", "ADI"], ["QCOM", "CELG"], ["QCOM", "NTAP"], ["QCOM", "ADP"], ["QCOM", "BIIB"], ["QCOM", "CSCO"], ["QCOM", "AMGN"], ["QCOM", "LBTYK"], ["QCOM", "DISH"], ["QCOM", "EBAY"], ["QCOM", "STX"], ["QCOM", "LBTYA"], ["YHOO", "ADP"], ["YHOO", "INTU"], ["YHOO", "FISV"], ["YHOO", "ADI"], ["VOD", "TXN"], ["VOD", "ADP"], ["VOD", "CA"], ["VOD", "INTU"], ["MU", "ADI"], ["MDLZ", "ADP"], ["MDLZ", "INTU"], ["MDLZ", "FISV"], ["MDLZ", "CMCSA"], ["AMGN", "BMRN"], ["AMGN", "ADSK"], ["AMGN", "INCY"], ["AMGN", "BIIB"], ["AMGN", "ISRG"], ["AMGN", "CELG"], ["AMGN", "GOOG"], ["AMGN", "QVCA"], ["AMGN", "ADP"], ["AMGN", "GILD"], ["AMGN", "ILMN"], ["AMGN", "ALXN"], ["AMGN", "TRIP"], ["AMGN", "ADI"], ["AMGN", "EBAY"], ["AMGN", "CERN"], ["AMGN", "CMCSA"], ["FB", "GOOG"], ["FB", "FISV"], ["FB", "CMCSA"], ["COST", "TXN"], ["COST", "ADP"], ["COST", "DLTR"], ["COST", "CA"], ["COST", "CMCSA"], ["FISV", "GOOG"], ["FISV", "ADBE"], ["FISV", "MNST"], ["FISV", "ATVI"], ["FISV", "ADP"], ["FISV", "INTU"], ["FISV", "ISRG"], ["FISV", "CHRW"], ["FISV", "SBUX"], ["FISV", "CMCSA"], ["ADBE", "ADP"], ["ADBE", "INTU"], ["ADBE", "TSLA"], ["ADBE", "INTC"], ["ADBE", "ADSK"], ["ADBE", "ADI"], ["ADSK", "INTU"], ["ADSK", "PCAR"], ["ADSK", "ADI"], ["MSFT", "GOOG"], ["MSFT", "ADP"], ["MSFT", "CA"], ["MSFT", "CSCO"], ["MSFT", "CMCSA"], ["DLTR", "TSCO"], ["DLTR", "CA"], ["FAST", "ADP"], ["FAST", "CA"], ["FAST", "ADI"], ["FAST", "CMCSA"], ["FAST", "EXPD"], ["BBBY", "CA"], ["BBBY", "CSCO"], ["BBBY", "PCAR"], ["EXPD", "CHRW"], ["EXPD", "ADP"], ["EXPD", "CSCO"], ["EXPD", "CMCSA"], ["QVCA", "TXN"], ["QVCA", "CSCO"], ["QVCA", "CMCSA"], ["QVCA", "ADI"], ["LLTC", "TXN"], ["LLTC", "ADP"], ["LLTC", "INTC"], ["LLTC", "ADI"], ["ADP", "CERN"], ["ADP", "TSLA"], ["ADP", "WBA"], ["ADP", "KLAC"], ["ADP", "PCAR"], ["ADP", "TXN"], ["ADP", "MNST"], ["ADP", "ATVI"], ["ADP", "CHRW"], ["ADP", "AKAM"], ["ADP", "INTC"], ["ADP", "GILD"], ["ADP", "CA"], ["ADP", "INTU"], ["ADP", "ISRG"], ["ADP", "ADI"], ["ADP", "BIDU"], ["ADP", "CSCO"], ["ADP", "EBAY"], ["ADP", "SBUX"], ["ADP", "CMCSA"], ["GILD", "TSLA"], ["GILD", "INCY"], ["GILD", "BIIB"], ["GILD", "ALXN"], ["GILD", "CELG"], ["GILD", "CMCSA"], ["CA", "GOOG"], ["CA", "AKAM"], ["CA", "WBA"], ["CA", "PCAR"], ["CA", "CSCO"], ["CA", "CMCSA"], ["ILMN", "GOOG"], ["ILMN", "TXN"], ["ILMN", "CELG"], ["ILMN", "ISRG"], ["TRIP", "PCAR"], ["ADI", "LBTYA"], ["ADI", "AAL"], ["ADI", "LBTYK"], ["ADI", "KLAC"], ["ADI", "WYNN"], ["ADI", "PCAR"], ["ADI", "TXN"], ["ADI", "INTC"], ["ADI", "INTU"], ["ADI", "STX"], ["ADI", "NTAP"], ["ADI", "BIDU"], ["ADI", "CSCO"], ["ADI", "EBAY"], ["CHRW", "CMCSA"], ["TSCO", "GOOG"], ["TSCO", "LILAK"], ["TSCO", "CMCSA"], ["NTAP", "TXN"], ["NTAP", "INTC"], ["NTAP", "STX"], ["NTAP", "PCAR"], ["BIDU", "CSCO"], ["BIDU", "INTU"], ["EBAY", "TXN"], ["SBUX", "GOOG"], ["SBUX", "MNST"], ["SBUX", "CMCSA"], ["BMRN", "INCY"], ["BMRN", "ALXN"], ["BMRN", "CELG"], ["CMCSA", "WBA"], ["CMCSA", "KLAC"], ["CMCSA", "TXN"], ["CMCSA", "MNST"], ["CMCSA", "CERN"], ["CMCSA", "GOOG"], ["CMCSA", "LILAK"], ["CMCSA", "CSCO"], ["KLAC", "TXN"], ["KLAC", "INTC"], ["WYNN", "INTC"], ["WYNN", "CSCO"], ["WYNN", "PCAR"], ["LBTYA", "LBTYK"], ["LBTYA", "PCAR"], ["TSLA", "INTU"], ["AAL", "INTC"], ["AAL", "PCAR"], ["LBTYK", "PCAR"], ["WBA", "INTC"], ["WBA", "INTU"], ["DISH", "CSCO"], ["PCAR", "INTC"], ["PCAR", "TXN"], ["TXN", "GOOG"], ["TXN", "LILAK"], ["TXN", "ATVI"], ["TXN", "INTC"], ["TXN", "CSCO"], ["INCY", "ALXN"], ["INCY", "CELG"], ["BIIB", "ALXN"], ["BIIB", "CELG"], ["ATVI", "GOOG"], ["ATVI", "INTU"], ["CELG", "CERN"], ["CELG", "ALXN"], ["CELG", "ISRG"], ["GOOG", "ISRG"], ["AKAM", "CSCO"], ["AKAM", "INTU"], ["INTC", "INTU"], ["INTC", "STX"], ["INTC", "ISRG"], ["INTC", "CSCO"], ["INTU", "ALXN"], ["INTU", "CERN"], ["STX", "CSCO"], ["ISRG", "CERN"], ["CERN", "CSCO"]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "dark", "api_id": "4u0pr4ljei", "height": 500, "width": 1000, "charge": -250, "color_map": "Winter", "got_embed": true, "embedding": [[-7.263325834602284, -2.5353887632276897], [-7.101175462321845, -2.5715460940815213], [1.398773924026621, -5.448499313754475], [4.298617917338392, 0.8421343076159737], [1.9620742710285282, -6.003687745849042], [-16.12232473163653, 9.279697842790247], [-4.3616516891858375, -3.9713920694813507], [-5.113449006356209, -3.489701228945765], [-9.377309854173607, -3.338170976282084], [8.98597729308298, 4.233366704926476], [-7.774033292066384, 6.255173124956973], [4.285796755036555, 7.545282984759546], [4.139305398367347, -0.8476322946948216], [9.119713828824349, 6.525329011718327], [-0.4232131220339458, 8.743174991706692], [-0.5660541273142302, -1.55194472371399], [1.4493779062325294, 9.759638490463121], [7.409797217930207, -0.28852566547259634], [2.485229613352247, -3.203977175271512], [-13.375937199910966, 7.411719574757492], [-23.031961369503705, 12.99674520186021], [-2.0397575292803647, -8.449280015465925], [1.3693971764056059, -6.043723722489197], [-14.943827586989782, 9.778833952443435], [-6.913429071059033, 0.19226708227106032], [-1.350733407442125, -11.46405872102714], [1.1435694004990051, -5.461297637347696], [4.786824366885119, -0.8547061654123846], [5.283921378790019, 0.049006611854962634], [5.402793081509141, -1.5404225017132962], [-3.882645740744, -3.5233793506747153], [0.4629175457512698, -6.309819255599229], [-6.548542013858652, -3.1102130805418504], [-8.341533200627973, -0.9679471366066321], [1.5105091917907534, -0.6033741400860226], [3.7148080676008615, -16.91948218349066], [-1.518897022244835, 3.946411427786474], [1.2511988991733274, -8.173285519103185], [-0.282590631148012, -5.055743814131407], [5.627932895285649, -1.418080243637801], [-5.244136058416475, -9.046196551304472], [3.3041110768752007, -1.9879814629325028], [-2.0283969563429887, -6.288310560332137], [-0.11778999821332149, 7.698706075558001], [-11.560752364968916, 0.6694923612750449], [-2.778020871705277, -7.401391860316175], [-10.728106021186498, 4.32548777553948], [-21.83132225850883, 11.992338185024215], [5.9372604777501055, 3.3781804747950925], [3.5956547901595464, 0.5464793467352349], [-4.86664404708819, 2.6621883617135484], [6.959465772883725, -2.090538872615138], [4.941758456319046, 0.7958581396593546], [-2.1094828689334353, -6.70502058176061], [7.40710264681676, 4.24281366224217], [6.15085990055787, 9.109302943647522], [5.609775091811857, 8.675451205024105], [-1.4954158048629704, 3.368678211025646], [2.2008771419037285, -8.530149997460061], [0.21424438672125803, -7.9903892143337], [5.808820982550101, -0.40569522479540066], [6.095775042786822, 1.5458997889864445], [6.519456590657804, -0.9472013115248744], [1.1481062348232665, -4.918287401085798], [15.451975795344188, 17.29321180487665], [-0.2575658021128705, -7.029367424218559], [-1.294880832156858, -6.108640616138368], [-2.904612671617088, -8.25713029782147], [-14.082639640239913, 6.575863362129992], [9.613562741715796, 10.318158731939787], [-2.289483955575351, 2.7475841162957297], [7.6410318847519445, 5.371092157883732], [8.315352153003918, 7.375432948944221], [-2.791912318422439, -9.441970911547864], [6.279235314901127, 1.8793757594986662], [-0.929337612634832, -5.129007021689976], [0.18829365845466267, 6.283757777288017], [-16.40235982286048, 3.9992588628196124], [-1.060005449125307, -9.086705963145477], [-1.8488640523349307, 4.638714151221699], [15.006541918853936, 12.854457215194973], [3.3544606045720053, -2.012383912232563], [7.8998867809943025, 7.126389805568436], [9.062858801837871, 1.588070959131961], [-2.8145563516529277, -7.683050636143367], [3.3036303113537904, -1.074772167171683], [5.437584724423743, -2.0454837788360547], [-1.6435933626694774, -6.673845328328377], [4.214214399010027, 1.2642545672503263], [1.58919224291818, -1.3873200086404749], [-6.578710073493099, -11.81375008283292], [-11.062550227859507, 6.646222479906866], [0.9563105476693811, -3.666772831725278], [-20.2145710523789, 11.471225414010155], [-1.706010440786189, -3.7020948780039373], [6.580155852963511, -9.344588201507925], [2.809236189463297, -5.205598895527166], [1.666952364126771, -4.004481674697755], [15.03110365180019, 15.973392994230386], [1.4490342073473368, -9.26508215737042], [11.291861551485567, 7.189484717398148], [6.439845365986183, 5.103665772629011], [5.40998702414243, 0.11921792478702671]], "model_name": "f3ab0464cfaa", "color_axis": "pagerank", "nodes": ["WDC", "NFLX", "GOOGL", "AAPL", "SRCL", "SBAC", "JD", "XLNX", "NXPI", "VRTX", "SPLS", "MYL", "KHC", "HSIC", "CTSH", "AMZN", "MAR", "MAT", "VRSK", "FOXA", "VIP", "ROST", "WFM", "CHKP", "PAYX", "ESRX", "REGN", "AMAT", "CHTR", "SWKS", "NVDA", "AVGO", "LILA", "PCLN", "CTXS", "LRCX", "SYMC", "DISCA", "GRMN", "SIRI", "FOX", "DISCK", "EA", "ORLY", "LVNTA", "QCOM", "YHOO", "VOD", "MU", "MDLZ", "AMGN", "FB", "COST", "FISV", "ADBE", "ADSK", "MSFT", "DLTR", "FAST", "BBBY", "EXPD", "QVCA", "LLTC", "ADP", "GILD", "CA", "ILMN", "TRIP", "ADI", "CHRW", "TSCO", "NTAP", "VIAB", "BIDU", "EBAY", "SBUX", "BMRN", "CMCSA", "KLAC", "WYNN", "LBTYA", "TSLA", "AAL", "LBTYK", "WBA", "DISH", "PCAR", "TXN", "MNST", "INCY", "BIIB", "LILAK", "ATVI", "CELG", "GOOG", "AKAM", "INTC", "INTU", "ALXN", "STX", "ISRG", "CERN", "CSCO"], "api_key": "F4CDheV1ca5IHlMqHkgN37lXYIxNfN3Xaba4P1fg", "label_color": "#fff", "graph_layout": "force"}'));
+		window.graph_data.push(JSON.parse('{"model_type": "raw_isomap", "graph_id": 0, "api_region": "us-west-1", "links": [["WDC", "TXN"], ["WDC", "NTAP"], ["WDC", "INTC"], ["WDC", "MU"], ["WDC", "LRCX"], ["WDC", "STX"], ["WDC", "ADI"], ["NFLX", "GOOG"], ["NFLX", "TXN"], ["NFLX", "GOOGL"], ["NFLX", "INTC"], ["NFLX", "MSFT"], ["NFLX", "ADI"], ["GOOGL", "GOOG"], ["GOOGL", "ADBE"], ["GOOGL", "TSLA"], ["GOOGL", "AAL"], ["GOOGL", "AAPL"], ["GOOGL", "AMGN"], ["GOOGL", "REGN"], ["GOOGL", "FB"], ["GOOGL", "COST"], ["GOOGL", "FISV"], ["GOOGL", "WBA"], ["GOOGL", "JD"], ["GOOGL", "MSFT"], ["GOOGL", "TXN"], ["GOOGL", "LILA"], ["GOOGL", "BIIB"], ["GOOGL", "LILAK"], ["GOOGL", "ISRG"], ["GOOGL", "ATVI"], ["GOOGL", "PCLN"], ["GOOGL", "CTXS"], ["GOOGL", "CELG"], ["GOOGL", "HSIC"], ["GOOGL", "CTSH"], ["GOOGL", "GILD"], ["GOOGL", "CA"], ["GOOGL", "EA"], ["GOOGL", "ORLY"], ["GOOGL", "LVNTA"], ["GOOGL", "ILMN"], ["GOOGL", "ALXN"], ["GOOGL", "YHOO"], ["GOOGL", "AMZN"], ["GOOGL", "SYMC"], ["GOOGL", "TRIP"], ["GOOGL", "TSCO"], ["GOOGL", "KHC"], ["GOOGL", "VRSK"], ["GOOGL", "CERN"], ["GOOGL", "BIDU"], ["GOOGL", "EBAY"], ["GOOGL", "SBUX"], ["GOOGL", "CHTR"], ["GOOGL", "CMCSA"], ["AAPL", "GOOG"], ["AAPL", "TXN"], ["AAPL", "ADP"], ["AAPL", "CSCO"], ["AAPL", "SWKS"], ["AAPL", "FISV"], ["SRCL", "TXN"], ["SRCL", "ADP"], ["SRCL", "VRSK"], ["SRCL", "CSCO"], ["SRCL", "INTU"], ["SRCL", "FISV"], ["SBAC", "TXN"], ["SBAC", "ADP"], ["SBAC", "VRSK"], ["SBAC", "INTU"], ["SBAC", "FISV"], ["SBAC", "EXPD"], ["JD", "GOOG"], ["JD", "TXN"], ["JD", "BIDU"], ["JD", "SIRI"], ["JD", "YHOO"], ["XLNX", "TXN"], ["XLNX", "AVGO"], ["XLNX", "NTAP"], ["XLNX", "INTC"], ["XLNX", "CSCO"], ["XLNX", "AMAT"], ["XLNX", "LLTC"], ["XLNX", "FISV"], ["XLNX", "NVDA"], ["XLNX", "QCOM"], ["XLNX", "ADI"], ["XLNX", "NXPI"], ["NXPI", "TXN"], ["NXPI", "LLTC"], ["NXPI", "ADP"], ["NXPI", "CSCO"], ["NXPI", "ADI"], ["VRTX", "GILD"], ["VRTX", "INCY"], ["VRTX", "BIIB"], ["VRTX", "CSCO"], ["VRTX", "AMGN"], ["VRTX", "BMRN"], ["VRTX", "CELG"], ["SPLS", "TXN"], ["SPLS", "PAYX"], ["SPLS", "ADP"], ["SPLS", "SIRI"], ["SPLS", "INTU"], ["SPLS", "BBBY"], ["MYL", "GOOG"], ["MYL", "CERN"], ["MYL", "CSCO"], ["MYL", "AMGN"], ["MYL", "GILD"], ["MYL", "CELG"], ["KHC", "GOOG"], ["KHC", "VRSK"], ["KHC", "MDLZ"], ["KHC", "FISV"], ["KHC", "ADP"], ["HSIC", "GOOG"], ["HSIC", "VRSK"], ["HSIC", "CSCO"], ["HSIC", "FISV"], ["HSIC", "ADP"], ["CTSH", "GOOG"], ["CTSH", "ADBE"], ["CTSH", "VRSK"], ["CTSH", "CSCO"], ["CTSH", "FISV"], ["AMZN", "GOOG"], ["AMZN", "TXN"], ["AMZN", "FB"], ["AMZN", "FISV"], ["AMZN", "TRIP"], ["AMZN", "MSFT"], ["MAR", "PAYX"], ["MAR", "VRSK"], ["MAR", "ADP"], ["MAR", "AAL"], ["MAR", "SIRI"], ["MAR", "CSCO"], ["MAR", "VIP"], ["MAR", "VIAB"], ["MAR", "PCAR"], ["MAT", "ADP"], ["MAT", "VRSK"], ["MAT", "SIRI"], ["MAT", "CSCO"], ["MAT", "INTU"], ["MAT", "FISV"], ["VRSK", "GOOG"], ["VRSK", "ADBE"], ["VRSK", "TSLA"], ["VRSK", "WFM"], ["VRSK", "AAL"], ["VRSK", "WBA"], ["VRSK", "CHKP"], ["VRSK", "AMGN"], ["VRSK", "ESRX"], ["VRSK", "FB"], ["VRSK", "COST"], ["VRSK", "FISV"], ["VRSK", "KLAC"], ["VRSK", "LVNTA"], ["VRSK", "ADSK"], ["VRSK", "MSFT"], ["VRSK", "LILA"], ["VRSK", "ADP"], ["VRSK", "MNST"], ["VRSK", "DLTR"], ["VRSK", "FAST"], ["VRSK", "ISRG"], ["VRSK", "PCAR"], ["VRSK", "BBBY"], ["VRSK", "EXPD"], ["VRSK", "CHRW"], ["VRSK", "PAYX"], ["VRSK", "LLTC"], ["VRSK", "INTC"], ["VRSK", "LILAK"], ["VRSK", "CA"], ["VRSK", "SIRI"], ["VRSK", "FOX"], ["VRSK", "ORLY"], ["VRSK", "INTU"], ["VRSK", "SYMC"], ["VRSK", "TRIP"], ["VRSK", "VOD"], ["VRSK", "TSCO"], ["VRSK", "NTAP"], ["VRSK", "CSCO"], ["VRSK", "EBAY"], ["VRSK", "SBUX"], ["VRSK", "MDLZ"], ["VRSK", "VIP"], ["VRSK", "ROST"], ["VRSK", "CMCSA"], ["FOXA", "DISCA"], ["FOXA", "SIRI"], ["FOXA", "VIAB"], ["FOXA", "ADP"], ["FOXA", "TXN"], ["FOXA", "DISCK"], ["FOXA", "FOX"], ["FOXA", "INTU"], ["FOXA", "EXPD"], ["VIP", "VOD"], ["VIP", "PAYX"], ["VIP", "CA"], ["VIP", "PCAR"], ["ROST", "PAYX"], ["ROST", "ADP"], ["ROST", "DLTR"], ["ROST", "ORLY"], ["ROST", "INTU"], ["ROST", "FISV"], ["WFM", "ADP"], ["WFM", "SIRI"], ["WFM", "CSCO"], ["WFM", "COST"], ["WFM", "EXPD"], ["CHKP", "GOOG"], ["CHKP", "ADBE"], ["CHKP", "ADP"], ["CHKP", "CSCO"], ["CHKP", "FISV"], ["PAYX", "CHRW"], ["PAYX", "VOD"], ["PAYX", "AKAM"], ["PAYX", "ADP"], ["PAYX", "CSCO"], ["PAYX", "FOX"], ["PAYX", "INTU"], ["PAYX", "FISV"], ["PAYX", "CMCSA"], ["PAYX", "EXPD"], ["ESRX", "ADP"], ["ESRX", "CA"], ["ESRX", "CSCO"], ["ESRX", "FISV"], ["ESRX", "WBA"], ["REGN", "GILD"], ["REGN", "BIIB"], ["REGN", "CSCO"], ["REGN", "AMGN"], ["REGN", "BMRN"], ["REGN", "CELG"], ["AMAT", "TXN"], ["AMAT", "AVGO"], ["AMAT", "NTAP"], ["AMAT", "INTC"], ["AMAT", "MU"], ["AMAT", "SWKS"], ["AMAT", "NVDA"], ["AMAT", "ADI"], ["AMAT", "LRCX"], ["CHTR", "GOOG"], ["CHTR", "ADBE"], ["CHTR", "ADP"], ["CHTR", "LVNTA"], ["CHTR", "FISV"], ["SWKS", "TXN"], ["SWKS", "AVGO"], ["SWKS", "LRCX"], ["SWKS", "ADI"], ["KLAC", "GOOG"], ["KLAC", "TXN"], ["KLAC", "INTC"], ["KLAC", "ADI"], ["KLAC", "LRCX"], ["AVGO", "TXN"], ["AVGO", "INTC"], ["AVGO", "CSCO"], ["AVGO", "MU"], ["AVGO", "ADI"], ["AVGO", "LRCX"], ["LILA", "TXN"], ["LILA", "CA"], ["LILA", "CSCO"], ["LILA", "LILAK"], ["PCLN", "GOOG"], ["PCLN", "TXN"], ["PCLN", "ADP"], ["PCLN", "INTU"], ["PCLN", "FISV"], ["PCLN", "TRIP"], ["CTXS", "GOOG"], ["CTXS", "ADBE"], ["CTXS", "ADP"], ["CTXS", "INTU"], ["CTXS", "FISV"], ["LRCX", "GOOG"], ["LRCX", "TXN"], ["LRCX", "WYNN"], ["LRCX", "NTAP"], ["LRCX", "INTC"], ["LRCX", "MU"], ["LRCX", "NVDA"], ["LRCX", "ADI"], ["LRCX", "STX"], ["SYMC", "GOOG"], ["SYMC", "ADBE"], ["SYMC", "CA"], ["SYMC", "CSCO"], ["DISCA", "SIRI"], ["DISCA", "DISCK"], ["DISCA", "FOX"], ["DISCA", "PCAR"], ["DISCA", "EXPD"], ["GRMN", "GOOG"], ["GRMN", "TXN"], ["GRMN", "SIRI"], ["GRMN", "CSCO"], ["GRMN", "FISV"], ["GRMN", "EXPD"], ["SIRI", "LBTYA"], ["SIRI", "AAL"], ["SIRI", "LBTYK"], ["SIRI", "DISH"], ["SIRI", "FISV"], ["SIRI", "TXN"], ["SIRI", "BBBY"], ["SIRI", "QVCA"], ["SIRI", "ADP"], ["SIRI", "FOX"], ["SIRI", "INTU"], ["SIRI", "LVNTA"], ["SIRI", "VIAB"], ["SIRI", "CSCO"], ["EA", "GOOG"], ["EA", "TXN"], ["EA", "ADP"], ["EA", "ATVI"], ["EA", "FISV"], ["EA", "MSFT"], ["DISCK", "FOX"], ["DISCK", "INTU"], ["DISCK", "PCAR"], ["DISCK", "EXPD"], ["FOX", "LBTYA"], ["FOX", "ADP"], ["FOX", "TXN"], ["FOX", "LBTYK"], ["FOX", "VIAB"], ["FOX", "DISH"], ["FOX", "QVCA"], ["ORLY", "GOOG"], ["ORLY", "CHRW"], ["ORLY", "ADP"], ["ORLY", "TSCO"], ["ORLY", "DLTR"], ["ORLY", "FISV"], ["LVNTA", "GOOG"], ["LVNTA", "TXN"], ["LVNTA", "ADBE"], ["QCOM", "TXN"], ["QCOM", "ADP"], ["QCOM", "CSCO"], ["QCOM", "ADI"], ["QCOM", "EXPD"], ["YHOO", "GOOG"], ["YHOO", "TXN"], ["YHOO", "ADBE"], ["YHOO", "BIDU"], ["YHOO", "INTU"], ["YHOO", "FISV"], ["VOD", "LBTYA"], ["VOD", "CA"], ["VOD", "INTU"], ["VOD", "ADP"], ["VOD", "FISV"], ["MU", "TXN"], ["MU", "ADI"], ["MDLZ", "TXN"], ["MDLZ", "ADP"], ["MDLZ", "INTU"], ["MDLZ", "FISV"], ["AMGN", "GOOG"], ["AMGN", "GILD"], ["AMGN", "INCY"], ["AMGN", "BIIB"], ["AMGN", "ILMN"], ["AMGN", "BMRN"], ["AMGN", "FISV"], ["AMGN", "CELG"], ["AMGN", "ALXN"], ["FB", "GOOG"], ["FB", "TXN"], ["FB", "WYNN"], ["FB", "FISV"], ["COST", "GOOG"], ["COST", "ADP"], ["COST", "DLTR"], ["COST", "CSCO"], ["COST", "FISV"], ["FISV", "GOOG"], ["FISV", "ADBE"], ["FISV", "TSLA"], ["FISV", "WBA"], ["FISV", "WYNN"], ["FISV", "ADSK"], ["FISV", "PCAR"], ["FISV", "MNST"], ["FISV", "DLTR"], ["FISV", "FAST"], ["FISV", "CHRW"], ["FISV", "ATVI"], ["FISV", "MSFT"], ["FISV", "EXPD"], ["FISV", "QVCA"], ["FISV", "ADP"], ["FISV", "CA"], ["FISV", "AKAM"], ["FISV", "INTU"], ["FISV", "TSCO"], ["FISV", "SBUX"], ["FISV", "CMCSA"], ["ADBE", "GOOG"], ["ADBE", "NTAP"], ["ADBE", "ADP"], ["ADBE", "BIDU"], ["ADBE", "ADSK"], ["ADBE", "INTU"], ["ADBE", "ATVI"], ["ADBE", "TSLA"], ["ADBE", "DISH"], ["ADSK", "TXN"], ["ADSK", "INTU"], ["ADSK", "ADI"], ["MSFT", "GOOG"], ["MSFT", "TXN"], ["MSFT", "ADP"], ["MSFT", "ATVI"], ["DLTR", "CA"], ["FAST", "TXN"], ["FAST", "ADP"], ["FAST", "CSCO"], ["FAST", "EXPD"], ["BBBY", "ADP"], ["BBBY", "CA"], ["BBBY", "CSCO"], ["BBBY", "PCAR"], ["EXPD", "CHRW"], ["EXPD", "ADP"], ["EXPD", "CSCO"], ["EXPD", "SBUX"], ["QVCA", "TXN"], ["QVCA", "ADP"], ["QVCA", "CSCO"], ["LLTC", "TXN"], ["LLTC", "ADP"], ["LLTC", "CSCO"], ["LLTC", "ADI"], ["ADP", "CERN"], ["ADP", "WBA"], ["ADP", "AKAM"], ["ADP", "PCAR"], ["ADP", "TXN"], ["ADP", "MNST"], ["ADP", "BIIB"], ["ADP", "CHRW"], ["ADP", "CELG"], ["ADP", "GILD"], ["ADP", "CA"], ["ADP", "INTU"], ["ADP", "ISRG"], ["ADP", "TSCO"], ["ADP", "BIDU"], ["ADP", "CSCO"], ["ADP", "EBAY"], ["ADP", "SBUX"], ["ADP", "CMCSA"], ["GILD", "GOOG"], ["GILD", "BIIB"], ["GILD", "CSCO"], ["GILD", "ALXN"], ["GILD", "CELG"], ["CA", "GOOG"], ["CA", "CSCO"], ["ILMN", "GOOG"], ["ILMN", "TXN"], ["ILMN", "CELG"], ["ILMN", "ISRG"], ["TRIP", "GOOG"], ["TRIP", "PCAR"], ["ADI", "TXN"], ["ADI", "INTC"], ["ADI", "CSCO"], ["ADI", "WYNN"], ["ADI", "STX"], ["ADI", "NVDA"], ["CHRW", "GOOG"], ["TSCO", "GOOG"], ["NTAP", "TXN"], ["NTAP", "STX"], ["VIAB", "CSCO"], ["VIAB", "PCAR"], ["BIDU", "GOOG"], ["BIDU", "CSCO"], ["EBAY", "GOOG"], ["EBAY", "TXN"], ["EBAY", "INTU"], ["SBUX", "GOOG"], ["SBUX", "MNST"], ["SBUX", "AAL"], ["BMRN", "INCY"], ["BMRN", "BIIB"], ["BMRN", "CELG"], ["CMCSA", "GOOG"], ["NVDA", "TXN"], ["NVDA", "INTC"], ["WYNN", "GOOG"], ["WYNN", "TXN"], ["LBTYA", "TXN"], ["LBTYA", "LBTYK"], ["LBTYA", "INTU"], ["TSLA", "GOOG"], ["TSLA", "INTU"], ["AAL", "GOOG"], ["LBTYK", "GOOG"], ["LBTYK", "TXN"], ["LBTYK", "INTU"], ["WBA", "GOOG"], ["WBA", "CSCO"], ["DISH", "TXN"], ["DISH", "CSCO"], ["DISH", "INTU"], ["PCAR", "TXN"], ["PCAR", "CSCO"], ["TXN", "AKAM"], ["TXN", "MNST"], ["TXN", "GOOG"], ["TXN", "INTC"], ["TXN", "LILAK"], ["TXN", "INTU"], ["TXN", "CSCO"], ["MNST", "GOOG"], ["INCY", "INTU"], ["INCY", "BIIB"], ["INCY", "CELG"], ["BIIB", "GOOG"], ["BIIB", "ALXN"], ["BIIB", "CELG"], ["LILAK", "GOOG"], ["LILAK", "CSCO"], ["ATVI", "GOOG"], ["CELG", "GOOG"], ["CELG", "ALXN"], ["GOOG", "ISRG"], ["GOOG", "INTC"], ["GOOG", "ALXN"], ["GOOG", "CERN"], ["GOOG", "CSCO"], ["AKAM", "CSCO"], ["AKAM", "INTU"], ["INTC", "CSCO"], ["INTC", "INTU"], ["INTC", "STX"], ["INTC", "ISRG"], ["INTU", "CERN"], ["STX", "CSCO"], ["ISRG", "CERN"], ["ISRG", "CSCO"], ["CERN", "CSCO"]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "dark", "api_id": "4u0pr4ljei", "height": 500, "width": 1000, "charge": -250, "color_map": "Winter", "got_embed": true, "embedding": [[-7.209269883866693, 7.706686933214911], [-6.816774344065837, 8.408425455926446], [6.473094621063932, -0.1887130064277587], [3.9817186142506795, 4.457984174891139], [-3.8521634692867703, 0.5250610102550097], [24.274459182538756, -21.74885097926186], [5.728614029926755, -7.5703002019699435], [5.334243201926259, -7.629695126914067], [-0.013481995981151924, -5.6540651576310905], [6.118941113884656, 9.763079169737109], [18.673691616353356, -7.783040100685928], [-15.851008600683002, -11.411150540767238], [-2.5464662685917188, -5.353975169498574], [-20.661377887992437, -12.82322375935662], [-8.560708052869094, 3.814699250256206], [1.425721630328618, 3.3515022013845015], [-14.035864442897722, -9.632472582792387], [3.7690456756796173, -0.9558012091763615], [1.7727461474896764, 12.021938268587874], [22.80069395485934, -9.893803002783267], [40.145728511027045, -17.506462850849186], [4.514324380291358, 6.614707004775878], [4.1479751539058904, 4.686386454756839], [21.96260708265773, -11.32886727930053], [5.28587634081124, 0.39729876518114243], [5.108221232863501, 3.450721946840899], [4.148107065918152, 2.9930198928496905], [-1.7854108351884899, -0.7305110258116214], [5.102387378020008, 4.364118275227424], [4.878581418953854, 2.370118023862417], [5.133423087343057, 3.988596177651566], [4.065257721696206, 3.398278259760534], [-6.565448220309206, 23.64672891327632], [-5.9563564667119895, 22.307070705386863], [-11.100158386359604, 0.800559834336835], [6.047244883170276, 16.812708212512092], [-0.6537732338484653, -0.04211939998554157], [-1.1984724171829564, -3.3607603840548435], [1.8063956382079451, 10.419828974584735], [3.8551183458077234, 7.575267133935091], [-0.0026068604370461804, -3.342125006184701], [-3.8977835188035312, 2.183240184948052], [5.441471157119911, 4.808971551091881], [-3.395769993797207, -1.3459706746842406], [14.9190570167958, -8.207409966625379], [3.80102572305528, 2.1685437041167104], [5.863209006176522, -19.090767285795533], [23.416283542711405, -9.151394311179912], [-6.484666651812595, -5.579046222347288], [-3.9294394540058866, 6.338266331723313], [0.8180947832915545, -1.8083167735357202], [-3.094938830817372, -5.070001680805431], [-6.117218099402378, -5.153890610822103], [4.954732525729689, 4.242641695389989], [-11.11184369214151, -14.33735369075714], [-8.285491192218545, 2.998425805759572], [-4.550178118947857, 0.494959317437735], [-5.247704573434108, 2.30052925793192], [-3.219192726677424, -2.7388703062132094], [-3.3646250072738697, -3.0480701893874547], [-2.2913979209182735, 1.366116444505621], [-5.732299620411811, -2.8119332347758856], [1.8706757589220016, 12.827965901813993], [3.6385514774255396, 10.020295478536204], [-28.46353689227303, -17.41182826787631], [0.06703317450293246, -3.519635907633382], [-3.7807784716133668, 3.681365384650542], [-1.8812705248673935, 0.2791498166171287], [16.852638232276604, -11.900868474779353], [-13.551822434489182, -1.431636002033169], [-7.289599284670576, -13.135020683909907], [-24.559129955710635, -13.53037099302398], [-7.220039196418173, -4.8319520019556705], [5.642394435647346, 5.1687981648521895], [-3.869702265210372, 7.5226608810665825], [2.244669350836484, 8.538330738141502], [-7.9803618141107675, -2.0723414694545377], [21.13021955451535, -14.5785569537726], [2.807839313097939, 11.372300716197739], [-4.284278048469655, 4.063675325354453], [-19.72260137335251, -10.05217640221809], [-4.0636952439653795, 5.682797565126797], [-21.283619129878897, -12.717364901128583], [-7.791119122497799, 6.734212707701043], [4.892668806537835, 5.727582672721563], [-3.2107978813801283, 2.1762546429235416], [4.46148875840451, 1.8747090135753797], [7.634346012335963, 9.888829107596042], [-9.13892078985885, -7.221579695940387], [-1.388618651777003, -2.0205711084656626], [5.688587405846848, 4.7873900755324295], [6.937748263775274, 8.44522157089565], [4.080077232746602, 7.1241331806478545], [21.645708653019376, -15.91888350304877], [-5.424327181448044, 13.762460953514086], [3.6178621334079426, 29.88490757057688], [2.459903567263069, 13.75137214258455], [3.9532176298163266, 2.6465721816574233], [-28.76631616764093, -15.801851388363723], [2.1938489798142844, 12.352265877423905], [-6.402214820671974, -8.285338671729763], [-8.903120845767207, -5.576737124309853], [-1.079809661041499, -3.784055721779494]], "model_name": "026ed5e747e2", "color_axis": "pagerank", "nodes": ["WDC", "NFLX", "GOOGL", "AAPL", "SRCL", "SBAC", "JD", "XLNX", "NXPI", "VRTX", "SPLS", "MYL", "KHC", "HSIC", "CTSH", "AMZN", "MAR", "MAT", "VRSK", "FOXA", "VIP", "ROST", "WFM", "CHKP", "PAYX", "ESRX", "REGN", "AMAT", "CHTR", "SWKS", "KLAC", "AVGO", "LILA", "PCLN", "CTXS", "LRCX", "SYMC", "DISCA", "GRMN", "SIRI", "EA", "DISCK", "FOX", "ORLY", "LVNTA", "QCOM", "YHOO", "VOD", "MU", "MDLZ", "AMGN", "FB", "COST", "FISV", "ADBE", "ADSK", "MSFT", "DLTR", "FAST", "BBBY", "EXPD", "QVCA", "LLTC", "ADP", "GILD", "CA", "ILMN", "TRIP", "ADI", "CHRW", "TSCO", "NTAP", "VIAB", "BIDU", "EBAY", "SBUX", "BMRN", "CMCSA", "NVDA", "WYNN", "LBTYA", "TSLA", "AAL", "LBTYK", "WBA", "DISH", "PCAR", "TXN", "MNST", "INCY", "BIIB", "LILAK", "ATVI", "CELG", "GOOG", "AKAM", "INTC", "INTU", "ALXN", "STX", "ISRG", "CERN", "CSCO"], "api_key": "F4CDheV1ca5IHlMqHkgN37lXYIxNfN3Xaba4P1fg", "label_color": "#fff", "graph_layout": "force"}'));
 		console.log(window.current_graph_id);
 		var width = window.graph_data[window.current_graph_id]['width'];
 		var height = window.graph_data[window.current_graph_id]['height'];
@@ -12898,566 +12897,7 @@ var element = $('#68c48cf8-5fec-4a40-aa9f-19f765473f1e');
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Then we can plot the next time period. Note the flexibility of the drawing function, which has numerous parameters which control the look and feel of the resulting graph:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">drawNetworkGraph</span><span class="p">(</span><span class="n">iso2</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">min_node_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">charge</span> <span class="o">=</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="n">color_map</span> <span class="o">=</span> <span class="s2">&quot;Winter&quot;</span><span class="p">,</span> <span class="n">color_axis</span> <span class="o">=</span> <span class="s2">&quot;pagerank&quot;</span><span class="p">,</span> <span class="n">graph_layout</span> <span class="o">=</span> <span class="s2">&quot;force&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
-
-
-
-<div id="44da8d92-0fe8-44a7-bd2e-117a90d8ca33"></div>
-<div class="output_subarea output_javascript output_execute_result">
-<script type="text/javascript">
-var element = $('#44da8d92-0fe8-44a7-bd2e-117a90d8ca33');
-
-			require.config({
-				paths: {
-					d3: '//cdnjs.cloudflare.com/ajax/libs/d3/4.7.1/d3.min'
-				}
-			});
-		window.graph_data.push(JSON.parse('{"model_type": "raw_isomap", "graph_id": 1, "api_region": "us-west-1", "links": [["WDC", "TXN"], ["WDC", "LLTC"], ["WDC", "NTAP"], ["WDC", "AMAT"], ["WDC", "KLAC"], ["WDC", "STX"], ["NFLX", "GOOG"], ["NFLX", "TXN"], ["NFLX", "LLTC"], ["NFLX", "FB"], ["NFLX", "KLAC"], ["NFLX", "MSFT"], ["GOOGL", "GOOG"], ["GOOGL", "ADBE"], ["GOOGL", "LBTYA"], ["GOOGL", "TSLA"], ["GOOGL", "AAL"], ["GOOGL", "AAPL"], ["GOOGL", "WBA"], ["GOOGL", "AMGN"], ["GOOGL", "SRCL"], ["GOOGL", "FB"], ["GOOGL", "CHTR"], ["GOOGL", "FISV"], ["GOOGL", "SBAC"], ["GOOGL", "JD"], ["GOOGL", "ADSK"], ["GOOGL", "MSFT"], ["GOOGL", "TXN"], ["GOOGL", "MNST"], ["GOOGL", "BIIB"], ["GOOGL", "LILAK"], ["GOOGL", "ISRG"], ["GOOGL", "ATVI"], ["GOOGL", "PCLN"], ["GOOGL", "CTXS"], ["GOOGL", "CELG"], ["GOOGL", "HSIC"], ["GOOGL", "CTSH"], ["GOOGL", "AKAM"], ["GOOGL", "LLTC"], ["GOOGL", "INTC"], ["GOOGL", "GILD"], ["GOOGL", "EA"], ["GOOGL", "ORLY"], ["GOOGL", "LVNTA"], ["GOOGL", "ILMN"], ["GOOGL", "ALXN"], ["GOOGL", "YHOO"], ["GOOGL", "AMZN"], ["GOOGL", "SYMC"], ["GOOGL", "TRIP"], ["GOOGL", "KHC"], ["GOOGL", "CERN"], ["GOOGL", "BIDU"], ["GOOGL", "CSCO"], ["GOOGL", "EBAY"], ["GOOGL", "SBUX"], ["GOOGL", "MDLZ"], ["GOOGL", "CMCSA"], ["AAPL", "GOOG"], ["AAPL", "TXN"], ["AAPL", "LLTC"], ["AAPL", "FB"], ["AAPL", "MSFT"], ["SRCL", "GOOG"], ["SRCL", "LLTC"], ["SRCL", "VRSK"], ["SRCL", "SBUX"], ["SRCL", "FISV"], ["SBAC", "GOOG"], ["SBAC", "LLTC"], ["SBAC", "MDLZ"], ["SBAC", "FISV"], ["SBAC", "MSFT"], ["JD", "GOOG"], ["JD", "LLTC"], ["JD", "SIRI"], ["JD", "WBA"], ["JD", "YHOO"], ["XLNX", "TXN"], ["XLNX", "LLTC"], ["XLNX", "NTAP"], ["XLNX", "CSCO"], ["XLNX", "AMAT"], ["XLNX", "NVDA"], ["XLNX", "ADI"], ["XLNX", "KLAC"], ["NXPI", "TXN"], ["NXPI", "LLTC"], ["NXPI", "ADP"], ["NXPI", "CSCO"], ["NXPI", "QCOM"], ["NXPI", "FISV"], ["NXPI", "EXPD"], ["VRTX", "LLTC"], ["VRTX", "INCY"], ["VRTX", "BIIB"], ["VRTX", "CSCO"], ["VRTX", "AMGN"], ["VRTX", "BMRN"], ["VRTX", "CELG"], ["SPLS", "PAYX"], ["SPLS", "ADP"], ["SPLS", "SBUX"], ["SPLS", "FISV"], ["SPLS", "BBBY"], ["SPLS", "ROST"], ["MYL", "LLTC"], ["MYL", "GILD"], ["MYL", "CSCO"], ["MYL", "AMGN"], ["MYL", "REGN"], ["MYL", "CELG"], ["KHC", "GOOG"], ["KHC", "LLTC"], ["KHC", "MDLZ"], ["KHC", "FISV"], ["KHC", "MSFT"], ["HSIC", "GOOG"], ["HSIC", "LLTC"], ["HSIC", "ADP"], ["HSIC", "SBUX"], ["HSIC", "FISV"], ["CTSH", "GOOG"], ["CTSH", "CHRW"], ["CTSH", "VRSK"], ["CTSH", "FISV"], ["CTSH", "MSFT"], ["AMZN", "GOOG"], ["AMZN", "TXN"], ["AMZN", "LLTC"], ["AMZN", "FB"], ["AMZN", "MSFT"], ["MAR", "CHRW"], ["MAR", "LLTC"], ["MAR", "ADP"], ["MAR", "SIRI"], ["MAR", "CSCO"], ["MAR", "VIP"], ["MAR", "FISV"], ["MAR", "CMCSA"], ["MAR", "PCAR"], ["MAT", "LLTC"], ["MAT", "ADBE"], ["MAT", "ADP"], ["MAT", "SBUX"], ["MAT", "FISV"], ["MAT", "WBA"], ["VRSK", "WYNN"], ["VRSK", "LBTYA"], ["VRSK", "TSLA"], ["VRSK", "WFM"], ["VRSK", "AAL"], ["VRSK", "CHKP"], ["VRSK", "AMGN"], ["VRSK", "ESRX"], ["VRSK", "COST"], ["VRSK", "KLAC"], ["VRSK", "WBA"], ["VRSK", "LVNTA"], ["VRSK", "PCAR"], ["VRSK", "LILA"], ["VRSK", "MNST"], ["VRSK", "DLTR"], ["VRSK", "LILAK"], ["VRSK", "MSFT"], ["VRSK", "BBBY"], ["VRSK", "EXPD"], ["VRSK", "SYMC"], ["VRSK", "CHRW"], ["VRSK", "PAYX"], ["VRSK", "LLTC"], ["VRSK", "ADP"], ["VRSK", "CA"], ["VRSK", "DISCK"], ["VRSK", "ORLY"], ["VRSK", "INTU"], ["VRSK", "TRIP"], ["VRSK", "VOD"], ["VRSK", "TSCO"], ["VRSK", "NTAP"], ["VRSK", "CSCO"], ["VRSK", "SBUX"], ["VRSK", "VIP"], ["FOXA", "LLTC"], ["FOXA", "VIAB"], ["FOXA", "ADP"], ["FOXA", "SIRI"], ["FOXA", "FOX"], ["FOXA", "FISV"], ["FOXA", "ALXN"], ["FOXA", "MSFT"], ["VIP", "CHRW"], ["VIP", "VOD"], ["VIP", "LLTC"], ["VIP", "FISV"], ["ROST", "QVCA"], ["ROST", "PAYX"], ["ROST", "LLTC"], ["ROST", "ADP"], ["ROST", "DLTR"], ["ROST", "ESRX"], ["ROST", "INTU"], ["ROST", "SBUX"], ["ROST", "FISV"], ["ROST", "BBBY"], ["WFM", "LLTC"], ["WFM", "ADP"], ["WFM", "COST"], ["WFM", "FISV"], ["WFM", "EXPD"], ["CHKP", "SYMC"], ["CHKP", "LLTC"], ["CHKP", "CSCO"], ["CHKP", "MSFT"], ["CHKP", "EXPD"], ["PAYX", "INTU"], ["PAYX", "LLTC"], ["PAYX", "ADP"], ["PAYX", "AAL"], ["PAYX", "SBUX"], ["PAYX", "FISV"], ["ESRX", "LLTC"], ["ESRX", "ADP"], ["ESRX", "SBUX"], ["ESRX", "WBA"], ["REGN", "GILD"], ["REGN", "BIIB"], ["REGN", "CSCO"], ["REGN", "AMGN"], ["REGN", "BMRN"], ["REGN", "CELG"], ["AMAT", "TXN"], ["AMAT", "ADI"], ["AMAT", "LLTC"], ["AMAT", "NVDA"], ["AMAT", "MU"], ["AMAT", "QCOM"], ["AMAT", "AVGO"], ["AMAT", "SWKS"], ["AMAT", "LRCX"], ["AMAT", "ADSK"], ["AMAT", "MSFT"], ["AMAT", "KLAC"], ["CHTR", "SBUX"], ["CHTR", "LLTC"], ["CHTR", "ADBE"], ["CHTR", "LVNTA"], ["CHTR", "FISV"], ["CHTR", "CMCSA"], ["SWKS", "TXN"], ["SWKS", "AVGO"], ["SWKS", "KLAC"], ["SWKS", "ADI"], ["SWKS", "LRCX"], ["KLAC", "TXN"], ["KLAC", "AKAM"], ["KLAC", "INTC"], ["KLAC", "MU"], ["KLAC", "LLTC"], ["KLAC", "EXPD"], ["KLAC", "LRCX"], ["KLAC", "STX"], ["KLAC", "MSFT"], ["KLAC", "ADI"], ["AVGO", "GOOG"], ["AVGO", "TXN"], ["AVGO", "LLTC"], ["AVGO", "NVDA"], ["AVGO", "MSFT"], ["AVGO", "ADI"], ["LILA", "LLTC"], ["LILA", "CA"], ["LILA", "CSCO"], ["LILA", "LILAK"], ["LILA", "FB"], ["PCLN", "GOOG"], ["PCLN", "LLTC"], ["PCLN", "TSLA"], ["PCLN", "FB"], ["PCLN", "FISV"], ["PCLN", "MSFT"], ["CTXS", "GOOG"], ["CTXS", "ADBE"], ["CTXS", "ADP"], ["CTXS", "FISV"], ["CTXS", "MSFT"], ["LRCX", "GOOG"], ["LRCX", "TXN"], ["LRCX", "LLTC"], ["LRCX", "MU"], ["LRCX", "NVDA"], ["LRCX", "ADI"], ["LRCX", "MSFT"], ["SYMC", "GOOG"], ["SYMC", "LLTC"], ["SYMC", "ADBE"], ["SYMC", "MSFT"], ["DISCA", "CHRW"], ["DISCA", "LLTC"], ["DISCA", "DISCK"], ["DISCA", "FOX"], ["DISCA", "FISV"], ["DISCA", "EXPD"], ["GRMN", "LLTC"], ["GRMN", "ADP"], ["GRMN", "SIRI"], ["GRMN", "CSCO"], ["GRMN", "FISV"], ["GRMN", "EXPD"], ["SIRI", "QVCA"], ["SIRI", "LLTC"], ["SIRI", "VIAB"], ["SIRI", "ADP"], ["SIRI", "FOX"], ["SIRI", "LBTYK"], ["SIRI", "SBUX"], ["SIRI", "DISH"], ["SIRI", "FISV"], ["SIRI", "EXPD"], ["FOX", "DISCK"], ["FOX", "VIAB"], ["FOX", "INTU"], ["FOX", "LLTC"], ["FOX", "FISV"], ["FOX", "MSFT"], ["DISCK", "CHRW"], ["DISCK", "LLTC"], ["DISCK", "FISV"], ["EA", "GOOG"], ["EA", "LLTC"], ["EA", "ADBE"], ["EA", "FISV"], ["EA", "ATVI"], ["EA", "MSFT"], ["ORLY", "LLTC"], ["ORLY", "ADP"], ["ORLY", "FISV"], ["ORLY", "MSFT"], ["LVNTA", "GOOG"], ["LVNTA", "LLTC"], ["LVNTA", "FB"], ["LVNTA", "TRIP"], ["QCOM", "TXN"], ["QCOM", "ADI"], ["QCOM", "LLTC"], ["QCOM", "EXPD"], ["YHOO", "GOOG"], ["YHOO", "LLTC"], ["YHOO", "ADBE"], ["YHOO", "BIDU"], ["YHOO", "FB"], ["VOD", "LLTC"], ["VOD", "ADP"], ["VOD", "CSCO"], ["VOD", "FISV"], ["VOD", "MSFT"], ["MU", "TXN"], ["MU", "NTAP"], ["MU", "MSFT"], ["MDLZ", "GOOG"], ["MDLZ", "LLTC"], ["MDLZ", "ADP"], ["MDLZ", "FISV"], ["MDLZ", "MSFT"], ["AMGN", "GOOG"], ["AMGN", "LLTC"], ["AMGN", "GILD"], ["AMGN", "INCY"], ["AMGN", "BIIB"], ["AMGN", "BMRN"], ["AMGN", "CELG"], ["FB", "GOOG"], ["FB", "TXN"], ["FB", "LLTC"], ["FB", "WYNN"], ["FB", "TSLA"], ["FB", "INCY"], ["FB", "BIDU"], ["FB", "LILAK"], ["FB", "MSFT"], ["FB", "ILMN"], ["FB", "FISV"], ["FB", "ALXN"], ["FB", "TRIP"], ["COST", "CHRW"], ["COST", "LLTC"], ["COST", "ADP"], ["COST", "DLTR"], ["COST", "CSCO"], ["COST", "SBUX"], ["COST", "BBBY"], ["FISV", "GOOG"], ["FISV", "ADBE"], ["FISV", "TSLA"], ["FISV", "WBA"], ["FISV", "LBTYK"], ["FISV", "WYNN"], ["FISV", "ADSK"], ["FISV", "MSFT"], ["FISV", "LBTYA"], ["FISV", "TXN"], ["FISV", "MNST"], ["FISV", "BIIB"], ["FISV", "CERN"], ["FISV", "FAST"], ["FISV", "QVCA"], ["FISV", "LLTC"], ["FISV", "ADP"], ["FISV", "CA"], ["FISV", "INTU"], ["FISV", "TSCO"], ["FISV", "NTAP"], ["FISV", "EBAY"], ["FISV", "SBUX"], ["FISV", "PCAR"], ["FISV", "DLTR"], ["FISV", "CMCSA"], ["ADBE", "GOOG"], ["ADBE", "LLTC"], ["ADBE", "ADSK"], ["ADBE", "BIDU"], ["ADBE", "TRIP"], ["ADBE", "INTU"], ["ADBE", "ATVI"], ["ADBE", "DISH"], ["ADBE", "STX"], ["ADBE", "CA"], ["ADBE", "MSFT"], ["ADSK", "GOOG"], ["ADSK", "TXN"], ["MSFT", "GOOG"], ["MSFT", "WBA"], ["MSFT", "WYNN"], ["MSFT", "TXN"], ["MSFT", "ADP"], ["MSFT", "MNST"], ["MSFT", "ATVI"], ["MSFT", "CHRW"], ["MSFT", "AKAM"], ["MSFT", "LLTC"], ["MSFT", "INTC"], ["MSFT", "CA"], ["MSFT", "INTU"], ["MSFT", "NTAP"], ["MSFT", "VIAB"], ["MSFT", "BIDU"], ["MSFT", "CSCO"], ["MSFT", "EBAY"], ["MSFT", "CMCSA"], ["DLTR", "INTU"], ["DLTR", "SBUX"], ["FAST", "TXN"], ["FAST", "LLTC"], ["FAST", "CSCO"], ["FAST", "SBUX"], ["FAST", "EXPD"], ["BBBY", "WBA"], ["BBBY", "EXPD"], ["EXPD", "CHRW"], ["EXPD", "LLTC"], ["EXPD", "ADP"], ["EXPD", "CSCO"], ["EXPD", "EBAY"], ["EXPD", "SBUX"], ["EXPD", "PCAR"], ["QVCA", "LLTC"], ["QVCA", "ADP"], ["QVCA", "SBUX"], ["LLTC", "BMRN"], ["LLTC", "ADP"], ["LLTC", "GILD"], ["LLTC", "CA"], ["LLTC", "ILMN"], ["LLTC", "ADI"], ["LLTC", "CHRW"], ["LLTC", "TSCO"], ["LLTC", "NTAP"], ["LLTC", "VIAB"], ["LLTC", "EBAY"], ["LLTC", "SBUX"], ["LLTC", "CMCSA"], ["LLTC", "WYNN"], ["LLTC", "TSLA"], ["LLTC", "AAL"], ["LLTC", "LBTYK"], ["LLTC", "WBA"], ["LLTC", "DISH"], ["LLTC", "PCAR"], ["LLTC", "TXN"], ["LLTC", "BIIB"], ["LLTC", "LILAK"], ["LLTC", "ATVI"], ["LLTC", "CELG"], ["LLTC", "GOOG"], ["LLTC", "AKAM"], ["LLTC", "INTC"], ["LLTC", "INTU"], ["LLTC", "ALXN"], ["LLTC", "STX"], ["LLTC", "ISRG"], ["LLTC", "CERN"], ["LLTC", "CSCO"], ["ADP", "PCAR"], ["ADP", "INTU"], ["ADP", "TSCO"], ["ADP", "SBUX"], ["GILD", "GOOG"], ["GILD", "CHRW"], ["GILD", "CSCO"], ["CA", "GOOG"], ["ILMN", "GOOG"], ["ILMN", "TXN"], ["ILMN", "CSCO"], ["TRIP", "GOOG"], ["ADI", "TXN"], ["ADI", "NVDA"], ["CHRW", "GOOG"], ["CHRW", "TSCO"], ["CHRW", "CSCO"], ["TSCO", "SBUX"], ["NTAP", "TXN"], ["NTAP", "STX"], ["VIAB", "CSCO"], ["BIDU", "GOOG"], ["EBAY", "GOOG"], ["SBUX", "AAL"], ["SBUX", "GOOG"], ["BMRN", "INCY"], ["BMRN", "BIIB"], ["BMRN", "CSCO"], ["BMRN", "CELG"], ["NVDA", "TXN"], ["WYNN", "WBA"], ["LBTYA", "GOOG"], ["LBTYA", "LBTYK"], ["LBTYA", "INTU"], ["AAL", "GOOG"], ["LBTYK", "GOOG"], ["LBTYK", "INTU"], ["WBA", "GOOG"], ["WBA", "MNST"], ["WBA", "ISRG"], ["DISH", "GOOG"], ["DISH", "TXN"], ["DISH", "INTU"], ["TXN", "GOOG"], ["TXN", "AKAM"], ["TXN", "INTC"], ["TXN", "STX"], ["MNST", "GOOG"], ["INCY", "BIIB"], ["INCY", "CELG"], ["BIIB", "GOOG"], ["BIIB", "CELG"], ["LILAK", "CSCO"], ["ATVI", "GOOG"], ["CELG", "GOOG"], ["CELG", "ALXN"], ["GOOG", "ISRG"], ["GOOG", "INTC"], ["GOOG", "ALXN"], ["GOOG", "CERN"], ["GOOG", "CSCO"], ["AKAM", "CSCO"], ["INTC", "ISRG"], ["ISRG", "CERN"], ["ISRG", "CSCO"], ["CERN", "CSCO"]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "light", "api_id": "4u0pr4ljei", "height": 500, "width": 1000, "charge": -250, "color_map": "Winter", "got_embed": true, "embedding": [[-0.056133778645339534, 1.4946552150389973], [-0.22644856694214746, 1.5864713439005311], [-0.7715571928805416, 0.09287423693643661], [-1.763016943401736, 1.3402595097757892], [-2.0767406979730074, -4.271615268041595], [9.937881847544743, -3.342765379487683], [0.36538409230413615, -1.5022906345546], [0.12997455304295483, -1.6659115094991148], [-1.5356048875030097, -3.7969678272533725], [-0.0016599063904035039, 5.006105027767557], [11.502545878404852, -4.147004153250997], [-4.721992398546828, -7.507429613854863], [-1.1552091707361705, -3.718030053690877], [-7.701097151418223, -8.606643056484735], [-8.678120376517446, -1.3394168934696415], [-0.863679820465084, 5.05100598094886], [-6.796668715755465, -7.349782138187393], [-0.9306395783931843, -1.6642213633933876], [-0.43434212922886917, 14.331687367304687], [11.881378496457089, -4.157358698985612], [15.284177129461309, -8.330127563349466], [0.9126126976681485, 1.4093053438270022], [-0.44478007648548556, 2.3775085460114633], [13.355053703482103, -6.392399831264307], [1.7152119741730454, 1.7799707593193717], [0.08982755936406198, 2.57150948362498], [1.1304020914823956, 1.0056727368292726], [3.715576237897685, -2.780432210649009], [-3.4179334715887, 5.961786270589375], [-3.3853499678796113, 8.70280546091094], [-0.878738362304995, 1.9755464748091636], [1.744340809416364, 3.693578402384322], [-0.23100902628916142, 4.52676817283308], [-0.16102932295316896, 4.2896370518060225], [-3.1349411915637617, -1.9452809151472064], [-2.041518631749321, 13.654923842506516], [-0.7005134113669602, 2.2048568904241828], [-0.7652843979937186, 1.1568885401995235], [0.5227016853403104, 1.3553480670603706], [0.23644035575981237, 5.532935357394763], [0.14831048737585392, -3.0859690375250697], [-1.6610499388836377, -0.7159290446829588], [-1.855613743784209, 3.8935602852826663], [1.3463271815434228, 3.1875838049945853], [6.66721199463121, -2.9008190261143914], [0.06735591865208473, 2.572111104772379], [-0.6355557288294816, -5.9198399190679], [20.143596098504624, -13.227966181680593], [-3.3286505145161684, -3.9342530079786435], [-1.0194297638318628, 3.5160691323050464], [1.9406429384607229, 0.17381534685139977], [0.5635783511559505, 1.7254050599907573], [-5.3780198637672765, -4.944986476586902], [-0.9248908133059583, 1.5742504752349082], [-7.120304555487434, -7.480672212463463], [-0.4660178646897599, 5.749705759787581], [0.01370998298527654, 3.6414443238153402], [-0.5074836267229855, 5.573438747120222], [4.934671005303988, 2.115631748664511], [4.496137761489088, 1.6998047983940856], [1.6704965768355189, 1.1128106607327704], [1.4455757577757447, -2.074386934656249], [1.2746280380685768, 1.8730927791763035], [-0.5997242787239567, 4.908439777762845], [-15.183454777432228, -10.225374328651476], [-2.722693506749559, -1.969139369226224], [-0.8818469309228201, 1.6639224746342074], [-3.7432706168536742, 9.962583385968466], [13.276330111683897, -6.69507247898342], [-5.45081324690459, -2.6662940598171083], [-3.1381710340634004, -5.336485545342829], [-20.08906041208116, -22.117547485090775], [-1.5162275510907162, -1.2482966904558241], [-0.9332013833871174, 3.3508725513590485], [-0.04112761092229203, 4.077311228423937], [-0.2854976020015611, 4.553701889283633], [-3.5778644151532286, -4.7928284565692385], [22.656515638397114, -10.442046488842433], [-0.3617468152005882, 5.398809668467527], [-0.9427243456375531, 1.3686551551924817], [-5.258357522867973, -5.847851417522562], [0.08128110982676154, 3.38462147278007], [-14.87913667665419, -13.942089382749058], [-4.395545932715052, 14.989917271695106], [0.013058565524915954, 5.514218315435924], [0.00403883002644253, 3.9424146643726297], [-0.40883888810707, 1.2726223938767818], [1.5655776395712193, 4.012779154216866], [-5.984623236828202, -7.667767302876677], [0.7653775905146287, 0.3535444168860022], [-0.3002717638246047, 5.260285097018549], [-0.11047014127324316, 5.2564552264841415], [1.0666593756979914, 4.798318532409811], [15.650571776426474, -8.42076203338955], [1.377346379665707, -0.5904607848387616], [-0.6633447461566834, 7.661300356085634], [0.3911991874436905, 2.478467601811902], [-0.5828829836376372, 3.164046062122144], [-5.727897561262041, -7.411893134198789], [-0.05667508177806075, 3.81010493481947], [0.32289013844014325, 2.8994533677330208], [-2.5616264724454307, -6.881866057903834], [1.7615235756657335, -0.5353951403871771]], "model_name": "a0a0d0607be0", "color_axis": "pagerank", "nodes": ["WDC", "NFLX", "GOOGL", "AAPL", "SRCL", "SBAC", "JD", "XLNX", "NXPI", "VRTX", "SPLS", "MYL", "KHC", "HSIC", "CTSH", "AMZN", "MAR", "MAT", "VRSK", "FOXA", "VIP", "ROST", "WFM", "CHKP", "PAYX", "ESRX", "REGN", "AMAT", "CHTR", "SWKS", "KLAC", "AVGO", "LILA", "PCLN", "CTXS", "LRCX", "SYMC", "DISCA", "GRMN", "SIRI", "FOX", "DISCK", "EA", "ORLY", "LVNTA", "QCOM", "YHOO", "VOD", "MU", "MDLZ", "AMGN", "FB", "COST", "FISV", "ADBE", "ADSK", "MSFT", "DLTR", "FAST", "BBBY", "EXPD", "QVCA", "LLTC", "ADP", "GILD", "CA", "ILMN", "TRIP", "ADI", "CHRW", "TSCO", "NTAP", "VIAB", "BIDU", "EBAY", "SBUX", "BMRN", "CMCSA", "NVDA", "WYNN", "LBTYA", "TSLA", "AAL", "LBTYK", "WBA", "DISH", "PCAR", "TXN", "MNST", "INCY", "BIIB", "LILAK", "ATVI", "CELG", "GOOG", "AKAM", "INTC", "INTU", "ALXN", "STX", "ISRG", "CERN", "CSCO"], "api_key": "F4CDheV1ca5IHlMqHkgN37lXYIxNfN3Xaba4P1fg", "label_color": "#000", "graph_layout": "force"}'));
-		console.log(window.current_graph_id);
-		var width = window.graph_data[window.current_graph_id]['width'];
-		var height = window.graph_data[window.current_graph_id]['height'];
-
-		var label_color = window.graph_data[window.current_graph_id]['label_color'];
-
-		var API_region = window.graph_data[window.current_graph_id]['api_region'];
-		var API_id = window.graph_data[window.current_graph_id]['api_id'];
-		var API_STAGE = "development";
-		var API_KEY = window.graph_data[window.current_graph_id]['api_key'];
-
-		var url = 'https://' + API_id + '.execute-api.' + API_region + '.amazonaws.com/' + API_STAGE + '/models/call';
-
-		var model_name = window.graph_data[window.current_graph_id]['model_name'];
-		var model_type = window.graph_data[window.current_graph_id]['model_type'];
-		
-		var min_node_size = window.graph_data[window.current_graph_id]['min_node_size'];
-		
-		var charge = window.graph_data[window.current_graph_id]['charge'];
-
-		var colorAxis = window.graph_data[window.current_graph_id]['color_axis'];
-		if(colorAxis == undefined){
-			colorAxis = "closeness_centrality";
-		}
-
-		var colorMap = window.graph_data[window.current_graph_id]['color_map'];
-		if(colorMap == undefined){
-			colorMap = "RdBuGn";
-		}
-
-		var graphStyle = window.graph_data[window.current_graph_id]['graph_style'];
-		// light || dark || white || ether
-		if(graphStyle == undefined){
-			graphStyle = "light";
-		}
-
-		var suppressLabels;
-		if(suppressLabels == undefined){
-			suppressLabels = true;
-		}
-
-		var graphTitle;
-		if(graphTitle == undefined){
-			graphTitle = "SliceMatrix-IO Network Viewer";
-		}
-
-		var graphLayout = window.graph_data[window.current_graph_id]['graph_layout'];
-		if(graphLayout == undefined && window.graph_data[window.current_graph_id]['got_embed'] == true){
-			graphLayout = "embedding";
-		}
-
-		require(['d3'], function(d3){
-
-			element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
-			element.append('<div class = "loadingDialog" id = "spinner_' + window.current_graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
-			element.append('<div class = "content_cell" id = "content_' + window.current_graph_id +'"><canvas id = "mainEvent_' + window.current_graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
-
-			// update background style
-			if(graphStyle == "dark"){
-				d3.select("#content_" + window.current_graph_id).style("background", "rgb(20,20,20)");
-
-
-				$('#top_bar').css({
-					"color": "rgba(255, 255, 255, 0.88)",
-					"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
-					"background-color": "rgba(220,220,220, 0.4)",
-					"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
-				});
-				d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
-			}else if(graphStyle == "white"){
-				$('#content' + window.current_graph_id).css({
-					"background-image": "none",
-					"background-color": "#FFF",
-					"background": "rgb(256,256,256)"
-				});
-
-				d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
-			}else if(graphStyle == "ether"){
-				$('#content' + window.current_graph_id).css({
-					"background-image": "none",
-					"background-color": "#000",
-					"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
-				});
-
-				$('#top_bar').css({
-					"color": "rgba(255, 255, 255, 0.88)",
-					"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
-					"background-color": "rgba(220,220,220, 0.4)",
-					"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
-				});
-
-				d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
-			}
-
-			//
-			if(graphLayout == undefined){
-				graphLayout = false;
-			}
-
-			var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
-			return d3.scaleLinear()
-					 .domain([minval, midval, maxval])
-					 .range([mincol, midcol, maxcol]);
-
-			}
-
-			var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
-						 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
-						 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
-						 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
-						 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
-						 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
-						 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
-						 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
-						 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
-						 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
-						 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
-
-			function getMaxOfArray(numArray) {
-			  return Math.max.apply(null, numArray);
-			}
-
-			function getMinOfArray(numArray) {
-			  return Math.min.apply(null, numArray);
-			}
-
-			var graph = {nodes:[], links:[]};
-
-			var curr_colormap;
-
-			d3.select("#loading_status").html("loaded nodes...");
-			var data = window.graph_data[window.current_graph_id];
-			data['nodes'].forEach(function(d){
-				graph['nodes'].push({id:d});
-			});
-
-			d3.select("#loading_status").html("loaded edges...");
-			data['links'].forEach(function(d){
-				graph['links'].push({source:d[0], target:d[1]});
-			});
-
-			//var height = 600;
-			//var width  = 1200;
-			var searchRadius = 3;
-
-			//d3.select("canvas").attr("height", height).attr("width", width);
-
-			var transform = d3.zoomIdentity;
-
-
-			//var canvas = document.querySelector("canvas"),
-			var canvas = document.querySelector("#mainEvent_" + window.current_graph_id),
-				context = canvas.getContext("2d");
-				//width = canvas.width,
-				//height = canvas.height;
-
-			var simulation = d3.forceSimulation()
-				.force("link", d3.forceLink().id(function(d) { return d.id; }))
-				.force("charge", d3.forceManyBody().strength(charge))
-				.force("center", d3.forceCenter(width / 2, height / 2))
-				.force("X", d3.forceX().x(0.2))
-				.force("Y", d3.forceY().y(0.2));
-
-			var zoom = d3.zoom();
-
-			var k = 1.0;
-
-			function initialize(){
-			  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
-			}
-
-			//initialize();
-
-			var ggraph;
-
-			var selected_node;
-
-			var transform;
-
-			var ticks = 0;
-
-
-			var mixcolors = function(color1, color2){
-				var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
-				var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
-				var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
-				var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
-				var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
-				if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
-				  return "rgba(20,120,220,0.6)";
-				}else{
-				  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
-				}
-			}
-
-			var drawGraph = function(){
-				console.log(graph);
-
-				function dragsubject() {
-				  var i,
-					  x = transform.invertX(d3.event.x),
-					  y = transform.invertY(d3.event.y),
-					  dx,
-					  dy;
-				}
-
-
-				function dragstarted() {
-				  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-				  d3.event.subject.fx = d3.event.subject.x;
-				  d3.event.subject.fy = d3.event.subject.y;
-				}
-
-				function dragged() {
-				  //d3.event.subject[0] = transform.invertX(d3.event.x);
-				  //d3.event.subject[1] = transform.invertY(d3.event.y);
-				  d3.event.subject.fx = d3.event.x;
-				  d3.event.subject.fy = d3.event.y;
-				}
-
-				function dragended() {
-				  if (!d3.event.active) simulation.alphaTarget(0);
-				  d3.event.subject.fx = null;
-				  d3.event.subject.fy = null;
-				}
-
-				function drawLink(d) {
-				  context.moveTo(d.source.x, d.source.y);
-				  context.lineTo(d.target.x, d.target.y);
-				}
-
-				function drawNode(d) {
-				  context.moveTo(d.x + get_current_node_size(), d.y);
-				  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
-				  //context.fill();
-				}
-
-				function drawLabel(d, id) {
-				  //console.log(d);
-				  context.shadowBlur = 10;
-				  context.shadowColor = "rgba(120,120,120,0.3)";
-				  context.fillText(d.id, d.x,d.y);
-				  //context.fill();
-				}
-
-				function rgb2a(rgb_string, alpha){
-					//console.log(rgb_string);
-				  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
-				  //rgb_string = "rgba(0,0,0,0.3)";
-				  return rgb_string 
-				}
-
-				function get_current_alpha(){
-				  return 1.0 - Math.min(transform.k, 0.5);
-				}
-
-				function get_current_font_size(){
-				  return 10 / Math.pow(transform.k, 0.5);
-				}
-
-				function get_current_highlighted_font_size(){
-				  return Math.min(720 * transform.k, 20);
-				}
-
-				function get_current_link_width(){
-				  return Math.max(1.5, 0.5/ transform.k);
-				}
-
-				function get_current_node_size(){
-				  return Math.min(60 * transform.k, min_node_size);
-				}
-
-				function get_current_deg_thresh(){
-				  if(k >= 0.4){
-					return 1;
-				  }else{
-					return 2;
-				  }
-				}
-
-
-				ggraph = graph;
-				  setTimeout(initialize, 0);
-
-				  if(graphLayout == "force"){
-
-					  simulation
-						  .nodes(graph.nodes)
-						  .on("tick", ticked);
-
-					  simulation.force("link")
-						  .links(graph.links);
-
-				  }else{
-						  simulation
-						  .nodes(graph.nodes);
-						  //.on("tick", ticked);
-
-					  simulation.force("link")
-						  .links(graph.links);
-						ticked();
-				  }
-
-				  //d3.select("mainEvent_" + window.current_graph_id)
-				  d3.select(canvas)
-					  .on("mousemove", mousemoved)
-					  .call(d3.drag()
-						  .container(canvas)
-						  .subject(dragsubject)
-						  .on("start", dragstarted)
-						  .on("drag", dragged)
-						  .on("end", dragended))
-					  .call(zoom.on("zoom", zoomed));
-
-				  function zoomed() {
-					//console.log("zooming!");
-					transform = d3.event.transform;
-					//console.log(simulation.alpha());
-					if(graphLayout == "force"){
-						if(simulation.alpha() < 0.01){//>
-						  ticked();
-						}
-					}else{
-						ticked();
-					}
-				  }
-
-				  function mousemoved() {
-					//console.log(graph.nodes);
-					var m = d3.mouse(this);
-					var x = (m[0] - transform.x) / transform.k;
-					var y = (m[1] - transform.y) / transform.k;
-					var moused_node;
-					for (var i = graph.nodes.length - 1; i >= 0; --i) {
-					  var point = graph.nodes[i];
-					  var dx = x - point.x;
-					  var dy = y - point.y;
-					  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
-						//point.x = transform.applyX(point.x);
-						//point.y = transform.applyY(point.y);
-						moused_node = point;
-					  }
-					}
-					selected_node = moused_node;
-					if(graphLayout == "force"){
-						if(simulation.alpha() < 0.01){//>
-						  ticked();
-						}
-					}
-				  }
-
-				  function restartIt(){
-					simulation.alpha(1.0)
-					simulation.restart();
-				  }
-
-				  function ticked() {
-					k = transform.k;
-					if( graphLayout != "force"){
-						simulation.stop();
-					}else{
-						if(ticks == 0){
-							setTimeout(restartIt,1);
-						}
-					}
-						context.clearRect(0, 0, width, height);
-						context.save();
-						//context.translate(width / 2, height / 2);
-
-						context.globalAlpha = 1.0;
-
-						context.translate(transform.x, transform.y);
-						context.scale(transform.k, transform.k);
-
-						graph.links.forEach(function(link) {
-						  context.beginPath();
-						  drawLink(link);
-						  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
-						  //console.log(link.source.color);
-						  var color = mixcolors(link.source.color, link.target.color);
-						  context.strokeStyle = color;
-						  context.lineWidth = get_current_link_width();
-						  context.stroke();
-						});
-
-						graph.nodes.forEach(function(user) {
-						//console.log(user);
-						  context.beginPath();
-						  drawNode(user);
-						  context.fillStyle = rgb2a(user.color, get_current_alpha());
-						  context.fill();
-						  if(selected_node != undefined){
-							if(user.id == selected_node.id){
-							  context.strokeStyle = "#000";
-							  context.lineWidth = 1;
-							  context.stroke();
-							}
-						  }
-						  //drawLabel(user, user.id);
-
-						});
-
-					   graph.nodes.forEach(function(user) {
-						  //if(user.deg > get_current_deg_thresh()){
-							context.beginPath();
-							drawLabel(user, user.id);
-							  context.font="bold " + get_current_font_size() + "px Arial";
-							  context.fillStyle = label_color;//user.color;
-							  context.fill();
-						  //}
-						});
-
-						ticks++;
-						context.restore();
-
-				  }
-
-
-			}
-
-			var payload = {};
-			payload['model']    = model_name;
-			payload['type']     = model_type;
-			payload['memory']   = 'large';
-			payload['function'] = "rankNodes";
-			payload['extra_params'] = {};
-			payload['extra_params']['statistic'] = colorAxis;
-			//console.log(payload);
-
-			$.ajax({
-				url: url,
-				type: "POST",
-				data: JSON.stringify(payload), 
-				beforeSend: function(xhr){
-					xhr.setRequestHeader('x-api-key', API_KEY);
-					xhr.setRequestHeader('Content-Type', 'application/json');
-				},
-				success: function(data){
-					console.log(data);
-					if(data['error'] == undefined){
-
-						d3.select("#loading_status").html("loaded colorAxis data...");
-
-						var keys = Object.keys(data['rankNodes']);
-
-						var max_rank = 0;
-						var min_rank = 0;
-
-						graph.nodes.forEach(function(node, k){
-							if(data['rankNodes'][node.id] > max_rank){
-								max_rank = data['rankNodes'][node.id];
-							}
-							if(data['rankNodes'][node.id] < min_rank){
-								min_rank = data['rankNodes'][node.id];
-							}
-							graph.nodes[k][colorAxis] = data['rankNodes'][node.id];
-						});
-
-						var mid_rank = (max_rank - min_rank) / 2.0;
-
-						console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
-
-						curr_colormap = colormap(min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]);
-
-						graph.nodes.forEach(function(node, k){
-							graph.nodes[k].color = curr_colormap(data['rankNodes'][node.id]);
-						});
-
-						if(graphLayout == "force"){
-							d3.select("#spinner_" + window.current_graph_id).style("visibility", "hidden");
-							drawGraph();
-							window.current_graph_id += 1
-						}else{
-							// bind the node embedding data to the graph!
-							var max_xy = 0.0;
-							var min_xy = 0.0;
-							var cmax_xy, cmin_xy;
-							// normalize embedding
-							//console.log("ooooooooooooooooooooooooo");
-							window.graph_data[window.current_graph_id]['embedding'].forEach(function(row, j){
-								cmax_xy = getMaxOfArray(row);
-								cmin_xy = getMinOfArray(row);
-								if(cmax_xy > max_xy){
-									max_xy = cmax_xy;
-								}
-								if(cmin_xy < min_xy){
-									min_xy = cmin_xy;
-								}
-							});
-							//console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-							var range_xy = max_xy - min_xy;
-
-							window.graph_data[window.current_graph_id]['embedding'].forEach(function(row, j){
-								//console.log(row);
-								graph.nodes[j]['x'] = ( ( ( Number(row[0]) ) / range_xy) * (width) )  + (width / 2);
-								graph.nodes[j]['y'] = ( ( ( Number(row[1]) ) / range_xy) * (height) ) + (height / 2);
-								graph.nodes[j]['fixed'] = true;
-							});
-
-							d3.select("#spinner_" + window.current_graph_id).style("visibility", "hidden");
-							drawGraph();
-							window.current_graph_id += 1
-						}
-					}
-				}
-			});
-		});
-		
-		
-</script>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In both graphs we used the <i>drawNetworkGraph</i> function to color the nodes according to the pagerank of each node. If this sounds familiar, its because it is the original algorithm that Sergey and Larry used, a derivative of which we use everytime we type a query into our favorite search engine.</p>
+<p>In the graph above we used the <i>drawNetworkGraph</i> function to color the nodes according to the pagerank of each node. If this sounds familiar, its because it is the original algorithm that Sergey and Larry used, a derivative of which we use everytime we type a query into our favorite search engine.</p>
 <p>In much the same way as search engines rank web-pages by analyzing the hyperlink structure, we can assign importance to each stock symbol based on how it is connected to the rest of the graph. Just like with web-pages, social networks, and many other natural phenomena, the stock market is characterized by a graph structure where some symbols are what we might call <b>hyperconnectors</b> -- i.e. stocks that influence a large number of other symbols -- while others sit at the <b>periphery</b> of the graph and share few connections to their neighbors.</p>
 <p>You can access these factors directly using the <i>rankNodes</i> function in your Isomap objects e.g.</p>
 
@@ -13469,7 +12909,7 @@ var element = $('#44da8d92-0fe8-44a7-bd2e-117a90d8ca33');
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">iso1</span><span class="o">.</span><span class="n">rankNodes</span><span class="p">(</span><span class="s2">&quot;pagerank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">iso</span><span class="o">.</span><span class="n">rankNodes</span><span class="p">(</span><span class="s2">&quot;pagerank&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -13492,7 +12932,7 @@ var element = $('#44da8d92-0fe8-44a7-bd2e-117a90d8ca33');
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7c32110&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x8dcc2d0&gt;</pre>
 </div>
 
 </div>
@@ -13501,201 +12941,330 @@ var element = $('#44da8d92-0fe8-44a7-bd2e-117a90d8ca33');
 
 
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYcAAAEACAYAAABYq7oeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
-AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XmcFdWZ//HPwyYgIDQosjcCLqgBshhGo7RRI3ZcYyLi
-z52JTBKc0UkmxsSlTWKU+UXHECZqInFLDBon44CgYtTrGBcUbVFZRJB9aQ370iDLM3+cut2X2933
-3qZv9723+/t+verVtZyqOlXdXU/VOadOmbsjIiKSqFWuMyAiIvlHwUFERGpQcBARkRoUHEREpAYF
-BxERqUHBQUREakgbHMxstJktNLOPzOyGOtJMipbPNbMRSctam1m5mU1PmFdkZs+b2SIzm2VmXRt+
-KCIiki0pg4OZtQYmA6OBocBYMzsmKU0pMNjdhwDXAPcmbeZfgPlA4gsVPwKed/cjgReiaRERyRPp
-nhxOABa7+zJ33w1MBc5LSnMu8DCAu88GuppZTwAz6wuUAg8AVts60c/zG3IQIiKSXemCQx9gZcL0
-qmhepmn+A/g3YF/SOj3dvSIarwB6ZpphERFpfOmCQ6Z9a1jytJmdDXzi7uW1LK/eQei/Q314iIjk
-kTZplq8G+iVM9yM8GaRK0zeadyFwblQn0R7oYmaPuPvlQIWZHe7u68ysF/BJbTs3MwUNEZF6cvc6
-b8gzle7JYQ4wxMyKzawdMAaYlpRmGnA5gJmNBDa5+zp3/7G793P3gcDFwItRYIivc0U0fgXwVF0Z
-cPcWPdx66605z0M+DDoPOg86B5mdh2xJ+eTg7nvMbALwHNAamOLuC8xsfLT8fnefaWalZrYY2A5c
-VdfmEsbvBJ4ws3HAMuCiBh6HiIhkUbpiJdz9GeCZpHn3J01PSLONl4GXE6Y3AKfXK6ciIpLShg3Z
-25bekM5zJSUluc5CXtB5CHQedA7iajsPS5Zkb/uWzTKqbDMzz+f8iYjkkyefhG99y/AsVEinLVYS
-EYkza/A1R7Io+eZ5+fLsbVvBQUTqRU/z+aG2QJ3N4KA6BxGRZkLBQUREalBwEBGRGhQcRESamSuv
-vJKbb775gNffvBk++yx7+VFwEBHJA2bWoNZgy5dDcXH28qPgICLSQNnq16gh21i+HAYMaHAWqig4
-iEjBKy4u5s477+TYY4+lqKiIq6++ml27drFx40bOPvtsDjvsMIqKijjnnHNYvXp11XpLly7llFNO
-oUuXLpxxxhl873vf47LLLqta/sYbb3DiiSfSrVs3hg8fzssvV/UCRElJCTfddBMnnXQSBx98MB9/
-/DEPPvggQ4cOpUuXLgwaNIjf/va3VeljsRh9+/bl7rvvpmfPnvTu3ZuHHnqo1uPZunUrp556Ktdd
-d13G50DBQUSkFo899hizZs1iyZIlLFq0iJ///Oe4O+PGjWPFihWsWLGCDh06MGFCdVdwl1xyCSNH
-jmTDhg2UlZXxhz/8oapoZ/Xq1Zx99tnccsstbNy4kV/+8pdceOGFrF+/vmr9P/zhDzzwwANs27aN
-AQMG0LNnT2bMmMGWLVt48MEHuf766ykvL69KX1FRwZYtW1izZg1Tpkzhe9/7Hps3b65abmasX7+e
-0047jZNPPpl77rkn4+PPdnDIebezqYaQPRHJF+n+JyE7Q30VFxf7/fffXzU9c+ZMHzRoUI105eXl
-3q1bN3d3X758ubdp08YrKyurll966aV+2WWXubv7nXfeWTUed+aZZ/rDDz/s7u4lJSV+6623pszX
-+eef77/61a/c3f2ll17yDh06+N69e6uWH3bYYT579mx3d7/yyiv96quv9uOOO85/+ctfpj3m5N/F
-t77l/thjVfMbfP3Vk4OIZE22wsOB6Nev+ptj/fv3Z82aNVRWVjJ+/HiKi4s55JBDGDVqFJs3b8bd
-WbNmDUVFRbRv375qvb59+1aV+y9fvpw///nPdOvWrWp49dVXWbduXa37BHjmmWcYOXIk3bt3p1u3
-bsycOXO/J43u3bvTqlX1Zbdjx45s27YtOnfOjBkz2LlzJ+PHj6/38atYSUSkFitWrNhvvHfv3tx1
-110sWrSIN998k82bN/Pyyy9X3Rn36tWLDRs2UFlZWbXeypUrq4qV+vfvz2WXXcbGjRurhq1bt/LD
-H/6wKn1i66Jdu3Zx4YUX8sMf/pBPPvmEjRs3UlpamnEls5nx7W9/mzPPPJPS0lJ27NhRr+NXcBAR
-SeLu/OY3v2H16tVs2LCB22+/nYsvvpitW7fSoUMHDjnkEDZs2MBtt91Wtc6AAQP44he/SFlZGbt3
-7+b111/n6aefrlp+6aWXMn36dGbNmsXevXvZuXMnsVhsvwrtxAv/Z599xmeffUaPHj1o1aoVzzzz
-DLNmzarXMQBMnjyZo446inPOOYedO3dmtO7OnbBxI/TqlfHu0lJwEJGCZ2ZccsklfO1rX2PQoEEM
-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
-RAvyQhLSAAAAAElFTkSuQmCC
+<img src="data:image/png;base64,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
+AABJRU5ErkJggg==
 "
 >
 </div>
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to determine how investor herding behavior changes over time, we can split the dataset into chunks and examine how the link structure changes over time:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">iso1</span>  <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Isomap</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">diffs</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">0</span><span class="p">:(</span><span class="n">diffs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span> <span class="n">D</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">iso2</span>  <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Isomap</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">diffs</span><span class="o">.</span><span class="n">ix</span><span class="p">[(</span><span class="n">diffs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="mi">2</span><span class="p">):],</span> <span class="n">D</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <i>neighborhood</i> function reveals the assets most similar to a target symbol, in this case SPY:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">iso1</span><span class="o">.</span><span class="n">neighborhood</span><span class="p">(</span><span class="s2">&quot;AAPL&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{u&#39;ADI&#39;: {u&#39;weight&#39;: 9.793624426082127},
+ u&#39;BIDU&#39;: {u&#39;weight&#39;: 14.687497094906691},
+ u&#39;CMCSA&#39;: {u&#39;weight&#39;: 10.070105449429382},
+ u&#39;GOOG&#39;: {u&#39;weight&#39;: 9.954009487596464},
+ u&#39;GOOGL&#39;: {u&#39;weight&#39;: 9.892169330619039},
+ u&#39;SIRI&#39;: {u&#39;weight&#39;: 10.064206097340875},
+ u&#39;TXN&#39;: {u&#39;weight&#39;: 9.727695953256417}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">iso2</span><span class="o">.</span><span class="n">neighborhood</span><span class="p">(</span><span class="s2">&quot;AAPL&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{u&#39;FB&#39;: {u&#39;weight&#39;: 9.515412859785041},
+ u&#39;GOOG&#39;: {u&#39;weight&#39;: 8.6796651447811},
+ u&#39;GOOGL&#39;: {u&#39;weight&#39;: 8.690156692780834},
+ u&#39;LLTC&#39;: {u&#39;weight&#39;: 8.312485120059765},
+ u&#39;MSFT&#39;: {u&#39;weight&#39;: 9.26695080688851},
+ u&#39;TXN&#39;: {u&#39;weight&#39;: 9.163826725158655}}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note the changes in the composition of AAPL's neighborhood over time.</p>
+<p>Don't have a SliceMatrix-IO api key yet? <a href = "http://www.slicematrix.com">Get your api key here</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+</div>
 </div>
 </div>
 
