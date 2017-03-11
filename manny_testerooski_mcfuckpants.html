@@ -11762,7 +11762,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">slicematrixIO</span> <span class="kn">import</span> <span class="n">SliceMatrix</span>
 
-<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;blah&quot;</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;blahblahblah&quot;</span>
 <span class="n">sm</span> <span class="o">=</span> <span class="n">SliceMatrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">,</span> <span class="n">region</span> <span class="o">=</span> <span class="s2">&quot;us-west-1&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -11890,7 +11890,7 @@ div#notebook {
 <span class="n">volume</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">closes</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">good_tickers</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ticker&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>
+<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ticker&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]:</span>
     <span class="k">print</span> <span class="n">ticker</span><span class="p">,</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">vdata</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="n">ticker</span><span class="p">,</span> <span class="s1">&#39;yahoo&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
@@ -11913,7 +11913,7 @@ div#notebook {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>FOXA FOX ATVI ADBE AKAM ALXN GOOGL GOOG AMZN AAL AMGN ADI AAPL AMAT ADSK ADP AVGO BIDU BBBY BIIB BMRN BRCM x CHRW CA CELG CERN CHTR CHKP CSCO CTXS CTSH CMCSK x CMCSA COST DISCA DISCK DISH DLTR EBAY EA EXPD ESRX FB FAST FISV GRMN GILD HSIC ILMN INCY INTC INTU ISRG JD KLAC GMCR x KHC LRCX LBTYA LBTYK QVCA LILA LILAK LMCK LMCA LVNTA LLTC MAR MAT MU MSFT MDLZ MNST MYL NTAP NFLX NVDA NXPI ORLY PCAR PAYX QCOM REGN ROST SNDK SBAC STX SIRI SWKS SPLS SBUX SRCL SYMC TSLA TXN PCLN TSCO TRIP VRSK VRTX VIAB VIP VOD WBA WDC WFM WYNN XLNX YHOO
+<pre>FOXA FOX ATVI ADBE AKAM ALXN GOOGL GOOG AMZN AAL
 </pre>
 </div>
 </div>
@@ -11971,31 +11971,9 @@ div#notebook {
       <th>GOOG</th>
       <th>AMZN</th>
       <th>AAL</th>
-      <th>...</th>
-      <th>VRTX</th>
-      <th>VIAB</th>
-      <th>VIP</th>
-      <th>VOD</th>
-      <th>WBA</th>
-      <th>WDC</th>
-      <th>WFM</th>
-      <th>WYNN</th>
-      <th>XLNX</th>
-      <th>YHOO</th>
     </tr>
     <tr>
       <th>Date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -12021,17 +11999,6 @@ div#notebook {
       <td>0.000997</td>
       <td>-0.005036</td>
       <td>-0.009579</td>
-      <td>...</td>
-      <td>0.004547</td>
-      <td>-0.006390</td>
-      <td>0.038869</td>
-      <td>0.001552</td>
-      <td>-0.026600</td>
-      <td>-0.004314</td>
-      <td>0.011357</td>
-      <td>0.018727</td>
-      <td>0.014738</td>
-      <td>0.025159</td>
     </tr>
     <tr>
       <th>2016-01-06</th>
@@ -12045,17 +12012,6 @@ div#notebook {
       <td>0.001400</td>
       <td>-0.001800</td>
       <td>0.017370</td>
-      <td>...</td>
-      <td>-0.009932</td>
-      <td>-0.012404</td>
-      <td>-0.044985</td>
-      <td>-0.009662</td>
-      <td>-0.015452</td>
-      <td>-0.022533</td>
-      <td>-0.006559</td>
-      <td>-0.053195</td>
-      <td>-0.018457</td>
-      <td>-0.001243</td>
     </tr>
     <tr>
       <th>2016-01-07</th>
@@ -12069,17 +12025,6 @@ div#notebook {
       <td>-0.023443</td>
       <td>-0.039841</td>
       <td>-0.019099</td>
-      <td>...</td>
-      <td>-0.061320</td>
-      <td>-0.029641</td>
-      <td>-0.040694</td>
-      <td>-0.009440</td>
-      <td>0.019155</td>
-      <td>-0.016634</td>
-      <td>-0.028214</td>
-      <td>-0.098793</td>
-      <td>-0.040247</td>
-      <td>-0.064207</td>
     </tr>
     <tr>
       <th>2016-01-08</th>
@@ -12093,17 +12038,6 @@ div#notebook {
       <td>-0.016546</td>
       <td>-0.001465</td>
       <td>-0.001980</td>
-      <td>...</td>
-      <td>-0.037670</td>
-      <td>0.052347</td>
-      <td>-0.006410</td>
-      <td>0.028364</td>
-      <td>-0.001479</td>
-      <td>-0.043109</td>
-      <td>-0.016129</td>
-      <td>-0.041556</td>
-      <td>-0.020748</td>
-      <td>0.015463</td>
     </tr>
     <tr>
       <th>2016-01-11</th>
@@ -12117,21 +12051,9 @@ div#notebook {
       <td>0.002181</td>
       <td>0.017457</td>
       <td>0.017435</td>
-      <td>...</td>
-      <td>-0.063004</td>
-      <td>-0.000244</td>
-      <td>-0.046061</td>
-      <td>-0.012058</td>
-      <td>-0.000370</td>
-      <td>-0.047888</td>
-      <td>-0.003759</td>
-      <td>-0.016590</td>
-      <td>0.004416</td>
-      <td>-0.015132</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 103 columns</p>
 </div>
 </div>
 
@@ -12322,10 +12244,10 @@ div#notebook {
 
 
 
-<div id="b1826bf4-1491-4527-b10f-4b0c6e91913d"></div>
+<div id="e8e609f3-f738-4b4c-9cd9-08ba5c4d014c"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#b1826bf4-1491-4527-b10f-4b0c6e91913d');
+var element = $('#e8e609f3-f738-4b4c-9cd9-08ba5c4d014c');
 
 			window.graph_data = [];
 			window.current_graph_id = 0;
@@ -12344,7 +12266,7 @@ var element = $('#b1826bf4-1491-4527-b10f-4b0c6e91913d');
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">drawNetworkGraph</span><span class="p">(</span><span class="n">iso</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">min_node_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">charge</span> <span class="o">=</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="n">color_map</span> <span class="o">=</span> <span class="s2">&quot;Winter&quot;</span><span class="p">,</span> <span class="n">color_axis</span> <span class="o">=</span> <span class="s2">&quot;pagerank&quot;</span><span class="p">,</span> <span class="n">graph_layout</span> <span class="o">=</span> <span class="s2">&quot;force&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">drawNetworkGraph</span><span class="p">(</span><span class="n">iso</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">min_node_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">charge</span> <span class="o">=</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="n">color_map</span> <span class="o">=</span> <span class="s2">&quot;Winter&quot;</span><span class="p">,</span> <span class="n">color_axis</span> <span class="o">=</span> <span class="s2">&quot;pagerank&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12367,492 +12289,509 @@ var element = $('#b1826bf4-1491-4527-b10f-4b0c6e91913d');
 
 
 
-<div id="619c7cf4-65b6-4b85-8fe4-1705416f9133"></div>
+<div id="573005f6-6dd3-44bf-a59e-b9b4419bba63"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#619c7cf4-65b6-4b85-8fe4-1705416f9133');
-$.data(element, 'graph_id', 0);
+var element = $('#573005f6-6dd3-44bf-a59e-b9b4419bba63');
+element.data('graph_id', 0);
 			require.config({
 				paths: {
 					d3: '//cdnjs.cloudflare.com/ajax/libs/d3/4.7.1/d3.min'
 				}
 			});
-		window.graph_data.push(JSON.parse('{"stats": [[0.004721406578335843], [0.004782417031227397], [0.004792717842344052], [0.004997688708793203], [0.005012614933727291], [0.005089825010612849], [0.0051855508728325655], [0.0051926104137312926], [0.0052737595993049835], [0.005299784784142907], [0.005450088446659894], [0.0054551528650320725], [0.005509213234335495], [0.005528080352118742], [0.005555330390053263], [0.005627972348410708], [0.00568263035972638], [0.0056837067114660625], [0.0057138573611978105], [0.005861737760040411], [0.005899615990238766], [0.005911279013384421], [0.005912774586124254], [0.005935365813063378], [0.005937717493705643], [0.005949875503540292], [0.006001026609710603], [0.006049230602041583], [0.006068305877823453], [0.006108159613648849], [0.006147219899240667], [0.0061834186092657095], [0.006216068036820282], [0.006261874099869022], [0.006268443415799422], [0.006308950460390886], [0.006318941375371969], [0.006319437720712747], [0.006324776876275503], [0.0063894965608563324], [0.006491101534439897], [0.00650564690434466], [0.006518864341286721], [0.006596826679660437], [0.006627956313094827], [0.006682722160204273], [0.006740998710793693], [0.00674428353444557], [0.006825825912496145], [0.006853652568973039], [0.007017274903051304], [0.007118279842698543], [0.007124725442446141], [0.007175518056565403], [0.007183793081479931], [0.007192496438231457], [0.007250340781015984], [0.007268564317954691], [0.007320434643826018], [0.007337143968682078], [0.007357877929690472], [0.00738722422850671], [0.007435545765967534], [0.007487341116466159], [0.007523649609041461], [0.007663842569581395], [0.007712263167594911], [0.007758132078101802], [0.007887314736185511], [0.007993933535152604], [0.008025016341091365], [0.008164944427990038], [0.008206972108692707], [0.008211806701204664], [0.008312175216481706], [0.008509758127218974], [0.008584399867775087], [0.00877029620606887], [0.008831138084076384], [0.008993348318582608], [0.00948388569737113], [0.009676871516301803], [0.010367232674443566], [0.011242871966581535], [0.011294632674460786], [0.011671869964550755], [0.012040966318406185], [0.012076996746087932], [0.012559293318159834], [0.013131579185407964], [0.013749468262328129], [0.014597672945135176], [0.015338102380493195], [0.019476590177582062], [0.02044632993568672], [0.022360314742097744], [0.02405468915619784], [0.024113674339573135], [0.03401682694469712], [0.03665851292594276], [0.039069470868690705], [0.04229847229312721], [0.05195212093353779]], "links": [["WDC", "TXN"], ["WDC", "NTAP"], ["WDC", "INTC"], ["WDC", "MU"], ["WDC", "LRCX"], ["WDC", "STX"], ["WDC", "ADI"], ["NFLX", "GOOG"], ["NFLX", "TXN"], ["NFLX", "GOOGL"], ["NFLX", "ADP"], ["NFLX", "VRSK"], ["NFLX", "FB"], ["GOOGL", "GOOG"], ["GOOGL", "ADBE"], ["GOOGL", "TSLA"], ["GOOGL", "AAL"], ["GOOGL", "AAPL"], ["GOOGL", "CHKP"], ["GOOGL", "AMGN"], ["GOOGL", "REGN"], ["GOOGL", "FB"], ["GOOGL", "COST"], ["GOOGL", "FISV"], ["GOOGL", "WBA"], ["GOOGL", "JD"], ["GOOGL", "MSFT"], ["GOOGL", "TXN"], ["GOOGL", "LILA"], ["GOOGL", "MNST"], ["GOOGL", "ISRG"], ["GOOGL", "ATVI"], ["GOOGL", "PCLN"], ["GOOGL", "CTXS"], ["GOOGL", "CELG"], ["GOOGL", "HSIC"], ["GOOGL", "CTSH"], ["GOOGL", "ADP"], ["GOOGL", "GILD"], ["GOOGL", "EA"], ["GOOGL", "ORLY"], ["GOOGL", "LVNTA"], ["GOOGL", "ILMN"], ["GOOGL", "ALXN"], ["GOOGL", "YHOO"], ["GOOGL", "AMZN"], ["GOOGL", "SYMC"], ["GOOGL", "TRIP"], ["GOOGL", "TSCO"], ["GOOGL", "KHC"], ["GOOGL", "CERN"], ["GOOGL", "BIDU"], ["GOOGL", "EBAY"], ["GOOGL", "SBUX"], ["GOOGL", "CHTR"], ["GOOGL", "CMCSA"], ["AAPL", "GOOG"], ["AAPL", "TXN"], ["AAPL", "ADP"], ["AAPL", "CSCO"], ["AAPL", "SWKS"], ["AAPL", "MSFT"], ["SRCL", "TXN"], ["SRCL", "PAYX"], ["SRCL", "ADP"], ["SRCL", "VRSK"], ["SRCL", "SBUX"], ["SRCL", "FISV"], ["SBAC", "TXN"], ["SBAC", "PAYX"], ["SBAC", "ADP"], ["SBAC", "VRSK"], ["SBAC", "INTU"], ["SBAC", "FISV"], ["JD", "GOOG"], ["JD", "TXN"], ["JD", "BIDU"], ["JD", "YHOO"], ["JD", "MSFT"], ["XLNX", "TXN"], ["XLNX", "LLTC"], ["XLNX", "INTC"], ["XLNX", "CSCO"], ["XLNX", "AMAT"], ["XLNX", "FISV"], ["XLNX", "NVDA"], ["XLNX", "ADI"], ["NXPI", "TXN"], ["NXPI", "AVGO"], ["NXPI", "ADP"], ["NXPI", "INTC"], ["NXPI", "CSCO"], ["NXPI", "ADI"], ["VRTX", "GILD"], ["VRTX", "INCY"], ["VRTX", "BIIB"], ["VRTX", "AMGN"], ["VRTX", "REGN"], ["VRTX", "BMRN"], ["VRTX", "CELG"], ["SPLS", "TXN"], ["SPLS", "PAYX"], ["SPLS", "ADP"], ["SPLS", "SIRI"], ["SPLS", "INTU"], ["SPLS", "BBBY"], ["MYL", "GOOG"], ["MYL", "ADP"], ["MYL", "GILD"], ["MYL", "AMGN"], ["MYL", "CELG"], ["MYL", "ISRG"], ["KHC", "GOOG"], ["KHC", "VRSK"], ["KHC", "MDLZ"], ["KHC", "FISV"], ["KHC", "ADP"], ["HSIC", "GOOG"], ["HSIC", "PAYX"], ["HSIC", "ADP"], ["HSIC", "CSCO"], ["HSIC", "FISV"], ["CTSH", "GOOG"], ["CTSH", "ADBE"], ["CTSH", "VRSK"], ["CTSH", "FISV"], ["CTSH", "ADP"], ["AMZN", "GOOG"], ["AMZN", "TXN"], ["AMZN", "EA"], ["AMZN", "FB"], ["AMZN", "FISV"], ["AMZN", "TRIP"], ["AMZN", "MSFT"], ["MAR", "TXN"], ["MAR", "PAYX"], ["MAR", "VRSK"], ["MAR", "ADP"], ["MAR", "AAL"], ["MAR", "SIRI"], ["MAR", "VIP"], ["MAR", "PCAR"], ["MAT", "ADP"], ["MAT", "VRSK"], ["MAT", "SIRI"], ["MAT", "CSCO"], ["MAT", "INTU"], ["MAT", "FISV"], ["VRSK", "TSLA"], ["VRSK", "WBA"], ["VRSK", "CHKP"], ["VRSK", "ESRX"], ["VRSK", "COST"], ["VRSK", "FISV"], ["VRSK", "PCAR"], ["VRSK", "TXN"], ["VRSK", "INTC"], ["VRSK", "MNST"], ["VRSK", "BBBY"], ["VRSK", "EXPD"], ["VRSK", "CHRW"], ["VRSK", "PAYX"], ["VRSK", "ADP"], ["VRSK", "CA"], ["VRSK", "SIRI"], ["VRSK", "ORLY"], ["VRSK", "INTU"], ["VRSK", "ISRG"], ["VRSK", "VOD"], ["VRSK", "EBAY"], ["VRSK", "SBUX"], ["VRSK", "MDLZ"], ["VRSK", "ROST"], ["VRSK", "CMCSA"], ["FOXA", "DISCA"], ["FOXA", "PAYX"], ["FOXA", "DISCK"], ["FOXA", "VIAB"], ["FOXA", "ADP"], ["FOXA", "SIRI"], ["FOXA", "FOX"], ["FOXA", "LBTYK"], ["FOXA", "INTU"], ["FOXA", "FISV"], ["FOXA", "DISH"], ["VIP", "VOD"], ["VIP", "PAYX"], ["VIP", "CA"], ["VIP", "INTU"], ["VIP", "PCAR"], ["ROST", "PAYX"], ["ROST", "ADP"], ["ROST", "DLTR"], ["ROST", "ORLY"], ["ROST", "INTU"], ["ROST", "FISV"], ["WFM", "PAYX"], ["WFM", "ADP"], ["WFM", "SIRI"], ["WFM", "CSCO"], ["WFM", "COST"], ["WFM", "EXPD"], ["CHKP", "GOOG"], ["CHKP", "CSCO"], ["CHKP", "FISV"], ["CHKP", "ADP"], ["PAYX", "FISV"], ["PAYX", "CHRW"], ["PAYX", "AKAM"], ["PAYX", "ADP"], ["PAYX", "GILD"], ["PAYX", "FOX"], ["PAYX", "ORLY"], ["PAYX", "INTU"], ["PAYX", "VOD"], ["PAYX", "NTAP"], ["PAYX", "CSCO"], ["PAYX", "EBAY"], ["PAYX", "SBUX"], ["PAYX", "MDLZ"], ["PAYX", "EXPD"], ["PAYX", "CMCSA"], ["ESRX", "TXN"], ["ESRX", "WYNN"], ["ESRX", "ADP"], ["ESRX", "SIRI"], ["ESRX", "FISV"], ["ESRX", "WBA"], ["REGN", "GOOG"], ["REGN", "GILD"], ["REGN", "BIIB"], ["REGN", "AMGN"], ["REGN", "BMRN"], ["REGN", "CELG"], ["AMAT", "TXN"], ["AMAT", "ADI"], ["AMAT", "AVGO"], ["AMAT", "NTAP"], ["AMAT", "MU"], ["AMAT", "SWKS"], ["AMAT", "KLAC"], ["AMAT", "LRCX"], ["AMAT", "NVDA"], ["CHTR", "GOOG"], ["CHTR", "ADBE"], ["CHTR", "ADP"], ["CHTR", "LVNTA"], ["CHTR", "FISV"], ["SWKS", "TXN"], ["SWKS", "AVGO"], ["SWKS", "LRCX"], ["SWKS", "ADI"], ["NVDA", "TXN"], ["NVDA", "INTC"], ["NVDA", "LRCX"], ["NVDA", "ADI"], ["AVGO", "GOOG"], ["AVGO", "TXN"], ["AVGO", "ADP"], ["AVGO", "INTC"], ["AVGO", "LRCX"], ["AVGO", "ADI"], ["LILA", "GOOG"], ["LILA", "TXN"], ["LILA", "SIRI"], ["LILA", "CSCO"], ["LILA", "LILAK"], ["PCLN", "GOOG"], ["PCLN", "TXN"], ["PCLN", "ADP"], ["PCLN", "CSCO"], ["PCLN", "INTU"], ["PCLN", "TRIP"], ["CTXS", "GOOG"], ["CTXS", "ADBE"], ["CTXS", "ADP"], ["CTXS", "INTU"], ["CTXS", "FISV"], ["LRCX", "TXN"], ["LRCX", "NTAP"], ["LRCX", "INTC"], ["LRCX", "MU"], ["LRCX", "FISV"], ["LRCX", "ADI"], ["LRCX", "STX"], ["LRCX", "ADSK"], ["LRCX", "KLAC"], ["SYMC", "GOOG"], ["SYMC", "TXN"], ["SYMC", "ADP"], ["SYMC", "CA"], ["SYMC", "CSCO"], ["DISCA", "SIRI"], ["DISCA", "VIAB"], ["DISCA", "DISCK"], ["DISCA", "FOX"], ["DISCA", "PCAR"], ["DISCA", "EXPD"], ["GRMN", "GOOG"], ["GRMN", "TXN"], ["GRMN", "ADP"], ["GRMN", "SIRI"], ["GRMN", "CSCO"], ["GRMN", "FISV"], ["SIRI", "LBTYA"], ["SIRI", "TSLA"], ["SIRI", "AAL"], ["SIRI", "LBTYK"], ["SIRI", "FISV"], ["SIRI", "DISH"], ["SIRI", "TXN"], ["SIRI", "LILAK"], ["SIRI", "BBBY"], ["SIRI", "EXPD"], ["SIRI", "QVCA"], ["SIRI", "ADP"], ["SIRI", "FOX"], ["SIRI", "LVNTA"], ["SIRI", "VOD"], ["SIRI", "VIAB"], ["SIRI", "CSCO"], ["EA", "GOOG"], ["EA", "ADP"], ["EA", "FISV"], ["EA", "ATVI"], ["EA", "MSFT"], ["DISCK", "VIAB"], ["DISCK", "ADP"], ["DISCK", "FOX"], ["DISCK", "PCAR"], ["DISCK", "EXPD"], ["FOX", "LBTYA"], ["FOX", "ADP"], ["FOX", "TXN"], ["FOX", "LILAK"], ["FOX", "LBTYK"], ["FOX", "FISV"], ["FOX", "VIAB"], ["FOX", "DISH"], ["FOX", "QVCA"], ["ORLY", "GOOG"], ["ORLY", "TSCO"], ["ORLY", "ADP"], ["ORLY", "DLTR"], ["ORLY", "FISV"], ["LVNTA", "GOOG"], ["LVNTA", "TXN"], ["LVNTA", "ADBE"], ["LVNTA", "ADP"], ["LVNTA", "TRIP"], ["QCOM", "TXN"], ["QCOM", "ADP"], ["QCOM", "INTC"], ["QCOM", "CSCO"], ["QCOM", "ADI"], ["QCOM", "EXPD"], ["YHOO", "GOOG"], ["YHOO", "ADBE"], ["YHOO", "ADP"], ["YHOO", "BIDU"], ["YHOO", "INTU"], ["YHOO", "FISV"], ["VOD", "LBTYA"], ["VOD", "INTU"], ["VOD", "ADP"], ["VOD", "FISV"], ["MU", "TXN"], ["MU", "INTC"], ["MU", "ADI"], ["MDLZ", "ADP"], ["MDLZ", "INTU"], ["MDLZ", "FISV"], ["AMGN", "GOOG"], ["AMGN", "ADP"], ["AMGN", "GILD"], ["AMGN", "INCY"], ["AMGN", "BIIB"], ["AMGN", "ILMN"], ["AMGN", "BMRN"], ["AMGN", "FISV"], ["AMGN", "CELG"], ["AMGN", "CA"], ["AMGN", "ALXN"], ["FB", "GOOG"], ["FB", "SBUX"], ["FB", "FISV"], ["FB", "MSFT"], ["COST", "GOOG"], ["COST", "ADP"], ["COST", "DLTR"], ["COST", "CSCO"], ["COST", "FISV"], ["FISV", "GOOG"], ["FISV", "ADBE"], ["FISV", "TSLA"], ["FISV", "WBA"], ["FISV", "KLAC"], ["FISV", "WYNN"], ["FISV", "ADSK"], ["FISV", "PCAR"], ["FISV", "TXN"], ["FISV", "MNST"], ["FISV", "BIIB"], ["FISV", "FAST"], ["FISV", "CHRW"], ["FISV", "ATVI"], ["FISV", "MSFT"], ["FISV", "EXPD"], ["FISV", "QVCA"], ["FISV", "ADP"], ["FISV", "CA"], ["FISV", "AKAM"], ["FISV", "INTU"], ["FISV", "ISRG"], ["FISV", "TSCO"], ["FISV", "SBUX"], ["FISV", "DLTR"], ["FISV", "CMCSA"], ["ADBE", "GOOG"], ["ADBE", "AKAM"], ["ADBE", "ADP"], ["ADBE", "BIDU"], ["ADBE", "INTU"], ["ADBE", "TSLA"], ["ADBE", "DISH"], ["ADBE", "ATVI"], ["ADBE", "ADSK"], ["ADBE", "MSFT"], ["ADSK", "TXN"], ["ADSK", "INTU"], ["ADSK", "ADI"], ["MSFT", "GOOG"], ["MSFT", "TXN"], ["MSFT", "ADP"], ["DLTR", "ADP"], ["DLTR", "SBUX"], ["FAST", "TXN"], ["FAST", "ADP"], ["FAST", "CA"], ["FAST", "CSCO"], ["FAST", "EXPD"], ["BBBY", "ADP"], ["BBBY", "CSCO"], ["BBBY", "PCAR"], ["BBBY", "EXPD"], ["EXPD", "CHRW"], ["EXPD", "ADP"], ["EXPD", "CSCO"], ["EXPD", "LLTC"], ["EXPD", "PCAR"], ["QVCA", "TXN"], ["QVCA", "ADP"], ["QVCA", "CSCO"], ["LLTC", "TXN"], ["LLTC", "ADP"], ["LLTC", "INTC"], ["LLTC", "ADI"], ["ADP", "GOOG"], ["ADP", "PCAR"], ["ADP", "WBA"], ["ADP", "KLAC"], ["ADP", "TXN"], ["ADP", "MNST"], ["ADP", "BIIB"], ["ADP", "CERN"], ["ADP", "CHRW"], ["ADP", "ATVI"], ["ADP", "CELG"], ["ADP", "INTC"], ["ADP", "GILD"], ["ADP", "CA"], ["ADP", "AKAM"], ["ADP", "INTU"], ["ADP", "ISRG"], ["ADP", "TSCO"], ["ADP", "NTAP"], ["ADP", "BIDU"], ["ADP", "CSCO"], ["ADP", "EBAY"], ["ADP", "SBUX"], ["ADP", "CMCSA"], ["ADP", "ALXN"], ["GILD", "BIIB"], ["GILD", "INTU"], ["GILD", "ALXN"], ["GILD", "CELG"], ["CA", "GOOG"], ["CA", "TXN"], ["CA", "CSCO"], ["CA", "WBA"], ["ILMN", "GOOG"], ["ILMN", "TXN"], ["ILMN", "CELG"], ["ILMN", "ISRG"], ["TRIP", "GOOG"], ["TRIP", "PCAR"], ["ADI", "TXN"], ["ADI", "WYNN"], ["ADI", "NTAP"], ["ADI", "INTC"], ["ADI", "CSCO"], ["ADI", "KLAC"], ["CHRW", "GOOG"], ["TSCO", "GOOG"], ["TSCO", "SBUX"], ["NTAP", "TXN"], ["NTAP", "STX"], ["VIAB", "PCAR"], ["BIDU", "GOOG"], ["BIDU", "TXN"], ["EBAY", "GOOG"], ["EBAY", "TXN"], ["SBUX", "GOOG"], ["SBUX", "MNST"], ["SBUX", "AAL"], ["BMRN", "INCY"], ["BMRN", "BIIB"], ["BMRN", "CELG"], ["CMCSA", "INTU"], ["KLAC", "TXN"], ["KLAC", "INTC"], ["WYNN", "TXN"], ["WYNN", "CSCO"], ["WYNN", "PCAR"], ["LBTYA", "TXN"], ["LBTYA", "LBTYK"], ["LBTYA", "INTU"], ["TSLA", "INTU"], ["AAL", "GOOG"], ["AAL", "TXN"], ["LBTYK", "TXN"], ["LBTYK", "INTU"], ["WBA", "GOOG"], ["WBA", "CERN"], ["DISH", "CSCO"], ["DISH", "INTU"], ["PCAR", "TXN"], ["TXN", "GOOG"], ["TXN", "AKAM"], ["TXN", "INTC"], ["TXN", "LILAK"], ["TXN", "INTU"], ["TXN", "STX"], ["TXN", "CSCO"], ["MNST", "GOOG"], ["INCY", "INTU"], ["INCY", "BIIB"], ["INCY", "CELG"], ["BIIB", "GOOG"], ["BIIB", "ALXN"], ["BIIB", "CELG"], ["LILAK", "GOOG"], ["LILAK", "CSCO"], ["ATVI", "GOOG"], ["CELG", "GOOG"], ["CELG", "ALXN"], ["GOOG", "ISRG"], ["GOOG", "INTC"], ["GOOG", "CERN"], ["AKAM", "CSCO"], ["INTC", "CSCO"], ["INTC", "ISRG"], ["INTC", "STX"], ["STX", "CSCO"], ["ISRG", "CERN"], ["CERN", "CSCO"]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "light", "height": 500, "width": 1000, "charge": -250, "color_map": "Winter", "graph_id": 0, "got_embed": true, "embedding": [[3.000225138042406, -11.120370971614175], [5.5500808220149915, -8.115296724632845], [-6.39486621610136, -3.1290678063506405], [-5.261307519997695, -4.951948781222204], [4.889873757848685, -0.6053300165488121], [-22.485550946123478, 4.511501749865368], [-6.7502738850990065, 8.289859226669723], [-6.601089957159963, 8.228974767259228], [5.61555432934217e-05, 9.484070722061437], [4.6582763740877065, 0.41840128676902105], [-19.673176824205218, 6.35656298020367], [18.667526121948878, 10.333520648738238], [3.2230920070100257, 5.258525398700055], [20.962246261574368, 14.575542131911178], [7.711397637053399, 4.490517770063308], [-3.5119745826364985, -2.303360449490411], [7.063383024539637, 8.214290768193852], [2.283170803035286, 4.653718149084521], [0.310204959783876, -14.669679433627525], [-23.085543319036642, 7.473117110846632], [-43.63835012594533, 15.85799849682903], [-4.830368089721015, -4.112126752818725], [-2.616706565035656, 2.3644594967055736], [-24.24636664576296, 8.391367045710156], [-4.215654773978967, -2.0218366437933786], [-5.287421435193701, -3.355035020772847], [-3.288805476055494, -1.731671339480743], [6.905735746793294, -2.8308760311085424], [-5.084580042004638, -4.593808802188872], [-5.7910179339624, -3.128328648285413], [-4.851494677228599, -4.483218486141843], [-3.5570600032257715, -2.37724225297516], [1.4765828094410203, -24.716728896737163], [-1.2129112403670816, -19.782913421559673], [6.166322860816011, -19.09888970530178], [-4.961962976308596, -8.120326531712687], [2.0181439417068057, 2.55910682129559], [-5.95403729299426, -1.090559289595578], [-0.25156922717711416, -11.165650317614649], [5.180743345883377, -2.563303592438286], [-6.889686036843181, 4.933856445444932], [4.742997012583609, -0.19964106183564712], [-3.097566292188196, -1.4998198589412333], [4.394783530217396, 0.4987169804872625], [-17.778164588406963, 1.8884637249130527], [-3.41939199002129, -2.504609018539834], [-6.88886160081266, 22.668963998687918], [-28.51116294092981, 5.751880631571187], [8.449505065101533, 8.396496839013187], [-0.12152660238077621, -4.973306000740978], [-1.4460800007621628, 4.364954230486751], [2.6665394707851235, 16.772971439263753], [7.270450148767083, 5.795841385468868], [-5.053880180932608, -2.2233541446930167], [13.459718099839737, 12.3631644797905], [17.148669012584712, -6.867243528254688], [16.764168251334105, -6.715338206276405], [5.628039370244842, -3.690921417247291], [6.582080300644303, 3.81210024474996], [7.218317101461753, 2.394594113928216], [2.832611251490116, 0.5076845049076786], [6.6355989193728036, 4.495204471505498], [4.357694746087237, -5.51375869330764], [-1.2403409174418583, -11.755090944357228], [28.608477595733003, 19.56366250282759], [0.627847586392291, 5.161590069838288], [-3.8310333718267695, -8.664965076353043], [-6.046932297177968, -2.753874608172038], [-20.4066836636991, 3.743784403183671], [10.515443155941544, 6.700431621743481], [4.316012126624389, 6.808077150255094], [24.56761967650106, 15.662749343548926], [7.376298285591429, 3.8660144294923486], [-5.604458070376248, -3.3302035932231973], [5.0498270052354854, -7.967617569172485], [-2.9921898789821335, -7.491017576670081], [6.7438532549777666, 2.4415103485577534], [-29.9906169667554, 22.372679453791463], [-3.916838062661477, -8.637458689291625], [2.9562185698391277, -0.04025101305334136], [28.752936491297252, 13.112728519178969], [6.5174692536447365, -9.52688838953964], [21.83809021107846, 13.947314690425147], [4.930301663737061, -4.91452948328792], [-5.4542609003901505, -2.381780859885783], [3.986407973519913, 0.06351742038713504], [2.9087054364064997, 2.1910989663591023], [-6.598182591849003, -12.475341896350907], [9.852424627279584, 7.097889182545406], [1.3868311764186918, 3.266284780070051], [-5.464147625496214, -2.168695521805618], [-9.094906042091619, -1.7624006073635683], [1.1145916809874878, -4.737697158187446], [-40.91251934103636, 13.286314291982334], [11.673969879226371, -32.257667701634716], [-2.962172068484821, -27.41793277355209], [-1.7802813091545968, -13.423540334493998], [-5.057699669667528, -2.869254373539912], [29.819964899273792, 20.370452075808124], [-0.06283747925235932, -13.994929300048243], [12.336289599441537, -5.747830352755711], [9.639046808496559, 6.07030711344123], [-5.562350760338738, -3.258304755974104]], "color_axis": "pagerank", "nodes": ["WDC", "NFLX", "GOOGL", "AAPL", "SRCL", "SBAC", "JD", "XLNX", "NXPI", "VRTX", "SPLS", "MYL", "KHC", "HSIC", "CTSH", "AMZN", "MAR", "MAT", "VRSK", "FOXA", "VIP", "ROST", "WFM", "CHKP", "PAYX", "ESRX", "REGN", "AMAT", "CHTR", "SWKS", "NVDA", "AVGO", "LILA", "PCLN", "CTXS", "LRCX", "SYMC", "DISCA", "GRMN", "SIRI", "EA", "DISCK", "FOX", "ORLY", "LVNTA", "QCOM", "YHOO", "VOD", "MU", "MDLZ", "AMGN", "FB", "COST", "FISV", "ADBE", "ADSK", "MSFT", "DLTR", "FAST", "BBBY", "EXPD", "QVCA", "LLTC", "ADP", "GILD", "CA", "ILMN", "TRIP", "ADI", "CHRW", "TSCO", "NTAP", "VIAB", "BIDU", "EBAY", "SBUX", "BMRN", "CMCSA", "KLAC", "WYNN", "LBTYA", "TSLA", "AAL", "LBTYK", "WBA", "DISH", "PCAR", "TXN", "MNST", "INCY", "BIIB", "LILAK", "ATVI", "CELG", "GOOG", "AKAM", "INTC", "INTU", "ALXN", "STX", "ISRG", "CERN", "CSCO"], "label_color": "#000", "graph_layout": "force"}'));
-		//console.log(window.current_graph_id);
-		var width = window.graph_data[$.data(element, "graph_id")]['width'];
-		var height = window.graph_data[$.data(element, "graph_id")]['height'];
-
-		var label_color = window.graph_data[$.data(element, "graph_id")]['label_color'];
+		window.graph_data.push(JSON.parse('{"stats": [[0.08292942180256457], [0.08773947217808926], [0.09521824879658218], [0.09925135046625964], [0.09939071194930049], [0.10076772770998757], [0.1062203059053904], [0.10760043105731353], [0.10831074069436088], [0.11257158944015125]], "links": [["GOOG", "AKAM"], ["GOOG", "ADBE"], ["GOOG", "GOOGL"], ["GOOG", "FOXA"], ["GOOG", "AAL"], ["GOOG", "FOX"], ["GOOG", "ATVI"], ["GOOG", "ALXN"], ["GOOG", "AMZN"], ["AKAM", "ADBE"], ["AKAM", "GOOGL"], ["AKAM", "FOXA"], ["AKAM", "AAL"], ["AKAM", "FOX"], ["AKAM", "ALXN"], ["AKAM", "AMZN"], ["ADBE", "GOOGL"], ["ADBE", "FOXA"], ["ADBE", "AAL"], ["ADBE", "FOX"], ["ADBE", "ATVI"], ["ADBE", "ALXN"], ["ADBE", "AMZN"], ["GOOGL", "FOXA"], ["GOOGL", "AAL"], ["GOOGL", "FOX"], ["GOOGL", "ATVI"], ["GOOGL", "ALXN"], ["GOOGL", "AMZN"], ["FOXA", "AAL"], ["FOXA", "FOX"], ["FOXA", "ATVI"], ["FOXA", "ALXN"], ["FOXA", "AMZN"], ["AAL", "FOX"], ["FOX", "ATVI"], ["FOX", "ALXN"], ["FOX", "AMZN"], ["ATVI", "AMZN"]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "light", "height": 500, "width": 1000, "charge": -250, "color_map": "Winter", "graph_id": 0, "got_embed": true, "embedding": [[-0.33469232425912127, -0.1667442157320966], [-0.4555703307371198, -0.10523143351196416], [18.531334854923806, -20.201610603489623], [1.2739843640747857, -0.19532240822227714], [-9.0394364812318, 10.977059258686687], [-32.87705791379021, -7.7730114162359705], [0.8611661606380727, -1.0787385361733888], [0.8336017291983077, -1.0720211907635588], [10.308771341360876, -10.58201189468209], [10.897898599822435, 30.197632440124316]], "color_axis": "pagerank", "nodes": ["GOOG", "AKAM", "ADBE", "GOOGL", "FOXA", "AAL", "FOX", "ATVI", "ALXN", "AMZN"], "label_color": "#000", "graph_layout": "force"}'));
 		
-		var min_node_size = window.graph_data[$.data(element, "graph_id")]['min_node_size'];
-		
-		var charge = window.graph_data[$.data(element, "graph_id")]['charge'];
-
-		var colorAxis = window.graph_data[$.data(element, "graph_id")]['color_axis'];
-		if(colorAxis == undefined){
-			colorAxis = "closeness_centrality";
-		}
-
-		var colorMap = window.graph_data[$.data(element, "graph_id")]['color_map'];
-		if(colorMap == undefined){
-			colorMap = "RdBuGn";
-		}
-
-		var graphStyle = window.graph_data[$.data(element, "graph_id")]['graph_style'];
-		// light || dark || white || ether
-		if(graphStyle == undefined){
-			graphStyle = "light";
-		}
-
-		var suppressLabels;
-		if(suppressLabels == undefined){
-			suppressLabels = true;
-		}
-
-		var graphTitle;
-		if(graphTitle == undefined){
-			graphTitle = "SliceMatrix-IO Network Viewer";
-		}
-
-		var graphLayout = window.graph_data[$.data(element, "graph_id")]['graph_layout'];
-		if(graphLayout == undefined && window.graph_data[$.data(element, "graph_id")]['got_embed'] == true){
-			graphLayout = "embedding";
-		}
-
 		require(['d3'], function(d3){
-			var graph_id = $.data(element, "graph_id");
-			element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
-			element.append('<div class = "loadingDialog" id = "spinner_' + graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
-			element.append('<div class = "content_cell" id = "content_' + graph_id +'"><canvas id = "mainEvent_' + graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
-
-			// update background style
-			if(graphStyle == "dark"){
-				d3.select("#content_" + graph_id).style("background", "rgb(20,20,20)");
-
-
-				$('#top_bar').css({
-					"color": "rgba(255, 255, 255, 0.88)",
-					"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
-					"background-color": "rgba(220,220,220, 0.4)",
-					"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
-				});
-				d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
-			}else if(graphStyle == "white"){
-				$('#content' + graph_id).css({
-					"background-image": "none",
-					"background-color": "#FFF",
-					"background": "rgb(256,256,256)"
-				});
-
-				d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
-			}else if(graphStyle == "ether"){
-				$('#content' + graph_id).css({
-					"background-image": "none",
-					"background-color": "#000",
-					"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
-				});
-
-				$('#top_bar').css({
-					"color": "rgba(255, 255, 255, 0.88)",
-					"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
-					"background-color": "rgba(220,220,220, 0.4)",
-					"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
-				});
-
-				d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
-			}
-
-			//
-			if(graphLayout == undefined){
-				graphLayout = false;
-			}
-
-			var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
-			return d3.scaleLinear()
-					 .domain([minval, midval, maxval])
-					 .range([mincol, midcol, maxcol]);
-
-			}
-
-			var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
-						 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
-						 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
-						 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
-						 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
-						 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
-						 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
-						 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
-						 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
-						 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
-						 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
-
-			function getMaxOfArray(numArray) {
-			  return Math.max.apply(null, numArray);
-			}
-
-			function getMinOfArray(numArray) {
-			  return Math.min.apply(null, numArray);
-			}
-
-			var graph = {nodes:[], links:[]};
-
-			var curr_colormap;
-
-			d3.select("#loading_status").html("loaded nodes...");
-			var data = window.graph_data[$.data(element, "graph_id")];
-			data['nodes'].forEach(function(d){
-				graph['nodes'].push({id:d});
-			});
-
-			d3.select("#loading_status").html("loaded edges...");
-			data['links'].forEach(function(d){
-				graph['links'].push({source:d[0], target:d[1]});
-			});
-
-			//var height = 600;
-			//var width  = 1200;
-			var searchRadius = 3;
-
-			//d3.select("canvas").attr("height", height).attr("width", width);
-
-			var transform = d3.zoomIdentity;
-
+			window.d3 = d3;
 			
-			//var canvas = document.querySelector("canvas"),
-			var canvas = document.querySelector("#mainEvent_" + $.data(element, "graph_id")),
-				context = canvas.getContext("2d");
-				//width = canvas.width,
-				//height = canvas.height;
+			// when it reloads need to reload everything in window.graph_data from scratch, cuz this runs after everything else apparently... fuck me running
+			//d3 = window.d3;
+			for(var graph_id in window.graph_data){
+				
+				(function(graph_id, element) {
+					console.log("require");
+					console.log("graph_id = " + graph_id);
+					var width = window.graph_data[graph_id]['width'];
+					var height = window.graph_data[graph_id]['height'];
+					console.log(window.current_graph_id);
+					element.empty();
+					element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
+					element.append('<div class = "loadingDialog" id = "spinner_' + graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
+					element.append('<div class = "content_cell" id = "content_' + graph_id +'"><canvas id = "mainEvent_' + graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
 
-			var simulation = d3.forceSimulation()
-				.force("link", d3.forceLink().id(function(d) { return d.id; }))
-				.force("charge", d3.forceManyBody().strength(charge))
-				.force("center", d3.forceCenter(width / 2, height / 2))
-				.force("X", d3.forceX().x(0.2))
-				.force("Y", d3.forceY().y(0.2));
+					var label_color = window.graph_data[graph_id]['label_color'];
+					
+					var min_node_size = window.graph_data[graph_id]['min_node_size'];
+					
+					var charge = window.graph_data[graph_id]['charge'];
 
-			var zoom = d3.zoom();
-
-			var k = 1.0;
-
-			function initialize(){
-			  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
-			}
-
-			//initialize();
-
-			var ggraph;
-
-			var selected_node;
-
-			var transform;
-
-			var ticks = 0;
-
-
-			var mixcolors = function(color1, color2){
-				var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
-				var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
-				var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
-				var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
-				var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
-				if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
-				  return "rgba(20,120,220,0.6)";
-				}else{
-				  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
-				}
-			}
-
-			var drawGraph = function(){
-				console.log(graph);
-
-				function dragsubject() {
-				  var i,
-					  x = transform.invertX(d3.event.x),
-					  y = transform.invertY(d3.event.y),
-					  dx,
-					  dy;
-				}
-
-
-				function dragstarted() {
-				  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-				  d3.event.subject.fx = d3.event.subject.x;
-				  d3.event.subject.fy = d3.event.subject.y;
-				}
-
-				function dragged() {
-				  //d3.event.subject[0] = transform.invertX(d3.event.x);
-				  //d3.event.subject[1] = transform.invertY(d3.event.y);
-				  d3.event.subject.fx = d3.event.x;
-				  d3.event.subject.fy = d3.event.y;
-				}
-
-				function dragended() {
-				  if (!d3.event.active) simulation.alphaTarget(0);
-				  d3.event.subject.fx = null;
-				  d3.event.subject.fy = null;
-				}
-
-				function drawLink(d) {
-				  context.moveTo(d.source.x, d.source.y);
-				  context.lineTo(d.target.x, d.target.y);
-				}
-
-				function drawNode(d) {
-				  context.moveTo(d.x + get_current_node_size(), d.y);
-				  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
-				  //context.fill();
-				}
-
-				function drawLabel(d, id) {
-				  //console.log(d);
-				  context.shadowBlur = 10;
-				  context.shadowColor = "rgba(120,120,120,0.3)";
-				  context.fillText(d.id, d.x,d.y);
-				  //context.fill();
-				}
-
-				function rgb2a(rgb_string, alpha){
-					//console.log(rgb_string);
-				  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
-				  //rgb_string = "rgba(0,0,0,0.3)";
-				  return rgb_string 
-				}
-
-				function get_current_alpha(){
-				  return 1.0 - Math.min(transform.k, 0.5);
-				}
-
-				function get_current_font_size(){
-				  return 10 / Math.pow(transform.k, 0.5);
-				}
-
-				function get_current_highlighted_font_size(){
-				  return Math.min(720 * transform.k, 20);
-				}
-
-				function get_current_link_width(){
-				  return Math.max(1.5, 0.5/ transform.k);
-				}
-
-				function get_current_node_size(){
-				  return Math.min(60 * transform.k, min_node_size);
-				}
-
-				function get_current_deg_thresh(){
-				  if(k >= 0.4){
-					return 1;
-				  }else{
-					return 2;
-				  }
-				}
-
-
-				ggraph = graph;
-				  setTimeout(initialize, 0);
-
-				  if(graphLayout == "force"){
-
-					  simulation
-						  .nodes(graph.nodes)
-						  .on("tick", ticked);
-
-					  simulation.force("link")
-						  .links(graph.links);
-
-				  }else{
-						  simulation
-						  .nodes(graph.nodes);
-						  //.on("tick", ticked);
-
-					  simulation.force("link")
-						  .links(graph.links);
-						ticked();
-				  }
-
-				  //d3.select("mainEvent_" + window.current_graph_id)
-				  d3.select(canvas)
-					  .on("mousemove", mousemoved)
-					  .call(d3.drag()
-						  .container(canvas)
-						  .subject(dragsubject)
-						  .on("start", dragstarted)
-						  .on("drag", dragged)
-						  .on("end", dragended))
-					  .call(zoom.on("zoom", zoomed));
-
-				  function zoomed() {
-					//console.log("zooming!");
-					transform = d3.event.transform;
-					//console.log(simulation.alpha());
-					if(graphLayout == "force"){
-						if(simulation.alpha() < 0.01){//>
-						  ticked();
-						}
-					}else{
-						ticked();
+					var colorAxis = window.graph_data[graph_id]['color_axis'];
+					if(colorAxis == undefined){
+						colorAxis = "closeness_centrality";
 					}
-				  }
 
-				  function mousemoved() {
-					//console.log(graph.nodes);
-					var m = d3.mouse(this);
-					var x = (m[0] - transform.x) / transform.k;
-					var y = (m[1] - transform.y) / transform.k;
-					var moused_node;
-					for (var i = graph.nodes.length - 1; i >= 0; --i) {
-					  var point = graph.nodes[i];
-					  var dx = x - point.x;
-					  var dy = y - point.y;
-					  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
-						//point.x = transform.applyX(point.x);
-						//point.y = transform.applyY(point.y);
-						moused_node = point;
-					  }
+					var colorMap = window.graph_data[graph_id]['color_map'];
+					if(colorMap == undefined){
+						colorMap = "RdBuGn";
 					}
-					selected_node = moused_node;
-					if(graphLayout == "force"){
-						if(simulation.alpha() < 0.01){//>
-						  ticked();
-						}
+
+					var graphStyle = window.graph_data[graph_id]['graph_style'];
+					// light || dark || white || ether
+					if(graphStyle == undefined){
+						graphStyle = "light";
 					}
-				  }
 
-				  function restartIt(){
-					simulation.alpha(1.0)
-					simulation.restart();
-				  }
-
-				  function ticked() {
-					k = transform.k;
-					if( graphLayout != "force"){
-						simulation.stop();
-					}else{
-						if(ticks == 0){
-							setTimeout(restartIt,1);
-						}
+					var suppressLabels;
+					if(suppressLabels == undefined){
+						suppressLabels = true;
 					}
-						context.clearRect(0, 0, width, height);
-						context.save();
-						//context.translate(width / 2, height / 2);
 
-						context.globalAlpha = 1.0;
+					var graphTitle;
+					if(graphTitle == undefined){
+						graphTitle = "SliceMatrix-IO Network Viewer";
+					}
 
-						context.translate(transform.x, transform.y);
-						context.scale(transform.k, transform.k);
+					var graphLayout = window.graph_data[graph_id]['graph_layout'];
+					if(graphLayout == undefined && window.graph_data[graph_id]['got_embed'] == true){
+						graphLayout = "embedding";
+					}
 
-						graph.links.forEach(function(link) {
-						  context.beginPath();
-						  drawLink(link);
-						  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
-						  //console.log(link.source.color);
-						  var color = mixcolors(link.source.color, link.target.color);
-						  context.strokeStyle = color;
-						  context.lineWidth = get_current_link_width();
-						  context.stroke();
+					// update background style
+					if(graphStyle == "dark"){
+						d3.select("#content_" + graph_id).style("background", "rgb(20,20,20)");
+
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}else if(graphStyle == "white"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#FFF",
+							"background": "rgb(256,256,256)"
 						});
 
-						graph.nodes.forEach(function(user) {
-						//console.log(user);
-						  context.beginPath();
-						  drawNode(user);
-						  context.fillStyle = rgb2a(user.color, get_current_alpha());
-						  context.fill();
-						  if(selected_node != undefined){
-							if(user.id == selected_node.id){
-							  context.strokeStyle = "#000";
-							  context.lineWidth = 1;
-							  context.stroke();
+						d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
+					}else if(graphStyle == "ether"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#000",
+							"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
+						});
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}
+
+					//
+					if(graphLayout == undefined){
+						graphLayout = false;
+					}
+
+					var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
+					return d3.scaleLinear()
+							 .domain([minval, midval, maxval])
+							 .range([mincol, midcol, maxcol]);
+
+					}
+
+					var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
+								 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
+								 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
+								 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
+								 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
+								 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
+								 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
+								 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
+								 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
+								 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
+								 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
+
+					function getMaxOfArray(numArray) {
+					  return Math.max.apply(null, numArray);
+					}
+
+					function getMinOfArray(numArray) {
+					  return Math.min.apply(null, numArray);
+					}
+
+					var graph = {nodes:[], links:[]};
+
+					var curr_colormap;
+
+					d3.select("#loading_status").html("loaded nodes...");
+					var data = window.graph_data[graph_id];
+					data['nodes'].forEach(function(d){
+						graph['nodes'].push({id:d});
+					});
+
+					d3.select("#loading_status").html("loaded edges...");
+					data['links'].forEach(function(d){
+						graph['links'].push({source:d[0], target:d[1]});
+					});
+
+					//var height = 600;
+					//var width  = 1200;
+					var searchRadius = 3;
+
+					//d3.select("canvas").attr("height", height).attr("width", width);
+
+					var transform = d3.zoomIdentity;
+
+
+					//var canvas = document.querySelector("canvas"),
+					var canvas = document.querySelector("#mainEvent_" + graph_id),
+						context = canvas.getContext("2d"),
+						width = canvas.width,
+						height = canvas.height;
+						
+					$("#mainEvent_" + graph_id).width(width);
+					$("#mainEvent_" + graph_id).height(height);
+
+					var simulation = d3.forceSimulation()
+						.force("link", d3.forceLink().id(function(d) { return d.id; }))
+						.force("charge", d3.forceManyBody().strength(charge))
+						.force("center", d3.forceCenter(width / 2, height / 2))
+						.force("X", d3.forceX().x(0.2))
+						.force("Y", d3.forceY().y(0.2));
+
+					var zoom = d3.zoom();
+
+					var k = 1.0;
+
+					function initialize(){
+					  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
+					}
+
+					//initialize();
+
+					var ggraph;
+
+					var selected_node;
+
+					var transform;
+
+					var ticks = 0;
+
+
+					var mixcolors = function(color1, color2){
+						var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
+						var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
+						var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
+						var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
+						var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
+						if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
+						  return "rgba(20,120,220,0.6)";
+						}else{
+						  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
+						}
+					}
+
+					var drawGraph = function(){
+						console.log(graph);
+
+						function dragsubject() {
+						  var i,
+							  x = transform.invertX(d3.event.x),
+							  y = transform.invertY(d3.event.y),
+							  dx,
+							  dy;
+						}
+
+
+						function dragstarted() {
+						  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+						  d3.event.subject.fx = d3.event.subject.x;
+						  d3.event.subject.fy = d3.event.subject.y;
+						}
+
+						function dragged() {
+						  //d3.event.subject[0] = transform.invertX(d3.event.x);
+						  //d3.event.subject[1] = transform.invertY(d3.event.y);
+						  d3.event.subject.fx = d3.event.x;
+						  d3.event.subject.fy = d3.event.y;
+						}
+
+						function dragended() {
+						  if (!d3.event.active) simulation.alphaTarget(0);
+						  d3.event.subject.fx = null;
+						  d3.event.subject.fy = null;
+						}
+
+						function drawLink(d) {
+						  context.moveTo(d.source.x, d.source.y);
+						  context.lineTo(d.target.x, d.target.y);
+						}
+
+						function drawNode(d) {
+						  context.moveTo(d.x + get_current_node_size(), d.y);
+						  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
+						  //context.fill();
+						}
+
+						function drawLabel(d, id) {
+						  //console.log(d);
+						  context.shadowBlur = 10;
+						  context.shadowColor = "rgba(120,120,120,0.3)";
+						  context.fillText(d.id, d.x,d.y);
+						  //context.fill();
+						}
+
+						function rgb2a(rgb_string, alpha){
+							//console.log(rgb_string);
+						  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
+						  //rgb_string = "rgba(0,0,0,0.3)";
+						  return rgb_string 
+						}
+
+						function get_current_alpha(){
+						  return 1.0 - Math.min(transform.k, 0.5);
+						}
+
+						function get_current_font_size(){
+						  return 10 / Math.pow(transform.k, 0.5);
+						}
+
+						function get_current_highlighted_font_size(){
+						  return Math.min(720 * transform.k, 20);
+						}
+
+						function get_current_link_width(){
+						  return Math.max(1.5, 0.5/ transform.k);
+						}
+
+						function get_current_node_size(){
+						  return Math.min(60 * transform.k, min_node_size);
+						}
+
+						function get_current_deg_thresh(){
+						  if(k >= 0.4){
+							return 1;
+						  }else{
+							return 2;
+						  }
+						}
+
+
+						ggraph = graph;
+						  setTimeout(initialize, 0);
+
+						  if(graphLayout == "force"){
+
+							  simulation
+								  .nodes(graph.nodes)
+								  .on("tick", ticked);
+
+							  simulation.force("link")
+								  .links(graph.links);
+
+						  }else{
+								  simulation
+								  .nodes(graph.nodes);
+								  //.on("tick", ticked);
+
+							  simulation.force("link")
+								  .links(graph.links);
+								ticked();
+						  }
+
+						  //d3.select("mainEvent_" + graph_id)
+						  
+						  d3.select(canvas)
+							  .on("mousemove", mousemoved)
+							  .call(d3.drag()
+								  .container(canvas)
+								  .subject(dragsubject)
+								  .on("start", dragstarted)
+								  .on("drag", dragged)
+								  .on("end", dragended))
+							  .call(zoom.on("zoom", zoomed));
+
+						  function zoomed() {
+							//console.log("zooming!");
+							transform = d3.event.transform;
+							//console.log(simulation.alpha());
+							if(graphLayout == "force"){
+								if(simulation.alpha() < 0.01){//>
+								  ticked();
+								}
+							}else{
+								ticked();
 							}
 						  }
-						  //drawLabel(user, user.id);
 
+						  function mousemoved() {
+							//console.log(graph.nodes);
+							var m = d3.mouse(this);
+							var x = (m[0] - transform.x) / transform.k;
+							var y = (m[1] - transform.y) / transform.k;
+							var moused_node;
+							for (var i = graph.nodes.length - 1; i >= 0; --i) {
+							  var point = graph.nodes[i];
+							  var dx = x - point.x;
+							  var dy = y - point.y;
+							  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
+								//point.x = transform.applyX(point.x);
+								//point.y = transform.applyY(point.y);
+								moused_node = point;
+							  }
+							}
+							selected_node = moused_node;
+							if(graphLayout == "force"){
+								if(simulation.alpha() < 0.01){//>
+								  ticked();
+								}
+							}
+						  }
+
+						  function restartIt(){
+							simulation.alpha(1.0)
+							simulation.restart();
+						  }
+
+						  function ticked() {
+							k = transform.k;
+							if( graphLayout != "force"){
+								simulation.stop();
+							}else{
+								if(ticks == 0){
+									setTimeout(restartIt,1);
+								}
+							}
+								context.clearRect(0, 0, width, height);
+								context.save();
+								//context.translate(width / 2, height / 2);
+
+								context.globalAlpha = 1.0;
+
+								context.translate(transform.x, transform.y);
+								context.scale(transform.k, transform.k);
+
+								graph.links.forEach(function(link) {
+								  context.beginPath();
+								  drawLink(link);
+								  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
+								  //console.log(link.source.color);
+								  var color = mixcolors(link.source.color, link.target.color);
+								  context.strokeStyle = color;
+								  context.lineWidth = get_current_link_width();
+								  context.stroke();
+								});
+
+								graph.nodes.forEach(function(user) {
+								//console.log(user);
+								  context.beginPath();
+								  drawNode(user);
+								  context.fillStyle = rgb2a(user.color, get_current_alpha());
+								  context.fill();
+								  if(selected_node != undefined){
+									if(user.id == selected_node.id){
+									  context.strokeStyle = "#000";
+									  context.lineWidth = 1;
+									  context.stroke();
+									}
+								  }
+								  //drawLabel(user, user.id);
+
+								});
+
+							   graph.nodes.forEach(function(user) {
+								  //if(user.deg > get_current_deg_thresh()){
+									context.beginPath();
+									drawLabel(user, user.id);
+									  context.font="bold " + get_current_font_size() + "px Arial";
+									  context.fillStyle = label_color;//user.color;
+									  context.fill();
+								  //}
+								});
+
+								ticks++;
+								context.restore();
+
+						  }
+
+
+					}
+
+					var max_rank = 0;
+					var min_rank = 0;
+
+					window.graph_data[graph_id]['stats'].forEach(function(row, j){
+						//console.log(row);
+						var val1 = row[0];
+						if(val1 > max_rank){
+							max_rank = val1;
+						}
+						if(val1 < min_rank){
+							min_rank = val1;
+						}
+						graph.nodes[j][colorAxis] = val1
+					});
+
+					d3.select("#loading_status").html("loaded colorAxis data...");
+
+					var mid_rank = (max_rank - min_rank) / 2.0;
+
+					console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
+
+					curr_colormap = colormap(min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]);
+
+					graph.nodes.forEach(function(node, k){
+						graph.nodes[k].color = curr_colormap(graph.nodes[k][colorAxis]);
+					});
+
+					if(graphLayout == "force"){
+						d3.select("#spinner_" + graph_id).style("visibility", "hidden");
+						drawGraph();
+						//window.current_graph_id += 1
+					}else{
+						// bind the node embedding data to the graph!
+						var max_xy = 0.0;
+						var min_xy = 0.0;
+						var cmax_xy, cmin_xy;
+						// normalize embedding
+						//console.log("ooooooooooooooooooooooooo");
+						window.graph_data[graph_id]['embedding'].forEach(function(row, j){
+							cmax_xy = getMaxOfArray(row);
+							cmin_xy = getMinOfArray(row);
+							if(cmax_xy > max_xy){
+								max_xy = cmax_xy;
+							}
+							if(cmin_xy < min_xy){
+								min_xy = cmin_xy;
+							}
+						});
+						//console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+						var range_xy = max_xy - min_xy;
+
+						window.graph_data[graph_id]['embedding'].forEach(function(row, j){
+							//console.log(row);
+							graph.nodes[j]['x'] = ( ( ( Number(row[0]) ) / range_xy) * (width) )  + (width / 2);
+							graph.nodes[j]['y'] = ( ( ( Number(row[1]) ) / range_xy) * (height) ) + (height / 2);
+							graph.nodes[j]['fixed'] = true;
 						});
 
-					   graph.nodes.forEach(function(user) {
-						  //if(user.deg > get_current_deg_thresh()){
-							context.beginPath();
-							drawLabel(user, user.id);
-							  context.font="bold " + get_current_font_size() + "px Arial";
-							  context.fillStyle = label_color;//user.color;
-							  context.fill();
-						  //}
-						});
-
-						ticks++;
-						context.restore();
-
-				  }
-
-
-			}
-
-			var max_rank = 0;
-			var min_rank = 0;
-
-			window.graph_data[$.data(element, "graph_id")]['stats'].forEach(function(row, j){
-				//console.log(row);
-				var val1 = row[0];
-				if(val1 > max_rank){
-					max_rank = val1;
-				}
-				if(val1 < min_rank){
-					min_rank = val1;
-				}
-				graph.nodes[j][colorAxis] = val1
-			});
-
-			d3.select("#loading_status").html("loaded colorAxis data...");
-
-			var mid_rank = (max_rank - min_rank) / 2.0;
-
-			console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
-
-			curr_colormap = colormap(min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]);
-
-			graph.nodes.forEach(function(node, k){
-				graph.nodes[k].color = curr_colormap(graph.nodes[k][colorAxis]);
-			});
-
-			if(graphLayout == "force"){
-				d3.select("#spinner_" + $.data(element, "graph_id")).style("visibility", "hidden");
-				drawGraph();
-				window.current_graph_id += 1
-			}else{
-				// bind the node embedding data to the graph!
-				var max_xy = 0.0;
-				var min_xy = 0.0;
-				var cmax_xy, cmin_xy;
-				// normalize embedding
-				//console.log("ooooooooooooooooooooooooo");
-				window.graph_data[$.data(element, "graph_id")]['embedding'].forEach(function(row, j){
-					cmax_xy = getMaxOfArray(row);
-					cmin_xy = getMinOfArray(row);
-					if(cmax_xy > max_xy){
-						max_xy = cmax_xy;
+						d3.select("#spinner_" + graph_id).style("visibility", "hidden");
+						drawGraph();
+						//window.current_graph_id += 1
 					}
-					if(cmin_xy < min_xy){
-						min_xy = cmin_xy;
-					}
-				});
-				//console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-				var range_xy = max_xy - min_xy;
-
-				window.graph_data[$.data(element, "graph_id")]['embedding'].forEach(function(row, j){
-					//console.log(row);
-					graph.nodes[j]['x'] = ( ( ( Number(row[0]) ) / range_xy) * (width) )  + (width / 2);
-					graph.nodes[j]['y'] = ( ( ( Number(row[1]) ) / range_xy) * (height) ) + (height / 2);
-					graph.nodes[j]['fixed'] = true;
-				});
-
-				d3.select("#spinner_" + $.data(element, "graph_id")).style("visibility", "hidden");
-				drawGraph();
-				window.current_graph_id += 1
-			}
-					
-				
+							
+						
 			
+						
+				})(graph_id, element);
+				window.current_graph_id += 1;
+			}
 		});
 		
 		
@@ -12864,6 +12803,16 @@ $.data(element, 'graph_id', 0);
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>something else!</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12885,492 +12834,509 @@ $.data(element, 'graph_id', 0);
 
 
 
-<div id="a3458cdd-13f3-464f-bd0c-1ab1e047f530"></div>
+<div id="ba7ba636-9f78-41b3-85ce-42f6030b7292"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#a3458cdd-13f3-464f-bd0c-1ab1e047f530');
-$.data(element, 'graph_id', 1);
+var element = $('#ba7ba636-9f78-41b3-85ce-42f6030b7292');
+element.data('graph_id', 1);
 			require.config({
 				paths: {
 					d3: '//cdnjs.cloudflare.com/ajax/libs/d3/4.7.1/d3.min'
 				}
 			});
-		window.graph_data.push(JSON.parse('{"stats": [[0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.08823529411764705], [0.08823529411764705], [0.08823529411764705], [0.09803921568627451], [0.10784313725490197], [0.10784313725490197], [0.10784313725490197], [0.10784313725490197], [0.10784313725490197], [0.11764705882352941], [0.12745098039215685], [0.12745098039215685], [0.13725490196078433], [0.13725490196078433], [0.14705882352941177], [0.14705882352941177], [0.16666666666666666], [0.1764705882352941], [0.1764705882352941], [0.24509803921568626], [0.2549019607843137], [0.2647058823529412], [0.29411764705882354], [0.3235294117647059], [0.43137254901960786], [0.47058823529411764], [0.5294117647058824], [0.5392156862745098], [0.7058823529411764]], "links": [["WDC", "TXN"], ["WDC", "NTAP"], ["WDC", "INTC"], ["WDC", "MU"], ["WDC", "LRCX"], ["WDC", "STX"], ["WDC", "ADI"], ["NFLX", "GOOG"], ["NFLX", "TXN"], ["NFLX", "GOOGL"], ["NFLX", "ADP"], ["NFLX", "VRSK"], ["NFLX", "FB"], ["GOOGL", "GOOG"], ["GOOGL", "ADBE"], ["GOOGL", "TSLA"], ["GOOGL", "AAL"], ["GOOGL", "AAPL"], ["GOOGL", "CHKP"], ["GOOGL", "AMGN"], ["GOOGL", "REGN"], ["GOOGL", "FB"], ["GOOGL", "COST"], ["GOOGL", "FISV"], ["GOOGL", "WBA"], ["GOOGL", "JD"], ["GOOGL", "MSFT"], ["GOOGL", "TXN"], ["GOOGL", "LILA"], ["GOOGL", "MNST"], ["GOOGL", "ISRG"], ["GOOGL", "ATVI"], ["GOOGL", "PCLN"], ["GOOGL", "CTXS"], ["GOOGL", "CELG"], ["GOOGL", "HSIC"], ["GOOGL", "CTSH"], ["GOOGL", "ADP"], ["GOOGL", "GILD"], ["GOOGL", "EA"], ["GOOGL", "ORLY"], ["GOOGL", "LVNTA"], ["GOOGL", "ILMN"], ["GOOGL", "ALXN"], ["GOOGL", "YHOO"], ["GOOGL", "AMZN"], ["GOOGL", "SYMC"], ["GOOGL", "TRIP"], ["GOOGL", "TSCO"], ["GOOGL", "KHC"], ["GOOGL", "CERN"], ["GOOGL", "BIDU"], ["GOOGL", "EBAY"], ["GOOGL", "SBUX"], ["GOOGL", "CHTR"], ["GOOGL", "CMCSA"], ["AAPL", "GOOG"], ["AAPL", "TXN"], ["AAPL", "ADP"], ["AAPL", "CSCO"], ["AAPL", "SWKS"], ["AAPL", "MSFT"], ["SRCL", "TXN"], ["SRCL", "PAYX"], ["SRCL", "ADP"], ["SRCL", "VRSK"], ["SRCL", "SBUX"], ["SRCL", "FISV"], ["SBAC", "TXN"], ["SBAC", "PAYX"], ["SBAC", "ADP"], ["SBAC", "VRSK"], ["SBAC", "INTU"], ["SBAC", "FISV"], ["JD", "GOOG"], ["JD", "TXN"], ["JD", "BIDU"], ["JD", "YHOO"], ["JD", "MSFT"], ["XLNX", "TXN"], ["XLNX", "LLTC"], ["XLNX", "INTC"], ["XLNX", "CSCO"], ["XLNX", "AMAT"], ["XLNX", "FISV"], ["XLNX", "NVDA"], ["XLNX", "ADI"], ["NXPI", "TXN"], ["NXPI", "AVGO"], ["NXPI", "ADP"], ["NXPI", "INTC"], ["NXPI", "CSCO"], ["NXPI", "ADI"], ["VRTX", "GILD"], ["VRTX", "INCY"], ["VRTX", "BIIB"], ["VRTX", "AMGN"], ["VRTX", "REGN"], ["VRTX", "BMRN"], ["VRTX", "CELG"], ["SPLS", "TXN"], ["SPLS", "PAYX"], ["SPLS", "ADP"], ["SPLS", "SIRI"], ["SPLS", "INTU"], ["SPLS", "BBBY"], ["MYL", "GOOG"], ["MYL", "ADP"], ["MYL", "GILD"], ["MYL", "AMGN"], ["MYL", "CELG"], ["MYL", "ISRG"], ["KHC", "GOOG"], ["KHC", "VRSK"], ["KHC", "MDLZ"], ["KHC", "FISV"], ["KHC", "ADP"], ["HSIC", "GOOG"], ["HSIC", "PAYX"], ["HSIC", "ADP"], ["HSIC", "CSCO"], ["HSIC", "FISV"], ["CTSH", "GOOG"], ["CTSH", "ADBE"], ["CTSH", "VRSK"], ["CTSH", "FISV"], ["CTSH", "ADP"], ["AMZN", "GOOG"], ["AMZN", "TXN"], ["AMZN", "EA"], ["AMZN", "FB"], ["AMZN", "FISV"], ["AMZN", "TRIP"], ["AMZN", "MSFT"], ["MAR", "TXN"], ["MAR", "PAYX"], ["MAR", "VRSK"], ["MAR", "ADP"], ["MAR", "AAL"], ["MAR", "SIRI"], ["MAR", "VIP"], ["MAR", "PCAR"], ["MAT", "ADP"], ["MAT", "VRSK"], ["MAT", "SIRI"], ["MAT", "CSCO"], ["MAT", "INTU"], ["MAT", "FISV"], ["VRSK", "TSLA"], ["VRSK", "WBA"], ["VRSK", "CHKP"], ["VRSK", "ESRX"], ["VRSK", "COST"], ["VRSK", "FISV"], ["VRSK", "PCAR"], ["VRSK", "TXN"], ["VRSK", "INTC"], ["VRSK", "MNST"], ["VRSK", "BBBY"], ["VRSK", "EXPD"], ["VRSK", "CHRW"], ["VRSK", "PAYX"], ["VRSK", "ADP"], ["VRSK", "CA"], ["VRSK", "SIRI"], ["VRSK", "ORLY"], ["VRSK", "INTU"], ["VRSK", "ISRG"], ["VRSK", "VOD"], ["VRSK", "EBAY"], ["VRSK", "SBUX"], ["VRSK", "MDLZ"], ["VRSK", "ROST"], ["VRSK", "CMCSA"], ["FOXA", "DISCA"], ["FOXA", "PAYX"], ["FOXA", "DISCK"], ["FOXA", "VIAB"], ["FOXA", "ADP"], ["FOXA", "SIRI"], ["FOXA", "FOX"], ["FOXA", "LBTYK"], ["FOXA", "INTU"], ["FOXA", "FISV"], ["FOXA", "DISH"], ["VIP", "VOD"], ["VIP", "PAYX"], ["VIP", "CA"], ["VIP", "INTU"], ["VIP", "PCAR"], ["ROST", "PAYX"], ["ROST", "ADP"], ["ROST", "DLTR"], ["ROST", "ORLY"], ["ROST", "INTU"], ["ROST", "FISV"], ["WFM", "PAYX"], ["WFM", "ADP"], ["WFM", "SIRI"], ["WFM", "CSCO"], ["WFM", "COST"], ["WFM", "EXPD"], ["CHKP", "GOOG"], ["CHKP", "CSCO"], ["CHKP", "FISV"], ["CHKP", "ADP"], ["PAYX", "FISV"], ["PAYX", "CHRW"], ["PAYX", "AKAM"], ["PAYX", "ADP"], ["PAYX", "GILD"], ["PAYX", "FOX"], ["PAYX", "ORLY"], ["PAYX", "INTU"], ["PAYX", "VOD"], ["PAYX", "NTAP"], ["PAYX", "CSCO"], ["PAYX", "EBAY"], ["PAYX", "SBUX"], ["PAYX", "MDLZ"], ["PAYX", "EXPD"], ["PAYX", "CMCSA"], ["ESRX", "TXN"], ["ESRX", "WYNN"], ["ESRX", "ADP"], ["ESRX", "SIRI"], ["ESRX", "FISV"], ["ESRX", "WBA"], ["REGN", "GOOG"], ["REGN", "GILD"], ["REGN", "BIIB"], ["REGN", "AMGN"], ["REGN", "BMRN"], ["REGN", "CELG"], ["AMAT", "TXN"], ["AMAT", "ADI"], ["AMAT", "AVGO"], ["AMAT", "NTAP"], ["AMAT", "MU"], ["AMAT", "SWKS"], ["AMAT", "KLAC"], ["AMAT", "LRCX"], ["AMAT", "NVDA"], ["CHTR", "GOOG"], ["CHTR", "ADBE"], ["CHTR", "ADP"], ["CHTR", "LVNTA"], ["CHTR", "FISV"], ["SWKS", "TXN"], ["SWKS", "AVGO"], ["SWKS", "LRCX"], ["SWKS", "ADI"], ["NVDA", "TXN"], ["NVDA", "INTC"], ["NVDA", "LRCX"], ["NVDA", "ADI"], ["AVGO", "GOOG"], ["AVGO", "TXN"], ["AVGO", "ADP"], ["AVGO", "INTC"], ["AVGO", "LRCX"], ["AVGO", "ADI"], ["LILA", "GOOG"], ["LILA", "TXN"], ["LILA", "SIRI"], ["LILA", "CSCO"], ["LILA", "LILAK"], ["PCLN", "GOOG"], ["PCLN", "TXN"], ["PCLN", "ADP"], ["PCLN", "CSCO"], ["PCLN", "INTU"], ["PCLN", "TRIP"], ["CTXS", "GOOG"], ["CTXS", "ADBE"], ["CTXS", "ADP"], ["CTXS", "INTU"], ["CTXS", "FISV"], ["LRCX", "TXN"], ["LRCX", "NTAP"], ["LRCX", "INTC"], ["LRCX", "MU"], ["LRCX", "FISV"], ["LRCX", "ADI"], ["LRCX", "STX"], ["LRCX", "ADSK"], ["LRCX", "KLAC"], ["SYMC", "GOOG"], ["SYMC", "TXN"], ["SYMC", "ADP"], ["SYMC", "CA"], ["SYMC", "CSCO"], ["DISCA", "SIRI"], ["DISCA", "VIAB"], ["DISCA", "DISCK"], ["DISCA", "FOX"], ["DISCA", "PCAR"], ["DISCA", "EXPD"], ["GRMN", "GOOG"], ["GRMN", "TXN"], ["GRMN", "ADP"], ["GRMN", "SIRI"], ["GRMN", "CSCO"], ["GRMN", "FISV"], ["SIRI", "LBTYA"], ["SIRI", "TSLA"], ["SIRI", "AAL"], ["SIRI", "LBTYK"], ["SIRI", "FISV"], ["SIRI", "DISH"], ["SIRI", "TXN"], ["SIRI", "LILAK"], ["SIRI", "BBBY"], ["SIRI", "EXPD"], ["SIRI", "QVCA"], ["SIRI", "ADP"], ["SIRI", "FOX"], ["SIRI", "LVNTA"], ["SIRI", "VOD"], ["SIRI", "VIAB"], ["SIRI", "CSCO"], ["EA", "GOOG"], ["EA", "ADP"], ["EA", "FISV"], ["EA", "ATVI"], ["EA", "MSFT"], ["DISCK", "VIAB"], ["DISCK", "ADP"], ["DISCK", "FOX"], ["DISCK", "PCAR"], ["DISCK", "EXPD"], ["FOX", "LBTYA"], ["FOX", "ADP"], ["FOX", "TXN"], ["FOX", "LILAK"], ["FOX", "LBTYK"], ["FOX", "FISV"], ["FOX", "VIAB"], ["FOX", "DISH"], ["FOX", "QVCA"], ["ORLY", "GOOG"], ["ORLY", "TSCO"], ["ORLY", "ADP"], ["ORLY", "DLTR"], ["ORLY", "FISV"], ["LVNTA", "GOOG"], ["LVNTA", "TXN"], ["LVNTA", "ADBE"], ["LVNTA", "ADP"], ["LVNTA", "TRIP"], ["QCOM", "TXN"], ["QCOM", "ADP"], ["QCOM", "INTC"], ["QCOM", "CSCO"], ["QCOM", "ADI"], ["QCOM", "EXPD"], ["YHOO", "GOOG"], ["YHOO", "ADBE"], ["YHOO", "ADP"], ["YHOO", "BIDU"], ["YHOO", "INTU"], ["YHOO", "FISV"], ["VOD", "LBTYA"], ["VOD", "INTU"], ["VOD", "ADP"], ["VOD", "FISV"], ["MU", "TXN"], ["MU", "INTC"], ["MU", "ADI"], ["MDLZ", "ADP"], ["MDLZ", "INTU"], ["MDLZ", "FISV"], ["AMGN", "GOOG"], ["AMGN", "ADP"], ["AMGN", "GILD"], ["AMGN", "INCY"], ["AMGN", "BIIB"], ["AMGN", "ILMN"], ["AMGN", "BMRN"], ["AMGN", "FISV"], ["AMGN", "CELG"], ["AMGN", "CA"], ["AMGN", "ALXN"], ["FB", "GOOG"], ["FB", "SBUX"], ["FB", "FISV"], ["FB", "MSFT"], ["COST", "GOOG"], ["COST", "ADP"], ["COST", "DLTR"], ["COST", "CSCO"], ["COST", "FISV"], ["FISV", "GOOG"], ["FISV", "ADBE"], ["FISV", "TSLA"], ["FISV", "WBA"], ["FISV", "KLAC"], ["FISV", "WYNN"], ["FISV", "ADSK"], ["FISV", "PCAR"], ["FISV", "TXN"], ["FISV", "MNST"], ["FISV", "BIIB"], ["FISV", "FAST"], ["FISV", "CHRW"], ["FISV", "ATVI"], ["FISV", "MSFT"], ["FISV", "EXPD"], ["FISV", "QVCA"], ["FISV", "ADP"], ["FISV", "CA"], ["FISV", "AKAM"], ["FISV", "INTU"], ["FISV", "ISRG"], ["FISV", "TSCO"], ["FISV", "SBUX"], ["FISV", "DLTR"], ["FISV", "CMCSA"], ["ADBE", "GOOG"], ["ADBE", "AKAM"], ["ADBE", "ADP"], ["ADBE", "BIDU"], ["ADBE", "INTU"], ["ADBE", "TSLA"], ["ADBE", "DISH"], ["ADBE", "ATVI"], ["ADBE", "ADSK"], ["ADBE", "MSFT"], ["ADSK", "TXN"], ["ADSK", "INTU"], ["ADSK", "ADI"], ["MSFT", "GOOG"], ["MSFT", "TXN"], ["MSFT", "ADP"], ["DLTR", "ADP"], ["DLTR", "SBUX"], ["FAST", "TXN"], ["FAST", "ADP"], ["FAST", "CA"], ["FAST", "CSCO"], ["FAST", "EXPD"], ["BBBY", "ADP"], ["BBBY", "CSCO"], ["BBBY", "PCAR"], ["BBBY", "EXPD"], ["EXPD", "CHRW"], ["EXPD", "ADP"], ["EXPD", "CSCO"], ["EXPD", "LLTC"], ["EXPD", "PCAR"], ["QVCA", "TXN"], ["QVCA", "ADP"], ["QVCA", "CSCO"], ["LLTC", "TXN"], ["LLTC", "ADP"], ["LLTC", "INTC"], ["LLTC", "ADI"], ["ADP", "GOOG"], ["ADP", "PCAR"], ["ADP", "WBA"], ["ADP", "KLAC"], ["ADP", "TXN"], ["ADP", "MNST"], ["ADP", "BIIB"], ["ADP", "CERN"], ["ADP", "CHRW"], ["ADP", "ATVI"], ["ADP", "CELG"], ["ADP", "INTC"], ["ADP", "GILD"], ["ADP", "CA"], ["ADP", "AKAM"], ["ADP", "INTU"], ["ADP", "ISRG"], ["ADP", "TSCO"], ["ADP", "NTAP"], ["ADP", "BIDU"], ["ADP", "CSCO"], ["ADP", "EBAY"], ["ADP", "SBUX"], ["ADP", "CMCSA"], ["ADP", "ALXN"], ["GILD", "BIIB"], ["GILD", "INTU"], ["GILD", "ALXN"], ["GILD", "CELG"], ["CA", "GOOG"], ["CA", "TXN"], ["CA", "CSCO"], ["CA", "WBA"], ["ILMN", "GOOG"], ["ILMN", "TXN"], ["ILMN", "CELG"], ["ILMN", "ISRG"], ["TRIP", "GOOG"], ["TRIP", "PCAR"], ["ADI", "TXN"], ["ADI", "WYNN"], ["ADI", "NTAP"], ["ADI", "INTC"], ["ADI", "CSCO"], ["ADI", "KLAC"], ["CHRW", "GOOG"], ["TSCO", "GOOG"], ["TSCO", "SBUX"], ["NTAP", "TXN"], ["NTAP", "STX"], ["VIAB", "PCAR"], ["BIDU", "GOOG"], ["BIDU", "TXN"], ["EBAY", "GOOG"], ["EBAY", "TXN"], ["SBUX", "GOOG"], ["SBUX", "MNST"], ["SBUX", "AAL"], ["BMRN", "INCY"], ["BMRN", "BIIB"], ["BMRN", "CELG"], ["CMCSA", "INTU"], ["KLAC", "TXN"], ["KLAC", "INTC"], ["WYNN", "TXN"], ["WYNN", "CSCO"], ["WYNN", "PCAR"], ["LBTYA", "TXN"], ["LBTYA", "LBTYK"], ["LBTYA", "INTU"], ["TSLA", "INTU"], ["AAL", "GOOG"], ["AAL", "TXN"], ["LBTYK", "TXN"], ["LBTYK", "INTU"], ["WBA", "GOOG"], ["WBA", "CERN"], ["DISH", "CSCO"], ["DISH", "INTU"], ["PCAR", "TXN"], ["TXN", "GOOG"], ["TXN", "AKAM"], ["TXN", "INTC"], ["TXN", "LILAK"], ["TXN", "INTU"], ["TXN", "STX"], ["TXN", "CSCO"], ["MNST", "GOOG"], ["INCY", "INTU"], ["INCY", "BIIB"], ["INCY", "CELG"], ["BIIB", "GOOG"], ["BIIB", "ALXN"], ["BIIB", "CELG"], ["LILAK", "GOOG"], ["LILAK", "CSCO"], ["ATVI", "GOOG"], ["CELG", "GOOG"], ["CELG", "ALXN"], ["GOOG", "ISRG"], ["GOOG", "INTC"], ["GOOG", "CERN"], ["AKAM", "CSCO"], ["INTC", "CSCO"], ["INTC", "ISRG"], ["INTC", "STX"], ["STX", "CSCO"], ["ISRG", "CERN"], ["CERN", "CSCO"]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "dark", "height": 500, "width": 1000, "charge": -250, "color_map": "Heat", "graph_id": 1, "got_embed": true, "embedding": [[3.000225138042406, -11.120370971614175], [5.5500808220149915, -8.115296724632845], [-6.39486621610136, -3.1290678063506405], [-5.261307519997695, -4.951948781222204], [4.889873757848685, -0.6053300165488121], [-22.485550946123478, 4.511501749865368], [-6.7502738850990065, 8.289859226669723], [-6.601089957159963, 8.228974767259228], [5.61555432934217e-05, 9.484070722061437], [4.6582763740877065, 0.41840128676902105], [-19.673176824205218, 6.35656298020367], [18.667526121948878, 10.333520648738238], [3.2230920070100257, 5.258525398700055], [20.962246261574368, 14.575542131911178], [7.711397637053399, 4.490517770063308], [-3.5119745826364985, -2.303360449490411], [7.063383024539637, 8.214290768193852], [2.283170803035286, 4.653718149084521], [0.310204959783876, -14.669679433627525], [-23.085543319036642, 7.473117110846632], [-43.63835012594533, 15.85799849682903], [-4.830368089721015, -4.112126752818725], [-2.616706565035656, 2.3644594967055736], [-24.24636664576296, 8.391367045710156], [-4.215654773978967, -2.0218366437933786], [-5.287421435193701, -3.355035020772847], [-3.288805476055494, -1.731671339480743], [6.905735746793294, -2.8308760311085424], [-5.084580042004638, -4.593808802188872], [-5.7910179339624, -3.128328648285413], [-4.851494677228599, -4.483218486141843], [-3.5570600032257715, -2.37724225297516], [1.4765828094410203, -24.716728896737163], [-1.2129112403670816, -19.782913421559673], [6.166322860816011, -19.09888970530178], [-4.961962976308596, -8.120326531712687], [2.0181439417068057, 2.55910682129559], [-5.95403729299426, -1.090559289595578], [-0.25156922717711416, -11.165650317614649], [5.180743345883377, -2.563303592438286], [-6.889686036843181, 4.933856445444932], [4.742997012583609, -0.19964106183564712], [-3.097566292188196, -1.4998198589412333], [4.394783530217396, 0.4987169804872625], [-17.778164588406963, 1.8884637249130527], [-3.41939199002129, -2.504609018539834], [-6.88886160081266, 22.668963998687918], [-28.51116294092981, 5.751880631571187], [8.449505065101533, 8.396496839013187], [-0.12152660238077621, -4.973306000740978], [-1.4460800007621628, 4.364954230486751], [2.6665394707851235, 16.772971439263753], [7.270450148767083, 5.795841385468868], [-5.053880180932608, -2.2233541446930167], [13.459718099839737, 12.3631644797905], [17.148669012584712, -6.867243528254688], [16.764168251334105, -6.715338206276405], [5.628039370244842, -3.690921417247291], [6.582080300644303, 3.81210024474996], [7.218317101461753, 2.394594113928216], [2.832611251490116, 0.5076845049076786], [6.6355989193728036, 4.495204471505498], [4.357694746087237, -5.51375869330764], [-1.2403409174418583, -11.755090944357228], [28.608477595733003, 19.56366250282759], [0.627847586392291, 5.161590069838288], [-3.8310333718267695, -8.664965076353043], [-6.046932297177968, -2.753874608172038], [-20.4066836636991, 3.743784403183671], [10.515443155941544, 6.700431621743481], [4.316012126624389, 6.808077150255094], [24.56761967650106, 15.662749343548926], [7.376298285591429, 3.8660144294923486], [-5.604458070376248, -3.3302035932231973], [5.0498270052354854, -7.967617569172485], [-2.9921898789821335, -7.491017576670081], [6.7438532549777666, 2.4415103485577534], [-29.9906169667554, 22.372679453791463], [-3.916838062661477, -8.637458689291625], [2.9562185698391277, -0.04025101305334136], [28.752936491297252, 13.112728519178969], [6.5174692536447365, -9.52688838953964], [21.83809021107846, 13.947314690425147], [4.930301663737061, -4.91452948328792], [-5.4542609003901505, -2.381780859885783], [3.986407973519913, 0.06351742038713504], [2.9087054364064997, 2.1910989663591023], [-6.598182591849003, -12.475341896350907], [9.852424627279584, 7.097889182545406], [1.3868311764186918, 3.266284780070051], [-5.464147625496214, -2.168695521805618], [-9.094906042091619, -1.7624006073635683], [1.1145916809874878, -4.737697158187446], [-40.91251934103636, 13.286314291982334], [11.673969879226371, -32.257667701634716], [-2.962172068484821, -27.41793277355209], [-1.7802813091545968, -13.423540334493998], [-5.057699669667528, -2.869254373539912], [29.819964899273792, 20.370452075808124], [-0.06283747925235932, -13.994929300048243], [12.336289599441537, -5.747830352755711], [9.639046808496559, 6.07030711344123], [-5.562350760338738, -3.258304755974104]], "color_axis": "degree_centrality", "nodes": ["WDC", "NFLX", "GOOGL", "AAPL", "SRCL", "SBAC", "JD", "XLNX", "NXPI", "VRTX", "SPLS", "MYL", "KHC", "HSIC", "CTSH", "AMZN", "MAR", "MAT", "VRSK", "FOXA", "VIP", "ROST", "WFM", "CHKP", "PAYX", "ESRX", "REGN", "AMAT", "CHTR", "SWKS", "NVDA", "AVGO", "LILA", "PCLN", "CTXS", "LRCX", "SYMC", "DISCA", "GRMN", "SIRI", "EA", "DISCK", "FOX", "ORLY", "LVNTA", "QCOM", "YHOO", "VOD", "MU", "MDLZ", "AMGN", "FB", "COST", "FISV", "ADBE", "ADSK", "MSFT", "DLTR", "FAST", "BBBY", "EXPD", "QVCA", "LLTC", "ADP", "GILD", "CA", "ILMN", "TRIP", "ADI", "CHRW", "TSCO", "NTAP", "VIAB", "BIDU", "EBAY", "SBUX", "BMRN", "CMCSA", "KLAC", "WYNN", "LBTYA", "TSLA", "AAL", "LBTYK", "WBA", "DISH", "PCAR", "TXN", "MNST", "INCY", "BIIB", "LILAK", "ATVI", "CELG", "GOOG", "AKAM", "INTC", "INTU", "ALXN", "STX", "ISRG", "CERN", "CSCO"], "label_color": "rgba(255, 255, 255, 0.8)", "graph_layout": "force"}'));
-		//console.log(window.current_graph_id);
-		var width = window.graph_data[$.data(element, "graph_id")]['width'];
-		var height = window.graph_data[$.data(element, "graph_id")]['height'];
-
-		var label_color = window.graph_data[$.data(element, "graph_id")]['label_color'];
+		window.graph_data.push(JSON.parse('{"stats": [[0.6666666666666666], [0.6666666666666666], [0.6666666666666666], [0.7777777777777777], [0.8888888888888888], [1.0], [1.0], [1.0], [1.0], [1.0]], "links": [["GOOG", "AKAM"], ["GOOG", "ADBE"], ["GOOG", "GOOGL"], ["GOOG", "FOXA"], ["GOOG", "AAL"], ["GOOG", "FOX"], ["GOOG", "ATVI"], ["GOOG", "ALXN"], ["GOOG", "AMZN"], ["AKAM", "ADBE"], ["AKAM", "GOOGL"], ["AKAM", "FOXA"], ["AKAM", "AAL"], ["AKAM", "FOX"], ["AKAM", "ALXN"], ["AKAM", "AMZN"], ["ADBE", "GOOGL"], ["ADBE", "FOXA"], ["ADBE", "AAL"], ["ADBE", "FOX"], ["ADBE", "ATVI"], ["ADBE", "ALXN"], ["ADBE", "AMZN"], ["GOOGL", "FOXA"], ["GOOGL", "AAL"], ["GOOGL", "FOX"], ["GOOGL", "ATVI"], ["GOOGL", "ALXN"], ["GOOGL", "AMZN"], ["FOXA", "AAL"], ["FOXA", "FOX"], ["FOXA", "ATVI"], ["FOXA", "ALXN"], ["FOXA", "AMZN"], ["AAL", "FOX"], ["FOX", "ATVI"], ["FOX", "ALXN"], ["FOX", "AMZN"], ["ATVI", "AMZN"]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "dark", "height": 500, "width": 1000, "charge": -250, "color_map": "Heat", "graph_id": 1, "got_embed": true, "embedding": [[-0.33469232425912127, -0.1667442157320966], [-0.4555703307371198, -0.10523143351196416], [18.531334854923806, -20.201610603489623], [1.2739843640747857, -0.19532240822227714], [-9.0394364812318, 10.977059258686687], [-32.87705791379021, -7.7730114162359705], [0.8611661606380727, -1.0787385361733888], [0.8336017291983077, -1.0720211907635588], [10.308771341360876, -10.58201189468209], [10.897898599822435, 30.197632440124316]], "color_axis": "degree_centrality", "nodes": ["GOOG", "AKAM", "ADBE", "GOOGL", "FOXA", "AAL", "FOX", "ATVI", "ALXN", "AMZN"], "label_color": "rgba(255, 255, 255, 0.8)", "graph_layout": "force"}'));
 		
-		var min_node_size = window.graph_data[$.data(element, "graph_id")]['min_node_size'];
-		
-		var charge = window.graph_data[$.data(element, "graph_id")]['charge'];
-
-		var colorAxis = window.graph_data[$.data(element, "graph_id")]['color_axis'];
-		if(colorAxis == undefined){
-			colorAxis = "closeness_centrality";
-		}
-
-		var colorMap = window.graph_data[$.data(element, "graph_id")]['color_map'];
-		if(colorMap == undefined){
-			colorMap = "RdBuGn";
-		}
-
-		var graphStyle = window.graph_data[$.data(element, "graph_id")]['graph_style'];
-		// light || dark || white || ether
-		if(graphStyle == undefined){
-			graphStyle = "light";
-		}
-
-		var suppressLabels;
-		if(suppressLabels == undefined){
-			suppressLabels = true;
-		}
-
-		var graphTitle;
-		if(graphTitle == undefined){
-			graphTitle = "SliceMatrix-IO Network Viewer";
-		}
-
-		var graphLayout = window.graph_data[$.data(element, "graph_id")]['graph_layout'];
-		if(graphLayout == undefined && window.graph_data[$.data(element, "graph_id")]['got_embed'] == true){
-			graphLayout = "embedding";
-		}
-
 		require(['d3'], function(d3){
-			var graph_id = $.data(element, "graph_id");
-			element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
-			element.append('<div class = "loadingDialog" id = "spinner_' + graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
-			element.append('<div class = "content_cell" id = "content_' + graph_id +'"><canvas id = "mainEvent_' + graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
-
-			// update background style
-			if(graphStyle == "dark"){
-				d3.select("#content_" + graph_id).style("background", "rgb(20,20,20)");
-
-
-				$('#top_bar').css({
-					"color": "rgba(255, 255, 255, 0.88)",
-					"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
-					"background-color": "rgba(220,220,220, 0.4)",
-					"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
-				});
-				d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
-			}else if(graphStyle == "white"){
-				$('#content' + graph_id).css({
-					"background-image": "none",
-					"background-color": "#FFF",
-					"background": "rgb(256,256,256)"
-				});
-
-				d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
-			}else if(graphStyle == "ether"){
-				$('#content' + graph_id).css({
-					"background-image": "none",
-					"background-color": "#000",
-					"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
-				});
-
-				$('#top_bar').css({
-					"color": "rgba(255, 255, 255, 0.88)",
-					"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
-					"background-color": "rgba(220,220,220, 0.4)",
-					"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
-				});
-
-				d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
-			}
-
-			//
-			if(graphLayout == undefined){
-				graphLayout = false;
-			}
-
-			var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
-			return d3.scaleLinear()
-					 .domain([minval, midval, maxval])
-					 .range([mincol, midcol, maxcol]);
-
-			}
-
-			var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
-						 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
-						 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
-						 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
-						 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
-						 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
-						 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
-						 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
-						 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
-						 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
-						 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
-
-			function getMaxOfArray(numArray) {
-			  return Math.max.apply(null, numArray);
-			}
-
-			function getMinOfArray(numArray) {
-			  return Math.min.apply(null, numArray);
-			}
-
-			var graph = {nodes:[], links:[]};
-
-			var curr_colormap;
-
-			d3.select("#loading_status").html("loaded nodes...");
-			var data = window.graph_data[$.data(element, "graph_id")];
-			data['nodes'].forEach(function(d){
-				graph['nodes'].push({id:d});
-			});
-
-			d3.select("#loading_status").html("loaded edges...");
-			data['links'].forEach(function(d){
-				graph['links'].push({source:d[0], target:d[1]});
-			});
-
-			//var height = 600;
-			//var width  = 1200;
-			var searchRadius = 3;
-
-			//d3.select("canvas").attr("height", height).attr("width", width);
-
-			var transform = d3.zoomIdentity;
-
+			window.d3 = d3;
 			
-			//var canvas = document.querySelector("canvas"),
-			var canvas = document.querySelector("#mainEvent_" + $.data(element, "graph_id")),
-				context = canvas.getContext("2d");
-				//width = canvas.width,
-				//height = canvas.height;
+			// when it reloads need to reload everything in window.graph_data from scratch, cuz this runs after everything else apparently... fuck me running
+			//d3 = window.d3;
+			for(var graph_id in window.graph_data){
+				
+				(function(graph_id, element) {
+					console.log("require");
+					console.log("graph_id = " + graph_id);
+					var width = window.graph_data[graph_id]['width'];
+					var height = window.graph_data[graph_id]['height'];
+					console.log(window.current_graph_id);
+					element.empty();
+					element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
+					element.append('<div class = "loadingDialog" id = "spinner_' + graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
+					element.append('<div class = "content_cell" id = "content_' + graph_id +'"><canvas id = "mainEvent_' + graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
 
-			var simulation = d3.forceSimulation()
-				.force("link", d3.forceLink().id(function(d) { return d.id; }))
-				.force("charge", d3.forceManyBody().strength(charge))
-				.force("center", d3.forceCenter(width / 2, height / 2))
-				.force("X", d3.forceX().x(0.2))
-				.force("Y", d3.forceY().y(0.2));
+					var label_color = window.graph_data[graph_id]['label_color'];
+					
+					var min_node_size = window.graph_data[graph_id]['min_node_size'];
+					
+					var charge = window.graph_data[graph_id]['charge'];
 
-			var zoom = d3.zoom();
-
-			var k = 1.0;
-
-			function initialize(){
-			  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
-			}
-
-			//initialize();
-
-			var ggraph;
-
-			var selected_node;
-
-			var transform;
-
-			var ticks = 0;
-
-
-			var mixcolors = function(color1, color2){
-				var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
-				var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
-				var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
-				var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
-				var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
-				if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
-				  return "rgba(20,120,220,0.6)";
-				}else{
-				  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
-				}
-			}
-
-			var drawGraph = function(){
-				console.log(graph);
-
-				function dragsubject() {
-				  var i,
-					  x = transform.invertX(d3.event.x),
-					  y = transform.invertY(d3.event.y),
-					  dx,
-					  dy;
-				}
-
-
-				function dragstarted() {
-				  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-				  d3.event.subject.fx = d3.event.subject.x;
-				  d3.event.subject.fy = d3.event.subject.y;
-				}
-
-				function dragged() {
-				  //d3.event.subject[0] = transform.invertX(d3.event.x);
-				  //d3.event.subject[1] = transform.invertY(d3.event.y);
-				  d3.event.subject.fx = d3.event.x;
-				  d3.event.subject.fy = d3.event.y;
-				}
-
-				function dragended() {
-				  if (!d3.event.active) simulation.alphaTarget(0);
-				  d3.event.subject.fx = null;
-				  d3.event.subject.fy = null;
-				}
-
-				function drawLink(d) {
-				  context.moveTo(d.source.x, d.source.y);
-				  context.lineTo(d.target.x, d.target.y);
-				}
-
-				function drawNode(d) {
-				  context.moveTo(d.x + get_current_node_size(), d.y);
-				  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
-				  //context.fill();
-				}
-
-				function drawLabel(d, id) {
-				  //console.log(d);
-				  context.shadowBlur = 10;
-				  context.shadowColor = "rgba(120,120,120,0.3)";
-				  context.fillText(d.id, d.x,d.y);
-				  //context.fill();
-				}
-
-				function rgb2a(rgb_string, alpha){
-					//console.log(rgb_string);
-				  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
-				  //rgb_string = "rgba(0,0,0,0.3)";
-				  return rgb_string 
-				}
-
-				function get_current_alpha(){
-				  return 1.0 - Math.min(transform.k, 0.5);
-				}
-
-				function get_current_font_size(){
-				  return 10 / Math.pow(transform.k, 0.5);
-				}
-
-				function get_current_highlighted_font_size(){
-				  return Math.min(720 * transform.k, 20);
-				}
-
-				function get_current_link_width(){
-				  return Math.max(1.5, 0.5/ transform.k);
-				}
-
-				function get_current_node_size(){
-				  return Math.min(60 * transform.k, min_node_size);
-				}
-
-				function get_current_deg_thresh(){
-				  if(k >= 0.4){
-					return 1;
-				  }else{
-					return 2;
-				  }
-				}
-
-
-				ggraph = graph;
-				  setTimeout(initialize, 0);
-
-				  if(graphLayout == "force"){
-
-					  simulation
-						  .nodes(graph.nodes)
-						  .on("tick", ticked);
-
-					  simulation.force("link")
-						  .links(graph.links);
-
-				  }else{
-						  simulation
-						  .nodes(graph.nodes);
-						  //.on("tick", ticked);
-
-					  simulation.force("link")
-						  .links(graph.links);
-						ticked();
-				  }
-
-				  //d3.select("mainEvent_" + window.current_graph_id)
-				  d3.select(canvas)
-					  .on("mousemove", mousemoved)
-					  .call(d3.drag()
-						  .container(canvas)
-						  .subject(dragsubject)
-						  .on("start", dragstarted)
-						  .on("drag", dragged)
-						  .on("end", dragended))
-					  .call(zoom.on("zoom", zoomed));
-
-				  function zoomed() {
-					//console.log("zooming!");
-					transform = d3.event.transform;
-					//console.log(simulation.alpha());
-					if(graphLayout == "force"){
-						if(simulation.alpha() < 0.01){//>
-						  ticked();
-						}
-					}else{
-						ticked();
+					var colorAxis = window.graph_data[graph_id]['color_axis'];
+					if(colorAxis == undefined){
+						colorAxis = "closeness_centrality";
 					}
-				  }
 
-				  function mousemoved() {
-					//console.log(graph.nodes);
-					var m = d3.mouse(this);
-					var x = (m[0] - transform.x) / transform.k;
-					var y = (m[1] - transform.y) / transform.k;
-					var moused_node;
-					for (var i = graph.nodes.length - 1; i >= 0; --i) {
-					  var point = graph.nodes[i];
-					  var dx = x - point.x;
-					  var dy = y - point.y;
-					  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
-						//point.x = transform.applyX(point.x);
-						//point.y = transform.applyY(point.y);
-						moused_node = point;
-					  }
+					var colorMap = window.graph_data[graph_id]['color_map'];
+					if(colorMap == undefined){
+						colorMap = "RdBuGn";
 					}
-					selected_node = moused_node;
-					if(graphLayout == "force"){
-						if(simulation.alpha() < 0.01){//>
-						  ticked();
-						}
+
+					var graphStyle = window.graph_data[graph_id]['graph_style'];
+					// light || dark || white || ether
+					if(graphStyle == undefined){
+						graphStyle = "light";
 					}
-				  }
 
-				  function restartIt(){
-					simulation.alpha(1.0)
-					simulation.restart();
-				  }
-
-				  function ticked() {
-					k = transform.k;
-					if( graphLayout != "force"){
-						simulation.stop();
-					}else{
-						if(ticks == 0){
-							setTimeout(restartIt,1);
-						}
+					var suppressLabels;
+					if(suppressLabels == undefined){
+						suppressLabels = true;
 					}
-						context.clearRect(0, 0, width, height);
-						context.save();
-						//context.translate(width / 2, height / 2);
 
-						context.globalAlpha = 1.0;
+					var graphTitle;
+					if(graphTitle == undefined){
+						graphTitle = "SliceMatrix-IO Network Viewer";
+					}
 
-						context.translate(transform.x, transform.y);
-						context.scale(transform.k, transform.k);
+					var graphLayout = window.graph_data[graph_id]['graph_layout'];
+					if(graphLayout == undefined && window.graph_data[graph_id]['got_embed'] == true){
+						graphLayout = "embedding";
+					}
 
-						graph.links.forEach(function(link) {
-						  context.beginPath();
-						  drawLink(link);
-						  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
-						  //console.log(link.source.color);
-						  var color = mixcolors(link.source.color, link.target.color);
-						  context.strokeStyle = color;
-						  context.lineWidth = get_current_link_width();
-						  context.stroke();
+					// update background style
+					if(graphStyle == "dark"){
+						d3.select("#content_" + graph_id).style("background", "rgb(20,20,20)");
+
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}else if(graphStyle == "white"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#FFF",
+							"background": "rgb(256,256,256)"
 						});
 
-						graph.nodes.forEach(function(user) {
-						//console.log(user);
-						  context.beginPath();
-						  drawNode(user);
-						  context.fillStyle = rgb2a(user.color, get_current_alpha());
-						  context.fill();
-						  if(selected_node != undefined){
-							if(user.id == selected_node.id){
-							  context.strokeStyle = "#000";
-							  context.lineWidth = 1;
-							  context.stroke();
+						d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
+					}else if(graphStyle == "ether"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#000",
+							"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
+						});
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}
+
+					//
+					if(graphLayout == undefined){
+						graphLayout = false;
+					}
+
+					var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
+					return d3.scaleLinear()
+							 .domain([minval, midval, maxval])
+							 .range([mincol, midcol, maxcol]);
+
+					}
+
+					var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
+								 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
+								 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
+								 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
+								 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
+								 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
+								 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
+								 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
+								 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
+								 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
+								 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
+
+					function getMaxOfArray(numArray) {
+					  return Math.max.apply(null, numArray);
+					}
+
+					function getMinOfArray(numArray) {
+					  return Math.min.apply(null, numArray);
+					}
+
+					var graph = {nodes:[], links:[]};
+
+					var curr_colormap;
+
+					d3.select("#loading_status").html("loaded nodes...");
+					var data = window.graph_data[graph_id];
+					data['nodes'].forEach(function(d){
+						graph['nodes'].push({id:d});
+					});
+
+					d3.select("#loading_status").html("loaded edges...");
+					data['links'].forEach(function(d){
+						graph['links'].push({source:d[0], target:d[1]});
+					});
+
+					//var height = 600;
+					//var width  = 1200;
+					var searchRadius = 3;
+
+					//d3.select("canvas").attr("height", height).attr("width", width);
+
+					var transform = d3.zoomIdentity;
+
+
+					//var canvas = document.querySelector("canvas"),
+					var canvas = document.querySelector("#mainEvent_" + graph_id),
+						context = canvas.getContext("2d"),
+						width = canvas.width,
+						height = canvas.height;
+						
+					$("#mainEvent_" + graph_id).width(width);
+					$("#mainEvent_" + graph_id).height(height);
+
+					var simulation = d3.forceSimulation()
+						.force("link", d3.forceLink().id(function(d) { return d.id; }))
+						.force("charge", d3.forceManyBody().strength(charge))
+						.force("center", d3.forceCenter(width / 2, height / 2))
+						.force("X", d3.forceX().x(0.2))
+						.force("Y", d3.forceY().y(0.2));
+
+					var zoom = d3.zoom();
+
+					var k = 1.0;
+
+					function initialize(){
+					  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
+					}
+
+					//initialize();
+
+					var ggraph;
+
+					var selected_node;
+
+					var transform;
+
+					var ticks = 0;
+
+
+					var mixcolors = function(color1, color2){
+						var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
+						var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
+						var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
+						var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
+						var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
+						if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
+						  return "rgba(20,120,220,0.6)";
+						}else{
+						  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
+						}
+					}
+
+					var drawGraph = function(){
+						console.log(graph);
+
+						function dragsubject() {
+						  var i,
+							  x = transform.invertX(d3.event.x),
+							  y = transform.invertY(d3.event.y),
+							  dx,
+							  dy;
+						}
+
+
+						function dragstarted() {
+						  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+						  d3.event.subject.fx = d3.event.subject.x;
+						  d3.event.subject.fy = d3.event.subject.y;
+						}
+
+						function dragged() {
+						  //d3.event.subject[0] = transform.invertX(d3.event.x);
+						  //d3.event.subject[1] = transform.invertY(d3.event.y);
+						  d3.event.subject.fx = d3.event.x;
+						  d3.event.subject.fy = d3.event.y;
+						}
+
+						function dragended() {
+						  if (!d3.event.active) simulation.alphaTarget(0);
+						  d3.event.subject.fx = null;
+						  d3.event.subject.fy = null;
+						}
+
+						function drawLink(d) {
+						  context.moveTo(d.source.x, d.source.y);
+						  context.lineTo(d.target.x, d.target.y);
+						}
+
+						function drawNode(d) {
+						  context.moveTo(d.x + get_current_node_size(), d.y);
+						  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
+						  //context.fill();
+						}
+
+						function drawLabel(d, id) {
+						  //console.log(d);
+						  context.shadowBlur = 10;
+						  context.shadowColor = "rgba(120,120,120,0.3)";
+						  context.fillText(d.id, d.x,d.y);
+						  //context.fill();
+						}
+
+						function rgb2a(rgb_string, alpha){
+							//console.log(rgb_string);
+						  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
+						  //rgb_string = "rgba(0,0,0,0.3)";
+						  return rgb_string 
+						}
+
+						function get_current_alpha(){
+						  return 1.0 - Math.min(transform.k, 0.5);
+						}
+
+						function get_current_font_size(){
+						  return 10 / Math.pow(transform.k, 0.5);
+						}
+
+						function get_current_highlighted_font_size(){
+						  return Math.min(720 * transform.k, 20);
+						}
+
+						function get_current_link_width(){
+						  return Math.max(1.5, 0.5/ transform.k);
+						}
+
+						function get_current_node_size(){
+						  return Math.min(60 * transform.k, min_node_size);
+						}
+
+						function get_current_deg_thresh(){
+						  if(k >= 0.4){
+							return 1;
+						  }else{
+							return 2;
+						  }
+						}
+
+
+						ggraph = graph;
+						  setTimeout(initialize, 0);
+
+						  if(graphLayout == "force"){
+
+							  simulation
+								  .nodes(graph.nodes)
+								  .on("tick", ticked);
+
+							  simulation.force("link")
+								  .links(graph.links);
+
+						  }else{
+								  simulation
+								  .nodes(graph.nodes);
+								  //.on("tick", ticked);
+
+							  simulation.force("link")
+								  .links(graph.links);
+								ticked();
+						  }
+
+						  //d3.select("mainEvent_" + graph_id)
+						  
+						  d3.select(canvas)
+							  .on("mousemove", mousemoved)
+							  .call(d3.drag()
+								  .container(canvas)
+								  .subject(dragsubject)
+								  .on("start", dragstarted)
+								  .on("drag", dragged)
+								  .on("end", dragended))
+							  .call(zoom.on("zoom", zoomed));
+
+						  function zoomed() {
+							//console.log("zooming!");
+							transform = d3.event.transform;
+							//console.log(simulation.alpha());
+							if(graphLayout == "force"){
+								if(simulation.alpha() < 0.01){//>
+								  ticked();
+								}
+							}else{
+								ticked();
 							}
 						  }
-						  //drawLabel(user, user.id);
 
+						  function mousemoved() {
+							//console.log(graph.nodes);
+							var m = d3.mouse(this);
+							var x = (m[0] - transform.x) / transform.k;
+							var y = (m[1] - transform.y) / transform.k;
+							var moused_node;
+							for (var i = graph.nodes.length - 1; i >= 0; --i) {
+							  var point = graph.nodes[i];
+							  var dx = x - point.x;
+							  var dy = y - point.y;
+							  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
+								//point.x = transform.applyX(point.x);
+								//point.y = transform.applyY(point.y);
+								moused_node = point;
+							  }
+							}
+							selected_node = moused_node;
+							if(graphLayout == "force"){
+								if(simulation.alpha() < 0.01){//>
+								  ticked();
+								}
+							}
+						  }
+
+						  function restartIt(){
+							simulation.alpha(1.0)
+							simulation.restart();
+						  }
+
+						  function ticked() {
+							k = transform.k;
+							if( graphLayout != "force"){
+								simulation.stop();
+							}else{
+								if(ticks == 0){
+									setTimeout(restartIt,1);
+								}
+							}
+								context.clearRect(0, 0, width, height);
+								context.save();
+								//context.translate(width / 2, height / 2);
+
+								context.globalAlpha = 1.0;
+
+								context.translate(transform.x, transform.y);
+								context.scale(transform.k, transform.k);
+
+								graph.links.forEach(function(link) {
+								  context.beginPath();
+								  drawLink(link);
+								  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
+								  //console.log(link.source.color);
+								  var color = mixcolors(link.source.color, link.target.color);
+								  context.strokeStyle = color;
+								  context.lineWidth = get_current_link_width();
+								  context.stroke();
+								});
+
+								graph.nodes.forEach(function(user) {
+								//console.log(user);
+								  context.beginPath();
+								  drawNode(user);
+								  context.fillStyle = rgb2a(user.color, get_current_alpha());
+								  context.fill();
+								  if(selected_node != undefined){
+									if(user.id == selected_node.id){
+									  context.strokeStyle = "#000";
+									  context.lineWidth = 1;
+									  context.stroke();
+									}
+								  }
+								  //drawLabel(user, user.id);
+
+								});
+
+							   graph.nodes.forEach(function(user) {
+								  //if(user.deg > get_current_deg_thresh()){
+									context.beginPath();
+									drawLabel(user, user.id);
+									  context.font="bold " + get_current_font_size() + "px Arial";
+									  context.fillStyle = label_color;//user.color;
+									  context.fill();
+								  //}
+								});
+
+								ticks++;
+								context.restore();
+
+						  }
+
+
+					}
+
+					var max_rank = 0;
+					var min_rank = 0;
+
+					window.graph_data[graph_id]['stats'].forEach(function(row, j){
+						//console.log(row);
+						var val1 = row[0];
+						if(val1 > max_rank){
+							max_rank = val1;
+						}
+						if(val1 < min_rank){
+							min_rank = val1;
+						}
+						graph.nodes[j][colorAxis] = val1
+					});
+
+					d3.select("#loading_status").html("loaded colorAxis data...");
+
+					var mid_rank = (max_rank - min_rank) / 2.0;
+
+					console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
+
+					curr_colormap = colormap(min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]);
+
+					graph.nodes.forEach(function(node, k){
+						graph.nodes[k].color = curr_colormap(graph.nodes[k][colorAxis]);
+					});
+
+					if(graphLayout == "force"){
+						d3.select("#spinner_" + graph_id).style("visibility", "hidden");
+						drawGraph();
+						//window.current_graph_id += 1
+					}else{
+						// bind the node embedding data to the graph!
+						var max_xy = 0.0;
+						var min_xy = 0.0;
+						var cmax_xy, cmin_xy;
+						// normalize embedding
+						//console.log("ooooooooooooooooooooooooo");
+						window.graph_data[graph_id]['embedding'].forEach(function(row, j){
+							cmax_xy = getMaxOfArray(row);
+							cmin_xy = getMinOfArray(row);
+							if(cmax_xy > max_xy){
+								max_xy = cmax_xy;
+							}
+							if(cmin_xy < min_xy){
+								min_xy = cmin_xy;
+							}
+						});
+						//console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+						var range_xy = max_xy - min_xy;
+
+						window.graph_data[graph_id]['embedding'].forEach(function(row, j){
+							//console.log(row);
+							graph.nodes[j]['x'] = ( ( ( Number(row[0]) ) / range_xy) * (width) )  + (width / 2);
+							graph.nodes[j]['y'] = ( ( ( Number(row[1]) ) / range_xy) * (height) ) + (height / 2);
+							graph.nodes[j]['fixed'] = true;
 						});
 
-					   graph.nodes.forEach(function(user) {
-						  //if(user.deg > get_current_deg_thresh()){
-							context.beginPath();
-							drawLabel(user, user.id);
-							  context.font="bold " + get_current_font_size() + "px Arial";
-							  context.fillStyle = label_color;//user.color;
-							  context.fill();
-						  //}
-						});
-
-						ticks++;
-						context.restore();
-
-				  }
-
-
-			}
-
-			var max_rank = 0;
-			var min_rank = 0;
-
-			window.graph_data[$.data(element, "graph_id")]['stats'].forEach(function(row, j){
-				//console.log(row);
-				var val1 = row[0];
-				if(val1 > max_rank){
-					max_rank = val1;
-				}
-				if(val1 < min_rank){
-					min_rank = val1;
-				}
-				graph.nodes[j][colorAxis] = val1
-			});
-
-			d3.select("#loading_status").html("loaded colorAxis data...");
-
-			var mid_rank = (max_rank - min_rank) / 2.0;
-
-			console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
-
-			curr_colormap = colormap(min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]);
-
-			graph.nodes.forEach(function(node, k){
-				graph.nodes[k].color = curr_colormap(graph.nodes[k][colorAxis]);
-			});
-
-			if(graphLayout == "force"){
-				d3.select("#spinner_" + $.data(element, "graph_id")).style("visibility", "hidden");
-				drawGraph();
-				window.current_graph_id += 1
-			}else{
-				// bind the node embedding data to the graph!
-				var max_xy = 0.0;
-				var min_xy = 0.0;
-				var cmax_xy, cmin_xy;
-				// normalize embedding
-				//console.log("ooooooooooooooooooooooooo");
-				window.graph_data[$.data(element, "graph_id")]['embedding'].forEach(function(row, j){
-					cmax_xy = getMaxOfArray(row);
-					cmin_xy = getMinOfArray(row);
-					if(cmax_xy > max_xy){
-						max_xy = cmax_xy;
+						d3.select("#spinner_" + graph_id).style("visibility", "hidden");
+						drawGraph();
+						//window.current_graph_id += 1
 					}
-					if(cmin_xy < min_xy){
-						min_xy = cmin_xy;
-					}
-				});
-				//console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-				var range_xy = max_xy - min_xy;
-
-				window.graph_data[$.data(element, "graph_id")]['embedding'].forEach(function(row, j){
-					//console.log(row);
-					graph.nodes[j]['x'] = ( ( ( Number(row[0]) ) / range_xy) * (width) )  + (width / 2);
-					graph.nodes[j]['y'] = ( ( ( Number(row[1]) ) / range_xy) * (height) ) + (height / 2);
-					graph.nodes[j]['fixed'] = true;
-				});
-
-				d3.select("#spinner_" + $.data(element, "graph_id")).style("visibility", "hidden");
-				drawGraph();
-				window.current_graph_id += 1
-			}
-					
-				
+							
+						
 			
+						
+				})(graph_id, element);
+				window.current_graph_id += 1;
+			}
 		});
 		
 		
@@ -13382,6 +13348,16 @@ $.data(element, 'graph_id', 1);
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>something further</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13403,492 +13379,1044 @@ $.data(element, 'graph_id', 1);
 
 
 
-<div id="a4ab3234-11f4-4c16-a303-e597156348ad"></div>
+<div id="b953017f-a372-4afa-98d7-74e359fd0506"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#a4ab3234-11f4-4c16-a303-e597156348ad');
-$.data(element, 'graph_id', 2);
+var element = $('#b953017f-a372-4afa-98d7-74e359fd0506');
+element.data('graph_id', 2);
 			require.config({
 				paths: {
 					d3: '//cdnjs.cloudflare.com/ajax/libs/d3/4.7.1/d3.min'
 				}
 			});
-		window.graph_data.push(JSON.parse('{"stats": [[0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.058823529411764705], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.06862745098039216], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.0784313725490196], [0.08823529411764705], [0.08823529411764705], [0.08823529411764705], [0.09803921568627451], [0.10784313725490197], [0.10784313725490197], [0.10784313725490197], [0.10784313725490197], [0.10784313725490197], [0.11764705882352941], [0.12745098039215685], [0.12745098039215685], [0.13725490196078433], [0.13725490196078433], [0.14705882352941177], [0.14705882352941177], [0.16666666666666666], [0.1764705882352941], [0.1764705882352941], [0.24509803921568626], [0.2549019607843137], [0.2647058823529412], [0.29411764705882354], [0.3235294117647059], [0.43137254901960786], [0.47058823529411764], [0.5294117647058824], [0.5392156862745098], [0.7058823529411764]], "links": [["WDC", "TXN"], ["WDC", "NTAP"], ["WDC", "INTC"], ["WDC", "MU"], ["WDC", "LRCX"], ["WDC", "STX"], ["WDC", "ADI"], ["NFLX", "GOOG"], ["NFLX", "TXN"], ["NFLX", "GOOGL"], ["NFLX", "ADP"], ["NFLX", "VRSK"], ["NFLX", "FB"], ["GOOGL", "GOOG"], ["GOOGL", "ADBE"], ["GOOGL", "TSLA"], ["GOOGL", "AAL"], ["GOOGL", "AAPL"], ["GOOGL", "CHKP"], ["GOOGL", "AMGN"], ["GOOGL", "REGN"], ["GOOGL", "FB"], ["GOOGL", "COST"], ["GOOGL", "FISV"], ["GOOGL", "WBA"], ["GOOGL", "JD"], ["GOOGL", "MSFT"], ["GOOGL", "TXN"], ["GOOGL", "LILA"], ["GOOGL", "MNST"], ["GOOGL", "ISRG"], ["GOOGL", "ATVI"], ["GOOGL", "PCLN"], ["GOOGL", "CTXS"], ["GOOGL", "CELG"], ["GOOGL", "HSIC"], ["GOOGL", "CTSH"], ["GOOGL", "ADP"], ["GOOGL", "GILD"], ["GOOGL", "EA"], ["GOOGL", "ORLY"], ["GOOGL", "LVNTA"], ["GOOGL", "ILMN"], ["GOOGL", "ALXN"], ["GOOGL", "YHOO"], ["GOOGL", "AMZN"], ["GOOGL", "SYMC"], ["GOOGL", "TRIP"], ["GOOGL", "TSCO"], ["GOOGL", "KHC"], ["GOOGL", "CERN"], ["GOOGL", "BIDU"], ["GOOGL", "EBAY"], ["GOOGL", "SBUX"], ["GOOGL", "CHTR"], ["GOOGL", "CMCSA"], ["AAPL", "GOOG"], ["AAPL", "TXN"], ["AAPL", "ADP"], ["AAPL", "CSCO"], ["AAPL", "SWKS"], ["AAPL", "MSFT"], ["SRCL", "TXN"], ["SRCL", "PAYX"], ["SRCL", "ADP"], ["SRCL", "VRSK"], ["SRCL", "SBUX"], ["SRCL", "FISV"], ["SBAC", "TXN"], ["SBAC", "PAYX"], ["SBAC", "ADP"], ["SBAC", "VRSK"], ["SBAC", "INTU"], ["SBAC", "FISV"], ["JD", "GOOG"], ["JD", "TXN"], ["JD", "BIDU"], ["JD", "YHOO"], ["JD", "MSFT"], ["XLNX", "TXN"], ["XLNX", "LLTC"], ["XLNX", "INTC"], ["XLNX", "CSCO"], ["XLNX", "AMAT"], ["XLNX", "FISV"], ["XLNX", "NVDA"], ["XLNX", "ADI"], ["NXPI", "TXN"], ["NXPI", "AVGO"], ["NXPI", "ADP"], ["NXPI", "INTC"], ["NXPI", "CSCO"], ["NXPI", "ADI"], ["VRTX", "GILD"], ["VRTX", "INCY"], ["VRTX", "BIIB"], ["VRTX", "AMGN"], ["VRTX", "REGN"], ["VRTX", "BMRN"], ["VRTX", "CELG"], ["SPLS", "TXN"], ["SPLS", "PAYX"], ["SPLS", "ADP"], ["SPLS", "SIRI"], ["SPLS", "INTU"], ["SPLS", "BBBY"], ["MYL", "GOOG"], ["MYL", "ADP"], ["MYL", "GILD"], ["MYL", "AMGN"], ["MYL", "CELG"], ["MYL", "ISRG"], ["KHC", "GOOG"], ["KHC", "VRSK"], ["KHC", "MDLZ"], ["KHC", "FISV"], ["KHC", "ADP"], ["HSIC", "GOOG"], ["HSIC", "PAYX"], ["HSIC", "ADP"], ["HSIC", "CSCO"], ["HSIC", "FISV"], ["CTSH", "GOOG"], ["CTSH", "ADBE"], ["CTSH", "VRSK"], ["CTSH", "FISV"], ["CTSH", "ADP"], ["AMZN", "GOOG"], ["AMZN", "TXN"], ["AMZN", "EA"], ["AMZN", "FB"], ["AMZN", "FISV"], ["AMZN", "TRIP"], ["AMZN", "MSFT"], ["MAR", "TXN"], ["MAR", "PAYX"], ["MAR", "VRSK"], ["MAR", "ADP"], ["MAR", "AAL"], ["MAR", "SIRI"], ["MAR", "VIP"], ["MAR", "PCAR"], ["MAT", "ADP"], ["MAT", "VRSK"], ["MAT", "SIRI"], ["MAT", "CSCO"], ["MAT", "INTU"], ["MAT", "FISV"], ["VRSK", "TSLA"], ["VRSK", "WBA"], ["VRSK", "CHKP"], ["VRSK", "ESRX"], ["VRSK", "COST"], ["VRSK", "FISV"], ["VRSK", "PCAR"], ["VRSK", "TXN"], ["VRSK", "INTC"], ["VRSK", "MNST"], ["VRSK", "BBBY"], ["VRSK", "EXPD"], ["VRSK", "CHRW"], ["VRSK", "PAYX"], ["VRSK", "ADP"], ["VRSK", "CA"], ["VRSK", "SIRI"], ["VRSK", "ORLY"], ["VRSK", "INTU"], ["VRSK", "ISRG"], ["VRSK", "VOD"], ["VRSK", "EBAY"], ["VRSK", "SBUX"], ["VRSK", "MDLZ"], ["VRSK", "ROST"], ["VRSK", "CMCSA"], ["FOXA", "DISCA"], ["FOXA", "PAYX"], ["FOXA", "DISCK"], ["FOXA", "VIAB"], ["FOXA", "ADP"], ["FOXA", "SIRI"], ["FOXA", "FOX"], ["FOXA", "LBTYK"], ["FOXA", "INTU"], ["FOXA", "FISV"], ["FOXA", "DISH"], ["VIP", "VOD"], ["VIP", "PAYX"], ["VIP", "CA"], ["VIP", "INTU"], ["VIP", "PCAR"], ["ROST", "PAYX"], ["ROST", "ADP"], ["ROST", "DLTR"], ["ROST", "ORLY"], ["ROST", "INTU"], ["ROST", "FISV"], ["WFM", "PAYX"], ["WFM", "ADP"], ["WFM", "SIRI"], ["WFM", "CSCO"], ["WFM", "COST"], ["WFM", "EXPD"], ["CHKP", "GOOG"], ["CHKP", "CSCO"], ["CHKP", "FISV"], ["CHKP", "ADP"], ["PAYX", "FISV"], ["PAYX", "CHRW"], ["PAYX", "AKAM"], ["PAYX", "ADP"], ["PAYX", "GILD"], ["PAYX", "FOX"], ["PAYX", "ORLY"], ["PAYX", "INTU"], ["PAYX", "VOD"], ["PAYX", "NTAP"], ["PAYX", "CSCO"], ["PAYX", "EBAY"], ["PAYX", "SBUX"], ["PAYX", "MDLZ"], ["PAYX", "EXPD"], ["PAYX", "CMCSA"], ["ESRX", "TXN"], ["ESRX", "WYNN"], ["ESRX", "ADP"], ["ESRX", "SIRI"], ["ESRX", "FISV"], ["ESRX", "WBA"], ["REGN", "GOOG"], ["REGN", "GILD"], ["REGN", "BIIB"], ["REGN", "AMGN"], ["REGN", "BMRN"], ["REGN", "CELG"], ["AMAT", "TXN"], ["AMAT", "ADI"], ["AMAT", "AVGO"], ["AMAT", "NTAP"], ["AMAT", "MU"], ["AMAT", "SWKS"], ["AMAT", "KLAC"], ["AMAT", "LRCX"], ["AMAT", "NVDA"], ["CHTR", "GOOG"], ["CHTR", "ADBE"], ["CHTR", "ADP"], ["CHTR", "LVNTA"], ["CHTR", "FISV"], ["SWKS", "TXN"], ["SWKS", "AVGO"], ["SWKS", "LRCX"], ["SWKS", "ADI"], ["NVDA", "TXN"], ["NVDA", "INTC"], ["NVDA", "LRCX"], ["NVDA", "ADI"], ["AVGO", "GOOG"], ["AVGO", "TXN"], ["AVGO", "ADP"], ["AVGO", "INTC"], ["AVGO", "LRCX"], ["AVGO", "ADI"], ["LILA", "GOOG"], ["LILA", "TXN"], ["LILA", "SIRI"], ["LILA", "CSCO"], ["LILA", "LILAK"], ["PCLN", "GOOG"], ["PCLN", "TXN"], ["PCLN", "ADP"], ["PCLN", "CSCO"], ["PCLN", "INTU"], ["PCLN", "TRIP"], ["CTXS", "GOOG"], ["CTXS", "ADBE"], ["CTXS", "ADP"], ["CTXS", "INTU"], ["CTXS", "FISV"], ["LRCX", "TXN"], ["LRCX", "NTAP"], ["LRCX", "INTC"], ["LRCX", "MU"], ["LRCX", "FISV"], ["LRCX", "ADI"], ["LRCX", "STX"], ["LRCX", "ADSK"], ["LRCX", "KLAC"], ["SYMC", "GOOG"], ["SYMC", "TXN"], ["SYMC", "ADP"], ["SYMC", "CA"], ["SYMC", "CSCO"], ["DISCA", "SIRI"], ["DISCA", "VIAB"], ["DISCA", "DISCK"], ["DISCA", "FOX"], ["DISCA", "PCAR"], ["DISCA", "EXPD"], ["GRMN", "GOOG"], ["GRMN", "TXN"], ["GRMN", "ADP"], ["GRMN", "SIRI"], ["GRMN", "CSCO"], ["GRMN", "FISV"], ["SIRI", "LBTYA"], ["SIRI", "TSLA"], ["SIRI", "AAL"], ["SIRI", "LBTYK"], ["SIRI", "FISV"], ["SIRI", "DISH"], ["SIRI", "TXN"], ["SIRI", "LILAK"], ["SIRI", "BBBY"], ["SIRI", "EXPD"], ["SIRI", "QVCA"], ["SIRI", "ADP"], ["SIRI", "FOX"], ["SIRI", "LVNTA"], ["SIRI", "VOD"], ["SIRI", "VIAB"], ["SIRI", "CSCO"], ["EA", "GOOG"], ["EA", "ADP"], ["EA", "FISV"], ["EA", "ATVI"], ["EA", "MSFT"], ["DISCK", "VIAB"], ["DISCK", "ADP"], ["DISCK", "FOX"], ["DISCK", "PCAR"], ["DISCK", "EXPD"], ["FOX", "LBTYA"], ["FOX", "ADP"], ["FOX", "TXN"], ["FOX", "LILAK"], ["FOX", "LBTYK"], ["FOX", "FISV"], ["FOX", "VIAB"], ["FOX", "DISH"], ["FOX", "QVCA"], ["ORLY", "GOOG"], ["ORLY", "TSCO"], ["ORLY", "ADP"], ["ORLY", "DLTR"], ["ORLY", "FISV"], ["LVNTA", "GOOG"], ["LVNTA", "TXN"], ["LVNTA", "ADBE"], ["LVNTA", "ADP"], ["LVNTA", "TRIP"], ["QCOM", "TXN"], ["QCOM", "ADP"], ["QCOM", "INTC"], ["QCOM", "CSCO"], ["QCOM", "ADI"], ["QCOM", "EXPD"], ["YHOO", "GOOG"], ["YHOO", "ADBE"], ["YHOO", "ADP"], ["YHOO", "BIDU"], ["YHOO", "INTU"], ["YHOO", "FISV"], ["VOD", "LBTYA"], ["VOD", "INTU"], ["VOD", "ADP"], ["VOD", "FISV"], ["MU", "TXN"], ["MU", "INTC"], ["MU", "ADI"], ["MDLZ", "ADP"], ["MDLZ", "INTU"], ["MDLZ", "FISV"], ["AMGN", "GOOG"], ["AMGN", "ADP"], ["AMGN", "GILD"], ["AMGN", "INCY"], ["AMGN", "BIIB"], ["AMGN", "ILMN"], ["AMGN", "BMRN"], ["AMGN", "FISV"], ["AMGN", "CELG"], ["AMGN", "CA"], ["AMGN", "ALXN"], ["FB", "GOOG"], ["FB", "SBUX"], ["FB", "FISV"], ["FB", "MSFT"], ["COST", "GOOG"], ["COST", "ADP"], ["COST", "DLTR"], ["COST", "CSCO"], ["COST", "FISV"], ["FISV", "GOOG"], ["FISV", "ADBE"], ["FISV", "TSLA"], ["FISV", "WBA"], ["FISV", "KLAC"], ["FISV", "WYNN"], ["FISV", "ADSK"], ["FISV", "PCAR"], ["FISV", "TXN"], ["FISV", "MNST"], ["FISV", "BIIB"], ["FISV", "FAST"], ["FISV", "CHRW"], ["FISV", "ATVI"], ["FISV", "MSFT"], ["FISV", "EXPD"], ["FISV", "QVCA"], ["FISV", "ADP"], ["FISV", "CA"], ["FISV", "AKAM"], ["FISV", "INTU"], ["FISV", "ISRG"], ["FISV", "TSCO"], ["FISV", "SBUX"], ["FISV", "DLTR"], ["FISV", "CMCSA"], ["ADBE", "GOOG"], ["ADBE", "AKAM"], ["ADBE", "ADP"], ["ADBE", "BIDU"], ["ADBE", "INTU"], ["ADBE", "TSLA"], ["ADBE", "DISH"], ["ADBE", "ATVI"], ["ADBE", "ADSK"], ["ADBE", "MSFT"], ["ADSK", "TXN"], ["ADSK", "INTU"], ["ADSK", "ADI"], ["MSFT", "GOOG"], ["MSFT", "TXN"], ["MSFT", "ADP"], ["DLTR", "ADP"], ["DLTR", "SBUX"], ["FAST", "TXN"], ["FAST", "ADP"], ["FAST", "CA"], ["FAST", "CSCO"], ["FAST", "EXPD"], ["BBBY", "ADP"], ["BBBY", "CSCO"], ["BBBY", "PCAR"], ["BBBY", "EXPD"], ["EXPD", "CHRW"], ["EXPD", "ADP"], ["EXPD", "CSCO"], ["EXPD", "LLTC"], ["EXPD", "PCAR"], ["QVCA", "TXN"], ["QVCA", "ADP"], ["QVCA", "CSCO"], ["LLTC", "TXN"], ["LLTC", "ADP"], ["LLTC", "INTC"], ["LLTC", "ADI"], ["ADP", "GOOG"], ["ADP", "PCAR"], ["ADP", "WBA"], ["ADP", "KLAC"], ["ADP", "TXN"], ["ADP", "MNST"], ["ADP", "BIIB"], ["ADP", "CERN"], ["ADP", "CHRW"], ["ADP", "ATVI"], ["ADP", "CELG"], ["ADP", "INTC"], ["ADP", "GILD"], ["ADP", "CA"], ["ADP", "AKAM"], ["ADP", "INTU"], ["ADP", "ISRG"], ["ADP", "TSCO"], ["ADP", "NTAP"], ["ADP", "BIDU"], ["ADP", "CSCO"], ["ADP", "EBAY"], ["ADP", "SBUX"], ["ADP", "CMCSA"], ["ADP", "ALXN"], ["GILD", "BIIB"], ["GILD", "INTU"], ["GILD", "ALXN"], ["GILD", "CELG"], ["CA", "GOOG"], ["CA", "TXN"], ["CA", "CSCO"], ["CA", "WBA"], ["ILMN", "GOOG"], ["ILMN", "TXN"], ["ILMN", "CELG"], ["ILMN", "ISRG"], ["TRIP", "GOOG"], ["TRIP", "PCAR"], ["ADI", "TXN"], ["ADI", "WYNN"], ["ADI", "NTAP"], ["ADI", "INTC"], ["ADI", "CSCO"], ["ADI", "KLAC"], ["CHRW", "GOOG"], ["TSCO", "GOOG"], ["TSCO", "SBUX"], ["NTAP", "TXN"], ["NTAP", "STX"], ["VIAB", "PCAR"], ["BIDU", "GOOG"], ["BIDU", "TXN"], ["EBAY", "GOOG"], ["EBAY", "TXN"], ["SBUX", "GOOG"], ["SBUX", "MNST"], ["SBUX", "AAL"], ["BMRN", "INCY"], ["BMRN", "BIIB"], ["BMRN", "CELG"], ["CMCSA", "INTU"], ["KLAC", "TXN"], ["KLAC", "INTC"], ["WYNN", "TXN"], ["WYNN", "CSCO"], ["WYNN", "PCAR"], ["LBTYA", "TXN"], ["LBTYA", "LBTYK"], ["LBTYA", "INTU"], ["TSLA", "INTU"], ["AAL", "GOOG"], ["AAL", "TXN"], ["LBTYK", "TXN"], ["LBTYK", "INTU"], ["WBA", "GOOG"], ["WBA", "CERN"], ["DISH", "CSCO"], ["DISH", "INTU"], ["PCAR", "TXN"], ["TXN", "GOOG"], ["TXN", "AKAM"], ["TXN", "INTC"], ["TXN", "LILAK"], ["TXN", "INTU"], ["TXN", "STX"], ["TXN", "CSCO"], ["MNST", "GOOG"], ["INCY", "INTU"], ["INCY", "BIIB"], ["INCY", "CELG"], ["BIIB", "GOOG"], ["BIIB", "ALXN"], ["BIIB", "CELG"], ["LILAK", "GOOG"], ["LILAK", "CSCO"], ["ATVI", "GOOG"], ["CELG", "GOOG"], ["CELG", "ALXN"], ["GOOG", "ISRG"], ["GOOG", "INTC"], ["GOOG", "CERN"], ["AKAM", "CSCO"], ["INTC", "CSCO"], ["INTC", "ISRG"], ["INTC", "STX"], ["STX", "CSCO"], ["ISRG", "CERN"], ["CERN", "CSCO"]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "dark", "height": 500, "width": 1000, "charge": -350, "color_map": "Heat", "graph_id": 2, "got_embed": true, "embedding": [[3.000225138042406, -11.120370971614175], [5.5500808220149915, -8.115296724632845], [-6.39486621610136, -3.1290678063506405], [-5.261307519997695, -4.951948781222204], [4.889873757848685, -0.6053300165488121], [-22.485550946123478, 4.511501749865368], [-6.7502738850990065, 8.289859226669723], [-6.601089957159963, 8.228974767259228], [5.61555432934217e-05, 9.484070722061437], [4.6582763740877065, 0.41840128676902105], [-19.673176824205218, 6.35656298020367], [18.667526121948878, 10.333520648738238], [3.2230920070100257, 5.258525398700055], [20.962246261574368, 14.575542131911178], [7.711397637053399, 4.490517770063308], [-3.5119745826364985, -2.303360449490411], [7.063383024539637, 8.214290768193852], [2.283170803035286, 4.653718149084521], [0.310204959783876, -14.669679433627525], [-23.085543319036642, 7.473117110846632], [-43.63835012594533, 15.85799849682903], [-4.830368089721015, -4.112126752818725], [-2.616706565035656, 2.3644594967055736], [-24.24636664576296, 8.391367045710156], [-4.215654773978967, -2.0218366437933786], [-5.287421435193701, -3.355035020772847], [-3.288805476055494, -1.731671339480743], [6.905735746793294, -2.8308760311085424], [-5.084580042004638, -4.593808802188872], [-5.7910179339624, -3.128328648285413], [-4.851494677228599, -4.483218486141843], [-3.5570600032257715, -2.37724225297516], [1.4765828094410203, -24.716728896737163], [-1.2129112403670816, -19.782913421559673], [6.166322860816011, -19.09888970530178], [-4.961962976308596, -8.120326531712687], [2.0181439417068057, 2.55910682129559], [-5.95403729299426, -1.090559289595578], [-0.25156922717711416, -11.165650317614649], [5.180743345883377, -2.563303592438286], [-6.889686036843181, 4.933856445444932], [4.742997012583609, -0.19964106183564712], [-3.097566292188196, -1.4998198589412333], [4.394783530217396, 0.4987169804872625], [-17.778164588406963, 1.8884637249130527], [-3.41939199002129, -2.504609018539834], [-6.88886160081266, 22.668963998687918], [-28.51116294092981, 5.751880631571187], [8.449505065101533, 8.396496839013187], [-0.12152660238077621, -4.973306000740978], [-1.4460800007621628, 4.364954230486751], [2.6665394707851235, 16.772971439263753], [7.270450148767083, 5.795841385468868], [-5.053880180932608, -2.2233541446930167], [13.459718099839737, 12.3631644797905], [17.148669012584712, -6.867243528254688], [16.764168251334105, -6.715338206276405], [5.628039370244842, -3.690921417247291], [6.582080300644303, 3.81210024474996], [7.218317101461753, 2.394594113928216], [2.832611251490116, 0.5076845049076786], [6.6355989193728036, 4.495204471505498], [4.357694746087237, -5.51375869330764], [-1.2403409174418583, -11.755090944357228], [28.608477595733003, 19.56366250282759], [0.627847586392291, 5.161590069838288], [-3.8310333718267695, -8.664965076353043], [-6.046932297177968, -2.753874608172038], [-20.4066836636991, 3.743784403183671], [10.515443155941544, 6.700431621743481], [4.316012126624389, 6.808077150255094], [24.56761967650106, 15.662749343548926], [7.376298285591429, 3.8660144294923486], [-5.604458070376248, -3.3302035932231973], [5.0498270052354854, -7.967617569172485], [-2.9921898789821335, -7.491017576670081], [6.7438532549777666, 2.4415103485577534], [-29.9906169667554, 22.372679453791463], [-3.916838062661477, -8.637458689291625], [2.9562185698391277, -0.04025101305334136], [28.752936491297252, 13.112728519178969], [6.5174692536447365, -9.52688838953964], [21.83809021107846, 13.947314690425147], [4.930301663737061, -4.91452948328792], [-5.4542609003901505, -2.381780859885783], [3.986407973519913, 0.06351742038713504], [2.9087054364064997, 2.1910989663591023], [-6.598182591849003, -12.475341896350907], [9.852424627279584, 7.097889182545406], [1.3868311764186918, 3.266284780070051], [-5.464147625496214, -2.168695521805618], [-9.094906042091619, -1.7624006073635683], [1.1145916809874878, -4.737697158187446], [-40.91251934103636, 13.286314291982334], [11.673969879226371, -32.257667701634716], [-2.962172068484821, -27.41793277355209], [-1.7802813091545968, -13.423540334493998], [-5.057699669667528, -2.869254373539912], [29.819964899273792, 20.370452075808124], [-0.06283747925235932, -13.994929300048243], [12.336289599441537, -5.747830352755711], [9.639046808496559, 6.07030711344123], [-5.562350760338738, -3.258304755974104]], "color_axis": "degree_centrality", "nodes": ["WDC", "NFLX", "GOOGL", "AAPL", "SRCL", "SBAC", "JD", "XLNX", "NXPI", "VRTX", "SPLS", "MYL", "KHC", "HSIC", "CTSH", "AMZN", "MAR", "MAT", "VRSK", "FOXA", "VIP", "ROST", "WFM", "CHKP", "PAYX", "ESRX", "REGN", "AMAT", "CHTR", "SWKS", "NVDA", "AVGO", "LILA", "PCLN", "CTXS", "LRCX", "SYMC", "DISCA", "GRMN", "SIRI", "EA", "DISCK", "FOX", "ORLY", "LVNTA", "QCOM", "YHOO", "VOD", "MU", "MDLZ", "AMGN", "FB", "COST", "FISV", "ADBE", "ADSK", "MSFT", "DLTR", "FAST", "BBBY", "EXPD", "QVCA", "LLTC", "ADP", "GILD", "CA", "ILMN", "TRIP", "ADI", "CHRW", "TSCO", "NTAP", "VIAB", "BIDU", "EBAY", "SBUX", "BMRN", "CMCSA", "KLAC", "WYNN", "LBTYA", "TSLA", "AAL", "LBTYK", "WBA", "DISH", "PCAR", "TXN", "MNST", "INCY", "BIIB", "LILAK", "ATVI", "CELG", "GOOG", "AKAM", "INTC", "INTU", "ALXN", "STX", "ISRG", "CERN", "CSCO"], "label_color": "rgba(255, 255, 255, 0.8)", "graph_layout": "force"}'));
-		//console.log(window.current_graph_id);
-		var width = window.graph_data[$.data(element, "graph_id")]['width'];
-		var height = window.graph_data[$.data(element, "graph_id")]['height'];
-
-		var label_color = window.graph_data[$.data(element, "graph_id")]['label_color'];
+		window.graph_data.push(JSON.parse('{"stats": [[0.6666666666666666], [0.6666666666666666], [0.6666666666666666], [0.7777777777777777], [0.8888888888888888], [1.0], [1.0], [1.0], [1.0], [1.0]], "links": [["GOOG", "AKAM"], ["GOOG", "ADBE"], ["GOOG", "GOOGL"], ["GOOG", "FOXA"], ["GOOG", "AAL"], ["GOOG", "FOX"], ["GOOG", "ATVI"], ["GOOG", "ALXN"], ["GOOG", "AMZN"], ["AKAM", "ADBE"], ["AKAM", "GOOGL"], ["AKAM", "FOXA"], ["AKAM", "AAL"], ["AKAM", "FOX"], ["AKAM", "ALXN"], ["AKAM", "AMZN"], ["ADBE", "GOOGL"], ["ADBE", "FOXA"], ["ADBE", "AAL"], ["ADBE", "FOX"], ["ADBE", "ATVI"], ["ADBE", "ALXN"], ["ADBE", "AMZN"], ["GOOGL", "FOXA"], ["GOOGL", "AAL"], ["GOOGL", "FOX"], ["GOOGL", "ATVI"], ["GOOGL", "ALXN"], ["GOOGL", "AMZN"], ["FOXA", "AAL"], ["FOXA", "FOX"], ["FOXA", "ATVI"], ["FOXA", "ALXN"], ["FOXA", "AMZN"], ["AAL", "FOX"], ["FOX", "ATVI"], ["FOX", "ALXN"], ["FOX", "AMZN"], ["ATVI", "AMZN"]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "dark", "height": 500, "width": 1000, "charge": -350, "color_map": "Heat", "graph_id": 2, "got_embed": true, "embedding": [[-0.33469232425912127, -0.1667442157320966], [-0.4555703307371198, -0.10523143351196416], [18.531334854923806, -20.201610603489623], [1.2739843640747857, -0.19532240822227714], [-9.0394364812318, 10.977059258686687], [-32.87705791379021, -7.7730114162359705], [0.8611661606380727, -1.0787385361733888], [0.8336017291983077, -1.0720211907635588], [10.308771341360876, -10.58201189468209], [10.897898599822435, 30.197632440124316]], "color_axis": "degree_centrality", "nodes": ["GOOG", "AKAM", "ADBE", "GOOGL", "FOXA", "AAL", "FOX", "ATVI", "ALXN", "AMZN"], "label_color": "rgba(255, 255, 255, 0.8)", "graph_layout": "force"}'));
 		
-		var min_node_size = window.graph_data[$.data(element, "graph_id")]['min_node_size'];
-		
-		var charge = window.graph_data[$.data(element, "graph_id")]['charge'];
-
-		var colorAxis = window.graph_data[$.data(element, "graph_id")]['color_axis'];
-		if(colorAxis == undefined){
-			colorAxis = "closeness_centrality";
-		}
-
-		var colorMap = window.graph_data[$.data(element, "graph_id")]['color_map'];
-		if(colorMap == undefined){
-			colorMap = "RdBuGn";
-		}
-
-		var graphStyle = window.graph_data[$.data(element, "graph_id")]['graph_style'];
-		// light || dark || white || ether
-		if(graphStyle == undefined){
-			graphStyle = "light";
-		}
-
-		var suppressLabels;
-		if(suppressLabels == undefined){
-			suppressLabels = true;
-		}
-
-		var graphTitle;
-		if(graphTitle == undefined){
-			graphTitle = "SliceMatrix-IO Network Viewer";
-		}
-
-		var graphLayout = window.graph_data[$.data(element, "graph_id")]['graph_layout'];
-		if(graphLayout == undefined && window.graph_data[$.data(element, "graph_id")]['got_embed'] == true){
-			graphLayout = "embedding";
-		}
-
 		require(['d3'], function(d3){
-			var graph_id = $.data(element, "graph_id");
-			element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
-			element.append('<div class = "loadingDialog" id = "spinner_' + graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
-			element.append('<div class = "content_cell" id = "content_' + graph_id +'"><canvas id = "mainEvent_' + graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
-
-			// update background style
-			if(graphStyle == "dark"){
-				d3.select("#content_" + graph_id).style("background", "rgb(20,20,20)");
-
-
-				$('#top_bar').css({
-					"color": "rgba(255, 255, 255, 0.88)",
-					"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
-					"background-color": "rgba(220,220,220, 0.4)",
-					"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
-				});
-				d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
-			}else if(graphStyle == "white"){
-				$('#content' + graph_id).css({
-					"background-image": "none",
-					"background-color": "#FFF",
-					"background": "rgb(256,256,256)"
-				});
-
-				d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
-			}else if(graphStyle == "ether"){
-				$('#content' + graph_id).css({
-					"background-image": "none",
-					"background-color": "#000",
-					"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
-				});
-
-				$('#top_bar').css({
-					"color": "rgba(255, 255, 255, 0.88)",
-					"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
-					"background-color": "rgba(220,220,220, 0.4)",
-					"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
-				});
-
-				d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
-			}
-
-			//
-			if(graphLayout == undefined){
-				graphLayout = false;
-			}
-
-			var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
-			return d3.scaleLinear()
-					 .domain([minval, midval, maxval])
-					 .range([mincol, midcol, maxcol]);
-
-			}
-
-			var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
-						 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
-						 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
-						 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
-						 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
-						 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
-						 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
-						 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
-						 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
-						 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
-						 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
-
-			function getMaxOfArray(numArray) {
-			  return Math.max.apply(null, numArray);
-			}
-
-			function getMinOfArray(numArray) {
-			  return Math.min.apply(null, numArray);
-			}
-
-			var graph = {nodes:[], links:[]};
-
-			var curr_colormap;
-
-			d3.select("#loading_status").html("loaded nodes...");
-			var data = window.graph_data[$.data(element, "graph_id")];
-			data['nodes'].forEach(function(d){
-				graph['nodes'].push({id:d});
-			});
-
-			d3.select("#loading_status").html("loaded edges...");
-			data['links'].forEach(function(d){
-				graph['links'].push({source:d[0], target:d[1]});
-			});
-
-			//var height = 600;
-			//var width  = 1200;
-			var searchRadius = 3;
-
-			//d3.select("canvas").attr("height", height).attr("width", width);
-
-			var transform = d3.zoomIdentity;
-
+			window.d3 = d3;
 			
-			//var canvas = document.querySelector("canvas"),
-			var canvas = document.querySelector("#mainEvent_" + $.data(element, "graph_id")),
-				context = canvas.getContext("2d");
-				//width = canvas.width,
-				//height = canvas.height;
+			// when it reloads need to reload everything in window.graph_data from scratch, cuz this runs after everything else apparently... fuck me running
+			//d3 = window.d3;
+			for(var graph_id in window.graph_data){
+				
+				(function(graph_id, element) {
+					console.log("require");
+					console.log("graph_id = " + graph_id);
+					var width = window.graph_data[graph_id]['width'];
+					var height = window.graph_data[graph_id]['height'];
+					console.log(window.current_graph_id);
+					element.empty();
+					element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
+					element.append('<div class = "loadingDialog" id = "spinner_' + graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
+					element.append('<div class = "content_cell" id = "content_' + graph_id +'"><canvas id = "mainEvent_' + graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
 
-			var simulation = d3.forceSimulation()
-				.force("link", d3.forceLink().id(function(d) { return d.id; }))
-				.force("charge", d3.forceManyBody().strength(charge))
-				.force("center", d3.forceCenter(width / 2, height / 2))
-				.force("X", d3.forceX().x(0.2))
-				.force("Y", d3.forceY().y(0.2));
+					var label_color = window.graph_data[graph_id]['label_color'];
+					
+					var min_node_size = window.graph_data[graph_id]['min_node_size'];
+					
+					var charge = window.graph_data[graph_id]['charge'];
 
-			var zoom = d3.zoom();
-
-			var k = 1.0;
-
-			function initialize(){
-			  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
-			}
-
-			//initialize();
-
-			var ggraph;
-
-			var selected_node;
-
-			var transform;
-
-			var ticks = 0;
-
-
-			var mixcolors = function(color1, color2){
-				var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
-				var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
-				var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
-				var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
-				var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
-				if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
-				  return "rgba(20,120,220,0.6)";
-				}else{
-				  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
-				}
-			}
-
-			var drawGraph = function(){
-				console.log(graph);
-
-				function dragsubject() {
-				  var i,
-					  x = transform.invertX(d3.event.x),
-					  y = transform.invertY(d3.event.y),
-					  dx,
-					  dy;
-				}
-
-
-				function dragstarted() {
-				  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-				  d3.event.subject.fx = d3.event.subject.x;
-				  d3.event.subject.fy = d3.event.subject.y;
-				}
-
-				function dragged() {
-				  //d3.event.subject[0] = transform.invertX(d3.event.x);
-				  //d3.event.subject[1] = transform.invertY(d3.event.y);
-				  d3.event.subject.fx = d3.event.x;
-				  d3.event.subject.fy = d3.event.y;
-				}
-
-				function dragended() {
-				  if (!d3.event.active) simulation.alphaTarget(0);
-				  d3.event.subject.fx = null;
-				  d3.event.subject.fy = null;
-				}
-
-				function drawLink(d) {
-				  context.moveTo(d.source.x, d.source.y);
-				  context.lineTo(d.target.x, d.target.y);
-				}
-
-				function drawNode(d) {
-				  context.moveTo(d.x + get_current_node_size(), d.y);
-				  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
-				  //context.fill();
-				}
-
-				function drawLabel(d, id) {
-				  //console.log(d);
-				  context.shadowBlur = 10;
-				  context.shadowColor = "rgba(120,120,120,0.3)";
-				  context.fillText(d.id, d.x,d.y);
-				  //context.fill();
-				}
-
-				function rgb2a(rgb_string, alpha){
-					//console.log(rgb_string);
-				  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
-				  //rgb_string = "rgba(0,0,0,0.3)";
-				  return rgb_string 
-				}
-
-				function get_current_alpha(){
-				  return 1.0 - Math.min(transform.k, 0.5);
-				}
-
-				function get_current_font_size(){
-				  return 10 / Math.pow(transform.k, 0.5);
-				}
-
-				function get_current_highlighted_font_size(){
-				  return Math.min(720 * transform.k, 20);
-				}
-
-				function get_current_link_width(){
-				  return Math.max(1.5, 0.5/ transform.k);
-				}
-
-				function get_current_node_size(){
-				  return Math.min(60 * transform.k, min_node_size);
-				}
-
-				function get_current_deg_thresh(){
-				  if(k >= 0.4){
-					return 1;
-				  }else{
-					return 2;
-				  }
-				}
-
-
-				ggraph = graph;
-				  setTimeout(initialize, 0);
-
-				  if(graphLayout == "force"){
-
-					  simulation
-						  .nodes(graph.nodes)
-						  .on("tick", ticked);
-
-					  simulation.force("link")
-						  .links(graph.links);
-
-				  }else{
-						  simulation
-						  .nodes(graph.nodes);
-						  //.on("tick", ticked);
-
-					  simulation.force("link")
-						  .links(graph.links);
-						ticked();
-				  }
-
-				  //d3.select("mainEvent_" + window.current_graph_id)
-				  d3.select(canvas)
-					  .on("mousemove", mousemoved)
-					  .call(d3.drag()
-						  .container(canvas)
-						  .subject(dragsubject)
-						  .on("start", dragstarted)
-						  .on("drag", dragged)
-						  .on("end", dragended))
-					  .call(zoom.on("zoom", zoomed));
-
-				  function zoomed() {
-					//console.log("zooming!");
-					transform = d3.event.transform;
-					//console.log(simulation.alpha());
-					if(graphLayout == "force"){
-						if(simulation.alpha() < 0.01){//>
-						  ticked();
-						}
-					}else{
-						ticked();
+					var colorAxis = window.graph_data[graph_id]['color_axis'];
+					if(colorAxis == undefined){
+						colorAxis = "closeness_centrality";
 					}
-				  }
 
-				  function mousemoved() {
-					//console.log(graph.nodes);
-					var m = d3.mouse(this);
-					var x = (m[0] - transform.x) / transform.k;
-					var y = (m[1] - transform.y) / transform.k;
-					var moused_node;
-					for (var i = graph.nodes.length - 1; i >= 0; --i) {
-					  var point = graph.nodes[i];
-					  var dx = x - point.x;
-					  var dy = y - point.y;
-					  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
-						//point.x = transform.applyX(point.x);
-						//point.y = transform.applyY(point.y);
-						moused_node = point;
-					  }
+					var colorMap = window.graph_data[graph_id]['color_map'];
+					if(colorMap == undefined){
+						colorMap = "RdBuGn";
 					}
-					selected_node = moused_node;
-					if(graphLayout == "force"){
-						if(simulation.alpha() < 0.01){//>
-						  ticked();
-						}
+
+					var graphStyle = window.graph_data[graph_id]['graph_style'];
+					// light || dark || white || ether
+					if(graphStyle == undefined){
+						graphStyle = "light";
 					}
-				  }
 
-				  function restartIt(){
-					simulation.alpha(1.0)
-					simulation.restart();
-				  }
-
-				  function ticked() {
-					k = transform.k;
-					if( graphLayout != "force"){
-						simulation.stop();
-					}else{
-						if(ticks == 0){
-							setTimeout(restartIt,1);
-						}
+					var suppressLabels;
+					if(suppressLabels == undefined){
+						suppressLabels = true;
 					}
-						context.clearRect(0, 0, width, height);
-						context.save();
-						//context.translate(width / 2, height / 2);
 
-						context.globalAlpha = 1.0;
+					var graphTitle;
+					if(graphTitle == undefined){
+						graphTitle = "SliceMatrix-IO Network Viewer";
+					}
 
-						context.translate(transform.x, transform.y);
-						context.scale(transform.k, transform.k);
+					var graphLayout = window.graph_data[graph_id]['graph_layout'];
+					if(graphLayout == undefined && window.graph_data[graph_id]['got_embed'] == true){
+						graphLayout = "embedding";
+					}
 
-						graph.links.forEach(function(link) {
-						  context.beginPath();
-						  drawLink(link);
-						  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
-						  //console.log(link.source.color);
-						  var color = mixcolors(link.source.color, link.target.color);
-						  context.strokeStyle = color;
-						  context.lineWidth = get_current_link_width();
-						  context.stroke();
+					// update background style
+					if(graphStyle == "dark"){
+						d3.select("#content_" + graph_id).style("background", "rgb(20,20,20)");
+
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}else if(graphStyle == "white"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#FFF",
+							"background": "rgb(256,256,256)"
 						});
 
-						graph.nodes.forEach(function(user) {
-						//console.log(user);
-						  context.beginPath();
-						  drawNode(user);
-						  context.fillStyle = rgb2a(user.color, get_current_alpha());
-						  context.fill();
-						  if(selected_node != undefined){
-							if(user.id == selected_node.id){
-							  context.strokeStyle = "#000";
-							  context.lineWidth = 1;
-							  context.stroke();
+						d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
+					}else if(graphStyle == "ether"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#000",
+							"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
+						});
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}
+
+					//
+					if(graphLayout == undefined){
+						graphLayout = false;
+					}
+
+					var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
+					return d3.scaleLinear()
+							 .domain([minval, midval, maxval])
+							 .range([mincol, midcol, maxcol]);
+
+					}
+
+					var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
+								 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
+								 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
+								 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
+								 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
+								 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
+								 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
+								 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
+								 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
+								 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
+								 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
+
+					function getMaxOfArray(numArray) {
+					  return Math.max.apply(null, numArray);
+					}
+
+					function getMinOfArray(numArray) {
+					  return Math.min.apply(null, numArray);
+					}
+
+					var graph = {nodes:[], links:[]};
+
+					var curr_colormap;
+
+					d3.select("#loading_status").html("loaded nodes...");
+					var data = window.graph_data[graph_id];
+					data['nodes'].forEach(function(d){
+						graph['nodes'].push({id:d});
+					});
+
+					d3.select("#loading_status").html("loaded edges...");
+					data['links'].forEach(function(d){
+						graph['links'].push({source:d[0], target:d[1]});
+					});
+
+					//var height = 600;
+					//var width  = 1200;
+					var searchRadius = 3;
+
+					//d3.select("canvas").attr("height", height).attr("width", width);
+
+					var transform = d3.zoomIdentity;
+
+
+					//var canvas = document.querySelector("canvas"),
+					var canvas = document.querySelector("#mainEvent_" + graph_id),
+						context = canvas.getContext("2d"),
+						width = canvas.width,
+						height = canvas.height;
+						
+					$("#mainEvent_" + graph_id).width(width);
+					$("#mainEvent_" + graph_id).height(height);
+
+					var simulation = d3.forceSimulation()
+						.force("link", d3.forceLink().id(function(d) { return d.id; }))
+						.force("charge", d3.forceManyBody().strength(charge))
+						.force("center", d3.forceCenter(width / 2, height / 2))
+						.force("X", d3.forceX().x(0.2))
+						.force("Y", d3.forceY().y(0.2));
+
+					var zoom = d3.zoom();
+
+					var k = 1.0;
+
+					function initialize(){
+					  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
+					}
+
+					//initialize();
+
+					var ggraph;
+
+					var selected_node;
+
+					var transform;
+
+					var ticks = 0;
+
+
+					var mixcolors = function(color1, color2){
+						var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
+						var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
+						var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
+						var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
+						var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
+						if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
+						  return "rgba(20,120,220,0.6)";
+						}else{
+						  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
+						}
+					}
+
+					var drawGraph = function(){
+						console.log(graph);
+
+						function dragsubject() {
+						  var i,
+							  x = transform.invertX(d3.event.x),
+							  y = transform.invertY(d3.event.y),
+							  dx,
+							  dy;
+						}
+
+
+						function dragstarted() {
+						  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+						  d3.event.subject.fx = d3.event.subject.x;
+						  d3.event.subject.fy = d3.event.subject.y;
+						}
+
+						function dragged() {
+						  //d3.event.subject[0] = transform.invertX(d3.event.x);
+						  //d3.event.subject[1] = transform.invertY(d3.event.y);
+						  d3.event.subject.fx = d3.event.x;
+						  d3.event.subject.fy = d3.event.y;
+						}
+
+						function dragended() {
+						  if (!d3.event.active) simulation.alphaTarget(0);
+						  d3.event.subject.fx = null;
+						  d3.event.subject.fy = null;
+						}
+
+						function drawLink(d) {
+						  context.moveTo(d.source.x, d.source.y);
+						  context.lineTo(d.target.x, d.target.y);
+						}
+
+						function drawNode(d) {
+						  context.moveTo(d.x + get_current_node_size(), d.y);
+						  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
+						  //context.fill();
+						}
+
+						function drawLabel(d, id) {
+						  //console.log(d);
+						  context.shadowBlur = 10;
+						  context.shadowColor = "rgba(120,120,120,0.3)";
+						  context.fillText(d.id, d.x,d.y);
+						  //context.fill();
+						}
+
+						function rgb2a(rgb_string, alpha){
+							//console.log(rgb_string);
+						  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
+						  //rgb_string = "rgba(0,0,0,0.3)";
+						  return rgb_string 
+						}
+
+						function get_current_alpha(){
+						  return 1.0 - Math.min(transform.k, 0.5);
+						}
+
+						function get_current_font_size(){
+						  return 10 / Math.pow(transform.k, 0.5);
+						}
+
+						function get_current_highlighted_font_size(){
+						  return Math.min(720 * transform.k, 20);
+						}
+
+						function get_current_link_width(){
+						  return Math.max(1.5, 0.5/ transform.k);
+						}
+
+						function get_current_node_size(){
+						  return Math.min(60 * transform.k, min_node_size);
+						}
+
+						function get_current_deg_thresh(){
+						  if(k >= 0.4){
+							return 1;
+						  }else{
+							return 2;
+						  }
+						}
+
+
+						ggraph = graph;
+						  setTimeout(initialize, 0);
+
+						  if(graphLayout == "force"){
+
+							  simulation
+								  .nodes(graph.nodes)
+								  .on("tick", ticked);
+
+							  simulation.force("link")
+								  .links(graph.links);
+
+						  }else{
+								  simulation
+								  .nodes(graph.nodes);
+								  //.on("tick", ticked);
+
+							  simulation.force("link")
+								  .links(graph.links);
+								ticked();
+						  }
+
+						  //d3.select("mainEvent_" + graph_id)
+						  
+						  d3.select(canvas)
+							  .on("mousemove", mousemoved)
+							  .call(d3.drag()
+								  .container(canvas)
+								  .subject(dragsubject)
+								  .on("start", dragstarted)
+								  .on("drag", dragged)
+								  .on("end", dragended))
+							  .call(zoom.on("zoom", zoomed));
+
+						  function zoomed() {
+							//console.log("zooming!");
+							transform = d3.event.transform;
+							//console.log(simulation.alpha());
+							if(graphLayout == "force"){
+								if(simulation.alpha() < 0.01){//>
+								  ticked();
+								}
+							}else{
+								ticked();
 							}
 						  }
-						  //drawLabel(user, user.id);
 
+						  function mousemoved() {
+							//console.log(graph.nodes);
+							var m = d3.mouse(this);
+							var x = (m[0] - transform.x) / transform.k;
+							var y = (m[1] - transform.y) / transform.k;
+							var moused_node;
+							for (var i = graph.nodes.length - 1; i >= 0; --i) {
+							  var point = graph.nodes[i];
+							  var dx = x - point.x;
+							  var dy = y - point.y;
+							  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
+								//point.x = transform.applyX(point.x);
+								//point.y = transform.applyY(point.y);
+								moused_node = point;
+							  }
+							}
+							selected_node = moused_node;
+							if(graphLayout == "force"){
+								if(simulation.alpha() < 0.01){//>
+								  ticked();
+								}
+							}
+						  }
+
+						  function restartIt(){
+							simulation.alpha(1.0)
+							simulation.restart();
+						  }
+
+						  function ticked() {
+							k = transform.k;
+							if( graphLayout != "force"){
+								simulation.stop();
+							}else{
+								if(ticks == 0){
+									setTimeout(restartIt,1);
+								}
+							}
+								context.clearRect(0, 0, width, height);
+								context.save();
+								//context.translate(width / 2, height / 2);
+
+								context.globalAlpha = 1.0;
+
+								context.translate(transform.x, transform.y);
+								context.scale(transform.k, transform.k);
+
+								graph.links.forEach(function(link) {
+								  context.beginPath();
+								  drawLink(link);
+								  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
+								  //console.log(link.source.color);
+								  var color = mixcolors(link.source.color, link.target.color);
+								  context.strokeStyle = color;
+								  context.lineWidth = get_current_link_width();
+								  context.stroke();
+								});
+
+								graph.nodes.forEach(function(user) {
+								//console.log(user);
+								  context.beginPath();
+								  drawNode(user);
+								  context.fillStyle = rgb2a(user.color, get_current_alpha());
+								  context.fill();
+								  if(selected_node != undefined){
+									if(user.id == selected_node.id){
+									  context.strokeStyle = "#000";
+									  context.lineWidth = 1;
+									  context.stroke();
+									}
+								  }
+								  //drawLabel(user, user.id);
+
+								});
+
+							   graph.nodes.forEach(function(user) {
+								  //if(user.deg > get_current_deg_thresh()){
+									context.beginPath();
+									drawLabel(user, user.id);
+									  context.font="bold " + get_current_font_size() + "px Arial";
+									  context.fillStyle = label_color;//user.color;
+									  context.fill();
+								  //}
+								});
+
+								ticks++;
+								context.restore();
+
+						  }
+
+
+					}
+
+					var max_rank = 0;
+					var min_rank = 0;
+
+					window.graph_data[graph_id]['stats'].forEach(function(row, j){
+						//console.log(row);
+						var val1 = row[0];
+						if(val1 > max_rank){
+							max_rank = val1;
+						}
+						if(val1 < min_rank){
+							min_rank = val1;
+						}
+						graph.nodes[j][colorAxis] = val1
+					});
+
+					d3.select("#loading_status").html("loaded colorAxis data...");
+
+					var mid_rank = (max_rank - min_rank) / 2.0;
+
+					console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
+
+					curr_colormap = colormap(min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]);
+
+					graph.nodes.forEach(function(node, k){
+						graph.nodes[k].color = curr_colormap(graph.nodes[k][colorAxis]);
+					});
+
+					if(graphLayout == "force"){
+						d3.select("#spinner_" + graph_id).style("visibility", "hidden");
+						drawGraph();
+						//window.current_graph_id += 1
+					}else{
+						// bind the node embedding data to the graph!
+						var max_xy = 0.0;
+						var min_xy = 0.0;
+						var cmax_xy, cmin_xy;
+						// normalize embedding
+						//console.log("ooooooooooooooooooooooooo");
+						window.graph_data[graph_id]['embedding'].forEach(function(row, j){
+							cmax_xy = getMaxOfArray(row);
+							cmin_xy = getMinOfArray(row);
+							if(cmax_xy > max_xy){
+								max_xy = cmax_xy;
+							}
+							if(cmin_xy < min_xy){
+								min_xy = cmin_xy;
+							}
+						});
+						//console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+						var range_xy = max_xy - min_xy;
+
+						window.graph_data[graph_id]['embedding'].forEach(function(row, j){
+							//console.log(row);
+							graph.nodes[j]['x'] = ( ( ( Number(row[0]) ) / range_xy) * (width) )  + (width / 2);
+							graph.nodes[j]['y'] = ( ( ( Number(row[1]) ) / range_xy) * (height) ) + (height / 2);
+							graph.nodes[j]['fixed'] = true;
 						});
 
-					   graph.nodes.forEach(function(user) {
-						  //if(user.deg > get_current_deg_thresh()){
-							context.beginPath();
-							drawLabel(user, user.id);
-							  context.font="bold " + get_current_font_size() + "px Arial";
-							  context.fillStyle = label_color;//user.color;
-							  context.fill();
-						  //}
-						});
-
-						ticks++;
-						context.restore();
-
-				  }
-
-
-			}
-
-			var max_rank = 0;
-			var min_rank = 0;
-
-			window.graph_data[$.data(element, "graph_id")]['stats'].forEach(function(row, j){
-				//console.log(row);
-				var val1 = row[0];
-				if(val1 > max_rank){
-					max_rank = val1;
-				}
-				if(val1 < min_rank){
-					min_rank = val1;
-				}
-				graph.nodes[j][colorAxis] = val1
-			});
-
-			d3.select("#loading_status").html("loaded colorAxis data...");
-
-			var mid_rank = (max_rank - min_rank) / 2.0;
-
-			console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
-
-			curr_colormap = colormap(min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]);
-
-			graph.nodes.forEach(function(node, k){
-				graph.nodes[k].color = curr_colormap(graph.nodes[k][colorAxis]);
-			});
-
-			if(graphLayout == "force"){
-				d3.select("#spinner_" + $.data(element, "graph_id")).style("visibility", "hidden");
-				drawGraph();
-				window.current_graph_id += 1
-			}else{
-				// bind the node embedding data to the graph!
-				var max_xy = 0.0;
-				var min_xy = 0.0;
-				var cmax_xy, cmin_xy;
-				// normalize embedding
-				//console.log("ooooooooooooooooooooooooo");
-				window.graph_data[$.data(element, "graph_id")]['embedding'].forEach(function(row, j){
-					cmax_xy = getMaxOfArray(row);
-					cmin_xy = getMinOfArray(row);
-					if(cmax_xy > max_xy){
-						max_xy = cmax_xy;
+						d3.select("#spinner_" + graph_id).style("visibility", "hidden");
+						drawGraph();
+						//window.current_graph_id += 1
 					}
-					if(cmin_xy < min_xy){
-						min_xy = cmin_xy;
-					}
-				});
-				//console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-				var range_xy = max_xy - min_xy;
-
-				window.graph_data[$.data(element, "graph_id")]['embedding'].forEach(function(row, j){
-					//console.log(row);
-					graph.nodes[j]['x'] = ( ( ( Number(row[0]) ) / range_xy) * (width) )  + (width / 2);
-					graph.nodes[j]['y'] = ( ( ( Number(row[1]) ) / range_xy) * (height) ) + (height / 2);
-					graph.nodes[j]['fixed'] = true;
-				});
-
-				d3.select("#spinner_" + $.data(element, "graph_id")).style("visibility", "hidden");
-				drawGraph();
-				window.current_graph_id += 1
-			}
-					
-				
+							
+						
 			
+						
+				})(graph_id, element);
+				window.current_graph_id += 1;
+			}
+		});
+		
+		
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">drawNetworkGraph</span><span class="p">(</span><span class="n">iso</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">min_node_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">charge</span> <span class="o">=</span> <span class="o">-</span><span class="mi">250</span><span class="p">,</span> <span class="n">color_map</span> <span class="o">=</span> <span class="s2">&quot;Winter&quot;</span><span class="p">,</span> <span class="n">color_axis</span> <span class="o">=</span> <span class="s2">&quot;pagerank&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+
+
+
+<div id="0137d152-330a-4290-bf85-81d7feaeba49"></div>
+<div class="output_subarea output_javascript output_execute_result">
+<script type="text/javascript">
+var element = $('#0137d152-330a-4290-bf85-81d7feaeba49');
+element.data('graph_id', 3);
+			require.config({
+				paths: {
+					d3: '//cdnjs.cloudflare.com/ajax/libs/d3/4.7.1/d3.min'
+				}
+			});
+		window.graph_data.push(JSON.parse('{"stats": [[0.08292942180256457], [0.08773947217808926], [0.09521824879658218], [0.09925135046625964], [0.09939071194930049], [0.10076772770998757], [0.1062203059053904], [0.10760043105731353], [0.10831074069436088], [0.11257158944015125]], "links": [["GOOG", "AKAM"], ["GOOG", "ADBE"], ["GOOG", "GOOGL"], ["GOOG", "FOXA"], ["GOOG", "AAL"], ["GOOG", "FOX"], ["GOOG", "ATVI"], ["GOOG", "ALXN"], ["GOOG", "AMZN"], ["AKAM", "ADBE"], ["AKAM", "GOOGL"], ["AKAM", "FOXA"], ["AKAM", "AAL"], ["AKAM", "FOX"], ["AKAM", "ALXN"], ["AKAM", "AMZN"], ["ADBE", "GOOGL"], ["ADBE", "FOXA"], ["ADBE", "AAL"], ["ADBE", "FOX"], ["ADBE", "ATVI"], ["ADBE", "ALXN"], ["ADBE", "AMZN"], ["GOOGL", "FOXA"], ["GOOGL", "AAL"], ["GOOGL", "FOX"], ["GOOGL", "ATVI"], ["GOOGL", "ALXN"], ["GOOGL", "AMZN"], ["FOXA", "AAL"], ["FOXA", "FOX"], ["FOXA", "ATVI"], ["FOXA", "ALXN"], ["FOXA", "AMZN"], ["AAL", "FOX"], ["FOX", "ATVI"], ["FOX", "ALXN"], ["FOX", "AMZN"], ["ATVI", "AMZN"]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "light", "height": 500, "width": 1000, "charge": -250, "color_map": "Winter", "graph_id": 3, "got_embed": true, "embedding": [[-0.33469232425912127, -0.1667442157320966], [-0.4555703307371198, -0.10523143351196416], [18.531334854923806, -20.201610603489623], [1.2739843640747857, -0.19532240822227714], [-9.0394364812318, 10.977059258686687], [-32.87705791379021, -7.7730114162359705], [0.8611661606380727, -1.0787385361733888], [0.8336017291983077, -1.0720211907635588], [10.308771341360876, -10.58201189468209], [10.897898599822435, 30.197632440124316]], "color_axis": "pagerank", "nodes": ["GOOG", "AKAM", "ADBE", "GOOGL", "FOXA", "AAL", "FOX", "ATVI", "ALXN", "AMZN"], "label_color": "#000", "graph_layout": "force"}'));
+		
+		require(['d3'], function(d3){
+			window.d3 = d3;
+			
+			// when it reloads need to reload everything in window.graph_data from scratch, cuz this runs after everything else apparently... fuck me running
+			//d3 = window.d3;
+			for(var graph_id in window.graph_data){
+				
+				(function(graph_id, element) {
+					console.log("require");
+					console.log("graph_id = " + graph_id);
+					var width = window.graph_data[graph_id]['width'];
+					var height = window.graph_data[graph_id]['height'];
+					console.log(window.current_graph_id);
+					element.empty();
+					element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
+					element.append('<div class = "loadingDialog" id = "spinner_' + graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
+					element.append('<div class = "content_cell" id = "content_' + graph_id +'"><canvas id = "mainEvent_' + graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
+
+					var label_color = window.graph_data[graph_id]['label_color'];
+					
+					var min_node_size = window.graph_data[graph_id]['min_node_size'];
+					
+					var charge = window.graph_data[graph_id]['charge'];
+
+					var colorAxis = window.graph_data[graph_id]['color_axis'];
+					if(colorAxis == undefined){
+						colorAxis = "closeness_centrality";
+					}
+
+					var colorMap = window.graph_data[graph_id]['color_map'];
+					if(colorMap == undefined){
+						colorMap = "RdBuGn";
+					}
+
+					var graphStyle = window.graph_data[graph_id]['graph_style'];
+					// light || dark || white || ether
+					if(graphStyle == undefined){
+						graphStyle = "light";
+					}
+
+					var suppressLabels;
+					if(suppressLabels == undefined){
+						suppressLabels = true;
+					}
+
+					var graphTitle;
+					if(graphTitle == undefined){
+						graphTitle = "SliceMatrix-IO Network Viewer";
+					}
+
+					var graphLayout = window.graph_data[graph_id]['graph_layout'];
+					if(graphLayout == undefined && window.graph_data[graph_id]['got_embed'] == true){
+						graphLayout = "embedding";
+					}
+
+					// update background style
+					if(graphStyle == "dark"){
+						d3.select("#content_" + graph_id).style("background", "rgb(20,20,20)");
+
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}else if(graphStyle == "white"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#FFF",
+							"background": "rgb(256,256,256)"
+						});
+
+						d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
+					}else if(graphStyle == "ether"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#000",
+							"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
+						});
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}
+
+					//
+					if(graphLayout == undefined){
+						graphLayout = false;
+					}
+
+					var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
+					return d3.scaleLinear()
+							 .domain([minval, midval, maxval])
+							 .range([mincol, midcol, maxcol]);
+
+					}
+
+					var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
+								 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
+								 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
+								 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
+								 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
+								 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
+								 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
+								 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
+								 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
+								 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
+								 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
+
+					function getMaxOfArray(numArray) {
+					  return Math.max.apply(null, numArray);
+					}
+
+					function getMinOfArray(numArray) {
+					  return Math.min.apply(null, numArray);
+					}
+
+					var graph = {nodes:[], links:[]};
+
+					var curr_colormap;
+
+					d3.select("#loading_status").html("loaded nodes...");
+					var data = window.graph_data[graph_id];
+					data['nodes'].forEach(function(d){
+						graph['nodes'].push({id:d});
+					});
+
+					d3.select("#loading_status").html("loaded edges...");
+					data['links'].forEach(function(d){
+						graph['links'].push({source:d[0], target:d[1]});
+					});
+
+					//var height = 600;
+					//var width  = 1200;
+					var searchRadius = 3;
+
+					//d3.select("canvas").attr("height", height).attr("width", width);
+
+					var transform = d3.zoomIdentity;
+
+
+					//var canvas = document.querySelector("canvas"),
+					var canvas = document.querySelector("#mainEvent_" + graph_id),
+						context = canvas.getContext("2d"),
+						width = canvas.width,
+						height = canvas.height;
+						
+					$("#mainEvent_" + graph_id).width(width);
+					$("#mainEvent_" + graph_id).height(height);
+
+					var simulation = d3.forceSimulation()
+						.force("link", d3.forceLink().id(function(d) { return d.id; }))
+						.force("charge", d3.forceManyBody().strength(charge))
+						.force("center", d3.forceCenter(width / 2, height / 2))
+						.force("X", d3.forceX().x(0.2))
+						.force("Y", d3.forceY().y(0.2));
+
+					var zoom = d3.zoom();
+
+					var k = 1.0;
+
+					function initialize(){
+					  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
+					}
+
+					//initialize();
+
+					var ggraph;
+
+					var selected_node;
+
+					var transform;
+
+					var ticks = 0;
+
+
+					var mixcolors = function(color1, color2){
+						var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
+						var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
+						var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
+						var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
+						var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
+						if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
+						  return "rgba(20,120,220,0.6)";
+						}else{
+						  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
+						}
+					}
+
+					var drawGraph = function(){
+						console.log(graph);
+
+						function dragsubject() {
+						  var i,
+							  x = transform.invertX(d3.event.x),
+							  y = transform.invertY(d3.event.y),
+							  dx,
+							  dy;
+						}
+
+
+						function dragstarted() {
+						  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+						  d3.event.subject.fx = d3.event.subject.x;
+						  d3.event.subject.fy = d3.event.subject.y;
+						}
+
+						function dragged() {
+						  //d3.event.subject[0] = transform.invertX(d3.event.x);
+						  //d3.event.subject[1] = transform.invertY(d3.event.y);
+						  d3.event.subject.fx = d3.event.x;
+						  d3.event.subject.fy = d3.event.y;
+						}
+
+						function dragended() {
+						  if (!d3.event.active) simulation.alphaTarget(0);
+						  d3.event.subject.fx = null;
+						  d3.event.subject.fy = null;
+						}
+
+						function drawLink(d) {
+						  context.moveTo(d.source.x, d.source.y);
+						  context.lineTo(d.target.x, d.target.y);
+						}
+
+						function drawNode(d) {
+						  context.moveTo(d.x + get_current_node_size(), d.y);
+						  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
+						  //context.fill();
+						}
+
+						function drawLabel(d, id) {
+						  //console.log(d);
+						  context.shadowBlur = 10;
+						  context.shadowColor = "rgba(120,120,120,0.3)";
+						  context.fillText(d.id, d.x,d.y);
+						  //context.fill();
+						}
+
+						function rgb2a(rgb_string, alpha){
+							//console.log(rgb_string);
+						  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
+						  //rgb_string = "rgba(0,0,0,0.3)";
+						  return rgb_string 
+						}
+
+						function get_current_alpha(){
+						  return 1.0 - Math.min(transform.k, 0.5);
+						}
+
+						function get_current_font_size(){
+						  return 10 / Math.pow(transform.k, 0.5);
+						}
+
+						function get_current_highlighted_font_size(){
+						  return Math.min(720 * transform.k, 20);
+						}
+
+						function get_current_link_width(){
+						  return Math.max(1.5, 0.5/ transform.k);
+						}
+
+						function get_current_node_size(){
+						  return Math.min(60 * transform.k, min_node_size);
+						}
+
+						function get_current_deg_thresh(){
+						  if(k >= 0.4){
+							return 1;
+						  }else{
+							return 2;
+						  }
+						}
+
+
+						ggraph = graph;
+						  setTimeout(initialize, 0);
+
+						  if(graphLayout == "force"){
+
+							  simulation
+								  .nodes(graph.nodes)
+								  .on("tick", ticked);
+
+							  simulation.force("link")
+								  .links(graph.links);
+
+						  }else{
+								  simulation
+								  .nodes(graph.nodes);
+								  //.on("tick", ticked);
+
+							  simulation.force("link")
+								  .links(graph.links);
+								ticked();
+						  }
+
+						  //d3.select("mainEvent_" + graph_id)
+						  
+						  d3.select(canvas)
+							  .on("mousemove", mousemoved)
+							  .call(d3.drag()
+								  .container(canvas)
+								  .subject(dragsubject)
+								  .on("start", dragstarted)
+								  .on("drag", dragged)
+								  .on("end", dragended))
+							  .call(zoom.on("zoom", zoomed));
+
+						  function zoomed() {
+							//console.log("zooming!");
+							transform = d3.event.transform;
+							//console.log(simulation.alpha());
+							if(graphLayout == "force"){
+								if(simulation.alpha() < 0.01){//>
+								  ticked();
+								}
+							}else{
+								ticked();
+							}
+						  }
+
+						  function mousemoved() {
+							//console.log(graph.nodes);
+							var m = d3.mouse(this);
+							var x = (m[0] - transform.x) / transform.k;
+							var y = (m[1] - transform.y) / transform.k;
+							var moused_node;
+							for (var i = graph.nodes.length - 1; i >= 0; --i) {
+							  var point = graph.nodes[i];
+							  var dx = x - point.x;
+							  var dy = y - point.y;
+							  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
+								//point.x = transform.applyX(point.x);
+								//point.y = transform.applyY(point.y);
+								moused_node = point;
+							  }
+							}
+							selected_node = moused_node;
+							if(graphLayout == "force"){
+								if(simulation.alpha() < 0.01){//>
+								  ticked();
+								}
+							}
+						  }
+
+						  function restartIt(){
+							simulation.alpha(1.0)
+							simulation.restart();
+						  }
+
+						  function ticked() {
+							k = transform.k;
+							if( graphLayout != "force"){
+								simulation.stop();
+							}else{
+								if(ticks == 0){
+									setTimeout(restartIt,1);
+								}
+							}
+								context.clearRect(0, 0, width, height);
+								context.save();
+								//context.translate(width / 2, height / 2);
+
+								context.globalAlpha = 1.0;
+
+								context.translate(transform.x, transform.y);
+								context.scale(transform.k, transform.k);
+
+								graph.links.forEach(function(link) {
+								  context.beginPath();
+								  drawLink(link);
+								  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
+								  //console.log(link.source.color);
+								  var color = mixcolors(link.source.color, link.target.color);
+								  context.strokeStyle = color;
+								  context.lineWidth = get_current_link_width();
+								  context.stroke();
+								});
+
+								graph.nodes.forEach(function(user) {
+								//console.log(user);
+								  context.beginPath();
+								  drawNode(user);
+								  context.fillStyle = rgb2a(user.color, get_current_alpha());
+								  context.fill();
+								  if(selected_node != undefined){
+									if(user.id == selected_node.id){
+									  context.strokeStyle = "#000";
+									  context.lineWidth = 1;
+									  context.stroke();
+									}
+								  }
+								  //drawLabel(user, user.id);
+
+								});
+
+							   graph.nodes.forEach(function(user) {
+								  //if(user.deg > get_current_deg_thresh()){
+									context.beginPath();
+									drawLabel(user, user.id);
+									  context.font="bold " + get_current_font_size() + "px Arial";
+									  context.fillStyle = label_color;//user.color;
+									  context.fill();
+								  //}
+								});
+
+								ticks++;
+								context.restore();
+
+						  }
+
+
+					}
+
+					var max_rank = 0;
+					var min_rank = 0;
+
+					window.graph_data[graph_id]['stats'].forEach(function(row, j){
+						//console.log(row);
+						var val1 = row[0];
+						if(val1 > max_rank){
+							max_rank = val1;
+						}
+						if(val1 < min_rank){
+							min_rank = val1;
+						}
+						graph.nodes[j][colorAxis] = val1
+					});
+
+					d3.select("#loading_status").html("loaded colorAxis data...");
+
+					var mid_rank = (max_rank - min_rank) / 2.0;
+
+					console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
+
+					curr_colormap = colormap(min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]);
+
+					graph.nodes.forEach(function(node, k){
+						graph.nodes[k].color = curr_colormap(graph.nodes[k][colorAxis]);
+					});
+
+					if(graphLayout == "force"){
+						d3.select("#spinner_" + graph_id).style("visibility", "hidden");
+						drawGraph();
+						//window.current_graph_id += 1
+					}else{
+						// bind the node embedding data to the graph!
+						var max_xy = 0.0;
+						var min_xy = 0.0;
+						var cmax_xy, cmin_xy;
+						// normalize embedding
+						//console.log("ooooooooooooooooooooooooo");
+						window.graph_data[graph_id]['embedding'].forEach(function(row, j){
+							cmax_xy = getMaxOfArray(row);
+							cmin_xy = getMinOfArray(row);
+							if(cmax_xy > max_xy){
+								max_xy = cmax_xy;
+							}
+							if(cmin_xy < min_xy){
+								min_xy = cmin_xy;
+							}
+						});
+						//console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+						var range_xy = max_xy - min_xy;
+
+						window.graph_data[graph_id]['embedding'].forEach(function(row, j){
+							//console.log(row);
+							graph.nodes[j]['x'] = ( ( ( Number(row[0]) ) / range_xy) * (width) )  + (width / 2);
+							graph.nodes[j]['y'] = ( ( ( Number(row[1]) ) / range_xy) * (height) ) + (height / 2);
+							graph.nodes[j]['fixed'] = true;
+						});
+
+						d3.select("#spinner_" + graph_id).style("visibility", "hidden");
+						drawGraph();
+						//window.current_graph_id += 1
+					}
+							
+						
+			
+						
+				})(graph_id, element);
+				window.current_graph_id += 1;
+			}
 		});
 		
 		
