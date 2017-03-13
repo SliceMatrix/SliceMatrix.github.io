@@ -12877,13 +12877,20 @@ BydRZmZmZjk4iTIzMzPL4f8Bn6RmvTlg+ngAAAAASUVORK5CYII=
 
 
 
-<div id="d0285a40-28d7-464a-9c85-89e535ec0865"></div>
+<div id="b97b9c09-7a99-4a34-944f-8113869122d8"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#d0285a40-28d7-464a-9c85-89e535ec0865');
+var element = $('#b97b9c09-7a99-4a34-944f-8113869122d8');
 
 			window.graph_data = [];
-			window.current_graph_id = 0;
+			window.current_graph_id = -1;
+			window.current_graph_id2 = 0; 
+			
+			/*
+			require(['d3'], function(d3){
+				window.d3 = d3;
+			});
+			*/
 		
 </script>
 </div>
@@ -12896,7 +12903,7 @@ var element = $('#d0285a40-28d7-464a-9c85-89e535ec0865');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">drawNetworkGraph</span><span class="p">(</span><span class="n">mst</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">min_node_size</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">charge</span> <span class="o">=</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="n">color_map</span> <span class="o">=</span> <span class="s2">&quot;Heat&quot;</span><span class="p">,</span> <span class="n">color_axis</span> <span class="o">=</span> <span class="s2">&quot;eccentricity&quot;</span><span class="p">,</span> <span class="n">graph_layout</span> <span class="o">=</span> <span class="s2">&quot;force&quot;</span><span class="p">,</span> <span class="n">label_color</span> <span class="o">=</span> <span class="s2">&quot;rgba(255,255,255,0.88)&quot;</span><span class="p">,</span> <span class="n">graph_style</span> <span class="o">=</span> <span class="s2">&quot;dark&quot;</span><span class="p">)</span>
@@ -12910,493 +12917,485 @@ var element = $('#d0285a40-28d7-464a-9c85-89e535ec0865');
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
 
 
 
-<div id="ef5c6cf4-c4a7-49cc-be95-8a55bbc1fd81"></div>
+<div id="a3ef6b85-acad-4c25-879c-a8914bcb9134"></div>
 <div class="output_subarea output_javascript output_execute_result">
 <script type="text/javascript">
-var element = $('#ef5c6cf4-c4a7-49cc-be95-8a55bbc1fd81');
-
+var element = $('#a3ef6b85-acad-4c25-879c-a8914bcb9134');
+element.data('graph_id', 1);element.data('width', 1000);element.data('height', 500);
 			require.config({
 				paths: {
 					d3: '//cdnjs.cloudflare.com/ajax/libs/d3/4.7.1/d3.min'
 				}
 			});
-		window.graph_data.push(JSON.parse('{"model_type": "raw_mst", "graph_id": 1, "api_region": "us-east-1", "links": [["DHI ", "LEN "], ["HON ", "COL "], ["HON ", "TDG "], ["HON ", "ITW "], ["HON ", "TXT "], ["HON ", "CVS "], ["HON ", "UTX "], ["HON ", "GD "], ["HON ", "JCI "], ["HON ", "AVY "], ["HON ", "CA "], ["HON ", "DHR "], ["FOX ", "DIS "], ["FOX ", "FOXA "], ["FOX ", "VIAB "], ["CVS ", "WBA "], ["TAP ", "BF/B "], ["WU ", "ADP "], ["CBG ", "IVZ "], ["BIIB ", "CELG "], ["STT ", "BK "], ["SCG ", "XEL "], ["EXR ", "PSA "], ["JBHT ", "R "], ["XRX ", "IVZ "], ["LH ", "SYK "], ["LH ", "UHS "], ["LH ", "DGX "], ["BBT ", "FITB "], ["BBT ", "USB "], ["CTL ", "VZ "], ["CTL ", "FTR "], ["PVH ", "VFC "], ["PVH ", "COH "], ["PVH ", "KORS "], ["PVH ", "RL "], ["UPS ", "FDX "], ["UPS ", "ITW "], ["AWK ", "LNT "], ["PH ", "EMR "], ["PH ", "DOV "], ["PH ", "ITW "], ["PH ", "CMI "], ["PH ", "ETN "], ["MON ", "PX "], ["PHM ", "LEN "], ["INTU ", "ADP "], ["HUM ", "UNH "], ["ZION ", "CMA "], ["MA ", "V "], ["MA ", "PCLN "], ["MA ", "FISV "], ["MA ", "GOOGL "], ["MA ", "EQIX "], ["FDX ", "EXPD "], ["TSN ", "HRL "], ["MKC ", "GIS "], ["MKC ", "HRL "], ["PCLN ", "EXPE "], ["PCLN ", "NFLX "], ["PCLN ", "TRIP "], ["HCN ", "VTR "], ["HCN ", "HCP "], ["CB ", "TRV "], ["CB ", "CINF "], ["CB ", "ALL "], ["CB ", "XL "], ["M ", "JWN "], ["M ", "KSS "], ["ORCL ", "CSCO "], ["ORCL ", "ACN "], ["PEG ", "XEL "], ["PEG ", "EXC "], ["PPG ", "SHW "], ["PPG ", "BLL "], ["PPG ", "PX "], ["PPG ", "EMN "], ["PPG ", "IFF "], ["APD ", "PX "], ["CAH ", "MCK "], ["CAH ", "ESRX "], ["CAH ", "HSIC "], ["PSA ", "FRT "], ["WFM ", "KR "], ["UNP ", "NSC "], ["UNP ", "R "], ["UNP ", "KSU "], ["GIS ", "K "], ["GIS ", "PEP "], ["GIS ", "HSY "], ["GIS ", "SYY "], ["GIS ", "SJM "], ["GIS ", "CAG "], ["GIS ", "MDLZ "], ["GIS ", "CPB "], ["BCR ", "SYK "], ["XLNX ", "ADI "], ["GILD ", "CELG "], ["MNST ", "KO "], ["DVA ", "DGX "], ["OMC ", "ADP "], ["OMC ", "IPG "], ["DLR ", "FRT "], ["LRCX ", "AMAT "], ["LRCX ", "TXN "], ["LRCX ", "KLAC "], ["NWL ", "AMG "], ["GGP ", "SPG "], ["CERN ", "FISV "], ["SRE ", "CNP "], ["SRE ", "DTE "], ["PCG ", "XEL "], ["AKAM ", "SNA "], ["CHK ", "DVN "], ["ED ", "SO "], ["ED ", "WEC "], ["DFS ", "COF "], ["DFS ", "AXP "], ["MAR ", "WYN "], ["MAR ", "HST "], ["MAR ", "AMP "], ["MAR ", "RCL "], ["CHRW ", "EXPD "], ["SPGI ", "MCO "], ["BBY ", "SPLS "], ["TDC ", "IVZ "], ["URBN ", "GPS "], ["ADP ", "COST "], ["ADP ", "VRSK "], ["ADP ", "ACN "], ["ADP ", "BRK/B "], ["ADP ", "FISV "], ["ADP ", "PAYX "], ["ADP ", "SRCL "], ["ADP ", "MCD "], ["AIG ", "PRU "], ["BWA ", "GT "], ["BWA ", "F "], ["BWA ", "PCAR "], ["BWA ", "DLPH "], ["LLL ", "NOC "], ["DOV ", "FLS "], ["DOV ", "SLB "], ["PWR ", "FLR "], ["FBHS ", "MAS "], ["ABT ", "TMO "], ["ABT ", "HOLX "], ["AMG ", "DNB "], ["AMG ", "YHOO "], ["AMG ", "IVZ "], ["AMG ", "WYNN "], ["SYMC ", "CA "], ["DISCA ", "SNI "], ["DISCA ", "CBS "], ["DISCA ", "DISCK "], ["DISCA ", "TWX "], ["PCAR ", "AMP "], ["PCAR ", "CMI "], ["PCAR ", "R "], ["F ", "GM "], ["BEN ", "ADM "], ["BEN ", "TROW "], ["BEN ", "KMX "], ["BEN ", "IVZ "], ["BEN ", "GRMN "], ["BEN ", "BLK "], ["BDX ", "BAX "], ["BDX ", "SYK "], ["PRU ", "MET "], ["PRU ", "AFL "], ["ALXN ", "CELG "], ["HBAN ", "KEY "], ["CF ", "MOS "], ["SWKS ", "AVGO "], ["SWKS ", "AAPL "], ["ALK ", "DAL "], ["BLK ", "SEE "], ["CTXS ", "RHT "], ["RAI ", "MO "], ["AEE ", "XEL "], ["AIZ ", "TMK "], ["SLG ", "HST "], ["SLG ", "VNO "], ["ADSK ", "ADBE "], ["NFX ", "CXO "], ["KEY ", "FITB "], ["KEY ", "CMA "], ["KEY ", "PBCT "], ["KEY ", "PNC "], ["KEY ", "RF "], ["NDAQ ", "ICE "], ["BF/B ", "STZ "], ["BF/B ", "PEP "], ["APC ", "EOG "], ["APC ", "DVN "], ["UDR ", "ESS "], ["UDR ", "AVB "], ["UDR ", "AIV "], ["UDR ", "MAA "], ["UDR ", "REG "], ["RTN ", "NOC "], ["DUK ", "AEP "], ["KO ", "PEP "], ["VMC ", "MLM "], ["VMC ", "TROW "], ["HBI ", "VFC "], ["DOW ", "LYB "], ["DOW ", "DD "], ["BA ", "NOC "], ["LYB ", "EMN "], ["UAL ", "DAL "], ["SNA ", "ITW "], ["MPC ", "AMP "], ["MPC ", "VLO "], ["AEP ", "PPL "], ["AEP ", "XEL "], ["AEP ", "FE "], ["WDC ", "STX "], ["WDC ", "MU "], ["CSX ", "NSC "], ["IDXX ", "HSIC "], ["MUR ", "MRO "], ["MUR ", "FCX "], ["XEC ", "CXO "], ["IBM ", "ACN "], ["HIG ", "LNC "], ["RHI ", "HRB "], ["RHI ", "AMP "], ["CMG ", "SBUX "], ["MCO ", "AMP "], ["CXO ", "PXD "], ["LB ", "JWN "], ["QCOM ", "TXN "], ["ANTM ", "AET "], ["INCY ", "CELG "], ["LOW ", "HD "], ["GLW ", "ITW "], ["CCL ", "RCL "], ["EMR ", "ROK "], ["ZBH ", "SYK "], ["SCHW ", "CME "], ["SCHW ", "BK "], ["SCHW ", "ETFC "], ["CNP ", "AES "], ["TIF ", "AMP "], ["AJG ", "MMC "], ["RF ", "STI "], ["NBL ", "EOG "], ["PG ", "CL "], ["PFG ", "BRK/B "], ["PFG ", "LNC "], ["PFG ", "HOG "], ["PFG ", "L "], ["VRSN ", "CA "], ["LNC ", "BK "], ["LNC ", "AMP "], ["LNC ", "FSLR "], ["LNC ", "MET "], ["LNC ", "UNM "], ["MRO ", "OKE "], ["MRO ", "COP "], ["MRO ", "APA "], ["MRO ", "DVN "], ["CELG ", "BMY "], ["CELG ", "AMGN "], ["EBAY ", "ADS "], ["LKQ ", "GPC "], ["MTD ", "A "], ["MTD ", "COO "], ["HD ", "TSCO "], ["HD ", "TJX "], ["HD ", "MHK "], ["WHR ", "MHK "], ["CL ", "PEP "], ["CL ", "EL "], ["CL ", "CHD "], ["CL ", "BRK/B "], ["CL ", "KMB "], ["NOV ", "FTI "], ["BSX ", "MDT "], ["FISV ", "FIS "], ["FISV ", "ADBE "], ["FISV ", "EFX "], ["FISV ", "CTAS "], ["FISV ", "SBUX "], ["FISV ", "TSS "], ["DLTR ", "ROST "], ["DLTR ", "DG "], ["PNW ", "XEL "], ["IRM ", "KIM "], ["HAS ", "IVZ "], ["HAS ", "MAT "], ["AET ", "CI "], ["AET ", "UNH "], ["TXN ", "AVGO "], ["TXN ", "INTC "], ["TXN ", "ADI "], ["TXN ", "TEL "], ["TXN ", "LLTC "], ["MAS ", "LEN "], ["MAS ", "MHK "], ["MCK ", "ABC "], ["ECL ", "PX "], ["FLIR ", "TEL "], ["GE ", "ITW "], ["CBS ", "DIS "], ["CBS ", "TGNA "], ["MU ", "MCHP "], ["ADS ", "AMP "], ["WY ", "IP "], ["WY ", "PLD "], ["CHTR ", "CMCSA "], ["COP ", "HES "], ["COP ", "CVX "], ["SWN ", "RRC "], ["XOM ", "CVX "], ["WEC ", "XEL "], ["JNJ ", "BRK/B "], ["JNJ ", "AMGN "], ["NLSN ", "MMC "], ["MRK ", "PFE "], ["FAST ", "GWW "], ["JPM ", "C "], ["JPM ", "USB "], ["DTE ", "CMS "], ["D ", "CMS "], ["MHK ", "LEG "], ["PM ", "MO "], ["HRS ", "AMP "], ["MYL ", "PRGO "], ["MYL ", "AGN "], ["NI ", "LNT "], ["ULTA ", "ROST "], ["COF ", "USB "], ["SIG ", "IVZ "], ["NTRS ", "BK "], ["NTRS ", "USB "], ["SPLS ", "IVZ "], ["GPS ", "JWN "], ["USB ", "MTB "], ["USB ", "WFC "], ["KMI ", "OKE "], ["UHS ", "EVHC "], ["UHS ", "HCA "], ["RSG ", "WM "], ["BXP ", "KIM "], ["BXP ", "VNO "], ["BHI ", "HAL "], ["EQT ", "RRC "], ["EQT ", "COG "], ["JEC ", "FLR "], ["KIM ", "SPG "], ["KIM ", "REG "], ["KIM ", "MAC "], ["FCX ", "NEM "], ["FCX ", "MOS "], ["AAP ", "ORLY "], ["LUV ", "AMP "], ["LUV ", "DAL "], ["DPS ", "PEP "], ["IVZ ", "LUK "], ["IVZ ", "AMP "], ["IVZ ", "HAR "], ["PLD ", "VNO "], ["PLD ", "AMT "], ["ICE ", "CME "], ["AN ", "KMX "], ["PGR ", "CINF "], ["ACN ", "CTSH "], ["CLX ", "KMB "], ["MO ", "PEP "], ["AGN ", "AMGN "], ["ADBE ", "CRM "], ["HAL ", "SLB "], ["AMZN ", "GOOGL "], ["AME ", "AYI "], ["AME ", "ITW "], ["AME ", "ROP "], ["ITW ", "GPC "], ["ITW ", "SWK "], ["ITW ", "TEL "], ["ITW ", "GWW "], ["ITW ", "IR "], ["ITW ", "XYL "], ["ITW ", "PX "], ["ITW ", "MMM "], ["MDT ", "SYK "], ["AON ", "MMC "], ["DRI ", "SBUX "], ["CMI ", "CAT "], ["CRM ", "RHT "], ["SLB ", "HP "], ["ALB ", "EMN "], ["VLO ", "TSO "], ["TEL ", "NTAP "], ["TEL ", "EA "], ["TEL ", "APH "], ["TEL ", "FFIV "], ["NKE ", "VFC "], ["NKE ", "UAA "], ["NKE ", "FL "], ["CMCSA ", "DIS "], ["C ", "BAC "], ["C ", "MS "], ["ADI ", "MCHP "], ["ADI ", "NVDA "], ["ETN ", "URI "], ["KR ", "COST "], ["MJN ", "MMC "], ["TJX ", "ROST "], ["TJX ", "JWN "], ["TMK ", "UNM "], ["HES ", "OXY "], ["TSS ", "GPN "], ["MMC ", "CINF "], ["MMC ", "WLTW "], ["MMC ", "BRK/B "], ["MMC ", "WM "], ["MCD ", "YUM "], ["ILMN ", "TMO "], ["NRG ", "AES "], ["WMB ", "OKE "], ["TROW ", "MSI "], ["BRK/B ", "DIS "], ["BRK/B ", "UNH "], ["BRK/B ", "T "], ["JNPR ", "FFIV "], ["HP ", "EOG "], ["HP ", "RIG "], ["HP ", "FTI "], ["FLR ", "FLS "], ["HPQ ", "INTC "], ["WMT ", "COST "], ["VTR ", "FRT "], ["NOC ", "GD "], ["NOC ", "LMT "], ["MSFT ", "INTC "], ["ETR ", "XEL "], ["VAR ", "SYK "], ["CME ", "CBOE "], ["VZ ", "T "], ["LLY ", "PFE "], ["TGT ", "JWN "], ["PKI ", "A "], ["O ", "FRT "], ["PXD ", "EOG "], ["AVB ", "EQR "], ["CCI ", "AMT "], ["SYK ", "EW "], ["SYK ", "ISRG "], ["SYK ", "TMO "], ["SYK ", "XRAY "], ["WAT ", "TMO "], ["ES ", "XEL "], ["ROST ", "FL "], ["CINF ", "LEG "], ["GS ", "MS "], ["XRAY ", "HSIC "], ["BBBY ", "JWN "], ["AMP ", "LVLT "], ["TMO ", "A "], ["TMO ", "DHR "], ["FRT ", "LNT "], ["FRT ", "REG "], ["CNC ", "UNH "], ["DE ", "CAT "], ["ORLY ", "GPC "], ["ORLY ", "AZO "], ["PDCO ", "HSIC "], ["DVN ", "RRC "], ["XEL ", "CMS "], ["XEL ", "EIX "], ["XEL ", "LNT "], ["ATVI ", "EA "], ["NEE ", "CMS "], ["PFE ", "AMGN "], ["CAT ", "NUE "], ["PNR ", "FLS "], ["FMC ", "PX "]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "dark", "api_id": "ud7p0wre43", "height": 500, "width": 1000, "charge": -25, "color_map": "Heat", "got_embed": false, "embedding": [], "model_name": "f5a70e1623bc", "color_axis": "eccentricity", "nodes": ["DHI ", "HON ", "FOX ", "CVS ", "TAP ", "WU ", "CBG ", "BIIB ", "STT ", "SCG ", "EXR ", "JBHT ", "XRX ", "LH ", "BBT ", "CTL ", "PVH ", "UPS ", "AWK ", "PH ", "MON ", "PHM ", "INTU ", "HUM ", "ZION ", "MA ", "FDX ", "TSN ", "MKC ", "PCLN ", "HCN ", "CB ", "M ", "ORCL ", "PEG ", "PPG ", "APD ", "CAH ", "PSA ", "WFM ", "UNP ", "GIS ", "BCR ", "XLNX ", "GILD ", "MNST ", "DVA ", "OMC ", "DLR ", "LRCX ", "NWL ", "GGP ", "CERN ", "SRE ", "PCG ", "AKAM ", "CHK ", "ED ", "DFS ", "MAR ", "CHRW ", "RL ", "SJM ", "SPGI ", "BBY ", "TDC ", "URBN ", "ADP ", "AIG ", "BWA ", "LLL ", "DOV ", "PWR ", "FBHS ", "ABT ", "AMG ", "SHW ", "SYMC ", "DISCA ", "PCAR ", "F ", "BEN ", "BDX ", "PRU ", "ALXN ", "HBAN ", "CF ", "SWKS ", "ALK ", "BLK ", "CTXS ", "RAI ", "AEE ", "AIZ ", "SLG ", "ADSK ", "NFX ", "EXC ", "KEY ", "NDAQ ", "BAX ", "EQIX ", "BF/B ", "APC ", "UDR ", "RTN ", "DUK ", "KO ", "COH ", "VMC ", "UTX ", "HBI ", "DOW ", "BA ", "LYB ", "FITB ", "UAL ", "SNA ", "MPC ", "AEP ", "WDC ", "CSX ", "IDXX ", "MUR ", "TDG ", "HOLX ", "XEC ", "IBM ", "HIG ", "RHI ", "CMG ", "MCO ", "CXO ", "LB ", "R ", "QCOM ", "ANTM ", "INCY ", "FTR ", "LOW ", "TRIP ", "GLW ", "VIAB ", "HSY ", "DLPH ", "CCL ", "EMR ", "ZBH ", "WYNN ", "SCHW ", "CNP ", "TIF ", "AJG ", "RF ", "NBL ", "CAG ", "SRCL ", "AIV ", "PG ", "PFG ", "VRSN ", "BLL ", "LNC ", "MRO ", "CELG ", "EBAY ", "DGX ", "NSC ", "KSS ", "XL ", "LKQ ", "MTD ", "HD ", "WHR ", "COL ", "K ", "CL ", "NOV ", "BSX ", "FISV ", "DLTR ", "GT ", "PNW ", "IRM ", "HAS ", "AET ", "TXN ", "MAS ", "MCK ", "ECL ", "RCL ", "FLIR ", "GE ", "CBS ", "MU ", "ADS ", "WY ", "STX ", "DG ", "AAPL ", "CSCO ", "CHTR ", "COP ", "LEN ", "SWN ", "XOM ", "WEC ", "TRV ", "ROK ", "JNJ ", "NLSN ", "KLAC ", "MRK ", "FAST ", "HOG ", "CA ", "JPM ", "DTE ", "WYN ", "CVX ", "D ", "MHK ", "PM ", "HST ", "HRS ", "MYL ", "NI ", "EXPE ", "IP ", "ULTA ", "COF ", "PPL ", "SIG ", "NTRS ", "NFLX ", "SPLS ", "ADM ", "GPS ", "COO ", "USB ", "MDLZ ", "ESRX ", "MAA ", "KMI ", "UHS ", "BMY ", "RSG ", "BXP ", "BHI ", "EQT ", "JEC ", "PNC ", "SNI ", "FOXA ", "KIM ", "FCX ", "AAP ", "LUV ", "DPS ", "IVZ ", "PLD ", "CPB ", "ICE ", "AN ", "AVY ", "PGR ", "ACN ", "CLX ", "IPG ", "MO ", "AGN ", "PBCT ", "ADBE ", "HCP ", "HAL ", "KORS ", "KMB ", "PEP ", "DD ", "AMZN ", "AME ", "ITW ", "STI ", "MDT ", "AON ", "DRI ", "SWK ", "CMI ", "CRM ", "SLB ", "ALB ", "ROP ", "VLO ", "TXT ", "TEL ", "NKE ", "CMCSA ", "AMAT ", "NEM ", "C ", "EFX ", "ADI ", "ETN ", "KR ", "JCI ", "MJN ", "L ", "TJX ", "APA ", "UAA ", "GWW ", "AVGO ", "FIS ", "ABC ", "VNO ", "TMK ", "HAR ", "HES ", "SBUX ", "TSS ", "SYY ", "MMC ", "MCD ", "V ", "ILMN ", "NRG ", "WMB ", "TROW ", "LLTC ", "BRK/B ", "JNPR ", "APH ", "IR ", "HP ", "FLR ", "UNM ", "HPQ ", "WMT ", "SO ", "MCHP ", "VTR ", "NVDA ", "IFF ", "MSI ", "NOC ", "PRGO ", "CTSH ", "MSFT ", "ETR ", "YHOO ", "VAR ", "OXY ", "PAYX ", "HCA ", "YUM ", "CME ", "VZ ", "LLY ", "TGT ", "PKI ", "O ", "PXD ", "AVB ", "CCI ", "TSO ", "SYK ", "GOOGL ", "LMT ", "WAT ", "HRB ", "WFC ", "WM ", "MLM ", "NTAP ", "ALL ", "ES ", "URI ", "ROST ", "EXPD ", "COG ", "CINF ", "BAC ", "TGNA ", "AXP ", "KSU ", "KMX ", "GS ", "MTB ", "XRAY ", "BBBY ", "OKE ", "AMP ", "MAT ", "TMO ", "EW ", "CHD ", "VFC ", "EVHC ", "FFIV ", "CMA ", "FRT ", "CNC ", "DNB ", "RHT ", "MET ", "STZ ", "UNH ", "DE ", "FL ", "ORLY ", "EQR ", "REG ", "CTAS ", "LEG ", "RIG ", "GD ", "PDCO ", "XYL ", "COST ", "DVN ", "XEL ", "FE ", "GPN ", "EL ", "GM ", "AFL ", "TWX ", "ESS ", "ATVI ", "EIX ", "NEE ", "MMM ", "DHR ", "BK ", "TSCO ", "PFE ", "HRL ", "CI ", "HSIC ", "JWN ", "RRC ", "LUK ", "FTI ", "ETFC ", "AYI ", "AMGN ", "CAT ", "VRSK ", "WLTW ", "NUE ", "SPG ", "WBA ", "PNR ", "AMT ", "A ", "MOS ", "AZO ", "LVLT ", "MAC ", "CMS ", "EMN ", "FMC ", "GPC ", "CBOE ", "EA ", "GRMN ", "DISCK ", "FSLR ", "LNT ", "PX ", "T ", "INTC ", "DAL ", "AES ", "ISRG ", "DIS ", "EOG ", "SEE ", "MS ", "FLS "], "api_key": "F4CDheV1ca5IHlMqHkgN37lXYIxNfN3Xaba4P1fg", "label_color": "rgba(255,255,255,0.88)", "graph_layout": "force"}'));
-		console.log(window.current_graph_id);
-		var width = window.graph_data[window.current_graph_id]['width'];
-		var height = window.graph_data[window.current_graph_id]['height'];
-
-		var label_color = window.graph_data[window.current_graph_id]['label_color'];
-
-		var API_region = window.graph_data[window.current_graph_id]['api_region'];
-		var API_id = window.graph_data[window.current_graph_id]['api_id'];
-		var API_STAGE = "development";
-		var API_KEY = window.graph_data[window.current_graph_id]['api_key'];
-
-		var url = 'https://' + API_id + '.execute-api.' + API_region + '.amazonaws.com/' + API_STAGE + '/models/call';
-
-		var model_name = window.graph_data[window.current_graph_id]['model_name'];
-		var model_type = window.graph_data[window.current_graph_id]['model_type'];
-		
-		var min_node_size = window.graph_data[window.current_graph_id]['min_node_size'];
-		
-		var charge = window.graph_data[window.current_graph_id]['charge'];
-
-		var colorAxis = window.graph_data[window.current_graph_id]['color_axis'];
-		if(colorAxis == undefined){
-			colorAxis = "closeness_centrality";
-		}
-
-		var colorMap = window.graph_data[window.current_graph_id]['color_map'];
-		if(colorMap == undefined){
-			colorMap = "RdBuGn";
-		}
-
-		var graphStyle = window.graph_data[window.current_graph_id]['graph_style'];
-		// light || dark || white || ether
-		if(graphStyle == undefined){
-			graphStyle = "light";
-		}
-
-		var suppressLabels;
-		if(suppressLabels == undefined){
-			suppressLabels = true;
-		}
-
-		var graphTitle;
-		if(graphTitle == undefined){
-			graphTitle = "SliceMatrix-IO Network Viewer";
-		}
-
-		var graphLayout = window.graph_data[window.current_graph_id]['graph_layout'];
-		if(graphLayout == undefined && window.graph_data[window.current_graph_id]['got_embed'] == true){
-			graphLayout = "embedding";
-		}
-
-		require(['d3'], function(d3){
-
-			element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
-			element.append('<div class = "loadingDialog" id = "spinner_' + window.current_graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
-			element.append('<div class = "content_cell" id = "content_' + window.current_graph_id +'"><canvas id = "mainEvent_' + window.current_graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
-
-			// update background style
-			if(graphStyle == "dark"){
-				d3.select("#content_" + window.current_graph_id).style("background", "rgb(20,20,20)");
-
-
-				$('#top_bar').css({
-					"color": "rgba(255, 255, 255, 0.88)",
-					"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
-					"background-color": "rgba(220,220,220, 0.4)",
-					"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
-				});
-				d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
-			}else if(graphStyle == "white"){
-				$('#content' + window.current_graph_id).css({
-					"background-image": "none",
-					"background-color": "#FFF",
-					"background": "rgb(256,256,256)"
-				});
-
-				d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
-			}else if(graphStyle == "ether"){
-				$('#content' + window.current_graph_id).css({
-					"background-image": "none",
-					"background-color": "#000",
-					"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
-				});
-
-				$('#top_bar').css({
-					"color": "rgba(255, 255, 255, 0.88)",
-					"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
-					"background-color": "rgba(220,220,220, 0.4)",
-					"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
-				});
-
-				d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
-			}
-
-			//
-			if(graphLayout == undefined){
-				graphLayout = false;
-			}
-
-			var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
-			return d3.scaleLinear()
-					 .domain([minval, midval, maxval])
-					 .range([mincol, midcol, maxcol]);
-
-			}
-
-			var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
-						 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
-						 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
-						 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
-						 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
-						 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
-						 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
-						 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
-						 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
-						 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
-						 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
-
-			function getMaxOfArray(numArray) {
-			  return Math.max.apply(null, numArray);
-			}
-
-			function getMinOfArray(numArray) {
-			  return Math.min.apply(null, numArray);
-			}
-
-			var graph = {nodes:[], links:[]};
-
-			var curr_colormap;
-
-			d3.select("#loading_status").html("loaded nodes...");
-			var data = window.graph_data[window.current_graph_id];
-			data['nodes'].forEach(function(d){
-				graph['nodes'].push({id:d});
-			});
-
-			d3.select("#loading_status").html("loaded edges...");
-			data['links'].forEach(function(d){
-				graph['links'].push({source:d[0], target:d[1]});
-			});
-
-			//var height = 600;
-			//var width  = 1200;
-			var searchRadius = 3;
-
-			//d3.select("canvas").attr("height", height).attr("width", width);
-
-			var transform = d3.zoomIdentity;
-
-
-			//var canvas = document.querySelector("canvas"),
-			var canvas = document.querySelector("#mainEvent_" + window.current_graph_id),
-				context = canvas.getContext("2d");
-				//width = canvas.width,
-				//height = canvas.height;
-
-			var simulation = d3.forceSimulation()
-				.force("link", d3.forceLink().id(function(d) { return d.id; }))
-				.force("charge", d3.forceManyBody().strength(charge))
-				.force("center", d3.forceCenter(width / 2, height / 2))
-				.force("X", d3.forceX().x(0.2))
-				.force("Y", d3.forceY().y(0.2));
-
-			var zoom = d3.zoom();
-
-			var k = 1.0;
-
-			function initialize(){
-			  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
-			}
-
-			//initialize();
-
-			var ggraph;
-
-			var selected_node;
-
-			var transform;
-
-			var ticks = 0;
-
-
-			var mixcolors = function(color1, color2){
-				var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
-				var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
-				var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
-				var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
-				var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
-				if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
-				  return "rgba(20,120,220,0.6)";
-				}else{
-				  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
-				}
-			}
-
-			var drawGraph = function(){
-				console.log(graph);
-
-				function dragsubject() {
-				  var i,
-					  x = transform.invertX(d3.event.x),
-					  y = transform.invertY(d3.event.y),
-					  dx,
-					  dy;
-				}
-
-
-				function dragstarted() {
-				  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-				  d3.event.subject.fx = d3.event.subject.x;
-				  d3.event.subject.fy = d3.event.subject.y;
-				}
-
-				function dragged() {
-				  //d3.event.subject[0] = transform.invertX(d3.event.x);
-				  //d3.event.subject[1] = transform.invertY(d3.event.y);
-				  d3.event.subject.fx = d3.event.x;
-				  d3.event.subject.fy = d3.event.y;
-				}
-
-				function dragended() {
-				  if (!d3.event.active) simulation.alphaTarget(0);
-				  d3.event.subject.fx = null;
-				  d3.event.subject.fy = null;
-				}
-
-				function drawLink(d) {
-				  context.moveTo(d.source.x, d.source.y);
-				  context.lineTo(d.target.x, d.target.y);
-				}
-
-				function drawNode(d) {
-				  context.moveTo(d.x + get_current_node_size(), d.y);
-				  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
-				  //context.fill();
-				}
-
-				function drawLabel(d, id) {
-				  //console.log(d);
-				  context.shadowBlur = 10;
-				  context.shadowColor = "rgba(120,120,120,0.3)";
-				  context.fillText(d.id, d.x,d.y);
-				  //context.fill();
-				}
-
-				function rgb2a(rgb_string, alpha){
-					//console.log(rgb_string);
-				  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
-				  //rgb_string = "rgba(0,0,0,0.3)";
-				  return rgb_string 
-				}
-
-				function get_current_alpha(){
-				  return 1.0 - Math.min(transform.k, 0.5);
-				}
-
-				function get_current_font_size(){
-				  return 10 / Math.pow(transform.k, 0.5);
-				}
-
-				function get_current_highlighted_font_size(){
-				  return Math.min(720 * transform.k, 20);
-				}
-
-				function get_current_link_width(){
-				  return Math.max(1.5, 0.5/ transform.k);
-				}
-
-				function get_current_node_size(){
-				  return Math.min(60 * transform.k, min_node_size);
-				}
-
-				function get_current_deg_thresh(){
-				  if(k >= 0.4){
-					return 1;
-				  }else{
-					return 2;
-				  }
-				}
-
-
-				ggraph = graph;
-				  setTimeout(initialize, 0);
-
-				  if(graphLayout == "force"){
-
-					  simulation
-						  .nodes(graph.nodes)
-						  .on("tick", ticked);
-
-					  simulation.force("link")
-						  .links(graph.links);
-
-				  }else{
-						  simulation
-						  .nodes(graph.nodes);
-						  //.on("tick", ticked);
-
-					  simulation.force("link")
-						  .links(graph.links);
-						ticked();
-				  }
-
-				  //d3.select("mainEvent_" + window.current_graph_id)
-				  d3.select(canvas)
-					  .on("mousemove", mousemoved)
-					  .call(d3.drag()
-						  .container(canvas)
-						  .subject(dragsubject)
-						  .on("start", dragstarted)
-						  .on("drag", dragged)
-						  .on("end", dragended))
-					  .call(zoom.on("zoom", zoomed));
-
-				  function zoomed() {
-					//console.log("zooming!");
-					transform = d3.event.transform;
-					//console.log(simulation.alpha());
-					if(graphLayout == "force"){
-						if(simulation.alpha() < 0.01){//>
-						  ticked();
-						}
-					}else{
-						ticked();
+		window.graph_data.push(JSON.parse('{"stats": [[16], [16], [17], [17], [17], [17], [17], [17], [17], [17], [17], [17], [17], [17], [17], [17], [17], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [18], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [19], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [20], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [21], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [22], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [23], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [24], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [25], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [26], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [27], [28], [28], [28], [28], [28], [28], [28], [28], [28], [28], [28], [28], [28], [28], [29], [29], [29], [29], [29], [29], [29], [29], [30], [30], [30], [30], [31], [31], [31], [31]], "links": [["DHI ", "LEN "], ["HON ", "COL "], ["HON ", "TDG "], ["HON ", "ITW "], ["HON ", "TXT "], ["HON ", "CVS "], ["HON ", "UTX "], ["HON ", "GD "], ["HON ", "JCI "], ["HON ", "AVY "], ["HON ", "CA "], ["HON ", "DHR "], ["FOX ", "DIS "], ["FOX ", "FOXA "], ["FOX ", "VIAB "], ["CVS ", "WBA "], ["TAP ", "BF/B "], ["WU ", "ADP "], ["CBG ", "IVZ "], ["BIIB ", "CELG "], ["STT ", "BK "], ["SCG ", "XEL "], ["EXR ", "PSA "], ["JBHT ", "R "], ["XRX ", "IVZ "], ["LH ", "SYK "], ["LH ", "UHS "], ["LH ", "DGX "], ["BBT ", "FITB "], ["BBT ", "USB "], ["CTL ", "VZ "], ["CTL ", "FTR "], ["PVH ", "VFC "], ["PVH ", "COH "], ["PVH ", "KORS "], ["PVH ", "RL "], ["UPS ", "FDX "], ["UPS ", "ITW "], ["AWK ", "LNT "], ["PH ", "EMR "], ["PH ", "DOV "], ["PH ", "ITW "], ["PH ", "CMI "], ["PH ", "ETN "], ["MON ", "PX "], ["PHM ", "LEN "], ["INTU ", "ADP "], ["HUM ", "UNH "], ["ZION ", "CMA "], ["MA ", "V "], ["MA ", "PCLN "], ["MA ", "FISV "], ["MA ", "GOOGL "], ["MA ", "EQIX "], ["FDX ", "EXPD "], ["TSN ", "HRL "], ["MKC ", "GIS "], ["MKC ", "HRL "], ["PCLN ", "EXPE "], ["PCLN ", "NFLX "], ["PCLN ", "TRIP "], ["HCN ", "VTR "], ["HCN ", "HCP "], ["CB ", "TRV "], ["CB ", "CINF "], ["CB ", "ALL "], ["CB ", "XL "], ["M ", "JWN "], ["M ", "KSS "], ["ORCL ", "CSCO "], ["ORCL ", "ACN "], ["PEG ", "XEL "], ["PEG ", "EXC "], ["PPG ", "SHW "], ["PPG ", "BLL "], ["PPG ", "PX "], ["PPG ", "EMN "], ["PPG ", "IFF "], ["APD ", "PX "], ["CAH ", "MCK "], ["CAH ", "ESRX "], ["CAH ", "HSIC "], ["PSA ", "FRT "], ["WFM ", "KR "], ["UNP ", "NSC "], ["UNP ", "R "], ["UNP ", "KSU "], ["GIS ", "K "], ["GIS ", "PEP "], ["GIS ", "HSY "], ["GIS ", "SYY "], ["GIS ", "SJM "], ["GIS ", "CAG "], ["GIS ", "MDLZ "], ["GIS ", "CPB "], ["BCR ", "SYK "], ["XLNX ", "ADI "], ["GILD ", "CELG "], ["MNST ", "KO "], ["DVA ", "DGX "], ["OMC ", "ADP "], ["OMC ", "IPG "], ["DLR ", "FRT "], ["LRCX ", "AMAT "], ["LRCX ", "TXN "], ["LRCX ", "KLAC "], ["NWL ", "AMG "], ["GGP ", "SPG "], ["CERN ", "FISV "], ["SRE ", "CNP "], ["SRE ", "DTE "], ["PCG ", "XEL "], ["AKAM ", "SNA "], ["CHK ", "DVN "], ["ED ", "SO "], ["ED ", "WEC "], ["DFS ", "COF "], ["DFS ", "AXP "], ["MAR ", "AMP "], ["MAR ", "HST "], ["MAR ", "WYN "], ["MAR ", "RCL "], ["CHRW ", "EXPD "], ["SPGI ", "MCO "], ["BBY ", "SPLS "], ["TDC ", "IVZ "], ["URBN ", "GPS "], ["ADP ", "COST "], ["ADP ", "VRSK "], ["ADP ", "ACN "], ["ADP ", "BRK/B "], ["ADP ", "FISV "], ["ADP ", "PAYX "], ["ADP ", "SRCL "], ["ADP ", "MCD "], ["AIG ", "PRU "], ["BWA ", "GT "], ["BWA ", "F "], ["BWA ", "PCAR "], ["BWA ", "DLPH "], ["LLL ", "NOC "], ["DOV ", "FLS "], ["DOV ", "SLB "], ["PWR ", "FLR "], ["FBHS ", "MAS "], ["ABT ", "TMO "], ["ABT ", "HOLX "], ["AMG ", "DNB "], ["AMG ", "YHOO "], ["AMG ", "IVZ "], ["AMG ", "WYNN "], ["SYMC ", "CA "], ["DISCA ", "SNI "], ["DISCA ", "CBS "], ["DISCA ", "DISCK "], ["DISCA ", "TWX "], ["PCAR ", "AMP "], ["PCAR ", "CMI "], ["PCAR ", "R "], ["F ", "GM "], ["BEN ", "ADM "], ["BEN ", "TROW "], ["BEN ", "KMX "], ["BEN ", "IVZ "], ["BEN ", "GRMN "], ["BEN ", "BLK "], ["BDX ", "BAX "], ["BDX ", "SYK "], ["PRU ", "MET "], ["PRU ", "AFL "], ["ALXN ", "CELG "], ["HBAN ", "KEY "], ["CF ", "MOS "], ["SWKS ", "AVGO "], ["SWKS ", "AAPL "], ["ALK ", "DAL "], ["BLK ", "SEE "], ["CTXS ", "RHT "], ["RAI ", "MO "], ["AEE ", "XEL "], ["AIZ ", "TMK "], ["SLG ", "HST "], ["SLG ", "VNO "], ["ADSK ", "ADBE "], ["NFX ", "CXO "], ["KEY ", "FITB "], ["KEY ", "CMA "], ["KEY ", "PBCT "], ["KEY ", "PNC "], ["KEY ", "RF "], ["NDAQ ", "ICE "], ["BF/B ", "STZ "], ["BF/B ", "PEP "], ["APC ", "EOG "], ["APC ", "DVN "], ["UDR ", "ESS "], ["UDR ", "AVB "], ["UDR ", "AIV "], ["UDR ", "MAA "], ["UDR ", "REG "], ["RTN ", "NOC "], ["DUK ", "AEP "], ["KO ", "PEP "], ["VMC ", "MLM "], ["VMC ", "TROW "], ["HBI ", "VFC "], ["DOW ", "LYB "], ["DOW ", "DD "], ["BA ", "NOC "], ["LYB ", "EMN "], ["UAL ", "DAL "], ["SNA ", "ITW "], ["MPC ", "AMP "], ["MPC ", "VLO "], ["AEP ", "PPL "], ["AEP ", "XEL "], ["AEP ", "FE "], ["WDC ", "STX "], ["WDC ", "MU "], ["CSX ", "NSC "], ["IDXX ", "HSIC "], ["MUR ", "MRO "], ["MUR ", "FCX "], ["XEC ", "CXO "], ["IBM ", "ACN "], ["HIG ", "LNC "], ["RHI ", "HRB "], ["RHI ", "AMP "], ["CMG ", "SBUX "], ["MCO ", "AMP "], ["CXO ", "PXD "], ["LB ", "JWN "], ["QCOM ", "TXN "], ["ANTM ", "AET "], ["INCY ", "CELG "], ["LOW ", "HD "], ["GLW ", "ITW "], ["CCL ", "RCL "], ["EMR ", "ROK "], ["ZBH ", "SYK "], ["SCHW ", "CME "], ["SCHW ", "BK "], ["SCHW ", "ETFC "], ["CNP ", "AES "], ["TIF ", "AMP "], ["AJG ", "MMC "], ["RF ", "STI "], ["NBL ", "EOG "], ["PG ", "CL "], ["PFG ", "BRK/B "], ["PFG ", "LNC "], ["PFG ", "HOG "], ["PFG ", "L "], ["VRSN ", "CA "], ["LNC ", "BK "], ["LNC ", "AMP "], ["LNC ", "FSLR "], ["LNC ", "MET "], ["LNC ", "UNM "], ["MRO ", "OKE "], ["MRO ", "COP "], ["MRO ", "APA "], ["MRO ", "DVN "], ["CELG ", "BMY "], ["CELG ", "AMGN "], ["EBAY ", "ADS "], ["LKQ ", "GPC "], ["MTD ", "A "], ["MTD ", "COO "], ["HD ", "TSCO "], ["HD ", "TJX "], ["HD ", "MHK "], ["WHR ", "MHK "], ["CL ", "PEP "], ["CL ", "EL "], ["CL ", "CHD "], ["CL ", "BRK/B "], ["CL ", "KMB "], ["NOV ", "FTI "], ["BSX ", "MDT "], ["FISV ", "FIS "], ["FISV ", "ADBE "], ["FISV ", "EFX "], ["FISV ", "CTAS "], ["FISV ", "SBUX "], ["FISV ", "TSS "], ["DLTR ", "ROST "], ["DLTR ", "DG "], ["PNW ", "XEL "], ["IRM ", "KIM "], ["HAS ", "IVZ "], ["HAS ", "MAT "], ["AET ", "CI "], ["AET ", "UNH "], ["MAS ", "LEN "], ["MAS ", "MHK "], ["MCK ", "ABC "], ["ECL ", "PX "], ["FLIR ", "TEL "], ["GE ", "ITW "], ["CBS ", "DIS "], ["CBS ", "TGNA "], ["MU ", "MCHP "], ["ADS ", "AMP "], ["WY ", "IP "], ["WY ", "PLD "], ["TXN ", "ADI "], ["TXN ", "INTC "], ["TXN ", "AVGO "], ["TXN ", "TEL "], ["CHTR ", "CMCSA "], ["COP ", "HES "], ["COP ", "CVX "], ["SWN ", "RRC "], ["XOM ", "CVX "], ["WEC ", "XEL "], ["JNJ ", "BRK/B "], ["JNJ ", "AMGN "], ["NLSN ", "MMC "], ["MRK ", "PFE "], ["FAST ", "GWW "], ["JPM ", "C "], ["JPM ", "USB "], ["DTE ", "CMS "], ["D ", "CMS "], ["MHK ", "LEG "], ["PM ", "MO "], ["HRS ", "AMP "], ["MYL ", "PRGO "], ["MYL ", "AGN "], ["NI ", "LNT "], ["ULTA ", "ROST "], ["COF ", "USB "], ["SIG ", "IVZ "], ["NTRS ", "BK "], ["NTRS ", "USB "], ["SPLS ", "IVZ "], ["GPS ", "JWN "], ["USB ", "MTB "], ["USB ", "WFC "], ["KMI ", "OKE "], ["UHS ", "EVHC "], ["UHS ", "HCA "], ["RSG ", "WM "], ["BXP ", "KIM "], ["BXP ", "VNO "], ["BHI ", "HAL "], ["EQT ", "RRC "], ["EQT ", "COG "], ["JEC ", "FLR "], ["KIM ", "SPG "], ["KIM ", "REG "], ["KIM ", "MAC "], ["FCX ", "NEM "], ["FCX ", "MOS "], ["AAP ", "ORLY "], ["LUV ", "AMP "], ["LUV ", "DAL "], ["DPS ", "PEP "], ["IVZ ", "LUK "], ["IVZ ", "AMP "], ["IVZ ", "HAR "], ["PLD ", "VNO "], ["PLD ", "AMT "], ["ICE ", "CME "], ["AN ", "KMX "], ["PGR ", "CINF "], ["ACN ", "CTSH "], ["CLX ", "KMB "], ["MO ", "PEP "], ["AGN ", "AMGN "], ["ADBE ", "CRM "], ["HAL ", "SLB "], ["AMZN ", "GOOGL "], ["AME ", "AYI "], ["AME ", "ITW "], ["AME ", "ROP "], ["ITW ", "GPC "], ["ITW ", "SWK "], ["ITW ", "TEL "], ["ITW ", "GWW "], ["ITW ", "IR "], ["ITW ", "XYL "], ["ITW ", "PX "], ["ITW ", "MMM "], ["MDT ", "SYK "], ["AON ", "MMC "], ["DRI ", "SBUX "], ["CMI ", "CAT "], ["CRM ", "RHT "], ["SLB ", "HP "], ["ALB ", "EMN "], ["VLO ", "TSO "], ["TEL ", "NTAP "], ["TEL ", "EA "], ["TEL ", "APH "], ["TEL ", "FFIV "], ["NKE ", "VFC "], ["NKE ", "UAA "], ["NKE ", "FL "], ["CMCSA ", "DIS "], ["C ", "BAC "], ["C ", "MS "], ["ADI ", "MCHP "], ["ADI ", "NVDA "], ["ETN ", "URI "], ["KR ", "COST "], ["MJN ", "MMC "], ["TJX ", "ROST "], ["TJX ", "JWN "], ["TMK ", "UNM "], ["HES ", "OXY "], ["TSS ", "GPN "], ["MMC ", "CINF "], ["MMC ", "WLTW "], ["MMC ", "BRK/B "], ["MMC ", "WM "], ["MCD ", "YUM "], ["ILMN ", "TMO "], ["NRG ", "AES "], ["WMB ", "OKE "], ["TROW ", "MSI "], ["BRK/B ", "DIS "], ["BRK/B ", "UNH "], ["BRK/B ", "T "], ["JNPR ", "FFIV "], ["HP ", "EOG "], ["HP ", "RIG "], ["HP ", "FTI "], ["FLR ", "FLS "], ["HPQ ", "INTC "], ["WMT ", "COST "], ["VTR ", "FRT "], ["NOC ", "GD "], ["NOC ", "LMT "], ["MSFT ", "INTC "], ["ETR ", "XEL "], ["DISH ", "AMP "], ["VAR ", "SYK "], ["CME ", "CBOE "], ["VZ ", "T "], ["LLY ", "PFE "], ["TGT ", "JWN "], ["PKI ", "A "], ["O ", "FRT "], ["PXD ", "EOG "], ["AVB ", "EQR "], ["CCI ", "AMT "], ["SYK ", "EW "], ["SYK ", "ISRG "], ["SYK ", "TMO "], ["SYK ", "XRAY "], ["WAT ", "TMO "], ["ES ", "XEL "], ["ROST ", "FL "], ["CINF ", "LEG "], ["GS ", "MS "], ["XRAY ", "HSIC "], ["BBBY ", "JWN "], ["AMP ", "LVLT "], ["TMO ", "A "], ["TMO ", "DHR "], ["FRT ", "LNT "], ["FRT ", "REG "], ["CNC ", "UNH "], ["DE ", "CAT "], ["ORLY ", "GPC "], ["ORLY ", "AZO "], ["PDCO ", "HSIC "], ["DVN ", "RRC "], ["XEL ", "CMS "], ["XEL ", "EIX "], ["XEL ", "LNT "], ["ATVI ", "EA "], ["NEE ", "CMS "], ["PFE ", "AMGN "], ["CAT ", "NUE "], ["PNR ", "FLS "], ["FMC ", "PX "]], "label_shadow_color": "#fffff0", "min_node_size": 10, "graph_style": "dark", "height": 500, "width": 1000, "charge": -25, "color_map": "Heat", "graph_id": 1, "got_embed": false, "embedding": [], "color_axis": "eccentricity", "nodes": ["DHI ", "HON ", "FOX ", "CVS ", "TAP ", "WU ", "CBG ", "BIIB ", "STT ", "SCG ", "EXR ", "JBHT ", "XRX ", "LH ", "BBT ", "CTL ", "PVH ", "UPS ", "AWK ", "PH ", "MON ", "PHM ", "INTU ", "HUM ", "ZION ", "MA ", "FDX ", "TSN ", "MKC ", "PCLN ", "HCN ", "CB ", "M ", "ORCL ", "PEG ", "PPG ", "APD ", "CAH ", "PSA ", "WFM ", "UNP ", "GIS ", "BCR ", "XLNX ", "GILD ", "MNST ", "DVA ", "OMC ", "DLR ", "LRCX ", "NWL ", "GGP ", "CERN ", "SRE ", "PCG ", "AKAM ", "CHK ", "ED ", "DFS ", "MAR ", "CHRW ", "RL ", "SJM ", "SPGI ", "BBY ", "TDC ", "URBN ", "ADP ", "AIG ", "BWA ", "LLL ", "DOV ", "PWR ", "FBHS ", "ABT ", "AMG ", "SHW ", "SYMC ", "DISCA ", "PCAR ", "F ", "BEN ", "BDX ", "PRU ", "ALXN ", "HBAN ", "CF ", "SWKS ", "ALK ", "BLK ", "CTXS ", "RAI ", "AEE ", "AIZ ", "SLG ", "ADSK ", "NFX ", "EXC ", "KEY ", "NDAQ ", "BAX ", "EQIX ", "BF/B ", "APC ", "UDR ", "RTN ", "DUK ", "KO ", "COH ", "VMC ", "UTX ", "HBI ", "DOW ", "BA ", "LYB ", "FITB ", "UAL ", "SNA ", "MPC ", "AEP ", "WDC ", "CSX ", "IDXX ", "MUR ", "TDG ", "HOLX ", "XEC ", "IBM ", "HIG ", "RHI ", "CMG ", "MCO ", "CXO ", "LB ", "R ", "QCOM ", "ANTM ", "INCY ", "FTR ", "LOW ", "TRIP ", "GLW ", "VIAB ", "HSY ", "DLPH ", "CCL ", "EMR ", "ZBH ", "WYNN ", "SCHW ", "CNP ", "TIF ", "AJG ", "RF ", "NBL ", "CAG ", "SRCL ", "AIV ", "PG ", "PFG ", "VRSN ", "BLL ", "LNC ", "MRO ", "CELG ", "EBAY ", "DGX ", "NSC ", "KSS ", "XL ", "LKQ ", "MTD ", "HD ", "WHR ", "COL ", "K ", "CL ", "NOV ", "BSX ", "FISV ", "DLTR ", "GT ", "PNW ", "IRM ", "HAS ", "AET ", "DG ", "MAS ", "MCK ", "ECL ", "RCL ", "FLIR ", "GE ", "CBS ", "MU ", "ADS ", "WY ", "STX ", "TXN ", "AAPL ", "CSCO ", "CHTR ", "COP ", "LEN ", "SWN ", "XOM ", "WEC ", "TRV ", "ROK ", "JNJ ", "NLSN ", "KLAC ", "MRK ", "FAST ", "HOG ", "CA ", "JPM ", "DTE ", "WYN ", "CVX ", "D ", "MHK ", "PM ", "HST ", "HRS ", "MYL ", "NI ", "EXPE ", "IP ", "ULTA ", "COF ", "PPL ", "SIG ", "NTRS ", "NFLX ", "SPLS ", "ADM ", "GPS ", "COO ", "USB ", "MDLZ ", "ESRX ", "MAA ", "KMI ", "UHS ", "BMY ", "RSG ", "BXP ", "BHI ", "EQT ", "JEC ", "PNC ", "SNI ", "FOXA ", "KIM ", "FCX ", "AAP ", "LUV ", "DPS ", "IVZ ", "PLD ", "CPB ", "ICE ", "AN ", "AVY ", "PGR ", "ACN ", "CLX ", "IPG ", "MO ", "AGN ", "PBCT ", "ADBE ", "HCP ", "HAL ", "KORS ", "KMB ", "PEP ", "DD ", "AMZN ", "AME ", "ITW ", "STI ", "MDT ", "AON ", "DRI ", "SWK ", "CMI ", "CRM ", "SLB ", "ALB ", "ROP ", "VLO ", "TXT ", "TEL ", "NKE ", "CMCSA ", "AMAT ", "NEM ", "C ", "EFX ", "ADI ", "ETN ", "KR ", "JCI ", "MJN ", "L ", "TJX ", "APA ", "UAA ", "GWW ", "AVGO ", "FIS ", "ABC ", "VNO ", "TMK ", "HAR ", "HES ", "SBUX ", "TSS ", "SYY ", "MMC ", "MCD ", "V ", "ILMN ", "NRG ", "WMB ", "TROW ", "BRK/B ", "JNPR ", "APH ", "IR ", "HP ", "FLR ", "UNM ", "HPQ ", "WMT ", "SO ", "MCHP ", "VTR ", "NVDA ", "IFF ", "MSI ", "NOC ", "PRGO ", "CTSH ", "MSFT ", "ETR ", "DISH ", "YHOO ", "VAR ", "OXY ", "PAYX ", "HCA ", "YUM ", "CME ", "VZ ", "LLY ", "TGT ", "PKI ", "O ", "PXD ", "AVB ", "CCI ", "TSO ", "SYK ", "GOOGL ", "LMT ", "WAT ", "HRB ", "WFC ", "WM ", "MLM ", "NTAP ", "ALL ", "ES ", "URI ", "ROST ", "EXPD ", "COG ", "CINF ", "BAC ", "TGNA ", "AXP ", "KSU ", "KMX ", "GS ", "MTB ", "XRAY ", "BBBY ", "OKE ", "AMP ", "MAT ", "TMO ", "EW ", "CHD ", "VFC ", "EVHC ", "FFIV ", "CMA ", "FRT ", "CNC ", "DNB ", "RHT ", "MET ", "STZ ", "UNH ", "DE ", "FL ", "ORLY ", "EQR ", "REG ", "CTAS ", "LEG ", "RIG ", "GD ", "PDCO ", "XYL ", "COST ", "DVN ", "XEL ", "FE ", "GPN ", "EL ", "GM ", "AFL ", "TWX ", "ESS ", "ATVI ", "EIX ", "NEE ", "MMM ", "DHR ", "BK ", "TSCO ", "PFE ", "HRL ", "CI ", "HSIC ", "JWN ", "RRC ", "LUK ", "FTI ", "ETFC ", "AYI ", "AMGN ", "CAT ", "VRSK ", "WLTW ", "NUE ", "SPG ", "WBA ", "PNR ", "AMT ", "A ", "MOS ", "AZO ", "LVLT ", "MAC ", "CMS ", "EMN ", "FMC ", "GPC ", "CBOE ", "EA ", "GRMN ", "DISCK ", "FSLR ", "LNT ", "PX ", "T ", "INTC ", "DAL ", "AES ", "ISRG ", "DIS ", "EOG ", "SEE ", "MS ", "FLS "], "label_color": "rgba(255,255,255,0.88)", "graph_layout": "force"}'));
+		window.current_graph_id += 1;
+		window.graph_data[window.current_graph_id]['element'] = element;
+		var graph_id = window.current_graph_id;
+		console.log(graph_id);
+		var width  = element.data("width");
+		var height = element.data("height");
+		console.log(width);
+		console.log(height);
+		element.empty();
+		element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
+		element.append('<div class = "loadingDialog" id = "spinner_' + graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
+		element.append('<div class = "content_cell" id = "content_' + graph_id +'"><canvas id = "mainEvent_' + graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
+		(function(graph_id, element) {
+			console.log("inside closure!");
+			require(['d3'], function(d3){
+				window.d3 = d3;
+				//var graph_id = element.data('graph_id');//window.current_graph_id;
+				//var element  = $(element);
+				
+					//var element = window.graph_data[graph_id]['element'];
+					console.log("require");
+					console.log("graph_id = " + graph_id);
+					var width = window.graph_data[graph_id]['width'];
+					var height = window.graph_data[graph_id]['height'];
+					console.log(window.current_graph_id);
+
+
+					var label_color = window.graph_data[graph_id]['label_color'];
+					
+					var min_node_size = window.graph_data[graph_id]['min_node_size'];
+					
+					var charge = window.graph_data[graph_id]['charge'];
+
+					var colorAxis = window.graph_data[graph_id]['color_axis'];
+					if(colorAxis == undefined){
+						colorAxis = "closeness_centrality";
 					}
-				  }
 
-				  function mousemoved() {
-					//console.log(graph.nodes);
-					var m = d3.mouse(this);
-					var x = (m[0] - transform.x) / transform.k;
-					var y = (m[1] - transform.y) / transform.k;
-					var moused_node;
-					for (var i = graph.nodes.length - 1; i >= 0; --i) {
-					  var point = graph.nodes[i];
-					  var dx = x - point.x;
-					  var dy = y - point.y;
-					  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
-						//point.x = transform.applyX(point.x);
-						//point.y = transform.applyY(point.y);
-						moused_node = point;
-					  }
+					var colorMap = window.graph_data[graph_id]['color_map'];
+					if(colorMap == undefined){
+						colorMap = "RdBuGn";
 					}
-					selected_node = moused_node;
-					if(graphLayout == "force"){
-						if(simulation.alpha() < 0.01){//>
-						  ticked();
-						}
+
+					var graphStyle = window.graph_data[graph_id]['graph_style'];
+					// light || dark || white || ether
+					if(graphStyle == undefined){
+						graphStyle = "light";
 					}
-				  }
 
-				  function restartIt(){
-					simulation.alpha(1.0)
-					simulation.restart();
-				  }
-
-				  function ticked() {
-					k = transform.k;
-					if( graphLayout != "force"){
-						simulation.stop();
-					}else{
-						if(ticks == 0){
-							setTimeout(restartIt,1);
-						}
+					var suppressLabels;
+					if(suppressLabels == undefined){
+						suppressLabels = true;
 					}
-						context.clearRect(0, 0, width, height);
-						context.save();
-						//context.translate(width / 2, height / 2);
 
-						context.globalAlpha = 1.0;
+					var graphTitle;
+					if(graphTitle == undefined){
+						graphTitle = "SliceMatrix-IO Network Viewer";
+					}
 
-						context.translate(transform.x, transform.y);
-						context.scale(transform.k, transform.k);
+					var graphLayout = window.graph_data[graph_id]['graph_layout'];
+					if(graphLayout == undefined && window.graph_data[graph_id]['got_embed'] == true){
+						graphLayout = "embedding";
+					}
 
-						graph.links.forEach(function(link) {
-						  context.beginPath();
-						  drawLink(link);
-						  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
-						  //console.log(link.source.color);
-						  var color = mixcolors(link.source.color, link.target.color);
-						  context.strokeStyle = color;
-						  context.lineWidth = get_current_link_width();
-						  context.stroke();
+					// update background style
+					if(graphStyle == "dark"){
+						d3.select("#content_" + graph_id).style("background", "rgb(20,20,20)");
+
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}else if(graphStyle == "white"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#FFF",
+							"background": "rgb(256,256,256)"
 						});
 
-						graph.nodes.forEach(function(user) {
-						//console.log(user);
-						  context.beginPath();
-						  drawNode(user);
-						  context.fillStyle = rgb2a(user.color, get_current_alpha());
-						  context.fill();
-						  if(selected_node != undefined){
-							if(user.id == selected_node.id){
-							  context.strokeStyle = "#000";
-							  context.lineWidth = 1;
-							  context.stroke();
+						d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
+					}else if(graphStyle == "ether"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#000",
+							"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
+						});
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}
+
+					//
+					if(graphLayout == undefined){
+						graphLayout = false;
+					}
+
+					var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
+					return d3.scaleLinear()
+							 .domain([minval, midval, maxval])
+							 .range([mincol, midcol, maxcol]);
+
+					}
+
+					var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
+								 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
+								 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
+								 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
+								 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
+								 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
+								 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
+								 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
+								 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
+								 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
+								 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
+
+					function getMaxOfArray(numArray) {
+					  return Math.max.apply(null, numArray);
+					}
+
+					function getMinOfArray(numArray) {
+					  return Math.min.apply(null, numArray);
+					}
+
+					var graph = {nodes:[], links:[]};
+
+					var curr_colormap;
+
+					d3.select("#loading_status").html("loaded nodes...");
+					var data = window.graph_data[graph_id];
+					data['nodes'].forEach(function(d){
+						graph['nodes'].push({id:d});
+					});
+
+					d3.select("#loading_status").html("loaded edges...");
+					data['links'].forEach(function(d){
+						graph['links'].push({source:d[0], target:d[1]});
+					});
+
+					//var height = 600;
+					//var width  = 1200;
+					var searchRadius = 3;
+
+					//d3.select("canvas").attr("height", height).attr("width", width);
+
+					var transform = d3.zoomIdentity;
+					
+					console.log($("#mainEvent_" + graph_id));
+
+					try{
+						//var canvas = document.querySelector("canvas"),
+						var canvas = document.querySelector("#mainEvent_" + graph_id),
+							context = canvas.getContext("2d"),
+							width = canvas.width,
+							height = canvas.height;
+							
+						$("#mainEvent_" + graph_id).width(width);
+						$("#mainEvent_" + graph_id).height(height);
+
+						var simulation = d3.forceSimulation()
+							.force("link", d3.forceLink().id(function(d) { return d.id; }))
+							.force("charge", d3.forceManyBody().strength(charge))
+							.force("center", d3.forceCenter(width / 2, height / 2))
+							.force("X", d3.forceX().x(0.2))
+							.force("Y", d3.forceY().y(0.2));
+
+						var zoom = d3.zoom();
+
+						var k = 1.0;
+
+						function initialize(){
+						  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
+						}
+
+						//initialize();
+
+						var ggraph;
+
+						var selected_node;
+
+						var transform;
+
+						var ticks = 0;
+
+
+						var mixcolors = function(color1, color2){
+							var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
+							var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
+							var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
+							var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
+							var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
+							if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
+							  return "rgba(20,120,220,0.6)";
+							}else{
+							  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
 							}
-						  }
-						  //drawLabel(user, user.id);
+						}
 
-						});
+						var drawGraph = function(){
+							console.log(graph);
 
-					   graph.nodes.forEach(function(user) {
-						  //if(user.deg > get_current_deg_thresh()){
-							context.beginPath();
-							drawLabel(user, user.id);
-							  context.font="bold " + get_current_font_size() + "px Arial";
-							  context.fillStyle = label_color;//user.color;
-							  context.fill();
-						  //}
-						});
-
-						ticks++;
-						context.restore();
-
-				  }
+							function dragsubject() {
+							  var i,
+								  x = transform.invertX(d3.event.x),
+								  y = transform.invertY(d3.event.y),
+								  dx,
+								  dy;
+							}
 
 
-			}
+							function dragstarted() {
+							  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+							  d3.event.subject.fx = d3.event.subject.x;
+							  d3.event.subject.fy = d3.event.subject.y;
+							}
 
-			var payload = {};
-			payload['model']    = model_name;
-			payload['type']     = model_type;
-			payload['memory']   = 'large';
-			payload['function'] = "rankNodes";
-			payload['extra_params'] = {};
-			payload['extra_params']['statistic'] = colorAxis;
-			//console.log(payload);
+							function dragged() {
+							  //d3.event.subject[0] = transform.invertX(d3.event.x);
+							  //d3.event.subject[1] = transform.invertY(d3.event.y);
+							  d3.event.subject.fx = d3.event.x;
+							  d3.event.subject.fy = d3.event.y;
+							}
 
-			$.ajax({
-				url: url,
-				type: "POST",
-				data: JSON.stringify(payload), 
-				beforeSend: function(xhr){
-					xhr.setRequestHeader('x-api-key', API_KEY);
-					xhr.setRequestHeader('Content-Type', 'application/json');
-				},
-				success: function(data){
-					console.log(data);
-					if(data['error'] == undefined){
+							function dragended() {
+							  if (!d3.event.active) simulation.alphaTarget(0);
+							  d3.event.subject.fx = null;
+							  d3.event.subject.fy = null;
+							}
 
-						d3.select("#loading_status").html("loaded colorAxis data...");
+							function drawLink(d) {
+							  context.moveTo(d.source.x, d.source.y);
+							  context.lineTo(d.target.x, d.target.y);
+							}
 
-						var keys = Object.keys(data['rankNodes']);
+							function drawNode(d) {
+							  context.moveTo(d.x + get_current_node_size(), d.y);
+							  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
+							  //context.fill();
+							}
+
+							function drawLabel(d, id) {
+							  //console.log(d);
+							  context.shadowBlur = 10;
+							  context.shadowColor = "rgba(120,120,120,0.3)";
+							  context.fillText(d.id, d.x,d.y);
+							  //context.fill();
+							}
+
+							function rgb2a(rgb_string, alpha){
+								//console.log(rgb_string);
+							  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
+							  //rgb_string = "rgba(0,0,0,0.3)";
+							  return rgb_string 
+							}
+
+							function get_current_alpha(){
+							  return 1.0 - Math.min(transform.k, 0.5);
+							}
+
+							function get_current_font_size(){
+							  return 10 / Math.pow(transform.k, 0.5);
+							}
+
+							function get_current_highlighted_font_size(){
+							  return Math.min(720 * transform.k, 20);
+							}
+
+							function get_current_link_width(){
+							  return Math.max(1.5, 0.5/ transform.k);
+							}
+
+							function get_current_node_size(){
+							  return Math.min(60 * transform.k, min_node_size);
+							}
+
+							function get_current_deg_thresh(){
+							  if(k >= 0.4){
+								return 1;
+							  }else{
+								return 2;
+							  }
+							}
+
+
+							ggraph = graph;
+							  setTimeout(initialize, 0);
+
+							  if(graphLayout == "force"){
+
+								  simulation
+									  .nodes(graph.nodes)
+									  .on("tick", ticked);
+
+								  simulation.force("link")
+									  .links(graph.links);
+
+							  }else{
+									  simulation
+									  .nodes(graph.nodes);
+									  //.on("tick", ticked);
+
+								  simulation.force("link")
+									  .links(graph.links);
+									ticked();
+							  }
+
+							  //d3.select("mainEvent_" + graph_id)
+							  
+							  d3.select(canvas)
+								  .on("mousemove", mousemoved)
+								  .call(d3.drag()
+									  .container(canvas)
+									  .subject(dragsubject)
+									  .on("start", dragstarted)
+									  .on("drag", dragged)
+									  .on("end", dragended))
+								  .call(zoom.on("zoom", zoomed));
+
+							  function zoomed() {
+								//console.log("zooming!");
+								transform = d3.event.transform;
+								//console.log(simulation.alpha());
+								if(graphLayout == "force"){
+									if(simulation.alpha() < 0.01){//>
+									  ticked();
+									}
+								}else{
+									ticked();
+								}
+							  }
+
+							  function mousemoved() {
+								//console.log(graph.nodes);
+								var m = d3.mouse(this);
+								var x = (m[0] - transform.x) / transform.k;
+								var y = (m[1] - transform.y) / transform.k;
+								var moused_node;
+								for (var i = graph.nodes.length - 1; i >= 0; --i) {
+								  var point = graph.nodes[i];
+								  var dx = x - point.x;
+								  var dy = y - point.y;
+								  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
+									//point.x = transform.applyX(point.x);
+									//point.y = transform.applyY(point.y);
+									moused_node = point;
+								  }
+								}
+								selected_node = moused_node;
+								if(graphLayout == "force"){
+									if(simulation.alpha() < 0.01){//>
+									  ticked();
+									}
+								}
+							  }
+
+							  function restartIt(){
+								simulation.alpha(1.0)
+								simulation.restart();
+							  }
+
+							  function ticked() {
+								k = transform.k;
+								if( graphLayout != "force"){
+									simulation.stop();
+								}else{
+									if(ticks == 0){
+										setTimeout(restartIt,1);
+									}
+								}
+									context.clearRect(0, 0, width, height);
+									context.save();
+									//context.translate(width / 2, height / 2);
+
+									context.globalAlpha = 1.0;
+
+									context.translate(transform.x, transform.y);
+									context.scale(transform.k, transform.k);
+
+									graph.links.forEach(function(link) {
+									  context.beginPath();
+									  drawLink(link);
+									  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
+									  //console.log(link.source.color);
+									  var color = mixcolors(link.source.color, link.target.color);
+									  context.strokeStyle = color;
+									  context.lineWidth = get_current_link_width();
+									  context.stroke();
+									});
+
+									graph.nodes.forEach(function(user) {
+									//console.log(user);
+									  context.beginPath();
+									  drawNode(user);
+									  context.fillStyle = rgb2a(user.color, get_current_alpha());
+									  context.fill();
+									  if(selected_node != undefined){
+										if(user.id == selected_node.id){
+										  context.strokeStyle = "#000";
+										  context.lineWidth = 1;
+										  context.stroke();
+										}
+									  }
+									  //drawLabel(user, user.id);
+
+									});
+
+								   graph.nodes.forEach(function(user) {
+									  //if(user.deg > get_current_deg_thresh()){
+										context.beginPath();
+										drawLabel(user, user.id);
+										  context.font="bold " + get_current_font_size() + "px Arial";
+										  context.fillStyle = label_color;//user.color;
+										  context.fill();
+									  //}
+									});
+
+									ticks++;
+									context.restore();
+
+							  }
+
+
+						}
 
 						var max_rank = 0;
 						var min_rank = 0;
 
-						graph.nodes.forEach(function(node, k){
-							if(data['rankNodes'][node.id] > max_rank){
-								max_rank = data['rankNodes'][node.id];
+						window.graph_data[graph_id]['stats'].forEach(function(row, j){
+							//console.log(row);
+							var val1 = row[0];
+							if(val1 > max_rank){
+								max_rank = val1;
 							}
-							if(data['rankNodes'][node.id] < min_rank){
-								min_rank = data['rankNodes'][node.id];
+							if(val1 < min_rank){
+								min_rank = val1;
 							}
-							graph.nodes[k][colorAxis] = data['rankNodes'][node.id];
+							graph.nodes[j][colorAxis] = val1
 						});
+
+						d3.select("#loading_status").html("loaded colorAxis data...");
 
 						var mid_rank = (max_rank - min_rank) / 2.0;
 
-						console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
+						//console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
 
 						curr_colormap = colormap(min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]);
 
 						graph.nodes.forEach(function(node, k){
-							graph.nodes[k].color = curr_colormap(data['rankNodes'][node.id]);
+							graph.nodes[k].color = curr_colormap(graph.nodes[k][colorAxis]);
 						});
 
 						if(graphLayout == "force"){
-							d3.select("#spinner_" + window.current_graph_id).style("visibility", "hidden");
+							d3.select("#spinner_" + graph_id).style("visibility", "hidden");
 							drawGraph();
-							window.current_graph_id += 1
+							//window.current_graph_id += 1
 						}else{
 							// bind the node embedding data to the graph!
 							var max_xy = 0.0;
@@ -13404,7 +13403,7 @@ var element = $('#ef5c6cf4-c4a7-49cc-be95-8a55bbc1fd81');
 							var cmax_xy, cmin_xy;
 							// normalize embedding
 							//console.log("ooooooooooooooooooooooooo");
-							window.graph_data[window.current_graph_id]['embedding'].forEach(function(row, j){
+							window.graph_data[graph_id]['embedding'].forEach(function(row, j){
 								cmax_xy = getMaxOfArray(row);
 								cmin_xy = getMinOfArray(row);
 								if(cmax_xy > max_xy){
@@ -13417,21 +13416,24 @@ var element = $('#ef5c6cf4-c4a7-49cc-be95-8a55bbc1fd81');
 							//console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 							var range_xy = max_xy - min_xy;
 
-							window.graph_data[window.current_graph_id]['embedding'].forEach(function(row, j){
+							window.graph_data[graph_id]['embedding'].forEach(function(row, j){
 								//console.log(row);
 								graph.nodes[j]['x'] = ( ( ( Number(row[0]) ) / range_xy) * (width) )  + (width / 2);
 								graph.nodes[j]['y'] = ( ( ( Number(row[1]) ) / range_xy) * (height) ) + (height / 2);
 								graph.nodes[j]['fixed'] = true;
 							});
 
-							d3.select("#spinner_" + window.current_graph_id).style("visibility", "hidden");
+							d3.select("#spinner_" + graph_id).style("visibility", "hidden");
 							drawGraph();
-							window.current_graph_id += 1
+							//window.current_graph_id += 1
 						}
+							
+					}catch(err){
+						console.log(err);
+						console.log("element missing, moving on...");
 					}
-				}
 			});
-		});
+		})(graph_id, element);
 		
 		
 </script>
@@ -13455,7 +13457,7 @@ var element = $('#ef5c6cf4-c4a7-49cc-be95-8a55bbc1fd81');
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">mst</span><span class="o">.</span><span class="n">rankNodes</span><span class="p">(</span><span class="n">statistic</span> <span class="o">=</span> <span class="s2">&quot;closeness_centrality&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -13469,7 +13471,7 @@ var element = $('#ef5c6cf4-c4a7-49cc-be95-8a55bbc1fd81');
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13483,31 +13485,31 @@ var element = $('#ef5c6cf4-c4a7-49cc-be95-8a55bbc1fd81');
   <tbody>
     <tr>
       <th>NRG</th>
-      <td>0.047886</td>
+      <td>0.047914</td>
     </tr>
     <tr>
       <th>AES</th>
-      <td>0.050289</td>
+      <td>0.050320</td>
     </tr>
     <tr>
       <th>CNP</th>
-      <td>0.052934</td>
+      <td>0.052969</td>
     </tr>
     <tr>
       <th>KORS</th>
-      <td>0.053275</td>
+      <td>0.053311</td>
     </tr>
     <tr>
       <th>COH</th>
-      <td>0.053275</td>
+      <td>0.053311</td>
     </tr>
     <tr>
       <th>RL</th>
-      <td>0.053275</td>
+      <td>0.053311</td>
     </tr>
     <tr>
       <th>SO</th>
-      <td>0.055717</td>
+      <td>0.055756</td>
     </tr>
     <tr>
       <th>CF</th>
@@ -13515,43 +13517,35 @@ var element = $('#ef5c6cf4-c4a7-49cc-be95-8a55bbc1fd81');
     </tr>
     <tr>
       <th>SRE</th>
-      <td>0.055860</td>
+      <td>0.055899</td>
     </tr>
     <tr>
       <th>HBI</th>
-      <td>0.056227</td>
-    </tr>
-    <tr>
-      <th>PVH</th>
       <td>0.056267</td>
     </tr>
     <tr>
-      <th>EXC</th>
-      <td>0.058968</td>
+      <th>PVH</th>
+      <td>0.056307</td>
     </tr>
     <tr>
-      <th>DUK</th>
-      <td>0.058997</td>
+      <th>EXC</th>
+      <td>0.059012</td>
     </tr>
     <tr>
       <th>ED</th>
-      <td>0.058997</td>
+      <td>0.059041</td>
     </tr>
     <tr>
       <th>PPL</th>
-      <td>0.058997</td>
+      <td>0.059041</td>
+    </tr>
+    <tr>
+      <th>DUK</th>
+      <td>0.059041</td>
     </tr>
     <tr>
       <th>FE</th>
-      <td>0.058997</td>
-    </tr>
-    <tr>
-      <th>D</th>
-      <td>0.059056</td>
-    </tr>
-    <tr>
-      <th>NEE</th>
-      <td>0.059056</td>
+      <td>0.059041</td>
     </tr>
     <tr>
       <th>XOM</th>
@@ -13560,6 +13554,14 @@ var element = $('#ef5c6cf4-c4a7-49cc-be95-8a55bbc1fd81');
     <tr>
       <th>OXY</th>
       <td>0.059070</td>
+    </tr>
+    <tr>
+      <th>NEE</th>
+      <td>0.059099</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>0.059099</td>
     </tr>
   </tbody>
 </table>
@@ -13577,23 +13579,577 @@ var element = $('#ef5c6cf4-c4a7-49cc-be95-8a55bbc1fd81');
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Don't have a SliceMatrix-IO api key yet? <strong><a href="http://www.slicematrix.com">Get your api key here</a></strong></p>
+<p>Another correlation-based network graph method is called the CorrelationFilteredGraph. Like MST, the CFG starts by looking at the correlation matrix of the input data, but unlike the MST the CFG admits many more links into the graph structure:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">CorrelationFilteredGraph</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">diffs</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">viz</span><span class="o">.</span><span class="n">drawNetworkGraph</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">800</span><span class="p">,</span> <span class="n">min_node_size</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">charge</span> <span class="o">=</span> <span class="o">-</span><span class="mi">75</span><span class="p">,</span> <span class="n">color_map</span> <span class="o">=</span> <span class="s2">&quot;RdBuGn&quot;</span><span class="p">,</span> <span class="n">color_axis</span> <span class="o">=</span> <span class="s2">&quot;closeness_centrality&quot;</span><span class="p">,</span> <span class="n">graph_layout</span> <span class="o">=</span> <span class="s2">&quot;force&quot;</span><span class="p">,</span> <span class="n">label_color</span> <span class="o">=</span> <span class="s2">&quot;rgba(255,255,255,0.88)&quot;</span><span class="p">,</span> <span class="n">graph_style</span> <span class="o">=</span> <span class="s2">&quot;dark&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+
+
+
+<div id="a4a09772-3f06-4e34-8471-1cce4b3ad1c5"></div>
+<div class="output_subarea output_javascript output_execute_result">
+<script type="text/javascript">
+var element = $('#a4a09772-3f06-4e34-8471-1cce4b3ad1c5');
+element.data('graph_id', 3);element.data('width', 1000);element.data('height', 800);
+			require.config({
+				paths: {
+					d3: '//cdnjs.cloudflare.com/ajax/libs/d3/4.7.1/d3.min'
+				}
+			});
+		window.graph_data.push(JSON.parse('{"stats": [[0.006263048016701462], [0.006263048016701462], [0.006263048016701462], [0.006263048016701462], [0.006263048016701462], [0.006263048016701462], [0.006263048016701462], [0.006263048016701462], [0.006263048016701462], [0.006263048016701462], [0.006263048016701462], [0.006263048016701462], [0.007456009543692216], [0.007456009543692216], [0.007456009543692216], [0.007456009543692216], [0.007456009543692216], [0.008698677800974252], [0.008698677800974252], [0.010438413361169102], [0.010438413361169102], [0.010438413361169102], [0.010438413361169102], [0.010438413361169102], [0.08213654603177625], [0.08224595722534855], [0.08224595722534855], [0.08224595722534855], [0.08227727112492036], [0.08227727112492036], [0.08229293701812769], [0.08230860887815782], [0.08230860887815782], [0.08233997051232743], [0.0823713560547373], [0.08961279394965928], [0.08963137810435641], [0.08968717684565401], [0.08972441461889281], [0.08978032929356182], [0.08983631370176817], [0.08987367544587371], [0.08991106827942721], [0.08996721590741187], [0.0981609141992293], [0.0983395916312188], [0.09840676348342592], [0.09842917449765581], [0.09856385523813152], [0.10538954040946273], [0.10538954040946273], [0.10538954040946273], [0.10538954040946273], [0.10629673025558453], [0.10629673025558453], [0.10632287951271996], [0.10632287951271996], [0.10653253764338345], [0.10873018999225326], [0.10878492454548368], [0.11522327518507243], [0.11525400139178844], [0.11525400139178844], [0.1184440957027149], [0.11890027653898394], [0.11949198374874388], [0.11959117465943736], [0.12123492432516315], [0.1261536792817299], [0.12626424341782255], [0.12626424341782255], [0.1298295299547031], [0.12986854123173278], [0.12986854123173278], [0.12990757596008615], [0.12994663416091604], [0.1299857158554005], [0.13057477499069686], [0.13057477499069686], [0.13073276019939706], [0.13081189625278652], [0.13101015617435788], [0.13364332257860442], [0.13414106307237947], [0.13414106307237947], [0.13414106307237947], [0.13468448277320244], [0.13468448277320244], [0.13468448277320244], [0.13472646671421654], [0.1349789210553425], [0.1349789210553425], [0.1349789210553425], [0.13514775022489264], [0.13540178734937552], [0.13544421974904627], [0.1356142156320071], [0.13582731150823593], [0.13582731150823593], [0.13655687368695313], [0.13751272835482237], [0.13996195117202287], [0.1400072903204427], [0.14032548870753464], [0.1403710637282256], [0.14055366023388835], [0.14055366023388835], [0.1405993836106723], [0.1405993836106723], [0.1405993836106723], [0.14064513674559279], [0.14096624436373342], [0.1444527089636386], [0.14450100475399755], [0.14459769328176872], [0.14459769328176872], [0.1447914590349101], [0.14522933643118505], [0.14591576813612647], [0.14591576813612647], [0.14596504735535518], [0.1460143598713536], [0.1460143598713536], [0.1463604826343402], [0.14725809377145033], [0.14791324613935888], [0.14837023866090168], [0.14837023866090168], [0.14939595755935245], [0.14944761591258873], [0.14970644448188664], [0.14981022711237665], [0.14981022711237665], [0.14981022711237665], [0.15017460223044013], [0.15080338632910212], [0.15096140594453605], [0.1516500018313006], [0.1516500018313006], [0.15196993854402485], [0.15245238279337095], [0.15245238279337095], [0.15245238279337095], [0.15256000890194374], [0.1527217332930059], [0.1527217332930059], [0.15288380092649687], [0.15359008714257524], [0.15359008714257524], [0.15364468724465222], [0.15364468724465222], [0.15413784066305516], [0.15413784066305516], [0.15419283097367345], [0.1543580375782881], [0.15457886452761327], [0.1546341700247609], [0.15485578832648034], [0.15485578832648034], [0.15485578832648034], [0.15485578832648034], [0.1550780427768951], [0.15524515273678402], [0.15591720967503847], [0.1559734771631926], [0.1568223894119037], [0.15693627640494068], [0.15693627640494068], [0.1571645473524388], [0.1571645473524388], [0.15791103588571673], [0.1579687519076048], [0.1579687519076048], [0.1580265101349933], [0.1580843106141941], [0.15831593597773136], [0.15878122895635807], [0.1592492650033923], [0.16043151641395942], [0.16043151641395942], [0.16043151641395942], [0.16043151641395942], [0.16061036983248111], [0.16126959149970396], [0.16151065217459143], [0.16175243458802643], [0.16211646857434608], [0.16377510618386007], [0.16396149666889479], [0.1642106782747746], [0.1642106782747746], [0.1642730920635525], [0.1643355533152877], [0.16446061842435566], [0.16446061842435566], [0.16458587403625538], [0.16458587403625538], [0.16458587403625538], [0.16521502493088938], [0.1655314075906575], [0.16578538750257255], [0.16648786795809192], [0.16655202513264225], [0.1667447936802495], [0.16687355413868984], [0.16687355413868984], [0.16687355413868984], [0.16693800896840735], [0.16693800896840735], [0.1670025136086579], [0.1680414094942483], [0.16830315623800882], [0.16836872038145956], [0.16869730882873016], [0.1687631804838761], [0.1688291036012526], [0.1689611044641152], [0.16922572639749672], [0.16929201144504766], [0.16969081477000655], [0.1698909218628957], [0.1698909218628957], [0.16995772914636517], [0.16995772914636517], [0.17009150146367835], [0.1702254845290298], [0.17042685537034963], [0.17042685537034963], [0.17062870320537177], [0.17083102973091172], [0.17089857857619875], [0.17130499612334785], [0.17191825983262], [0.1721922331550624], [0.1726048343527183], [0.17336642808632438], [0.17371483328746248], [0.1739945673185212], [0.1739945673185212], [0.17406464165090885], [0.17406464165090885], [0.17406464165090885], [0.17441586167038203], [0.17441586167038203], [0.1745567468575148], [0.1747685019082922], [0.1750516424541137], [0.17512257099643708], [0.17547807763670592], [0.17612164026862537], [0.17633721143174486], [0.17640918580375783], [0.17648121895435143], [0.1765533109555583], [0.1766976717985309], [0.1767699407849516], [0.17684226891129567], [0.1770596088567008], [0.17713217427016667], [0.17735022782897278], [0.17735022782897278], [0.17749589536723065], [0.17756881890682277], [0.17756881890682277], [0.17764180239178246], [0.17778794949370902], [0.17808096630375223], [0.17844859835640242], [0.17889176540530077], [0.1794115837356607], [0.18023457265187934], [0.18023457265187934], [0.18038501887279076], [0.18061115972386405], [0.18068666606154127], [0.18121698332042208], [0.18152142176363154], [0.18159769126857422], [0.18159769126857422], [0.18159769126857422], [0.1819034112875449], [0.1819800021975607], [0.18352547992323], [0.1836814726813458], [0.1836814726813458], [0.18375956854558106], [0.18399425509544773], [0.1840726172143129], [0.1840726172143129], [0.18470192530735327], [0.18470192530735327], [0.18509743264205852], [0.18517673745467295], [0.18533555112315894], [0.1854150601540998], [0.18557428304817805], [0.18605359673663655], [0.1862941832841408], [0.1862941832841408], [0.1862941832841408], [0.1866159348960305], [0.18775087107697944], [0.1880776785114041], [0.18824150924181476], [0.18824150924181476], [0.18832353168592883], [0.18898229349331294], [0.1890649629130388], [0.18914770469111888], [0.18939636512673386], [0.18947939729031418], [0.18947939729031418], [0.19014628474228187], [0.19048149194323785], [0.19073367397140628], [0.19090216661625736], [0.19090216661625736], [0.19090216661625736], [0.19098652462183238], [0.19115546449323603], [0.19124004655717108], [0.19140943543808978], [0.1917491150040846], [0.19183422335517383], [0.1920046669121309], [0.19260361195151812], [0.19277542605673803], [0.19320630541761585], [0.1932927125309511], [0.193379196966088], [0.19363911524158003], [0.1938127826095097], [0.1938997331624974], [0.19424831695245243], [0.19433565882158574], [0.19442307927089816], [0.19451057840648364], [0.19486136394012923], [0.1953016291094472], [0.1953016291094472], [0.19547829272691392], [0.19547829272691392], [0.19592135322720156], [0.1961881548884279], [0.19645568419054849], [0.1966344427748893], [0.19735274210922676], [0.19753313766874162], [0.19771386332077157], [0.19798557270692016], [0.19798557270692016], [0.1983490157040875], [0.19871379550308355], [0.19907991949295561], [0.19907991949295561], [0.19926348788345166], [0.19953947609381656], [0.19972389335453172], [0.1998162298748066], [0.20065111662915816], [0.2007443126889023], [0.20111796427138515], [0.20121159460856922], [0.201399117063936], [0.20168105703182765], [0.20177521252063801], [0.20177521252063801], [0.20177521252063801], [0.20196378748561059], [0.20196378748561059], [0.2021527152568787], [0.2022473117544252], [0.20253163318613246], [0.2029119742813177], [0.2030072828648223], [0.2031026810240633], [0.2031026810240633], [0.20319816888538159], [0.20319816888538159], [0.20338941422080312], [0.20348517194877902], [0.20348517194877902], [0.20358101988657873], [0.20358101988657873], [0.20367695816173736], [0.20377298690203047], [0.20396531629032877], [0.20425449206956836], [0.20425449206956836], [0.20435106629749725], [0.2044477318917723], [0.2045444889821139], [0.2047382781711069], [0.2047382781711069], [0.2048353105304297], [0.20502965143226123], [0.2051269602369277], [0.20541944164410963], [0.2058107167710508], [0.2058107167710508], [0.20610515270348434], [0.20640043229188473], [0.20669655916748286], [0.20719199674938], [0.20729136940969145], [0.2074904009693743], [0.2074904009693743], [0.2078896129000513], [0.20798965602464228], [0.208089795483489], [0.20849131944968965], [0.20849131944968965], [0.20879348078222545], [0.20889439594935072], [0.20889439594935072], [0.20919772759884156], [0.20929903400445843], [0.20940043857519702], [0.20990893891170795], [0.20990893891170795], [0.21001093548066407], [0.21001093548066407], [0.2102152262739332], [0.2102152262739332], [0.2103175207879351], [0.2103175207879351], [0.21041991490711132], [0.21052240877701248], [0.21103637950156576], [0.21144936654560012], [0.21144936654560012], [0.2119678789696943], [0.21269808327716863], [0.21280280906903332], [0.21385576705552037], [0.21406761031164273], [0.21406761031164273], [0.21491919702596055], [0.2150261219996053], [0.2150261219996053], [0.215240291443828], [0.21545488794576603], [0.21556234674274646], [0.21566991278403527], [0.21577758623025795], [0.21610125260960333], [0.21610125260960333], [0.2164258914467735], [0.21664285975900083], [0.21686026353196522], [0.21729638271453325], [0.21773425955627537], [0.21784400464677756], [0.21817390470429412], [0.21861532889185972], [0.2188367115033958], [0.21905854293928367], [0.21928082456580753], [0.21939213462903892], [0.21972674388368413], [0.2198385072325568], [0.22028669990785255], [0.2213018459903772], [0.22141521783770832], [0.2238231513305058], [0.2241714238688831], [0.2253402008442162], [0.2253402008442162], [0.2262840341461815], [0.22664001322454463], [0.22747500274695087], [0.2289208184423764], [0.22904213313153507], [0.2337493267816153], [0.23476507616469672], [0.23695312786140718], [0.23865406141314557], [0.24158887938468787], [0.24226597826188712], [0.2554388328718716]], "links": [["DHI ", "PHM "], ["DHI ", "LEN "], ["DHI ", "MAS "], ["HON ", "IPG "], ["HON ", "SNA "], ["HON ", "TXT "], ["HON ", "CVS "], ["HON ", "GD "], ["HON ", "PPG "], ["HON ", "AVY "], ["HON ", "RSG "], ["HON ", "TDG "], ["HON ", "HRB "], ["HON ", "APH "], ["HON ", "WM "], ["HON ", "MMM "], ["HON ", "JCI "], ["HON ", "GPC "], ["HON ", "ITW "], ["HON ", "ACN "], ["HON ", "CTAS "], ["HON ", "ECL "], ["HON ", "UTX "], ["HON ", "DHR "], ["HON ", "BA "], ["HON ", "CA "], ["HON ", "COL "], ["HON ", "ROP "], ["FOX ", "DIS "], ["FOX ", "FOXA "], ["FOX ", "CBS "], ["FOX ", "VIAB "], ["CVS ", "WBA "], ["CVS ", "BRK/B "], ["CVS ", "CB "], ["MA ", "V "], ["MA ", "EQIX "], ["MA ", "GOOGL "], ["MA ", "GPN "], ["MA ", "MMC "], ["MA ", "FISV "], ["MA ", "PCLN "], ["MA ", "AMZN "], ["MA ", "TSS "], ["MA ", "ATVI "], ["WU ", "AMP "], ["WU ", "ADP "], ["WU ", "PFG "], ["CBG ", "IVZ "], ["CBG ", "AMP "], ["CBG ", "C "], ["TIF ", "AME "], ["TIF ", "AMP "], ["TIF ", "PCAR "], ["STT ", "BK "], ["STT ", "AMP "], ["STT ", "NTRS "], ["SCG ", "PPL "], ["SCG ", "AWK "], ["SCG ", "XEL "], ["SCG ", "AEE "], ["SCG ", "WEC "], ["SCG ", "LNT "], ["EXR ", "FRT "], ["EXR ", "PSA "], ["EXR ", "REG "], ["JBHT ", "FDX "], ["JBHT ", "R "], ["JBHT ", "UPS "], ["XRX ", "BEN "], ["XRX ", "AMP "], ["XRX ", "IVZ "], ["LH ", "EVHC "], ["LH ", "SYK "], ["LH ", "UHS "], ["LH ", "DGX "], ["BBT ", "FITB "], ["BBT ", "PBCT "], ["BBT ", "HBAN "], ["BBT ", "PNC "], ["BBT ", "MTB "], ["BBT ", "USB "], ["BBT ", "WFC "], ["CTL ", "VZ "], ["CTL ", "FTR "], ["CTL ", "T "], ["PVH ", "VFC "], ["PVH ", "COH "], ["PVH ", "RL "], ["PVH ", "HBI "], ["PVH ", "KORS "], ["PVH ", "JWN "], ["UPS ", "CHRW "], ["UPS ", "ITW "], ["UPS ", "BRK/B "], ["UPS ", "EXPD "], ["UPS ", "FDX "], ["AWK ", "LNT "], ["AWK ", "PNW "], ["EXPE ", "PCLN "], ["EXPE ", "TRIP "], ["EXPE ", "AMZN "], ["MON ", "BEN "], ["MON ", "PX "], ["MON ", "FMC "], ["PHM ", "LEN "], ["PHM ", "MAS "], ["INTU ", "BRK/B "], ["INTU ", "ADP "], ["INTU ", "FISV "], ["INTU ", "ADBE "], ["HUM ", "ANTM "], ["HUM ", "UNH "], ["HUM ", "AET "], ["VNO ", "HST "], ["VNO ", "SLG "], ["VNO ", "PLD "], ["VNO ", "WY "], ["VNO ", "BXP "], ["VNO ", "KIM "], ["TAP ", "BF/B "], ["TAP ", "PEP "], ["TAP ", "CL "], ["FDX ", "CHRW "], ["FDX ", "EXPD "], ["FDX ", "R "], ["FDX ", "BLK "], ["TSN ", "MKC "], ["TSN ", "HRL "], ["TSN ", "K "], ["MKC ", "K "], ["MKC ", "BF/B "], ["MKC ", "PEP "], ["MKC ", "HSY "], ["MKC ", "SYY "], ["MKC ", "GIS "], ["MKC ", "HRL "], ["MKC ", "SJM "], ["MKC ", "MDLZ "], ["MKC ", "CPB "], ["PCLN ", "NFLX "], ["PCLN ", "GOOGL "], ["PCLN ", "TRIP "], ["PCLN ", "AMZN "], ["HCN ", "FRT "], ["HCN ", "VTR "], ["HCN ", "HCP "], ["CB ", "PGR "], ["CB ", "ALL "], ["CB ", "XL "], ["CB ", "TRV "], ["CB ", "MMC "], ["CB ", "CINF "], ["CB ", "KR "], ["CB ", "MJN "], ["M ", "TJX "], ["M ", "JWN "], ["M ", "URBN "], ["M ", "KSS "], ["ORCL ", "IVZ "], ["ORCL ", "AMG "], ["ORCL ", "CSCO "], ["ORCL ", "IBM "], ["ORCL ", "ACN "], ["PEG ", "CMS "], ["PEG ", "WEC "], ["PEG ", "XEL "], ["PEG ", "FE "], ["PEG ", "EXC "], ["PPG ", "ECL "], ["PPG ", "SHW "], ["PPG ", "ALB "], ["PPG ", "IFF "], ["PPG ", "BLL "], ["PPG ", "APD "], ["PPG ", "AVY "], ["PPG ", "SEE "], ["PPG ", "PX "], ["PPG ", "EMN "], ["APD ", "PX "], ["APD ", "BLK "], ["CAH ", "MCK "], ["CAH ", "ESRX "], ["CAH ", "HSIC "], ["CAH ", "ABC "], ["CAH ", "MYL "], ["PSA ", "FRT "], ["PSA ", "SPG "], ["WFM ", "KR "], ["WFM ", "MAR "], ["WFM ", "WFC "], ["UNP ", "NSC "], ["UNP ", "KSU "], ["UNP ", "CSX "], ["GIS ", "K "], ["GIS ", "DPS "], ["GIS ", "PEP "], ["GIS ", "HSY "], ["GIS ", "SYY "], ["GIS ", "HRL "], ["GIS ", "SJM "], ["GIS ", "CAG "], ["GIS ", "MDLZ "], ["GIS ", "CPB "], ["BCR ", "IDXX "], ["BCR ", "MDT "], ["BCR ", "SYK "], ["BCR ", "BDX "], ["XLNX ", "ADI "], ["XLNX ", "MCHP "], ["XLNX ", "TXN "], ["XLNX ", "SYMC "], ["GILD ", "CELG "], ["GILD ", "AMGN "], ["GILD ", "BIIB "], ["MNST ", "BF/B "], ["MNST ", "KO "], ["MNST ", "PEP "], ["PEP ", "RAI "], ["PEP ", "PG "], ["PEP ", "BF/B "], ["PEP ", "KO "], ["PEP ", "VZ "], ["PEP ", "CL "], ["PEP ", "SYY "], ["PEP ", "PM "], ["PEP ", "DPS "], ["PEP ", "CAG "], ["PEP ", "MO "], ["PEP ", "MDLZ "], ["OMC ", "TSCO "], ["OMC ", "ADP "], ["OMC ", "ITW "], ["OMC ", "IPG "], ["DLR ", "FRT "], ["DLR ", "SPG "], ["DLR ", "REG "], ["LRCX ", "AMAT "], ["LRCX ", "TXN "], ["LRCX ", "KLAC "], ["NWL ", "AMG "], ["NWL ", "IVZ "], ["NWL ", "PFG "], ["GGP ", "SPG "], ["GGP ", "FRT "], ["GGP ", "KIM "], ["GGP ", "MAC "], ["CERN ", "ADP "], ["CERN ", "FISV "], ["CERN ", "VAR "], ["SRE ", "CMS "], ["SRE ", "LNT "], ["SRE ", "DTE "], ["SRE ", "CNP "], ["SRE ", "AES "], ["PCG ", "CMS "], ["PCG ", "XEL "], ["PCG ", "WEC "], ["AKAM ", "SNA "], ["AKAM ", "TEL "], ["AKAM ", "AMP "], ["CHK ", "MUR "], ["CHK ", "DVN "], ["CHK ", "MRO "], ["ED ", "SO "], ["ED ", "WEC "], ["ED ", "XEL "], ["DFS ", "COF "], ["DFS ", "AMP "], ["DFS ", "ADS "], ["DFS ", "AXP "], ["MAR ", "WYN "], ["MAR ", "RCL "], ["MAR ", "CCL "], ["MAR ", "HST "], ["MAR ", "AMP "], ["CHRW ", "EXPD "], ["RL ", "SNA "], ["RL ", "VFC "], ["RL ", "KORS "], ["RL ", "COH "], ["TGNA ", "CBS "], ["TGNA ", "AMP "], ["TGNA ", "TROW "], ["SPGI ", "AMP "], ["SPGI ", "IVZ "], ["SPGI ", "MCO "], ["BBY ", "JWN "], ["BBY ", "BBBY "], ["BBY ", "SPLS "], ["TDC ", "IVZ "], ["TDC ", "TEL "], ["TDC ", "AMG "], ["URBN ", "GPS "], ["URBN ", "JWN "], ["ADP ", "VRSK "], ["ADP ", "ACN "], ["ADP ", "FISV "], ["ADP ", "WBA "], ["ADP ", "MCD "], ["ADP ", "COST "], ["ADP ", "EBAY "], ["ADP ", "EL "], ["ADP ", "HAS "], ["ADP ", "EFX "], ["ADP ", "BRK/B "], ["ADP ", "KR "], ["ADP ", "SRCL "], ["ADP ", "PAYX "], ["ADP ", "HSIC "], ["ADP ", "FIS "], ["ADP ", "CTSH "], ["ADP ", "MSFT "], ["ADP ", "STZ "], ["ADP ", "HD "], ["ADP ", "CA "], ["ADP ", "TSS "], ["AIG ", "MET "], ["AIG ", "LNC "], ["AIG ", "PRU "], ["BWA ", "GT "], ["BWA ", "GM "], ["BWA ", "PCAR "], ["BWA ", "DLPH "], ["BWA ", "HAR "], ["BWA ", "F "], ["BWA ", "AMG "], ["LLL ", "NOC "], ["LLL ", "GD "], ["LLL ", "RTN "], ["DOV ", "EMR "], ["DOV ", "FLS "], ["DOV ", "PH "], ["DOV ", "FLR "], ["DOV ", "LYB "], ["PWR ", "JEC "], ["PWR ", "FLR "], ["PWR ", "FLS "], ["FBHS ", "WHR "], ["FBHS ", "LEN "], ["FBHS ", "MHK "], ["FBHS ", "MAS "], ["ABT ", "LLY "], ["ABT ", "HOLX "], ["ABT ", "TMO "], ["ABT ", "MDT "], ["ABT ", "MRK "], ["ABT ", "BDX "], ["AMG ", "HRS "], ["AMG ", "DNB "], ["AMG ", "AMP "], ["AMG ", "DLPH "], ["AMG ", "URI "], ["AMG ", "YHOO "], ["AMG ", "VRSN "], ["AMG ", "BEN "], ["AMG ", "IVZ "], ["AMG ", "R "], ["AMG ", "ADS "], ["AMG ", "AYI "], ["AMG ", "WYNN "], ["SHW ", "MHK "], ["SHW ", "HD "], ["SYMC ", "TXN "], ["SYMC ", "CA "], ["DISCA ", "SNI "], ["DISCA ", "CBS "], ["DISCA ", "DISCK "], ["DISCA ", "TWX "], ["PCAR ", "GT "], ["PCAR ", "CMI "], ["PCAR ", "PH "], ["PCAR ", "R "], ["PCAR ", "DE "], ["PCAR ", "ETN "], ["PCAR ", "BBBY "], ["F ", "GM "], ["F ", "PFG "], ["BEN ", "SIG "], ["BEN ", "HOG "], ["BEN ", "AN "], ["BEN ", "SPLS "], ["BEN ", "ADM "], ["BEN ", "NUE "], ["BEN ", "TROW "], ["BEN ", "VMC "], ["BEN ", "KMX "], ["BEN ", "DISH "], ["BEN ", "IVZ "], ["BEN ", "GRMN "], ["BEN ", "BLK "], ["BEN ", "FMC "], ["BDX ", "ZBH "], ["BDX ", "BAX "], ["BDX ", "SYK "], ["BDX ", "EW "], ["BDX ", "ISRG "], ["BDX ", "BSX "], ["BDX ", "MDT "], ["PRU ", "TSO "], ["PRU ", "PFG "], ["PRU ", "AFL "], ["PRU ", "MET "], ["PRU ", "LNC "], ["PRU ", "HIG "], ["PRU ", "UNM "], ["ALK ", "LUV "], ["ALK ", "DAL "], ["ALK ", "UAL "], ["HBAN ", "FITB "], ["HBAN ", "KEY "], ["CF ", "LYB "], ["CF ", "MOS "], ["CF ", "FMC "], ["SWKS ", "AVGO "], ["SWKS ", "ADI "], ["SWKS ", "TXN "], ["SWKS ", "AAPL "], ["ALXN ", "CELG "], ["ALXN ", "AMGN "], ["ALXN ", "BIIB "], ["BLK ", "IP "], ["BLK ", "WYNN "], ["BLK ", "LVLT "], ["BLK ", "IVZ "], ["BLK ", "YHOO "], ["BLK ", "IPG "], ["BLK ", "GRMN "], ["BLK ", "DD "], ["BLK ", "AMP "], ["BLK ", "SEE "], ["CTXS ", "CRM "], ["CTXS ", "APH "], ["CTXS ", "RHT "], ["CTXS ", "SWK "], ["RAI ", "MO "], ["RAI ", "PM "], ["AEE ", "DTE "], ["AEE ", "XEL "], ["AIZ ", "HIG "], ["AIZ ", "MET "], ["AIZ ", "TMK "], ["SLG ", "BXP "], ["SLG ", "HST "], ["SLG ", "PLD "], ["ADSK ", "AMP "], ["ADSK ", "IVZ "], ["ADSK ", "ADBE "], ["NFX ", "CXO "], ["NFX ", "XEC "], ["NFX ", "EOG "], ["EXC ", "NRG "], ["EXC ", "AEP "], ["EXC ", "FE "], ["KEY ", "FITB "], ["KEY ", "CMA "], ["KEY ", "PBCT "], ["KEY ", "ZION "], ["KEY ", "STI "], ["KEY ", "PNC "], ["KEY ", "RF "], ["KEY ", "BK "], ["NDAQ ", "CBOE "], ["NDAQ ", "ICE "], ["NDAQ ", "MMC "], ["NDAQ ", "CME "], ["BAX ", "MDT "], ["BAX ", "SYK "], ["PG ", "CL "], ["PG ", "KMB "], ["BF/B ", "CL "], ["BF/B ", "STZ "], ["APC ", "NBL "], ["APC ", "DVN "], ["APC ", "MRO "], ["APC ", "EOG "], ["UDR ", "ESS "], ["UDR ", "AVB "], ["UDR ", "AIV "], ["UDR ", "MAA "], ["UDR ", "EQR "], ["RTN ", "NOC "], ["RTN ", "GD "], ["RTN ", "LMT "], ["DUK ", "AEP "], ["DUK ", "XEL "], ["DUK ", "WEC "], ["KO ", "MO "], ["KO ", "CL "], ["KO ", "DPS "], ["COH ", "VFC "], ["VMC ", "MLM "], ["VMC ", "TROW "], ["UTX ", "TDG "], ["UTX ", "ITW "], ["UTX ", "BA "], ["UTX ", "EMR "], ["UTX ", "COL "], ["HBI ", "VFC "], ["HBI ", "NKE "], ["REG ", "O "], ["REG ", "SPG "], ["REG ", "FRT "], ["REG ", "KIM "], ["BA ", "NOC "], ["LYB ", "EMN "], ["LYB ", "DOW "], ["IP ", "IVZ "], ["IP ", "WY "], ["UAL ", "LUV "], ["UAL ", "DAL "], ["SNA ", "ITW "], ["SNA ", "SWK "], ["MPC ", "TSO "], ["MPC ", "VLO "], ["MPC ", "AMP "], ["AEP ", "PPL "], ["AEP ", "DTE "], ["AEP ", "XEL "], ["AEP ", "FE "], ["AEP ", "AES "], ["AEP ", "ETR "], ["AEP ", "ES "], ["WDC ", "STX "], ["WDC ", "MU "], ["WDC ", "TEL "], ["CSX ", "NSC "], ["CSX ", "KSU "], ["IDXX ", "MMC "], ["IDXX ", "HSIC "], ["MUR ", "COP "], ["MUR ", "KMI "], ["MUR ", "DVN "], ["MUR ", "FCX "], ["MUR ", "RIG "], ["MUR ", "APA "], ["MUR ", "MRO "], ["TDG ", "FISV "], ["HOLX ", "TMO "], ["HOLX ", "SYK "], ["XEC ", "CXO "], ["XEC ", "PXD "], ["XEC ", "EOG "], ["IBM ", "BRK/B "], ["IBM ", "ACN "], ["HIG ", "MET "], ["HIG ", "LNC "], ["RHI ", "HRB "], ["RHI ", "AMP "], ["RHI ", "IVZ "], ["RHI ", "TROW "], ["CMG ", "SBUX "], ["CMG ", "AMP "], ["CMG ", "WYN "], ["MCO ", "IVZ "], ["MCO ", "AMP "], ["CXO ", "PXD "], ["CXO ", "EOG "], ["LB ", "GPS "], ["LB ", "FL "], ["LB ", "TJX "], ["LB ", "JWN "], ["R ", "AN "], ["R ", "IVZ "], ["QCOM ", "ADI "], ["QCOM ", "MCHP "], ["QCOM ", "TXN "], ["ANTM ", "AET "], ["ANTM ", "CI "], ["ANTM ", "UNH "], ["ANTM ", "CNC "], ["INCY ", "CELG "], ["INCY ", "AMGN "], ["INCY ", "BIIB "], ["FTR ", "VZ "], ["FTR ", "T "], ["LOW ", "TSCO "], ["LOW ", "HD "], ["LOW ", "MHK "], ["LOW ", "MAS "], ["TRIP ", "AME "], ["GLW ", "TEL "], ["GLW ", "ITW "], ["GLW ", "PH "], ["VIAB ", "FOXA "], ["VIAB ", "TWX "], ["HSY ", "CPB "], ["DLPH ", "GT "], ["DLPH ", "IVZ "], ["DLPH ", "GM "], ["CCL ", "WYN "], ["CCL ", "RCL "], ["EMR ", "ROK "], ["EMR ", "ITW "], ["EMR ", "PH "], ["EMR ", "JEC "], ["EMR ", "ETN "], ["EMR ", "PNR "], ["ZBH ", "MDT "], ["ZBH ", "SYK "], ["EQIX ", "PLD "], ["EQIX ", "FISV "], ["SCHW ", "BK "], ["SCHW ", "ETFC "], ["SCHW ", "NTRS "], ["SCHW ", "CME "], ["CNP ", "LNT "], ["CNP ", "DTE "], ["CNP ", "AES "], ["BIIB ", "CELG "], ["BIIB ", "AMGN "], ["AJG ", "WLTW "], ["AJG ", "AON "], ["AJG ", "MMC "], ["AJG ", "TMK "], ["RF ", "STI "], ["RF ", "FITB "], ["RF ", "ZION "], ["RF ", "CMA "], ["NBL ", "EOG "], ["NBL ", "MRO "], ["CAG ", "K "], ["SRCL ", "WM "], ["SRCL ", "FISV "], ["AIV ", "ESS "], ["AIV ", "AVB "], ["AIV ", "MAA "], ["PFG ", "HOG "], ["PFG ", "L "], ["PFG ", "ADM "], ["PFG ", "AMP "], ["PFG ", "LVLT "], ["PFG ", "TMK "], ["PFG ", "AFL "], ["PFG ", "BRK/B "], ["PFG ", "LNC "], ["PFG ", "SBUX "], ["VRSN ", "FISV "], ["VRSN ", "CA "], ["BLL ", "ITW "], ["BLL ", "MMC "], ["LNC ", "L "], ["LNC ", "AMP "], ["LNC ", "TMK "], ["LNC ", "MET "], ["LNC ", "FSLR "], ["LNC ", "UNM "], ["MRO ", "OKE "], ["MRO ", "COP "], ["MRO ", "DVN "], ["MRO ", "FCX "], ["MRO ", "APA "], ["MRO ", "HES "], ["MRO ", "RIG "], ["CELG ", "ILMN "], ["CELG ", "BMY "], ["CELG ", "AMGN "], ["DVN ", "OKE "], ["DVN ", "COP "], ["DVN ", "KMI "], ["DVN ", "NRG "], ["DVN ", "APA "], ["DVN ", "HES "], ["DVN ", "WMB "], ["DGX ", "DVA "], ["DGX ", "HCA "], ["DGX ", "SYK "], ["DGX ", "UHS "], ["NSC ", "KSU "], ["KSS ", "GPS "], ["KSS ", "JWN "], ["XL ", "TRV "], ["XL ", "CINF "], ["LKQ ", "GPC "], ["LKQ ", "AME "], ["LKQ ", "AMP "], ["MTD ", "A "], ["MTD ", "EA "], ["MTD ", "COO "], ["MTD ", "PKI "], ["MTD ", "WAT "], ["HD ", "TSCO "], ["HD ", "ROST "], ["HD ", "MHK "], ["HD ", "ULTA "], ["HD ", "SBUX "], ["HD ", "TJX "], ["WHR ", "MHK "], ["WHR ", "MAS "], ["COL ", "TXT "], ["K ", "CPB "], ["CL ", "COST "], ["CL ", "CLX "], ["CL ", "CHD "], ["CL ", "EL "], ["CL ", "WMT "], ["CL ", "KMB "], ["CL ", "PM "], ["CL ", "MCD "], ["CL ", "MJN "], ["NOV ", "HP "], ["NOV ", "FTI "], ["NOV ", "SLB "], ["BSX ", "MDT "], ["BSX ", "SYK "], ["FISV ", "VRSK "], ["FISV ", "ACN "], ["FISV ", "CMCSA "], ["FISV ", "CHTR "], ["FISV ", "ADBE "], ["FISV ", "GPN "], ["FISV ", "EFX "], ["FISV ", "HRB "], ["FISV ", "ATVI "], ["FISV ", "V "], ["FISV ", "CTAS "], ["FISV ", "SBUX "], ["FISV ", "FIS "], ["FISV ", "DNB "], ["FISV ", "CTSH "], ["FISV ", "MSFT "], ["FISV ", "YHOO "], ["FISV ", "STZ "], ["FISV ", "PAYX "], ["FISV ", "XRAY "], ["FISV ", "CA "], ["FISV ", "TSS "], ["DLTR ", "ROST "], ["DLTR ", "DG "], ["DLTR ", "TJX "], ["PNW ", "CMS "], ["PNW ", "DTE "], ["PNW ", "XEL "], ["IRM ", "FRT "], ["IRM ", "KIM "], ["IRM ", "PLD "], ["HAS ", "IVZ "], ["HAS ", "MAT "], ["AET ", "CI "], ["AET ", "UNH "], ["AET ", "CNC "], ["TXN ", "ADI "], ["TXN ", "MU "], ["TXN ", "INTC "], ["TXN ", "EBAY "], ["TXN ", "MCHP "], ["TXN ", "AAPL "], ["TXN ", "AVGO "], ["TXN ", "TEL "], ["TXN ", "NVDA "], ["TXN ", "APH "], ["TXN ", "STX "], ["TXN ", "CSCO "], ["MAS ", "LEN "], ["MAS ", "MHK "], ["JPM ", "GS "], ["JPM ", "C "], ["JPM ", "BAC "], ["ECL ", "PX "], ["ECL ", "IFF "], ["RCL ", "WYN "], ["FLIR ", "TEL "], ["FLIR ", "ITW "], ["FLIR ", "IVZ "], ["CBS ", "SNI "], ["CBS ", "FOXA "], ["CBS ", "DISCK "], ["CBS ", "TWX "], ["CBS ", "DIS "], ["MU ", "ADI "], ["MU ", "MCHP "], ["ADS ", "AMP "], ["ADS ", "EBAY "], ["WY ", "PLD "], ["STX ", "AMP "], ["DG ", "ROST "], ["DG ", "TGT "], ["AAPL ", "AVGO "], ["CSCO ", "ITW "], ["CSCO ", "JNPR "], ["CHTR ", "DIS "], ["CHTR ", "CMCSA "], ["COP ", "HES "], ["COP ", "CVX "], ["COP ", "XOM "], ["LEN ", "MHK "], ["SWN ", "RRC "], ["SWN ", "COG "], ["SWN ", "EQT "], ["XOM ", "CVX "], ["XOM ", "OXY "], ["WEC ", "SO "], ["WEC ", "DTE "], ["WEC ", "XEL "], ["WEC ", "CMS "], ["WEC ", "LNT "], ["WEC ", "NEE "], ["TRV ", "CINF "], ["TRV ", "ALL "], ["TRV ", "BRK/B "], ["ROK ", "AME "], ["ROK ", "PH "], ["ROK ", "JCI "], ["ROK ", "ETN "], ["JNJ ", "VZ "], ["JNJ ", "BMY "], ["JNJ ", "PFE "], ["JNJ ", "BRK/B "], ["JNJ ", "MMC "], ["JNJ ", "MRK "], ["JNJ ", "MCD "], ["JNJ ", "MMM "], ["JNJ ", "AMGN "], ["AGN ", "PFE "], ["AGN ", "AMGN "], ["AGN ", "MYL "], ["AGN ", "PRGO "], ["CTAS ", "ITW "], ["MRK ", "PFE "], ["FAST ", "GPC "], ["FAST ", "ITW "], ["FAST ", "GWW "], ["HOG ", "AME "], ["MCK ", "ABC "], ["MCK ", "AMGN "], ["DTE ", "PPL "], ["DTE ", "XEL "], ["DTE ", "NI "], ["DTE ", "D "], ["DTE ", "ETR "], ["DTE ", "ES "], ["DTE ", "CMS "], ["DTE ", "EIX "], ["WYN ", "AMP "], ["WYN ", "HST "], ["CVX ", "NEM "], ["CVX ", "OXY "], ["D ", "CMS "], ["D ", "XEL "], ["MHK ", "LEG "], ["PM ", "MO "], ["HRS ", "AMP "], ["HRS ", "IVZ "], ["MYL ", "PRGO "], ["NI ", "CMS "], ["NI ", "LNT "], ["PH ", "CAT "], ["PH ", "CMI "], ["PH ", "ITW "], ["PH ", "JEC "], ["PH ", "ETN "], ["PH ", "IR "], ["PH ", "XYL "], ["PH ", "FLS "], ["FITB ", "STI "], ["ULTA ", "ROST "], ["ULTA ", "TJX "], ["COF ", "WFC "], ["COF ", "USB "], ["COF ", "AXP "], ["SIG ", "IVZ "], ["SIG ", "AME "], ["NTRS ", "BK "], ["NTRS ", "USB "], ["NFLX ", "GOOGL "], ["NFLX ", "AMZN "], ["SPLS ", "IVZ "], ["SPLS ", "AMP "], ["ADM ", "IVZ "], ["GPS ", "JWN "], ["COO ", "HSIC "], ["COO ", "SYK "], ["USB ", "PNC "], ["USB ", "MTB "], ["USB ", "WFC "], ["ESRX ", "TMO "], ["ESRX ", "AMP "], ["MAA ", "AVB "], ["KMI ", "OKE "], ["KMI ", "WMB "], ["UHS ", "EVHC "], ["UHS ", "HCA "], ["BMY ", "AMGN "], ["RSG ", "LEG "], ["RSG ", "WM "], ["BHI ", "HAL "], ["BHI ", "SLB "], ["BHI ", "HP "], ["EQT ", "RRC "], ["EQT ", "COG "], ["JEC ", "FLR "], ["O ", "FRT "], ["O ", "KIM "], ["SNI ", "DISCK "], ["FOXA ", "DIS "], ["KIM ", "SPG "], ["KIM ", "PLD "], ["KIM ", "MAC "], ["KIM ", "FRT "], ["KIM ", "BXP "], ["FCX ", "CAT "], ["FCX ", "MOS "], ["FCX ", "NEM "], ["AAP ", "AZO "], ["AAP ", "GPC "], ["AAP ", "ORLY "], ["LUV ", "DAL "], ["IVZ ", "MAT "], ["IVZ ", "AMP "], ["IVZ ", "TROW "], ["IVZ ", "NLSN "], ["IVZ ", "EFX "], ["IVZ ", "NTAP "], ["IVZ ", "DVA "], ["IVZ ", "DRI "], ["IVZ ", "WYNN "], ["IVZ ", "LUK "], ["IVZ ", "HAR "], ["IVZ ", "DISH "], ["PLD ", "CCI "], ["PLD ", "SPG "], ["PLD ", "AMT "], ["CPB ", "HRL "], ["CPB ", "SJM "], ["ICE ", "CBOE "], ["ICE ", "BRK/B "], ["ICE ", "CME "], ["AN ", "KMX "], ["AVY ", "SEE "], ["AVY ", "ETN "], ["PGR ", "CINF "], ["PGR ", "BRK/B "], ["LUK ", "AMP "], ["LUK ", "MS "], ["ACN ", "CTSH "], ["ACN ", "RHT "], ["CLX ", "CHD "], ["CLX ", "KMB "], ["NLSN ", "ITW "], ["NLSN ", "MMC "], ["PBCT ", "MTB "], ["ADBE ", "CRM "], ["HCP ", "SPG "], ["HCP ", "VTR "], ["HAL ", "SLB "], ["HAL ", "HP "], ["KORS ", "VFC "], ["KMB ", "T "], ["KMB ", "CHD "], ["DVA ", "HSIC "], ["DD ", "EMN "], ["DD ", "DOW "], ["AMZN ", "GOOGL "], ["AME ", "MLM "], ["AME ", "ITW "], ["AME ", "AYI "], ["AME ", "ROP "], ["AME ", "XYL "], ["ITW ", "TXT "], ["ITW ", "TEL "], ["ITW ", "XYL "], ["ITW ", "LEG "], ["ITW ", "IR "], ["ITW ", "ETN "], ["ITW ", "MMM "], ["ITW ", "DHR "], ["ITW ", "GPC "], ["ITW ", "GE "], ["ITW ", "ROP "], ["ITW ", "GWW "], ["ITW ", "SWK "], ["STI ", "ETFC "], ["STI ", "PNC "], ["MDT ", "SYK "], ["MDT ", "EW "], ["MDT ", "TMO "], ["MDT ", "PDCO "], ["AMAT ", "ADI "], ["AMAT ", "MCHP "], ["AMAT ", "KLAC "], ["DRI ", "SBUX "], ["DRI ", "AMP "], ["SWK ", "IR "], ["CMI ", "CAT "], ["CMI ", "DE "], ["CRM ", "RHT "], ["GE ", "MMM "], ["GE ", "BRK/B "], ["LMT ", "NOC "], ["LMT ", "GD "], ["VLO ", "TSO "], ["VLO ", "AMP "], ["TEL ", "NTAP "], ["TEL ", "EA "], ["TEL ", "APH "], ["TEL ", "JNPR "], ["TEL ", "FSLR "], ["TEL ", "FFIV "], ["TEL ", "HPQ "], ["NKE ", "VFC "], ["NKE ", "FL "], ["NKE ", "UAA "], ["CMCSA ", "DIS "], ["CMCSA ", "BRK/B "], ["AON ", "BRK/B "], ["AON ", "MMC "], ["AON ", "WLTW "], ["NEM ", "OXY "], ["C ", "GS "], ["C ", "BAC "], ["C ", "MS "], ["EFX ", "DNB "], ["EFX ", "VRSK "], ["ADI ", "INTC "], ["ADI ", "NVDA "], ["ADI ", "AVGO "], ["ADI ", "MCHP "], ["ADI ", "KLAC "], ["ETN ", "CAT "], ["ETN ", "URI "], ["ETN ", "GWW "], ["ETN ", "IR "], ["ETN ", "PNR "], ["ETN ", "JCI "], ["ETN ", "FLS "], ["KR ", "COST "], ["MJN ", "MMC "], ["L ", "TMK "], ["L ", "HPQ "], ["TJX ", "ROST "], ["TJX ", "TGT "], ["TJX ", "FL "], ["TJX ", "JWN "], ["UAA ", "VFC "], ["UAA ", "FL "], ["SPG ", "CCI "], ["SPG ", "MAC "], ["SPG ", "FRT "], ["SPG ", "AMT "], ["FIS ", "MMC "], ["ABC ", "AMGN "], ["ZION ", "CMA "], ["TMK ", "AFL "], ["TMK ", "UNM "], ["HAR ", "AMP "], ["HES ", "OXY "], ["SBUX ", "YUM "], ["TSS ", "GPN "], ["EIX ", "XEL "], ["EIX ", "ES "], ["MMC ", "CINF "], ["MMC ", "GPC "], ["MMC ", "YUM "], ["MMC ", "WLTW "], ["MMC ", "WBA "], ["MMC ", "BRK/B "], ["MMC ", "V "], ["MMC ", "WM "], ["MCD ", "YUM "], ["ILMN ", "TMO "], ["ILMN ", "PKI "], ["NRG ", "AES "], ["WMB ", "OKE "], ["TROW ", "AYI "], ["TROW ", "AMP "], ["TROW ", "MAT "], ["TROW ", "GRMN "], ["TROW ", "MSI "], ["BRK/B ", "WFC "], ["BRK/B ", "T "], ["BRK/B ", "EL "], ["BRK/B ", "PAYX "], ["BRK/B ", "MSI "], ["BRK/B ", "MMM "], ["BRK/B ", "CME "], ["JNPR ", "FFIV "], ["HP ", "RIG "], ["HP ", "EOG "], ["HP ", "SLB "], ["HP ", "FTI "], ["FLR ", "FSLR "], ["FLR ", "FLS "], ["UNM ", "MET "], ["HPQ ", "INTC "], ["WMT ", "COST "], ["WMT ", "TGT "], ["SO ", "XEL "], ["MCHP ", "INTC "], ["MCHP ", "NVDA "], ["VTR ", "FRT "], ["IFF ", "PX "], ["MSI ", "AMP "], ["NOC ", "GD "], ["PRGO ", "AMGN "], ["MSFT ", "INTC "], ["ETR ", "XEL "], ["ETR ", "FE "], ["DISH ", "AMP "], ["VAR ", "TMO "], ["VAR ", "PKI "], ["VAR ", "SYK "], ["OXY ", "EOG "], ["HCA ", "EVHC "], ["CME ", "CBOE "], ["VZ ", "T "], ["LLY ", "TMO "], ["LLY ", "PFE "], ["TGT ", "JWN "], ["PKI ", "A "], ["PKI ", "WAT "], ["PKI ", "TMO "], ["PNC ", "MTB "], ["PNC ", "WFC "], ["PXD ", "EOG "], ["AVB ", "EQR "], ["AVB ", "ESS "], ["CCI ", "AMT "], ["SYK ", "EW "], ["SYK ", "ISRG "], ["SYK ", "HSIC "], ["SYK ", "XRAY "], ["ALB ", "PX "], ["ALB ", "EMN "], ["WAT ", "TMO "], ["WAT ", "A "], ["MLM ", "AMP "], ["NTAP ", "AMP "], ["ALL ", "CINF "], ["ES ", "CMS "], ["ES ", "XEL "], ["URI ", "FLS "], ["ROST ", "FL "], ["COG ", "RRC "], ["CINF ", "LEG "], ["BAC ", "MS "], ["AXP ", "AMP "], ["KMX ", "AMP "], ["GS ", "MS "], ["XRAY ", "PDCO "], ["XRAY ", "HSIC "], ["BBBY ", "AMP "], ["BBBY ", "JWN "], ["AMP ", "NUE "], ["AMP ", "LVLT "], ["TMO ", "ISRG "], ["TMO ", "A "], ["SLB ", "EOG "], ["SLB ", "FTI "], ["EA ", "ATVI "], ["FFIV ", "RHT "], ["CNC ", "UNH "], ["UNH ", "CI "], ["DE ", "CAT "], ["ORLY ", "AZO "], ["ORLY ", "GPC "], ["EQR ", "ESS "], ["DOW ", "EMN "], ["PDCO ", "HSIC "], ["XEL ", "CMS "], ["XEL ", "LNT "], ["TWX ", "DISCK "], ["NEE ", "CMS "], ["NEE ", "LNT "], ["MMM ", "DHR "], ["PFE ", "AMGN "], ["ETFC ", "MS "], ["CAT ", "NUE "], ["PNR ", "FLS "], ["MOS ", "FMC "], ["AZO ", "GPC "], ["CMS ", "LNT "], ["EMN ", "FMC "], ["FMC ", "PX "]], "label_shadow_color": "#fffff0", "min_node_size": 8, "graph_style": "dark", "height": 800, "width": 1000, "charge": -75, "color_map": "RdBuGn", "graph_id": 3, "got_embed": false, "embedding": [], "color_axis": "closeness_centrality", "nodes": ["DHI ", "HON ", "FOX ", "CVS ", "MA ", "WU ", "CBG ", "TIF ", "STT ", "SCG ", "EXR ", "JBHT ", "XRX ", "LH ", "BBT ", "CTL ", "PVH ", "UPS ", "AWK ", "EXPE ", "MON ", "PHM ", "INTU ", "HUM ", "VNO ", "TAP ", "FDX ", "TSN ", "MKC ", "PCLN ", "HCN ", "CB ", "M ", "ORCL ", "PEG ", "PPG ", "APD ", "CAH ", "PSA ", "WFM ", "UNP ", "GIS ", "BCR ", "XLNX ", "GILD ", "MNST ", "PEP ", "OMC ", "DLR ", "LRCX ", "NWL ", "GGP ", "CERN ", "SRE ", "PCG ", "AKAM ", "CHK ", "ED ", "DFS ", "MAR ", "CHRW ", "RL ", "TGNA ", "SPGI ", "BBY ", "TDC ", "URBN ", "ADP ", "AIG ", "BWA ", "LLL ", "DOV ", "PWR ", "FBHS ", "ABT ", "AMG ", "SHW ", "SYMC ", "DISCA ", "PCAR ", "F ", "BEN ", "BDX ", "PRU ", "ALK ", "HBAN ", "CF ", "SWKS ", "ALXN ", "BLK ", "CTXS ", "RAI ", "AEE ", "AIZ ", "SLG ", "ADSK ", "NFX ", "EXC ", "KEY ", "NDAQ ", "BAX ", "PG ", "BF/B ", "APC ", "UDR ", "RTN ", "DUK ", "KO ", "COH ", "VMC ", "UTX ", "HBI ", "REG ", "BA ", "LYB ", "IP ", "UAL ", "SNA ", "MPC ", "AEP ", "WDC ", "CSX ", "IDXX ", "MUR ", "TDG ", "HOLX ", "XEC ", "IBM ", "HIG ", "RHI ", "CMG ", "MCO ", "CXO ", "LB ", "R ", "QCOM ", "ANTM ", "INCY ", "FTR ", "LOW ", "TRIP ", "GLW ", "VIAB ", "HSY ", "DLPH ", "CCL ", "EMR ", "ZBH ", "EQIX ", "SCHW ", "CNP ", "BIIB ", "AJG ", "RF ", "NBL ", "CAG ", "SRCL ", "AIV ", "PFG ", "VRSN ", "BLL ", "LNC ", "MRO ", "CELG ", "DVN ", "DGX ", "NSC ", "KSS ", "XL ", "LKQ ", "MTD ", "HD ", "WHR ", "COL ", "K ", "CL ", "NOV ", "BSX ", "FISV ", "DLTR ", "GT ", "PNW ", "IRM ", "HAS ", "AET ", "TXN ", "MAS ", "JPM ", "ECL ", "RCL ", "FLIR ", "CBS ", "MU ", "ADS ", "WY ", "STX ", "DG ", "AAPL ", "CSCO ", "CHTR ", "COP ", "LEN ", "SWN ", "XOM ", "WEC ", "TRV ", "ROK ", "JNJ ", "AGN ", "CTAS ", "MRK ", "FAST ", "HOG ", "CA ", "MCK ", "DTE ", "WYN ", "CVX ", "D ", "MHK ", "PM ", "HST ", "HRS ", "MYL ", "NI ", "PH ", "FITB ", "ULTA ", "COF ", "PPL ", "SIG ", "NTRS ", "NFLX ", "SPLS ", "ADM ", "GPS ", "COO ", "USB ", "MDLZ ", "ESRX ", "MAA ", "KMI ", "UHS ", "BMY ", "RSG ", "BHI ", "EQT ", "JEC ", "O ", "SNI ", "FOXA ", "KIM ", "FCX ", "AAP ", "LUV ", "DPS ", "IVZ ", "PLD ", "CPB ", "ICE ", "AN ", "AVY ", "PGR ", "LUK ", "ACN ", "CLX ", "IPG ", "MO ", "NLSN ", "PBCT ", "ADBE ", "HCP ", "HAL ", "KORS ", "KMB ", "DVA ", "DD ", "AMZN ", "AME ", "ITW ", "STI ", "MDT ", "AMAT ", "DRI ", "SWK ", "CMI ", "CRM ", "GE ", "LMT ", "ROP ", "VLO ", "TXT ", "TEL ", "NKE ", "CMCSA ", "AON ", "NEM ", "C ", "EFX ", "ADI ", "ETN ", "KR ", "JCI ", "MJN ", "L ", "TJX ", "APA ", "UAA ", "GWW ", "SPG ", "FIS ", "ABC ", "ZION ", "TMK ", "HAR ", "HES ", "SBUX ", "TSS ", "EIX ", "SYY ", "MMC ", "MCD ", "V ", "ILMN ", "NRG ", "WMB ", "TROW ", "BRK/B ", "JNPR ", "APH ", "IR ", "HP ", "FLR ", "UNM ", "HPQ ", "WMT ", "SO ", "MCHP ", "VTR ", "NVDA ", "IFF ", "MSI ", "NOC ", "PRGO ", "CTSH ", "MSFT ", "ETR ", "DISH ", "YHOO ", "VAR ", "OXY ", "PAYX ", "HCA ", "YUM ", "CME ", "VZ ", "LLY ", "TGT ", "PKI ", "PNC ", "PXD ", "AVB ", "CCI ", "TSO ", "SYK ", "GOOGL ", "ALB ", "WAT ", "HRB ", "WFC ", "WM ", "MLM ", "NTAP ", "ALL ", "ES ", "URI ", "ROST ", "EXPD ", "COG ", "CINF ", "BAC ", "AXP ", "KSU ", "KMX ", "GS ", "MTB ", "XRAY ", "BBBY ", "OKE ", "AMP ", "MAT ", "TMO ", "SLB ", "EW ", "CHD ", "EA ", "EVHC ", "FFIV ", "CMA ", "FRT ", "CNC ", "DNB ", "RHT ", "MET ", "STZ ", "UNH ", "DE ", "FL ", "ORLY ", "EQR ", "DOW ", "KLAC ", "LEG ", "RIG ", "GD ", "PDCO ", "XYL ", "COST ", "EBAY ", "XEL ", "FE ", "GPN ", "EL ", "GM ", "AFL ", "TWX ", "ESS ", "ATVI ", "BXP ", "NEE ", "MMM ", "DHR ", "BK ", "TSCO ", "PFE ", "HRL ", "CI ", "HSIC ", "JWN ", "RRC ", "SJM ", "FTI ", "ETFC ", "AYI ", "AMGN ", "CAT ", "VRSK ", "WLTW ", "NUE ", "AVGO ", "WBA ", "PNR ", "AMT ", "A ", "MOS ", "AZO ", "LVLT ", "MAC ", "CMS ", "EMN ", "FMC ", "GPC ", "CBOE ", "VFC ", "GRMN ", "DISCK ", "FSLR ", "LNT ", "PX ", "T ", "WYNN ", "INTC ", "DAL ", "AES ", "ISRG ", "DIS ", "EOG ", "SEE ", "MS ", "FLS "], "label_color": "rgba(255,255,255,0.88)", "graph_layout": "force"}'));
+		window.current_graph_id += 1;
+		window.graph_data[window.current_graph_id]['element'] = element;
+		var graph_id = window.current_graph_id;
+		console.log(graph_id);
+		var width  = element.data("width");
+		var height = element.data("height");
+		console.log(width);
+		console.log(height);
+		element.empty();
+		element.append('<div id = "top_bar"><b><a href = "http://www.slicematrix.com" target = "_blank" style="color:#fffff0">SliceMatrix-IO</a></b> Network View</div>');
+		element.append('<div class = "loadingDialog" id = "spinner_' + graph_id +'"><div class="loader"></div><br><div id = "loading_status">loading graph data...</div></div> ');
+		element.append('<div class = "content_cell" id = "content_' + graph_id +'"><canvas id = "mainEvent_' + graph_id +'" width="' + width + '" height="' + height + '"></canvas></div>');
+		(function(graph_id, element) {
+			console.log("inside closure!");
+			require(['d3'], function(d3){
+				window.d3 = d3;
+				//var graph_id = element.data('graph_id');//window.current_graph_id;
+				//var element  = $(element);
+				
+					//var element = window.graph_data[graph_id]['element'];
+					console.log("require");
+					console.log("graph_id = " + graph_id);
+					var width = window.graph_data[graph_id]['width'];
+					var height = window.graph_data[graph_id]['height'];
+					console.log(window.current_graph_id);
+
+
+					var label_color = window.graph_data[graph_id]['label_color'];
+					
+					var min_node_size = window.graph_data[graph_id]['min_node_size'];
+					
+					var charge = window.graph_data[graph_id]['charge'];
+
+					var colorAxis = window.graph_data[graph_id]['color_axis'];
+					if(colorAxis == undefined){
+						colorAxis = "closeness_centrality";
+					}
+
+					var colorMap = window.graph_data[graph_id]['color_map'];
+					if(colorMap == undefined){
+						colorMap = "RdBuGn";
+					}
+
+					var graphStyle = window.graph_data[graph_id]['graph_style'];
+					// light || dark || white || ether
+					if(graphStyle == undefined){
+						graphStyle = "light";
+					}
+
+					var suppressLabels;
+					if(suppressLabels == undefined){
+						suppressLabels = true;
+					}
+
+					var graphTitle;
+					if(graphTitle == undefined){
+						graphTitle = "SliceMatrix-IO Network Viewer";
+					}
+
+					var graphLayout = window.graph_data[graph_id]['graph_layout'];
+					if(graphLayout == undefined && window.graph_data[graph_id]['got_embed'] == true){
+						graphLayout = "embedding";
+					}
+
+					// update background style
+					if(graphStyle == "dark"){
+						d3.select("#content_" + graph_id).style("background", "rgb(20,20,20)");
+
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}else if(graphStyle == "white"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#FFF",
+							"background": "rgb(256,256,256)"
+						});
+
+						d3.select("#loadingDialog").style("background", "rgba(120,120,120,0.7)");
+					}else if(graphStyle == "ether"){
+						$('#content' + graph_id).css({
+							"background-image": "none",
+							"background-color": "#000",
+							"background": "-webkit-radial-gradient(circle, black 15%, rgb(5,5,10), rgb(10,10,30), rgb(15,50,50))"
+						});
+
+						$('#top_bar').css({
+							"color": "rgba(255, 255, 255, 0.88)",
+							"text-shadow": "5px 5px 2px rgba(120,120,120,0.2)",
+							"background-color": "rgba(220,220,220, 0.4)",
+							"box-shadow": "-5px 5px 5px rgba(220,220,220,0.0)"
+						});
+
+						d3.select("#loading_status").style("color", "rgb(255, 255, 255)");
+					}
+
+					//
+					if(graphLayout == undefined){
+						graphLayout = false;
+					}
+
+					var colormap = function(maxval, midval, minval, maxcol, midcol, mincol){
+					return d3.scaleLinear()
+							 .domain([minval, midval, maxval])
+							 .range([mincol, midcol, maxcol]);
+
+					}
+
+					var colormaps = {'RdBuGn':   ['rgb(20,220,120)','rgb(20,120,220)','rgb(220,20,20)'],
+								 'RdGrGn':   ['rgb(0,254,122)','rgb(185,185,185)','rgb(225,26,29)'],//2
+								 'PuBuXr':   ['rgb(20,120,255)','rgb(25,25,45)','rgb(255,20,120)'],//3
+								 'RdBuGnXr': ['rgb(20,220,120)','rgb(20,60,120)','rgb(220,20,20)'],//4
+								 'Viridis':  ['rgb(240,249,33)','rgb(30,153,138)','rgb(19,6,137)'],//5
+								 'Heat':     ['rgb(110,0,0)','rgb(255,17,0)','rgb(255,255,87)'],//9
+								 'Cool':     ['rgb(6,248,255)','rgb(139,116,255)','rgb(255,0,255)'],//11
+								 'Greens':   ['rgb(169,196,222)','rgb(121,198,122)','rgb(48,113,60)'],//8
+								 'Blues':    ['rgb(247,252,255)','rgb(95,166,209)','rgb(19,95,167)'],//7
+								 'GnBu':     ['rgb(247,252,240)','rgb(124,249,125)','rgb(8,73,138)'],//6
+								 'Winter':   ['rgb(0,11,249)','rgb(0,173,169)','rgb(0,255,128)']}//10
+
+					function getMaxOfArray(numArray) {
+					  return Math.max.apply(null, numArray);
+					}
+
+					function getMinOfArray(numArray) {
+					  return Math.min.apply(null, numArray);
+					}
+
+					var graph = {nodes:[], links:[]};
+
+					var curr_colormap;
+
+					d3.select("#loading_status").html("loaded nodes...");
+					var data = window.graph_data[graph_id];
+					data['nodes'].forEach(function(d){
+						graph['nodes'].push({id:d});
+					});
+
+					d3.select("#loading_status").html("loaded edges...");
+					data['links'].forEach(function(d){
+						graph['links'].push({source:d[0], target:d[1]});
+					});
+
+					//var height = 600;
+					//var width  = 1200;
+					var searchRadius = 3;
+
+					//d3.select("canvas").attr("height", height).attr("width", width);
+
+					var transform = d3.zoomIdentity;
+					
+					console.log($("#mainEvent_" + graph_id));
+
+					try{
+						//var canvas = document.querySelector("canvas"),
+						var canvas = document.querySelector("#mainEvent_" + graph_id),
+							context = canvas.getContext("2d"),
+							width = canvas.width,
+							height = canvas.height;
+							
+						$("#mainEvent_" + graph_id).width(width);
+						$("#mainEvent_" + graph_id).height(height);
+
+						var simulation = d3.forceSimulation()
+							.force("link", d3.forceLink().id(function(d) { return d.id; }))
+							.force("charge", d3.forceManyBody().strength(charge))
+							.force("center", d3.forceCenter(width / 2, height / 2))
+							.force("X", d3.forceX().x(0.2))
+							.force("Y", d3.forceY().y(0.2));
+
+						var zoom = d3.zoom();
+
+						var k = 1.0;
+
+						function initialize(){
+						  //zoom.scaleTo(d3.select("canvas").transition().duration(3000), 0.05);
+						}
+
+						//initialize();
+
+						var ggraph;
+
+						var selected_node;
+
+						var transform;
+
+						var ticks = 0;
+
+
+						var mixcolors = function(color1, color2){
+							var c1 = color1.replace("rgb(", "").replace(")", "").split(",");
+							var c2 = color2.replace("rgb(", "").replace(")", "").split(",");
+							var r1 = Math.round((parseInt(c1[0]) + parseInt(c2[0])) / 2);
+							var g1 = Math.round((parseInt(c1[1]) + parseInt(c2[1])) / 2);
+							var b1 = Math.round((parseInt(c1[2]) + parseInt(c2[2])) / 2);
+							if (isNaN(r1) || isNaN(g1) || isNaN(b1)){
+							  return "rgba(20,120,220,0.6)";
+							}else{
+							  return "rgba(" + r1.toString() + "," + g1.toString() + "," + b1.toString() + ",0.6)";
+							}
+						}
+
+						var drawGraph = function(){
+							console.log(graph);
+
+							function dragsubject() {
+							  var i,
+								  x = transform.invertX(d3.event.x),
+								  y = transform.invertY(d3.event.y),
+								  dx,
+								  dy;
+							}
+
+
+							function dragstarted() {
+							  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+							  d3.event.subject.fx = d3.event.subject.x;
+							  d3.event.subject.fy = d3.event.subject.y;
+							}
+
+							function dragged() {
+							  //d3.event.subject[0] = transform.invertX(d3.event.x);
+							  //d3.event.subject[1] = transform.invertY(d3.event.y);
+							  d3.event.subject.fx = d3.event.x;
+							  d3.event.subject.fy = d3.event.y;
+							}
+
+							function dragended() {
+							  if (!d3.event.active) simulation.alphaTarget(0);
+							  d3.event.subject.fx = null;
+							  d3.event.subject.fy = null;
+							}
+
+							function drawLink(d) {
+							  context.moveTo(d.source.x, d.source.y);
+							  context.lineTo(d.target.x, d.target.y);
+							}
+
+							function drawNode(d) {
+							  context.moveTo(d.x + get_current_node_size(), d.y);
+							  context.arc(d.x, d.y, get_current_node_size(), 0, 2 * Math.PI);
+							  //context.fill();
+							}
+
+							function drawLabel(d, id) {
+							  //console.log(d);
+							  context.shadowBlur = 10;
+							  context.shadowColor = "rgba(120,120,120,0.3)";
+							  context.fillText(d.id, d.x,d.y);
+							  //context.fill();
+							}
+
+							function rgb2a(rgb_string, alpha){
+								//console.log(rgb_string);
+							  rgb_string = rgb_string.replace(")", "," + alpha + ")").replace("rgb", "rgba");
+							  //rgb_string = "rgba(0,0,0,0.3)";
+							  return rgb_string 
+							}
+
+							function get_current_alpha(){
+							  return 1.0 - Math.min(transform.k, 0.5);
+							}
+
+							function get_current_font_size(){
+							  return 10 / Math.pow(transform.k, 0.5);
+							}
+
+							function get_current_highlighted_font_size(){
+							  return Math.min(720 * transform.k, 20);
+							}
+
+							function get_current_link_width(){
+							  return Math.max(1.5, 0.5/ transform.k);
+							}
+
+							function get_current_node_size(){
+							  return Math.min(60 * transform.k, min_node_size);
+							}
+
+							function get_current_deg_thresh(){
+							  if(k >= 0.4){
+								return 1;
+							  }else{
+								return 2;
+							  }
+							}
+
+
+							ggraph = graph;
+							  setTimeout(initialize, 0);
+
+							  if(graphLayout == "force"){
+
+								  simulation
+									  .nodes(graph.nodes)
+									  .on("tick", ticked);
+
+								  simulation.force("link")
+									  .links(graph.links);
+
+							  }else{
+									  simulation
+									  .nodes(graph.nodes);
+									  //.on("tick", ticked);
+
+								  simulation.force("link")
+									  .links(graph.links);
+									ticked();
+							  }
+
+							  //d3.select("mainEvent_" + graph_id)
+							  
+							  d3.select(canvas)
+								  .on("mousemove", mousemoved)
+								  .call(d3.drag()
+									  .container(canvas)
+									  .subject(dragsubject)
+									  .on("start", dragstarted)
+									  .on("drag", dragged)
+									  .on("end", dragended))
+								  .call(zoom.on("zoom", zoomed));
+
+							  function zoomed() {
+								//console.log("zooming!");
+								transform = d3.event.transform;
+								//console.log(simulation.alpha());
+								if(graphLayout == "force"){
+									if(simulation.alpha() < 0.01){//>
+									  ticked();
+									}
+								}else{
+									ticked();
+								}
+							  }
+
+							  function mousemoved() {
+								//console.log(graph.nodes);
+								var m = d3.mouse(this);
+								var x = (m[0] - transform.x) / transform.k;
+								var y = (m[1] - transform.y) / transform.k;
+								var moused_node;
+								for (var i = graph.nodes.length - 1; i >= 0; --i) {
+								  var point = graph.nodes[i];
+								  var dx = x - point.x;
+								  var dy = y - point.y;
+								  if (dx * dx + dy * dy < searchRadius * searchRadius) {//>
+									//point.x = transform.applyX(point.x);
+									//point.y = transform.applyY(point.y);
+									moused_node = point;
+								  }
+								}
+								selected_node = moused_node;
+								if(graphLayout == "force"){
+									if(simulation.alpha() < 0.01){//>
+									  ticked();
+									}
+								}
+							  }
+
+							  function restartIt(){
+								simulation.alpha(1.0)
+								simulation.restart();
+							  }
+
+							  function ticked() {
+								k = transform.k;
+								if( graphLayout != "force"){
+									simulation.stop();
+								}else{
+									if(ticks == 0){
+										setTimeout(restartIt,1);
+									}
+								}
+									context.clearRect(0, 0, width, height);
+									context.save();
+									//context.translate(width / 2, height / 2);
+
+									context.globalAlpha = 1.0;
+
+									context.translate(transform.x, transform.y);
+									context.scale(transform.k, transform.k);
+
+									graph.links.forEach(function(link) {
+									  context.beginPath();
+									  drawLink(link);
+									  //context.strokeStyle = rgb2a("rgb(20,20,20)", get_current_alpha());
+									  //console.log(link.source.color);
+									  var color = mixcolors(link.source.color, link.target.color);
+									  context.strokeStyle = color;
+									  context.lineWidth = get_current_link_width();
+									  context.stroke();
+									});
+
+									graph.nodes.forEach(function(user) {
+									//console.log(user);
+									  context.beginPath();
+									  drawNode(user);
+									  context.fillStyle = rgb2a(user.color, get_current_alpha());
+									  context.fill();
+									  if(selected_node != undefined){
+										if(user.id == selected_node.id){
+										  context.strokeStyle = "#000";
+										  context.lineWidth = 1;
+										  context.stroke();
+										}
+									  }
+									  //drawLabel(user, user.id);
+
+									});
+
+								   graph.nodes.forEach(function(user) {
+									  //if(user.deg > get_current_deg_thresh()){
+										context.beginPath();
+										drawLabel(user, user.id);
+										  context.font="bold " + get_current_font_size() + "px Arial";
+										  context.fillStyle = label_color;//user.color;
+										  context.fill();
+									  //}
+									});
+
+									ticks++;
+									context.restore();
+
+							  }
+
+
+						}
+
+						var max_rank = 0;
+						var min_rank = 0;
+
+						window.graph_data[graph_id]['stats'].forEach(function(row, j){
+							//console.log(row);
+							var val1 = row[0];
+							if(val1 > max_rank){
+								max_rank = val1;
+							}
+							if(val1 < min_rank){
+								min_rank = val1;
+							}
+							graph.nodes[j][colorAxis] = val1
+						});
+
+						d3.select("#loading_status").html("loaded colorAxis data...");
+
+						var mid_rank = (max_rank - min_rank) / 2.0;
+
+						//console.log([min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]]);
+
+						curr_colormap = colormap(min_rank, mid_rank, max_rank, colormaps[colorMap][0], colormaps[colorMap][1], colormaps[colorMap][2]);
+
+						graph.nodes.forEach(function(node, k){
+							graph.nodes[k].color = curr_colormap(graph.nodes[k][colorAxis]);
+						});
+
+						if(graphLayout == "force"){
+							d3.select("#spinner_" + graph_id).style("visibility", "hidden");
+							drawGraph();
+							//window.current_graph_id += 1
+						}else{
+							// bind the node embedding data to the graph!
+							var max_xy = 0.0;
+							var min_xy = 0.0;
+							var cmax_xy, cmin_xy;
+							// normalize embedding
+							//console.log("ooooooooooooooooooooooooo");
+							window.graph_data[graph_id]['embedding'].forEach(function(row, j){
+								cmax_xy = getMaxOfArray(row);
+								cmin_xy = getMinOfArray(row);
+								if(cmax_xy > max_xy){
+									max_xy = cmax_xy;
+								}
+								if(cmin_xy < min_xy){
+									min_xy = cmin_xy;
+								}
+							});
+							//console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+							var range_xy = max_xy - min_xy;
+
+							window.graph_data[graph_id]['embedding'].forEach(function(row, j){
+								//console.log(row);
+								graph.nodes[j]['x'] = ( ( ( Number(row[0]) ) / range_xy) * (width) )  + (width / 2);
+								graph.nodes[j]['y'] = ( ( ( Number(row[1]) ) / range_xy) * (height) ) + (height / 2);
+								graph.nodes[j]['fixed'] = true;
+							});
+
+							d3.select("#spinner_" + graph_id).style("visibility", "hidden");
+							drawGraph();
+							//window.current_graph_id += 1
+						}
+							
+					}catch(err){
+						console.log(err);
+						console.log("element missing, moving on...");
+					}
+			});
+		})(graph_id, element);
+		
+		
+</script>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Don't have a SliceMatrix-IO api key yet? <strong><a href="http://www.slicematrix.com">Get your api key here</a></strong></p>
+
+</div>
+</div>
 </div>
     </div>
   </div>
