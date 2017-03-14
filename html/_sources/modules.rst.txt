@@ -1,7 +1,0 @@
-slicematrixIO
-=============
-
-.. toctree::
-   :maxdepth: 4
-
-   slicematrixIO
