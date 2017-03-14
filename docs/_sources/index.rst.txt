@@ -6,6 +6,11 @@
 Welcome to slicematrixIO's documentation!
 =========================================
 
+.. image:: logo_small.png
+   :target: https://www.slicematrix.com/coming
+
+Stuff
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
