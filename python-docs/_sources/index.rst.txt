@@ -63,6 +63,10 @@ The easiest way to install the package is with pip:
 
 > pip install slicematrix-IO
 
+To get an API key, go here_
+
+.. _here: https://www.slicematrix.com/pricing
+
 Package Structure
 =================
 
