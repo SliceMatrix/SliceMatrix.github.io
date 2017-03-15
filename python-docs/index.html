@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to slicematrixIO’s documentation! &#8212; slicematrixIO 0.1.7 documentation</title>
+    <title>Welcome to the documentation for slicematrixIO-python &#8212; slicematrixIO 0.1.7 documentation</title>
     
     <link rel="stylesheet" href="_static/pyramid.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -53,10 +53,172 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-slicematrixio-s-documentation">
-<h1>Welcome to slicematrixIO&#8217;s documentation!<a class="headerlink" href="#welcome-to-slicematrixio-s-documentation" title="Permalink to this headline">¶</a></h1>
-<a class="reference external image-reference" href="https://www.slicematrix.com/coming"><img alt="_images/logo_small.png" src="_images/logo_small.png" /></a>
-<p>Stuff</p>
+  <a class="reference external image-reference" href="https://www.slicematrix.com"><img alt="_images/logo_small.png" src="_images/logo_small.png" /></a>
+<div class="section" id="welcome-to-the-documentation-for-slicematrixio-python">
+<h1>Welcome to the documentation for slicematrixIO-python<a class="headerlink" href="#welcome-to-the-documentation-for-slicematrixio-python" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.slicematrix.com">SliceMatrix-IO</a> is a Platform as a Service (PaaS) where you can easily create and store machine learning models in our global cloud</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">slicematrixIO</span> <span class="k">import</span> <span class="n">SliceMatrix</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span>  <span class="o">=</span> <span class="n">SliceMatrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create a minimum spanning tree model</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mst</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">MinimumSpanningTree</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">prices</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mst</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="s2">&quot;AAPL&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Train an isomap model</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">iso</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Isomap</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">image_data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iso</span><span class="o">.</span><span class="n">embedding</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Use a Kalman filter for online hedge ratio estimation</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">kf</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">KalmanOLS</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">pairs_data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get the hedge ratio and update to new data</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">kf</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="mf">147.25</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="mf">88.17</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Train a probabilistic neural network classifer:</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pnn</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">PNNClassifier</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">bc_data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pnn</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="core-concepts">
+<h1>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this headline">¶</a></h1>
+<p>The 2 core concepts for SliceMatrix-IO are:</p>
+<ol class="arabic simple">
+<li>The Analytical Pipeline</li>
+<li>The Model</li>
+</ol>
+<img alt="_images/workflow.png" src="_images/workflow.png" />
+<p>AP&#8217;s can be thought of as assembly lines of code which can train machine learning models. AP&#8217;s are reusable, meaning you can use the
+same AP to train multiple machine learning models using different input data.</p>
+<p>Model&#8217;s are where the real magic happens. After the Pipeline trains a Model, the Model live&#8217;s on SliceMatrix-IO&#8217;s machine learning
+infrastructure in the cloud. That means you can access you model after you create it in a distributed fasion. You can also train models
+in parallel subject to your usage plan&#8217;s request / throttling limits.</p>
+</div>
+<div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>The easiest way to install the package is with pip:</p>
+<p>&gt; pip install slicematrix-IO</p>
+</div>
+<div class="section" id="package-structure">
+<h1>Package Structure<a class="headerlink" href="#package-structure" title="Permalink to this headline">¶</a></h1>
+<p>The package is organized into many different submodules. They can be roughly grouped as follows:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Low-Level / Shared</dt>
+<dd><ol class="first last arabic">
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.connect" title="slicematrixIO.connect"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.connect</span></code></a> : Low level API client</li>
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.core" title="slicematrixIO.core"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.core</span></code></a> : Base classes</li>
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.utils" title="slicematrixIO.utils"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.utils</span></code></a>: Utility objects</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>High-Level</dt>
+<dd><ol class="first last arabic">
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.client" title="slicematrixIO.client"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.client</span></code></a>: The High Level Client</li>
+<li><dl class="first docutils">
+<dt>The models...</dt>
+<dd><ul class="first last">
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.bayesian_filters" title="slicematrixIO.bayesian_filters"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.bayesian_filters</span></code></a>: Bayesian Filters</li>
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.classifiers" title="slicematrixIO.classifiers"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.classifiers</span></code></a>: Classifiers</li>
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.distributions" title="slicematrixIO.distributions"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.distributions</span></code></a>: Distribution Models / Anomaly Detection</li>
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.graphs" title="slicematrixIO.graphs"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.graphs</span></code></a>: Network Graph Models</li>
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.manifolds" title="slicematrixIO.manifolds"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.manifolds</span></code></a>: Manifold Learning Models</li>
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.matrices" title="slicematrixIO.matrices"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.matrices</span></code></a>: Distance / Similarity Matrices</li>
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.matrix_models" title="slicematrixIO.matrix_models"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.matrix_models</span></code></a>: Matrix Models</li>
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.regressors" title="slicematrixIO.regressors"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.regressors</span></code></a>: Regressors</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Visualization</dt>
+<dd><ol class="first last arabic">
+<li><a class="reference internal" href="slicematrixIO.html#module-slicematrixIO.client" title="slicematrixIO.client"><code class="xref py py-mod docutils literal"><span class="pre">slicematrixIO.client</span></code></a>: Visualizing SliceMatrix-IO network graph models in the Jupyter Notebook</li>
+</ol>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="examples-use-cases">
+<h1>Examples / Use Cases<a class="headerlink" href="#examples-use-cases" title="Permalink to this headline">¶</a></h1>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>Manifold Learning and Visualization on the Nasdaq 100</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://slicematrix.github.io/manifold_learning_js.html">https://slicematrix.github.io/manifold_learning_js.html</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>KNN vs PNN Classification: Shuttle Dataset</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://slicematrix.github.io/knn_vs_pnn_shuttle">https://slicematrix.github.io/knn_vs_pnn_shuttle</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Dynamic Hedge Ratios with the Kalman Filter</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://slicematrix.github.io/kalman_filter_pairs">https://slicematrix.github.io/kalman_filter_pairs</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>KNN vs PNN Classification: Breast Cancer Image Dataset</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://slicematrix.github.io/knn_bc.html">https://slicematrix.github.io/knn_bc.html</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Minimum Spanning Trees in Python</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://slicematrix.github.io/mst_stock_market">https://slicematrix.github.io/mst_stock_market</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Detecting Stock Market Anomalies</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://slicematrix.github.io/stock_market_anomalies">https://slicematrix.github.io/stock_market_anomalies</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Integrating Bloomberg and SliceMatrix-IO</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://slicematrix.github.io/bloomberg_and_slicematrix">https://slicematrix.github.io/bloomberg_and_slicematrix</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Integrating D3, NodeJS, and SliceMatrix-IO to Visualize the S&amp;P 500</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="http://www.slicematrix.io/finetwork">http://www.slicematrix.io/finetwork</a></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -77,7 +239,11 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to slicematrixIO&#8217;s documentation!</a></li>
+<li><a class="reference internal" href="#">Welcome to the documentation for slicematrixIO-python</a></li>
+<li><a class="reference internal" href="#core-concepts">Core Concepts</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#package-structure">Package Structure</a></li>
+<li><a class="reference internal" href="#examples-use-cases">Examples / Use Cases</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 

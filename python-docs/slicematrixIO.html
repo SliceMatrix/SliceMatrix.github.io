@@ -300,29 +300,154 @@ learning model.</p>
 </div>
 <div class="section" id="module-slicematrixIO.classifiers">
 <span id="slicematrixio-classifiers-module"></span><h2>slicematrixIO.classifiers module<a class="headerlink" href="#module-slicematrixIO.classifiers" title="Permalink to this headline">¶</a></h2>
+<p>Classifier models are examples of supervised machine learning techniques which aim to predict the class label of a given input datapoint</p>
 <dl class="class">
 <dt id="slicematrixIO.classifiers.KNNClassifier">
 <em class="property">class </em><code class="descclassname">slicematrixIO.classifiers.</code><code class="descname">KNNClassifier</code><span class="sig-paren">(</span><em>dataset=None</em>, <em>class_column=None</em>, <em>name=None</em>, <em>pipeline=None</em>, <em>K=5</em>, <em>kernel='euclidean'</em>, <em>algo='auto'</em>, <em>weights='uniform'</em>, <em>kernel_params={}</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.KNNClassifier" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>Train / Reload a <a class="reference internal" href="#slicematrixIO.classifiers.KNNClassifier" title="slicematrixIO.classifiers.KNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">KNNClassifier</span></code></a> model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>Input DataFrame. shape = (n_rows, n_features + 1) where each row is a data point and the columns are numeric features and a
+column with the class labels</p>
+</div></blockquote>
+<p><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>class_column</strong> : string</p>
+<blockquote>
+<div><p>The name of the column in the input dataset which describes the class labels</p>
+</div></blockquote>
+<p><strong>K</strong> : integer, optional</p>
+<blockquote>
+<div><p>The desired K in the Nearest Neighbor classifier model</p>
+</div></blockquote>
+<p><strong>kernel</strong> : string [ &#8216;euclidean&#8217; | &#8216;minkowski&#8217; | &#8216;hammond&#8217; | &#8216;etc...&#8217;], optional</p>
+<blockquote>
+<div><p>The desired kernel for defining distance in our classifier. Default is &#8216;euclidean&#8217;</p>
+</div></blockquote>
+<p><strong>algo</strong> : string [&#8216;auto&#8217; | &#8216;ball&#8217; | &#8216;kd_tree&#8217; | &#8216;brute&#8217;], optional</p>
+<blockquote>
+<div><p>The algorithm to use in determining Nearest Neighbors. Default is &#8216;auto&#8217;</p>
+</div></blockquote>
+<p><strong>weights</strong> : string [&#8216;uniform&#8217; | &#8216;weighted&#8217;], optional</p>
+<blockquote>
+<div><p>Should voting be uniform (i.e. independent of distance) or weighted by distance (i.e. closer neighbor&#8217;s have higher weighted votes)</p>
+</div></blockquote>
+<p><strong>kernel_params</strong> : dict, optional</p>
+<blockquote>
+<div><p>Any parameters specific to the chosen kernel</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+<p><strong>pipeline</strong> : string, optional</p>
+<blockquote>
+<div><p>An extant Pipeline to use for model creation. If None then one will be created</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="#slicematrixIO.classifiers.KNNClassifier" title="slicematrixIO.classifiers.KNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">KNNClassifier</span></code></a></p>
+<blockquote class="last">
+<div><p>KNNClassifier model object</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a KNNClassifier model for a given dataset</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span> <span class="o">=</span> <span class="n">SliceMatrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">knn</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">KNNClassifier</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Predict the class of some new data</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.classifiers.KNNClassifier.predict">
 <code class="descname">predict</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.KNNClassifier.predict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Predict the class of new input datapoints</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>point</strong> : list</p>
+<blockquote>
+<div><p>A list of new datapoints. Shape = (n_points, n_features)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>prediction</strong> : list</p>
+<blockquote class="last">
+<div><p>A list of new predictions for each input datapoint. Shape = (n_points, 1)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.classifiers.KNNClassifier.score">
 <code class="descname">score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.KNNClassifier.score" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the training prediction R^2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>r2</strong> : float</p>
+<blockquote class="last">
+<div><p>The R^2 of the training predictions</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.classifiers.KNNClassifier.training_data">
 <code class="descname">training_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.KNNClassifier.training_data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the input data used to train the model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>data</strong> : list</p>
+<blockquote class="last">
+<div><p>The training data</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.classifiers.KNNClassifier.training_preds">
 <code class="descname">training_preds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.KNNClassifier.training_preds" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the training predictions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>prediction</strong> : list</p>
+<blockquote class="last">
+<div><p>A list of the training predictions</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -330,37 +455,213 @@ learning model.</p>
 <dt id="slicematrixIO.classifiers.KNNClassifierPipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.classifiers.</code><code class="descname">KNNClassifierPipeline</code><span class="sig-paren">(</span><em>name</em>, <em>K=5</em>, <em>kernel='euclidean'</em>, <em>algo='auto'</em>, <em>weights='uniform'</em>, <em>kernel_params={}</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.KNNClassifierPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#slicematrixIO.core.BasePipeline" title="slicematrixIO.core.BasePipeline"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.core.BasePipeline</span></code></a></p>
+<p>Create a Pipeline for training <a class="reference internal" href="#slicematrixIO.classifiers.KNNClassifier" title="slicematrixIO.classifiers.KNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">KNNClassifier</span></code></a> models from input datasets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>K</strong> : integer, optional</p>
+<blockquote>
+<div><p>The desired K in the Nearest Neighbor classifier model</p>
+</div></blockquote>
+<p><strong>kernel</strong> : string [ &#8216;euclidean&#8217; | &#8216;minkowski&#8217; | &#8216;hammond&#8217; | &#8216;etc...&#8217;], optional</p>
+<blockquote>
+<div><p>The desired kernel for defining distance in our classifier. Default is &#8216;euclidean&#8217;</p>
+</div></blockquote>
+<p><strong>algo</strong> : string [&#8216;auto&#8217; | &#8216;ball&#8217; | &#8216;kd_tree&#8217; | &#8216;brute&#8217;], optional</p>
+<blockquote>
+<div><p>The algorithm to use in determining Nearest Neighbors. Default is &#8216;auto&#8217;</p>
+</div></blockquote>
+<p><strong>weights</strong> : string [&#8216;uniform&#8217; | &#8216;weighted&#8217;], optional</p>
+<blockquote>
+<div><p>Should voting be uniform (i.e. independent of distance) or weighted by distance (i.e. closer neighbor&#8217;s have higher weighted votes)</p>
+</div></blockquote>
+<p><strong>kernel_params</strong> : dict, optional</p>
+<blockquote>
+<div><p>Any parameters specific to the chosen kernel</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a Pipeline for training multiple <a class="reference internal" href="#slicematrixIO.classifiers.KNNClassifier" title="slicematrixIO.classifiers.KNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">KNNClassifier</span></code></a> models</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">KNNClassifierPipeline</span><span class="p">(</span><span class="n">K</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.classifiers.KNNClassifierPipeline.run">
 <code class="descname">run</code><span class="sig-paren">(</span><em>dataset</em>, <em>model</em>, <em>class_column</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.KNNClassifierPipeline.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Run the Pipeline and create a new <a class="reference internal" href="#slicematrixIO.classifiers.KNNClassifier" title="slicematrixIO.classifiers.KNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">KNNClassifier</span></code></a> model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>The dataset to pass into the Pipeline which will train a <a class="reference internal" href="#slicematrixIO.classifiers.KNNClassifier" title="slicematrixIO.classifiers.KNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">KNNClassifier</span></code></a> model using the
+parameters defined upon Pipeline creation. Pipelines are reusable sets of instructions to train
+a machine learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to model creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="slicematrixIO.classifiers.PNNClassifier">
 <em class="property">class </em><code class="descclassname">slicematrixIO.classifiers.</code><code class="descname">PNNClassifier</code><span class="sig-paren">(</span><em>dataset</em>, <em>class_column</em>, <em>name=None</em>, <em>pipeline=None</em>, <em>sigma=0.1</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.PNNClassifier" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>Train / Reload a <a class="reference internal" href="#slicematrixIO.classifiers.PNNClassifier" title="slicematrixIO.classifiers.PNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">PNNClassifier</span></code></a> model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>Input DataFrame. shape = (n_rows, n_features + 1) where each row is a data point and the columns are numeric features and a
+column with the class labels</p>
+</div></blockquote>
+<p><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>class_column</strong> : string</p>
+<blockquote>
+<div><p>The name of the column in the input dataset which describes the class labels</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+<p><strong>pipeline</strong> : string, optional</p>
+<blockquote>
+<div><p>An extant Pipeline to use for model creation. If None then one will be created</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="#slicematrixIO.classifiers.PNNClassifier" title="slicematrixIO.classifiers.PNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">PNNClassifier</span></code></a></p>
+<blockquote class="last">
+<div><p>PNNClassifier model object</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a PNNClassifier model for a given dataset</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span> <span class="o">=</span> <span class="n">SliceMatrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pnn</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">PNNClassifier</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.12</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Predict the class of some new data</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pnn</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.classifiers.PNNClassifier.predict">
 <code class="descname">predict</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.PNNClassifier.predict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Predict the class of new input datapoints</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>point</strong> : list</p>
+<blockquote>
+<div><p>A list of new datapoints. Shape = (n_points, n_features)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>prediction</strong> : list</p>
+<blockquote class="last">
+<div><p>A list of new predictions for each input datapoint. Shape = (n_points, 1)</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.classifiers.PNNClassifier.score">
 <code class="descname">score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.PNNClassifier.score" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the training prediction R^2</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>r2</strong> : float</p>
+<blockquote class="last">
+<div><p>The R^2 of the training predictions</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.classifiers.PNNClassifier.training_data">
 <code class="descname">training_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.PNNClassifier.training_data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the input data used to train the model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>data</strong> : list</p>
+<blockquote class="last">
+<div><p>The training data</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.classifiers.PNNClassifier.training_preds">
 <code class="descname">training_preds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.PNNClassifier.training_preds" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the training predictions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>prediction</strong> : list</p>
+<blockquote class="last">
+<div><p>A list of the training predictions</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -368,11 +669,67 @@ learning model.</p>
 <dt id="slicematrixIO.classifiers.PNNClassifierPipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.classifiers.</code><code class="descname">PNNClassifierPipeline</code><span class="sig-paren">(</span><em>name</em>, <em>sigma=0.1</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.PNNClassifierPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#slicematrixIO.core.BasePipeline" title="slicematrixIO.core.BasePipeline"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.core.BasePipeline</span></code></a></p>
+<p>Create a Pipeline for training <a class="reference internal" href="#slicematrixIO.classifiers.PNNClassifier" title="slicematrixIO.classifiers.PNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">PNNClassifier</span></code></a> models from input datasets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>sigma</strong> : float in (0., 1.), optional</p>
+<blockquote>
+<div><p>The desired smoothing parameter for the PNN model. Default is 0.1</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a Pipeline for training multiple <a class="reference internal" href="#slicematrixIO.classifiers.PNNClassifier" title="slicematrixIO.classifiers.PNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">PNNClassifier</span></code></a> models</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">PNNClassifierPipeline</span><span class="p">(</span><span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.classifiers.PNNClassifierPipeline.run">
 <code class="descname">run</code><span class="sig-paren">(</span><em>dataset</em>, <em>model</em>, <em>class_column</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.classifiers.PNNClassifierPipeline.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Run the Pipeline and create a new <a class="reference internal" href="#slicematrixIO.classifiers.PNNClassifier" title="slicematrixIO.classifiers.PNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">PNNClassifier</span></code></a> model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>The dataset to pass into the Pipeline which will train a <a class="reference internal" href="#slicematrixIO.classifiers.PNNClassifier" title="slicematrixIO.classifiers.PNNClassifier"><code class="xref py py-class docutils literal"><span class="pre">PNNClassifier</span></code></a> model using the
+parameters defined upon Pipeline creation. Pipelines are reusable sets of instructions to train
+a machine learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to model creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -3272,36 +3629,271 @@ learning model.</p>
 <dl class="method">
 <dt id="slicematrixIO.notebook.GraphEngine.drawNetworkGraph">
 <code class="descname">drawNetworkGraph</code><span class="sig-paren">(</span><em>network_model</em>, <em>color_map='RdBuGn'</em>, <em>graph_style='light'</em>, <em>graph_layout='force'</em>, <em>width=1000</em>, <em>height=600</em>, <em>charge=-100</em>, <em>color_axis='closeness_centrality'</em>, <em>label_color='#000'</em>, <em>label_shadow_color='#fffff0'</em>, <em>min_node_size=5</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.notebook.GraphEngine.drawNetworkGraph" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Embed a D3 network graph into a Jupyter Notebook to visualize a SiceMatrix-IO network graph model. Graphs embedded in notebooks can be shared.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>network_model</strong> : graph-object</p>
+<blockquote>
+<div><p>The netwok graph model. Can be any model with the methods:</p>
+<ul class="simple">
+<li>.nodes()</li>
+<li>.edges()</li>
+<li>.rankNodes()</li>
+</ul>
+<p>Current list of graphable objects includes:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#slicematrixIO.graphs.MinimumSpanningTree" title="slicematrixIO.graphs.MinimumSpanningTree"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.graphs.MinimumSpanningTree</span></code></a></li>
+<li><a class="reference internal" href="#slicematrixIO.graphs.CorrelationFilteredGraph" title="slicematrixIO.graphs.CorrelationFilteredGraph"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.graphs.CorrelationFilteredGraph</span></code></a></li>
+<li><a class="reference internal" href="#slicematrixIO.graphs.NeighborNetworkGraph" title="slicematrixIO.graphs.NeighborNetworkGraph"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.graphs.NeighborNetworkGraph</span></code></a></li>
+<li><a class="reference internal" href="#slicematrixIO.manifolds.Isomap" title="slicematrixIO.manifolds.Isomap"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.manifolds.Isomap</span></code></a></li>
+<li><a class="reference internal" href="#slicematrixIO.matrix_models.MatrixMinimumSpanningTree" title="slicematrixIO.matrix_models.MatrixMinimumSpanningTree"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.matrix_models.MatrixMinimumSpanningTree</span></code></a></li>
+</ul>
+</div></blockquote>
+<p><strong>color_map</strong> : string</p>
+<blockquote>
+<div><p>The desired color map for the node colors. Nodes are colored relative to their color_axis (the graph node statistic) selection.</p>
+<p>Mappings go from min value to median value to max value</p>
+<ul class="simple">
+<li>&#8216;RdBuGn&#8217; : Red to Blue to Green</li>
+<li>&#8216;RdGrGn&#8217; : Red to Gray to Green</li>
+<li>&#8216;PuBuXr&#8217; : A purple to blue x-ray effect where nodes near the median appear to disappear on a dark background</li>
+<li>&#8216;Viridis&#8217; : The Viridis color map, good for dark or light backgrounds</li>
+<li>&#8216;Heat&#8217; : A Red/Orange colormap with darker hues at the extreme</li>
+<li>&#8216;Winter&#8217; : A Blue/Green colormap</li>
+</ul>
+</div></blockquote>
+<p><strong>graph_style</strong> : string [&#8216;light&#8217; | &#8216;dark&#8217;]</p>
+<blockquote>
+<div><p>The overall styling of the graph. Light background vs dark background...</p>
+</div></blockquote>
+<p><strong>graph_layout</strong> : string [&#8216;force&#8217; | &#8216;embedding&#8217;]</p>
+<blockquote>
+<div><p>The layout algorithm for the network graph.</p>
+<ul class="simple">
+<li>&#8216;force&#8217; : network layout (node positioning) will be determined by a force directed simulation</li>
+<li>&#8216;embedding&#8217; : node positioning will be static and determined by the positions returned in model.embedding().
+For models without a .embedding() function, enabling this option may cause the graph to fail to display properly</li>
+</ul>
+</div></blockquote>
+<p><strong>width</strong> : integer, greater than 0</p>
+<blockquote>
+<div><p>The desired width of the network graph</p>
+</div></blockquote>
+<p><strong>height</strong> : integer, greater than 0</p>
+<blockquote>
+<div><p>The desired height of the network graph</p>
+</div></blockquote>
+<p><strong>charge</strong> : integer, less than 0</p>
+<blockquote>
+<div><p>For graph_layout == &#8216;force&#8217;, ignored otherwise. The charge associated with each node for use in the force directed simulation layout.
+The more negative charge, the more the nodes tend to repel one another</p>
+</div></blockquote>
+<p><strong>color_axis</strong> : string</p>
+<blockquote>
+<div><p>The name of the graph statistic to use for coloring the graph nodes. Should be valid statistic name for call to model.rankNodes()</p>
+</div></blockquote>
+<p><strong>label_color</strong> : string</p>
+<blockquote>
+<div><p>The color of the node labels. Defaults to black. Accepts valid html color (e.g. #fff or rgba(255,255,255,0.8))</p>
+</div></blockquote>
+<p><strong>label_shadow_color</strong> : string</p>
+<blockquote>
+<div><p>The color of the node label shadow. Defaults to &#8220;#fffff0&#8221;</p>
+</div></blockquote>
+<p><strong>min_node_size</strong> : integer, greater than 0</p>
+<blockquote>
+<div><p>The minimum size to make the graph nodes. Defaults to 5</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>html</strong> : IPython.display.javascript</p>
+<blockquote class="last">
+<div><p>A html + javascript network graph chart embedded in the Jupyter Notebook</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.notebook.GraphEngine.init_data">
 <code class="descname">init_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.notebook.GraphEngine.init_data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Initialize the window&#8217;s graph data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>js</strong> : IPython.display.javascript</p>
+<blockquote class="last">
+<div><p>A javascript code block</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.notebook.GraphEngine.init_style">
 <code class="descname">init_style</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.notebook.GraphEngine.init_style" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Initialize the notebook&#8217;s graph style</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>js</strong> : IPython.display.javascript</p>
+<blockquote class="last">
+<div><p>A javascript code block</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
 </div>
 <div class="section" id="module-slicematrixIO.regressors">
 <span id="slicematrixio-regressors-module"></span><h2>slicematrixIO.regressors module<a class="headerlink" href="#module-slicematrixIO.regressors" title="Permalink to this headline">¶</a></h2>
+<p>Regressors are machine learning models which learn a function between an input (X) and an output (Y).</p>
+<p>In particular, SliceMatrix-IO offers a number of what are known as &#8220;multi-output&#8221; regression models.</p>
+<p>This is a special type of regression which can have an output with a dimension greater than 1, useful for:</p>
+<ul class="simple">
+<li>Prediction</li>
+<li>Out of Sample Manifold Learning</li>
+<li>As a step within a classification workflow</li>
+</ul>
 <dl class="class">
 <dt id="slicematrixIO.regressors.KNNRegressor">
 <em class="property">class </em><code class="descclassname">slicematrixIO.regressors.</code><code class="descname">KNNRegressor</code><span class="sig-paren">(</span><em>X=None</em>, <em>Y=None</em>, <em>name=None</em>, <em>pipeline=None</em>, <em>K=5</em>, <em>kernel='euclidean'</em>, <em>algo='auto'</em>, <em>weights='uniform'</em>, <em>kernel_params={}</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.KNNRegressor" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>Train / Reload a <a class="reference internal" href="#slicematrixIO.regressors.KNNRegressor" title="slicematrixIO.regressors.KNNRegressor"><code class="xref py py-class docutils literal"><span class="pre">KNNRegressor</span></code></a> model for multi-output regression</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>Input DataFrame. shape = (n_rows, input_features) where each row is a data point and the columns are numeric features</p>
+</div></blockquote>
+<p><strong>Y</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>Output DataFrame. shape = (n_rows, output_features) where output_features &lt; input_features and each row is a data point
+and the columns are numeric features</p>
+</div></blockquote>
+<p><strong>K</strong> : integer, optional</p>
+<blockquote>
+<div><p>The desired K in the Nearest Neighbor classifier model</p>
+</div></blockquote>
+<p><strong>kernel</strong> : string [ &#8216;euclidean&#8217; | &#8216;minkowski&#8217; | &#8216;hammond&#8217; | &#8216;etc...&#8217;], optional</p>
+<blockquote>
+<div><p>The desired kernel for defining distance in our classifier. Default is &#8216;euclidean&#8217;</p>
+</div></blockquote>
+<p><strong>algo</strong> : string [&#8216;auto&#8217; | &#8216;ball&#8217; | &#8216;kd_tree&#8217; | &#8216;brute&#8217;], optional</p>
+<blockquote>
+<div><p>The algorithm to use in determining Nearest Neighbors. Default is &#8216;auto&#8217;</p>
+</div></blockquote>
+<p><strong>weights</strong> : string [&#8216;uniform&#8217; | &#8216;weighted&#8217;], optional</p>
+<blockquote>
+<div><p>Should voting be uniform (i.e. independent of distance) or weighted by distance (i.e. closer neighbor&#8217;s have higher weighted predictions)</p>
+</div></blockquote>
+<p><strong>kernel_params</strong> : dict, optional</p>
+<blockquote>
+<div><p>Any parameters specific to the chosen kernel</p>
+</div></blockquote>
+<p><strong>name</strong> : string, optional</p>
+<blockquote>
+<div><p>The desired name of the model. If None then a random name will be generated</p>
+</div></blockquote>
+<p><strong>pipeline</strong> : string, optional</p>
+<blockquote>
+<div><p>An extant Pipeline to use for model creation. If None then one will be created</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="#slicematrixIO.regressors.RFRegressor" title="slicematrixIO.regressors.RFRegressor"><code class="xref py py-class docutils literal"><span class="pre">RFRegressor</span></code></a></p>
+<blockquote class="last">
+<div><p>Trained Random Forest Regressor model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Train a K Nearest Neighbors Regressor model</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span> <span class="o">=</span> <span class="n">SliceMatrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">knn</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">KNNRegressor</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Make a prediction</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.regressors.KNNRegressor.predict">
 <code class="descname">predict</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.KNNRegressor.predict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Make a prediction using the given input features.</p>
+<p>Also used for out of sample manifold learning.</p>
+<p>I.e.</p>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>Perform manifold learning embedding of input data (high dimension, H) to low dimension (D, D &lt; H), however</dt>
+<dd><ul class="first last">
+<li>Many manifold learnin algorithms don&#8217;t have straightforward out of sample generalizatons...</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Learn the &#8220;interpolation&#8221; function between high dim space and low dim space with a multi-output regression</dt>
+<dd><ul class="first last">
+<li>Regress high dim (H) data points against the embedding (D) data points to learn the manifold embedding</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>When presented with a new data point, an H dimension vector, or tensor or whatever term is fashionable,
+and &#8220;embed&#8221; it using the multi-output regression to output a D dimension vector</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>point</strong> : list</p>
+<blockquote class="last">
+<div><p>List of points to use as inputs to a prediction</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.regressors.KNNRegressor.score">
 <code class="descname">score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.KNNRegressor.score" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the R^2 of the training dataset / predictions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>r2</strong> : float</p>
+<blockquote class="last">
+<div><p>The R^2 of the training dataset</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -3309,27 +3901,214 @@ learning model.</p>
 <dt id="slicematrixIO.regressors.KNNRegressorPipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.regressors.</code><code class="descname">KNNRegressorPipeline</code><span class="sig-paren">(</span><em>name</em>, <em>K=5</em>, <em>kernel='euclidean'</em>, <em>algo='auto'</em>, <em>weights='uniform'</em>, <em>kernel_params={}</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.KNNRegressorPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#slicematrixIO.core.BasePipeline" title="slicematrixIO.core.BasePipeline"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.core.BasePipeline</span></code></a></p>
+<p>K Nearest Neighbors Regression.</p>
+<p>Create a Pipeline for training <a class="reference internal" href="#slicematrixIO.regressors.KNNRegressor" title="slicematrixIO.regressors.KNNRegressor"><code class="xref py py-class docutils literal"><span class="pre">KNNRegressor</span></code></a> models.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>K</strong> : integer, optional</p>
+<blockquote>
+<div><p>The desired K in the Nearest Neighbor classifier model</p>
+</div></blockquote>
+<p><strong>kernel</strong> : string [ &#8216;euclidean&#8217; | &#8216;minkowski&#8217; | &#8216;hammond&#8217; | &#8216;etc...&#8217;], optional</p>
+<blockquote>
+<div><p>The desired kernel for defining distance in our classifier. Default is &#8216;euclidean&#8217;</p>
+</div></blockquote>
+<p><strong>algo</strong> : string [&#8216;auto&#8217; | &#8216;ball&#8217; | &#8216;kd_tree&#8217; | &#8216;brute&#8217;], optional</p>
+<blockquote>
+<div><p>The algorithm to use in determining Nearest Neighbors. Default is &#8216;auto&#8217;</p>
+</div></blockquote>
+<p><strong>weights</strong> : string [&#8216;uniform&#8217; | &#8216;weighted&#8217;], optional</p>
+<blockquote>
+<div><p>Should voting be uniform (i.e. independent of distance) or weighted by distance (i.e. closer neighbor&#8217;s have higher weighted predictions)</p>
+</div></blockquote>
+<p><strong>kernel_params</strong> : dict, optional</p>
+<blockquote>
+<div><p>Any parameters specific to the chosen kernel</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a Pipeline for training multiple <a class="reference internal" href="#slicematrixIO.regressors.KNNRegressor" title="slicematrixIO.regressors.KNNRegressor"><code class="xref py py-class docutils literal"><span class="pre">KNNRegressor</span></code></a> models</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">KNNRegressorPipeline</span><span class="p">(</span><span class="n">K</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.regressors.KNNRegressorPipeline.run">
 <code class="descname">run</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em>, <em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.KNNRegressorPipeline.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Run the Pipeline and create a new <a class="reference internal" href="#slicematrixIO.regressors.KNNRegressor" title="slicematrixIO.regressors.KNNRegressor"><code class="xref py py-class docutils literal"><span class="pre">KNNRegressor</span></code></a> model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>The dataset to pass into the Pipeline which will train a <a class="reference internal" href="#slicematrixIO.regressors.KNNRegressor" title="slicematrixIO.regressors.KNNRegressor"><code class="xref py py-class docutils literal"><span class="pre">KNNRegressor</span></code></a> model using the
+parameters defined upon Pipeline creation. Pipelines are reusable sets of instructions to train
+a machine learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to model creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="slicematrixIO.regressors.KernelRidgeRegressor">
 <em class="property">class </em><code class="descclassname">slicematrixIO.regressors.</code><code class="descname">KernelRidgeRegressor</code><span class="sig-paren">(</span><em>X=None</em>, <em>Y=None</em>, <em>name=None</em>, <em>pipeline=None</em>, <em>kernel='linear'</em>, <em>alpha=1.0</em>, <em>kernel_params={}</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.KernelRidgeRegressor" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>Train / Reload a <a class="reference internal" href="#slicematrixIO.regressors.KernelRidgeRegressor" title="slicematrixIO.regressors.KernelRidgeRegressor"><code class="xref py py-class docutils literal"><span class="pre">KernelRidgeRegressor</span></code></a> model for multi-output regression</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>Input DataFrame. shape = (n_rows, input_features) where each row is a data point and the columns are numeric features</p>
+</div></blockquote>
+<p><strong>Y</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>Output DataFrame. shape = (n_rows, output_features) where output_features &lt; input_features and each row is a data point
+and the columns are numeric features</p>
+</div></blockquote>
+<p><strong>K</strong> : integer, optional</p>
+<blockquote>
+<div><p>The desired K in the Nearest Neighbor classifier model</p>
+</div></blockquote>
+<p><strong>kernel</strong> : string [ &#8216;euclidean&#8217; | &#8216;minkowski&#8217; | &#8216;hammond&#8217; | &#8216;etc...&#8217;], optional</p>
+<blockquote>
+<div><p>The desired kernel for defining distance in our classifier. Default is &#8216;euclidean&#8217;</p>
+</div></blockquote>
+<p><strong>algo</strong> : string [&#8216;auto&#8217; | &#8216;ball&#8217; | &#8216;kd_tree&#8217; | &#8216;brute&#8217;], optional</p>
+<blockquote>
+<div><p>The algorithm to use in determining Nearest Neighbors. Default is &#8216;auto&#8217;</p>
+</div></blockquote>
+<p><strong>weights</strong> : string [&#8216;uniform&#8217; | &#8216;weighted&#8217;], optional</p>
+<blockquote>
+<div><p>Should voting be uniform (i.e. independent of distance) or weighted by distance (i.e. closer neighbor&#8217;s have higher weighted predictions)</p>
+</div></blockquote>
+<p><strong>kernel_params</strong> : dict, optional</p>
+<blockquote>
+<div><p>Any parameters specific to the chosen kernel</p>
+</div></blockquote>
+<p><strong>name</strong> : string, optional</p>
+<blockquote>
+<div><p>The desired name of the model. If None then a random name will be generated</p>
+</div></blockquote>
+<p><strong>pipeline</strong> : string, optional</p>
+<blockquote>
+<div><p>An extant Pipeline to use for model creation. If None then one will be created</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="#slicematrixIO.regressors.RFRegressor" title="slicematrixIO.regressors.RFRegressor"><code class="xref py py-class docutils literal"><span class="pre">RFRegressor</span></code></a></p>
+<blockquote class="last">
+<div><p>Trained Random Forest Regressor model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Train a Kernel Ridge Regressor model</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span> <span class="o">=</span> <span class="n">SliceMatrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">krr</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">KNNRegressor</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">kernel</span> <span class="o">=</span> <span class="s2">&quot;rbf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Make a prediction</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">krr</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.regressors.KernelRidgeRegressor.predict">
 <code class="descname">predict</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.KernelRidgeRegressor.predict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Make a prediction using the given input features.</p>
+<p>Also used for out of sample manifold learning.</p>
+<p>I.e.</p>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>Perform manifold learning embedding of input data (high dimension, H) to low dimension (D, D &lt; H), however</dt>
+<dd><ul class="first last">
+<li>Many manifold learnin algorithms don&#8217;t have straightforward out of sample generalizatons...</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Learn the &#8220;interpolation&#8221; function between high dim space and low dim space with a multi-output regression</dt>
+<dd><ul class="first last">
+<li>Regress high dim (H) data points against the embedding (D) data points to learn the manifold embedding</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>When presented with a new data point, an H dimension vector, or tensor or whatever term is fashionable, 
+and &#8220;embed&#8221; it using the multi-output regression to output a D dimension vector</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>point</strong> : list</p>
+<blockquote class="last">
+<div><p>List of points to use as inputs to a prediction</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.regressors.KernelRidgeRegressor.score">
 <code class="descname">score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.KernelRidgeRegressor.score" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the R^2 of the training dataset / predictions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>r2</strong> : float</p>
+<blockquote class="last">
+<div><p>The R^2 of the training dataset</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -3337,27 +4116,194 @@ learning model.</p>
 <dt id="slicematrixIO.regressors.KernelRidgeRegressorPipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.regressors.</code><code class="descname">KernelRidgeRegressorPipeline</code><span class="sig-paren">(</span><em>name</em>, <em>kernel='linear'</em>, <em>alpha=1.0</em>, <em>kernel_params={}</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.KernelRidgeRegressorPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#slicematrixIO.core.BasePipeline" title="slicematrixIO.core.BasePipeline"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.core.BasePipeline</span></code></a></p>
+<p>Kernel Ridge Regression.</p>
+<p>Create a Pipeline for training <a class="reference internal" href="#slicematrixIO.regressors.KernelRidgeRegressor" title="slicematrixIO.regressors.KernelRidgeRegressor"><code class="xref py py-class docutils literal"><span class="pre">KernelRidgeRegressor</span></code></a> models.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>alpha</strong> : float, optional</p>
+<blockquote>
+<div><p>Kernel Ridge Regressor model alpha value. Default 1.0</p>
+</div></blockquote>
+<p><strong>kernel</strong> : string [&#8216;linear&#8217;, &#8216;rbf&#8217;, &#8216;poly&#8217;]</p>
+<blockquote>
+<div><p>Kernel to use in regression. Linear is default. For nonlinear datasets, consider rbf or poly</p>
+<p>&#8216;linear&#8217; : linear kernel</p>
+<p>&#8216;rbf&#8217; : radial basis function kernel</p>
+<p>&#8216;poly&#8217; : polynomial kernel</p>
+</div></blockquote>
+<p><strong>kernel_params</strong> : dict</p>
+<blockquote>
+<div><p>Kernel specific parameters</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a Pipeline for training multiple <a class="reference internal" href="#slicematrixIO.regressors.KernelRidgeRegressor" title="slicematrixIO.regressors.KernelRidgeRegressor"><code class="xref py py-class docutils literal"><span class="pre">KernelRidgeRegressor</span></code></a> models</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">KernelRidgeRegressorPipeline</span><span class="p">(</span><span class="n">K</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.regressors.KernelRidgeRegressorPipeline.run">
 <code class="descname">run</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em>, <em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.KernelRidgeRegressorPipeline.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Run the Pipeline and create a new <a class="reference internal" href="#slicematrixIO.regressors.KernelRidgeRegressor" title="slicematrixIO.regressors.KernelRidgeRegressor"><code class="xref py py-class docutils literal"><span class="pre">KernelRidgeRegressor</span></code></a> model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>The dataset to pass into the Pipeline which will train a <a class="reference internal" href="#slicematrixIO.regressors.KernelRidgeRegressor" title="slicematrixIO.regressors.KernelRidgeRegressor"><code class="xref py py-class docutils literal"><span class="pre">KernelRidgeRegressor</span></code></a> model using the
+parameters defined upon Pipeline creation. Pipelines are reusable sets of instructions to train
+a machine learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to model creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="slicematrixIO.regressors.RFRegressor">
 <em class="property">class </em><code class="descclassname">slicematrixIO.regressors.</code><code class="descname">RFRegressor</code><span class="sig-paren">(</span><em>X=None</em>, <em>Y=None</em>, <em>name=None</em>, <em>pipeline=None</em>, <em>n_trees=8</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.RFRegressor" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>Train / Reload a <a class="reference internal" href="#slicematrixIO.regressors.RFRegressor" title="slicematrixIO.regressors.RFRegressor"><code class="xref py py-class docutils literal"><span class="pre">RFRegressor</span></code></a> model for multi-output regression</p>
+<p>A Random Forest Regressor finds a function which maps the input space (X) to the lower dimension output space (Y) using decision trees</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>Input DataFrame. shape = (n_rows, input_features) where each row is a data point and the columns are numeric features</p>
+</div></blockquote>
+<p><strong>Y</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>Output DataFrame. shape = (n_rows, output_features) where output_features &lt; input_features and each row is a data point
+and the columns are numeric features</p>
+</div></blockquote>
+<p><strong>n_trees</strong> : integer greater than 1, optional</p>
+<blockquote>
+<div><p>The number of trees to use in construction of the Random Forest model. Default is 8 trees</p>
+</div></blockquote>
+<p><strong>name</strong> : string, optional</p>
+<blockquote>
+<div><p>The desired name of the model. If None then a random name will be generated</p>
+</div></blockquote>
+<p><strong>pipeline</strong> : string, optional</p>
+<blockquote>
+<div><p>An extant Pipeline to use for model creation. If None then one will be created</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="#slicematrixIO.regressors.RFRegressor" title="slicematrixIO.regressors.RFRegressor"><code class="xref py py-class docutils literal"><span class="pre">RFRegressor</span></code></a></p>
+<blockquote class="last">
+<div><p>Trained Random Forest Regressor model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Train a Random Forest Regressor model</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span> <span class="o">=</span> <span class="n">SliceMatrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rfr</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">RFRegressor</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">n_trees</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Make a prediction</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rfr</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.regressors.RFRegressor.predict">
 <code class="descname">predict</code><span class="sig-paren">(</span><em>point</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.RFRegressor.predict" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Make a prediction using the given input features.</p>
+<p>Also used for out of sample manifold learning.</p>
+<p>I.e.</p>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>Perform manifold learning embedding of input data (high dimension, H) to low dimension (D, D &lt; H), however</dt>
+<dd><ul class="first last">
+<li>Many manifold learnin algorithms don&#8217;t have straightforward out of sample generalizatons...</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Learn the &#8220;interpolation&#8221; function between high dim space and low dim space with a multi-output regression</dt>
+<dd><ul class="first last">
+<li>Regress high dim (H) data points against the embedding (D) data points to learn the manifold embedding</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>When presented with a new data point, an H dimension vector, or tensor or whatever term is fashionable,
+and &#8220;embed&#8221; it using the multi-output regression to output a D dimension vector</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>point</strong> : list</p>
+<blockquote class="last">
+<div><p>List of points to use as inputs to a prediction</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.regressors.RFRegressor.score">
 <code class="descname">score</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.RFRegressor.score" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the R^2 of the training dataset / predictions</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>r2</strong> : float</p>
+<blockquote class="last">
+<div><p>The R^2 of the training dataset</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -3365,11 +4311,68 @@ learning model.</p>
 <dt id="slicematrixIO.regressors.RFRegressorPipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.regressors.</code><code class="descname">RFRegressorPipeline</code><span class="sig-paren">(</span><em>name</em>, <em>n_trees=8</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.RFRegressorPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#slicematrixIO.core.BasePipeline" title="slicematrixIO.core.BasePipeline"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.core.BasePipeline</span></code></a></p>
+<p>Random Forest Regression.</p>
+<p>Create a Pipeline for training <a class="reference internal" href="#slicematrixIO.regressors.RFRegressor" title="slicematrixIO.regressors.RFRegressor"><code class="xref py py-class docutils literal"><span class="pre">RFRegressor</span></code></a> models.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>n_trees</strong> : integer, greater than 0</p>
+<blockquote>
+<div><p>The number of trees to use in the regression forest</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a Pipeline for training multiple <a class="reference internal" href="#slicematrixIO.regressors.RFRegressor" title="slicematrixIO.regressors.RFRegressor"><code class="xref py py-class docutils literal"><span class="pre">RFRegressor</span></code></a> models</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">RFRegressorPipeline</span><span class="p">(</span><span class="n">n_trees</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.regressors.RFRegressorPipeline.run">
 <code class="descname">run</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em>, <em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.regressors.RFRegressorPipeline.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Run the Pipeline and create a new <a class="reference internal" href="#slicematrixIO.regressors.RFRegressor" title="slicematrixIO.regressors.RFRegressor"><code class="xref py py-class docutils literal"><span class="pre">RFRegressor</span></code></a> model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>The dataset to pass into the Pipeline which will train a <a class="reference internal" href="#slicematrixIO.regressors.RFRegressor" title="slicematrixIO.regressors.RFRegressor"><code class="xref py py-class docutils literal"><span class="pre">RFRegressor</span></code></a> model using the
+parameters defined upon Pipeline creation. Pipelines are reusable sets of instructions to train
+a machine learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to model creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
