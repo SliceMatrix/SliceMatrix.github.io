@@ -63,21 +63,147 @@
 <dl class="class">
 <dt id="slicematrixIO.bayesian_filters.KalmanOLS">
 <em class="property">class </em><code class="descclassname">slicematrixIO.bayesian_filters.</code><code class="descname">KalmanOLS</code><span class="sig-paren">(</span><em>dataset=None</em>, <em>name=None</em>, <em>pipeline=None</em>, <em>init_alpha=None</em>, <em>init_beta=None</em>, <em>trans_cov=None</em>, <em>obs_cov=None</em>, <em>init_cov=None</em>, <em>optimizations=[]</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.bayesian_filters.KalmanOLS" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>Train / Reload a Kalman Filter model for online estimation of the parameters of Ordinary Least Squares (KalmanOLS)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset: pandas.DataFrame</strong></p>
+<blockquote>
+<div><p>Input DataFrame. shape = (nrows, 2) where the first column is Y and the second is X in OLS model</p>
+</div></blockquote>
+<p><strong>init_alpha</strong> : float, optional</p>
+<blockquote>
+<div><p>Initial value for alpha in OLS model (ignored if optimizations are enabled)</p>
+</div></blockquote>
+<p><strong>init_beta</strong> : float, optional</p>
+<blockquote>
+<div><p>Initial value for beta in OLS model (ignored if optimizations are enabled)</p>
+</div></blockquote>
+<p><strong>trans_cov</strong> : array-like, optional</p>
+<blockquote>
+<div><p>Transition covariance, shape = (2, 2)</p>
+</div></blockquote>
+<p><strong>init_cov</strong> : array-like, optional</p>
+<blockquote>
+<div><p>Initial covariance, shape = (2, 2)</p>
+</div></blockquote>
+<p><strong>optimizations</strong> : list, optional</p>
+<blockquote>
+<div><p>List of optimizations. Can include multiple optimizations. Default includes all:</p>
+<ul class="simple">
+<li>&#8216;transition_covariance&#8217;</li>
+<li>&#8216;observation_covariance&#8217;</li>
+<li>&#8216;initial_state_mean&#8217;</li>
+<li>&#8216;initial_state_covariance&#8217;</li>
+</ul>
+</div></blockquote>
+<p><strong>name</strong> : string, optional</p>
+<blockquote>
+<div><p>The desired name of the model. If None then a random name will be generated</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+<p><strong>pipeline</strong> : BasePipeline, optional</p>
+<blockquote>
+<div><p>Pipeline to use. Defaults to None. If None then a pipeline will be created for use in creating the model</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : :class`.KalmanOLS`</p>
+<blockquote class="last">
+<div><p>Trained Kalman Filter model</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a KalmanOLS model for a given dataset</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span> <span class="o">=</span> <span class="n">SliceMatrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kf</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">KalmanOLS</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get the current internal state of the model (i.e. current alpha and beta and covariance)</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">kf</span><span class="o">.</span><span class="n">getState</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Update the model will new information, and get updated state</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">kf</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">X</span> <span class="o">=</span> <span class="mf">128.17</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="mf">45.85</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.bayesian_filters.KalmanOLS.getState">
 <code class="descname">getState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.bayesian_filters.KalmanOLS.getState" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the current internal state of the Kalman Filter OLS model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>state</strong> : dict</p>
+<blockquote class="last">
+<div><p>Dictionary with the current state of model i.e. 
+- means (Beta and Alpha, respectively)
+- covariance</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.bayesian_filters.KalmanOLS.getTrainingData">
 <code class="descname">getTrainingData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.bayesian_filters.KalmanOLS.getTrainingData" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the historical state of the model over time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>history</strong> : dict</p>
+<blockquote class="last">
+<div><p>Historical state of both mean and covariance of the model over time.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.bayesian_filters.KalmanOLS.update">
 <code class="descname">update</code><span class="sig-paren">(</span><em>X</em>, <em>Y</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.bayesian_filters.KalmanOLS.update" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Step the model through a new learning iteration with new datapoints for input (X) and output (Y)</p>
+<p>This will permanently change the state of the model as it adjusts to new information.</p>
+<p>In a distributed setting, updates to the same <a class="reference internal" href="#slicematrixIO.bayesian_filters.KalmanOLS" title="slicematrixIO.bayesian_filters.KalmanOLS"><code class="xref py py-class docutils literal"><span class="pre">KalmanOLS</span></code></a> model are not guaranteed to be atomic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : float</p>
+<blockquote>
+<div><p>The newly observed value for the input of the OLS model (X)</p>
+</div></blockquote>
+<p><strong>Y</strong> : float</p>
+<blockquote>
+<div><p>The newly observed value for the output of the OLS model (Y)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>state</strong> : dict</p>
+<blockquote class="last">
+<div><p>Dictionary with the current state of model i.e.
+- means (Beta and Alpha, respectively)
+- covariance</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -85,11 +211,89 @@
 <dt id="slicematrixIO.bayesian_filters.KalmanOLSPipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.bayesian_filters.</code><code class="descname">KalmanOLSPipeline</code><span class="sig-paren">(</span><em>name</em>, <em>init_alpha=None</em>, <em>init_beta=None</em>, <em>trans_cov=None</em>, <em>obs_cov=None</em>, <em>init_cov=None</em>, <em>optimizations=[]</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.bayesian_filters.KalmanOLSPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#slicematrixIO.core.BasePipeline" title="slicematrixIO.core.BasePipeline"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.core.BasePipeline</span></code></a></p>
+<p>Create a Pipeline for training <a class="reference internal" href="#slicematrixIO.bayesian_filters.KalmanOLS" title="slicematrixIO.bayesian_filters.KalmanOLS"><code class="xref py py-class docutils literal"><span class="pre">KalmanOLS</span></code></a> models from input datasets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline</p>
+</div></blockquote>
+<p><strong>init_alpha</strong> : float, optional</p>
+<blockquote>
+<div><p>Initial value for alpha in OLS model (ignored if optimizations are enabled)</p>
+</div></blockquote>
+<p><strong>init_beta</strong> : float, optional</p>
+<blockquote>
+<div><p>Initial value for beta in OLS model (ignored if optimizations are enabled)</p>
+</div></blockquote>
+<p><strong>trans_cov</strong> : array-like, optional</p>
+<blockquote>
+<div><p>Transition covariance, shape = (2, 2)</p>
+</div></blockquote>
+<p><strong>init_cov</strong> : array-like, optional</p>
+<blockquote>
+<div><p>Initial covariance, shape = (2, 2)</p>
+</div></blockquote>
+<p><strong>optimizations</strong> : list, optional</p>
+<blockquote>
+<div><p>List of optimizations. Can include multiple optimizations. Default includes all:</p>
+<ul class="simple">
+<li>&#8216;transition_covariance&#8217;</li>
+<li>&#8216;observation_covariance&#8217;</li>
+<li>&#8216;initial_state_mean&#8217;</li>
+<li>&#8216;initial_state_covariance&#8217;</li>
+</ul>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a KalmanOLSPipeline for processing multiple datasets</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">KalmanOLSPipeline</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.bayesian_filters.KalmanOLSPipeline.run">
 <code class="descname">run</code><span class="sig-paren">(</span><em>dataset</em>, <em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.bayesian_filters.KalmanOLSPipeline.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Run the Pipeline and create a new <a class="reference internal" href="#slicematrixIO.bayesian_filters.KalmanOLS" title="slicematrixIO.bayesian_filters.KalmanOLS"><code class="xref py py-class docutils literal"><span class="pre">KalmanOLS</span></code></a> model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>The dataset to pass into the Pipeline which will train a KernelPCA model using the parameters
+defined upon Pipeline creation. Pipelines are reusable sets of instructions to train a machine
+learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to model creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -1440,14 +1644,57 @@ Latency will be lowest if client is closest to data center.</p>
 </div>
 <div class="section" id="module-slicematrixIO.core">
 <span id="slicematrixio-core-module"></span><h2>slicematrixIO.core module<a class="headerlink" href="#module-slicematrixIO.core" title="Permalink to this headline">¶</a></h2>
+<p>Core classes</p>
 <dl class="class">
 <dt id="slicematrixIO.core.BasePipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.core.</code><code class="descname">BasePipeline</code><span class="sig-paren">(</span><em>name</em>, <em>type</em>, <em>client=None</em>, <em>params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.core.BasePipeline" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>The base class for every Pipeline</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline</p>
+</div></blockquote>
+<p><strong>type</strong> : string</p>
+<blockquote>
+<div><p>The type of the Pipeline</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.core.BasePipeline.run">
 <code class="descname">run</code><span class="sig-paren">(</span><em>model</em>, <em>type=None</em>, <em>dataset=None</em>, <em>matrix_name=None</em>, <em>matrix_type=None</em>, <em>X=None</em>, <em>Y=None</em>, <em>extra_params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.core.BasePipeline.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Run the Pipeline and create a new model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
+<blockquote class="last">
+<div><p>The dataset to pass into the Pipeline which will train a model using the parameters
+defined upon Pipeline creation. Pipelines are reusable sets of instructions to train a machine
+learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -1719,7 +1966,7 @@ the number of edges in a shortest path between two points on the graph.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>model</strong> : <a class="reference internal" href="#slicematrixIO.manifolds.Isomap" title="slicematrixIO.manifolds.Isomap"><code class="xref py py-class docutils literal"><span class="pre">Isomap</span></code></a></p>
 <blockquote class="last">
-<div><p>KPCA model object</p>
+<div><p>Isomap model object</p>
 </div></blockquote>
 </td>
 </tr>
@@ -2707,19 +2954,92 @@ a machine learning model.</p>
 </div>
 <div class="section" id="module-slicematrixIO.matrices">
 <span id="slicematrixio-matrices-module"></span><h2>slicematrixIO.matrices module<a class="headerlink" href="#module-slicematrixIO.matrices" title="Permalink to this headline">¶</a></h2>
+<p>Distance / Similarity Matrix Models</p>
+<p>Generalization of the correlation matrix for different metrics / kernels / similarity measures</p>
 <dl class="class">
 <dt id="slicematrixIO.matrices.DistanceMatrix">
 <em class="property">class </em><code class="descclassname">slicematrixIO.matrices.</code><code class="descname">DistanceMatrix</code><span class="sig-paren">(</span><em>dataset=None</em>, <em>name=None</em>, <em>pipeline=None</em>, <em>K=5</em>, <em>kernel='euclidean'</em>, <em>geodesic=False</em>, <em>kernel_params={}</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.matrices.DistanceMatrix" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>Train / Reload a <a class="reference internal" href="#slicematrixIO.matrices.DistanceMatrix" title="slicematrixIO.matrices.DistanceMatrix"><code class="xref py py-class docutils literal"><span class="pre">DistanceMatrix</span></code></a> model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string, optional</p>
+<blockquote>
+<div><p>The desired name of the model. If None a random name will be generated</p>
+</div></blockquote>
+<p><strong>K</strong> : integer greater than 1, optional, ignored if geodesic == False</p>
+<blockquote>
+<div><p>The number of neighbors to use in building the geodesic distance matrix. Geodesic distance is constructed by computing the
+K Nearest Neighbors graph for the input dataset, then constructing all pairwise distances using the geodesic distance, i.e.
+the number of edges in a shortest path between two points on the graph.</p>
+</div></blockquote>
+<p><strong>kernel</strong> : string, optional</p>
+<blockquote>
+<div><p>The distance kernel / metric to use in constructing the distance matrix. Default is euclidean.</p>
+</div></blockquote>
+<p><strong>kernel_params</strong> : dict, optional</p>
+<blockquote>
+<div><p>Any extra parameters specific to the chosen kernel</p>
+</div></blockquote>
+<p><strong>geodesic</strong> : boolean, optional</p>
+<blockquote>
+<div><p>Whether to create the geodesic distance matrix or the brute force pairwise distance matrix. Default is False</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+<p><strong>pipeline</strong> : string, optional</p>
+<blockquote class="last">
+<div><p>An extant <a class="reference internal" href="#slicematrixIO.matrices.DistanceMatrixPipeline" title="slicematrixIO.matrices.DistanceMatrixPipeline"><code class="xref py py-class docutils literal"><span class="pre">DistanceMatrixPipeline</span></code></a> to use for model creation. If None then one will be created</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.matrices.DistanceMatrix.getKeys">
 <code class="descname">getKeys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.matrices.DistanceMatrix.getKeys" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the names of the datapoints in the model&#8217;s training dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>keys</strong> : list</p>
+<blockquote class="last">
+<div><p>The names of the datapoints in the model&#8217;s training dataset</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.matrices.DistanceMatrix.rankDist">
 <code class="descname">rankDist</code><span class="sig-paren">(</span><em>target</em>, <em>page=0</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.matrices.DistanceMatrix.rankDist" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the closest datapoints to the given target</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>page</strong> : integer, optional</p>
+<blockquote>
+<div><p>The current page. Responses come in chunks of 100. To iterate through the full list increase the page number.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>distances</strong> : pandas.DataFrame</p>
+<blockquote class="last">
+<div><p>DataFrame with list of datapoints sorted by distance from target point</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -2727,11 +3047,75 @@ a machine learning model.</p>
 <dt id="slicematrixIO.matrices.DistanceMatrixPipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.matrices.</code><code class="descname">DistanceMatrixPipeline</code><span class="sig-paren">(</span><em>name</em>, <em>kernel='euclidean'</em>, <em>geodesic=False</em>, <em>K=5</em>, <em>kernel_params={}</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.matrices.DistanceMatrixPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#slicematrixIO.core.BasePipeline" title="slicematrixIO.core.BasePipeline"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.core.BasePipeline</span></code></a></p>
+<p>Create a Pipeline to train <a class="reference internal" href="#slicematrixIO.matrices.DistanceMatrix" title="slicematrixIO.matrices.DistanceMatrix"><code class="xref py py-class docutils literal"><span class="pre">DistanceMatrix</span></code></a> models from input datasets</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string, optional</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>K</strong> : integer greater than 1, optional, ignored if geodesic == False</p>
+<blockquote>
+<div><p>The number of neighbors to use in building the geodesic distance matrix. Geodesic distance is constructed by computing the
+K Nearest Neighbors graph for the input dataset, then constructing all pairwise distances using the geodesic distance, i.e.
+the number of edges in a shortest path between two points on the graph.</p>
+</div></blockquote>
+<p><strong>kernel</strong> : string, optional</p>
+<blockquote>
+<div><p>The distance kernel / metric to use in constructing the distance matrix. Default is euclidean.</p>
+</div></blockquote>
+<p><strong>kernel_params</strong> : dict, optional</p>
+<blockquote>
+<div><p>Any extra parameters specific to the chosen kernel</p>
+</div></blockquote>
+<p><strong>geodesic</strong> : boolean, optional</p>
+<blockquote>
+<div><p>Whether to create the geodesic distance matrix or the brute force pairwise distance matrix. Default is False</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a Pipeline for processing multiple datasets into <a class="reference internal" href="#slicematrixIO.matrices.DistanceMatrix" title="slicematrixIO.matrices.DistanceMatrix"><code class="xref py py-class docutils literal"><span class="pre">DistanceMatrix</span></code></a> models</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matrix_pipe</span> <span class="o">=</span> <span class="n">DistanceMatrixPipeline</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="s2">&quot;correlation&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">matrix_pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.matrices.DistanceMatrixPipeline.run">
 <code class="descname">run</code><span class="sig-paren">(</span><em>dataset</em>, <em>model</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.matrices.DistanceMatrixPipeline.run" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Run the Pipeline and create a new <a class="reference internal" href="#slicematrixIO.matrices.DistanceMatrix" title="slicematrixIO.matrices.DistanceMatrix"><code class="xref py py-class docutils literal"><span class="pre">DistanceMatrix</span></code></a> model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
+<blockquote class="last">
+<div><p>The dataset to pass into the Pipeline which will train a <a class="reference internal" href="#slicematrixIO.matrices.DistanceMatrix" title="slicematrixIO.matrices.DistanceMatrix"><code class="xref py py-class docutils literal"><span class="pre">DistanceMatrix</span></code></a> model using the parameters
+defined upon Pipeline creation. Pipelines are reusable sets of instructions to train a machine
+learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -2845,10 +3229,46 @@ a machine learning model.</p>
 </div>
 <div class="section" id="module-slicematrixIO.notebook">
 <span id="slicematrixio-notebook-module"></span><h2>slicematrixIO.notebook module<a class="headerlink" href="#module-slicematrixIO.notebook" title="Permalink to this headline">¶</a></h2>
+<p>Module containing all Jupyter Notebook related classes / functions</p>
+<p>All of this is meant to be run inside a Jupyter Notebook. The resulting graphs can be shared as notebook or html.</p>
 <dl class="class">
 <dt id="slicematrixIO.notebook.GraphEngine">
 <em class="property">class </em><code class="descclassname">slicematrixIO.notebook.</code><code class="descname">GraphEngine</code><span class="sig-paren">(</span><em>sm</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.notebook.GraphEngine" title="Permalink to this definition">¶</a></dt>
-<dd><p class="rubric">Methods</p>
+<dd><p>Class for setting up and drawing graphs / visualizations of SliceMatrix-I0 models directly in the Jupyter Notebook</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>sm</strong> : <a class="reference internal" href="#slicematrixIO.client.SliceMatrix" title="slicematrixIO.client.SliceMatrix"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.client.SliceMatrix</span></code></a></p>
+<blockquote class="last">
+<div><p>An extant client</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create the GraphEngine</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span>  <span class="o">=</span> <span class="n">SliceMatrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">viz</span> <span class="o">=</span> <span class="n">GraphEngine</span><span class="p">(</span><span class="n">sm</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initialize the notebook data</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">viz</span><span class="o">.</span><span class="n">init_data</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Initialize the graph stylesheet</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">viz</span><span class="o">.</span><span class="n">init_style</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Then visualize a model</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">iso</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">Isomap</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">prices</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">viz</span><span class="o">.</span><span class="n">drawNetworkGraph</span><span class="p">(</span><span class="n">iso</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">600</span><span class="p">,</span> <span class="n">color_map</span> <span class="o">=</span> <span class="s2">&quot;Heat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can then save and export the notebook for sharing your graph. HTML exports will render directly in the browser.</p>
+<p>For another example check out <a class="reference external" href="https://slicematrix.github.io/manifold_learning_js.html">https://slicematrix.github.io/manifold_learning_js.html</a></p>
+<p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.notebook.GraphEngine.drawNetworkGraph">
 <code class="descname">drawNetworkGraph</code><span class="sig-paren">(</span><em>network_model</em>, <em>color_map='RdBuGn'</em>, <em>graph_style='light'</em>, <em>graph_layout='force'</em>, <em>width=1000</em>, <em>height=600</em>, <em>charge=-100</em>, <em>color_axis='closeness_centrality'</em>, <em>label_color='#000'</em>, <em>label_shadow_color='#fffff0'</em>, <em>min_node_size=5</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.notebook.GraphEngine.drawNetworkGraph" title="Permalink to this definition">¶</a></dt>
@@ -2956,15 +3376,59 @@ a machine learning model.</p>
 </div>
 <div class="section" id="module-slicematrixIO.utils">
 <span id="slicematrixio-utils-module"></span><h2>slicematrixIO.utils module<a class="headerlink" href="#module-slicematrixIO.utils" title="Permalink to this headline">¶</a></h2>
+<p>Useful utility functions</p>
 <dl class="function">
 <dt id="slicematrixIO.utils.r_squared">
 <code class="descclassname">slicematrixIO.utils.</code><code class="descname">r_squared</code><span class="sig-paren">(</span><em>Y_hat</em>, <em>Y</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.utils.r_squared" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the coefficient of determination, or r-squared, for a given prediction versus its ground truths</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>Y_hat</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>The predicted values DataFrame</p>
+</div></blockquote>
+<p><strong>Y</strong> : pandas.DataFrame</p>
+<blockquote>
+<div><p>The actual values DataFrame</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>r_2</strong> : float</p>
+<blockquote class="last">
+<div><p>The r-squared value</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="slicematrixIO.utils.rando_name">
 <code class="descclassname">slicematrixIO.utils.</code><code class="descname">rando_name</code><span class="sig-paren">(</span><em>type='short'</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.utils.rando_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Generate a random name string</p>
+<p>Longer name decreases chance of overwrite collision</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>type</strong> : string [&#8220;short&#8221; | &#8220;long&#8221;]</p>
+<blockquote>
+<div><p>Whether to create a long or short name</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote class="last">
+<div><p>Random name</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 <div class="section" id="module-slicematrixIO">
