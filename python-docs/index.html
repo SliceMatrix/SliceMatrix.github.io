@@ -57,6 +57,24 @@
 <div class="section" id="welcome-to-the-documentation-for-slicematrixio-python">
 <h1>Welcome to the documentation for slicematrixIO-python<a class="headerlink" href="#welcome-to-the-documentation-for-slicematrixio-python" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="https://www.slicematrix.com">SliceMatrix-IO</a> is a Platform as a Service (PaaS) where you can easily create and store machine learning models in our global cloud</p>
+</div>
+<div class="section" id="core-concepts">
+<h1>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this headline">¶</a></h1>
+<p>The 2 core concepts for SliceMatrix-IO are:</p>
+<ol class="arabic simple">
+<li>The Analytical Pipeline</li>
+<li>The Model</li>
+</ol>
+<img alt="_images/workflow.png" src="_images/workflow.png" />
+<p>AP&#8217;s can be thought of as assembly lines of code which can train machine learning models. AP&#8217;s are reusable, meaning you can use the
+same AP to train multiple machine learning models using different input data.</p>
+<p>Model&#8217;s are where the real magic happens. After the Pipeline trains a Model, the Model live&#8217;s on SliceMatrix-IO&#8217;s machine learning
+infrastructure in the cloud. That means you can access your model after you create it in a distributed manner. You can also train models
+in parallel subject to your usage plan&#8217;s request / throttling limits.</p>
+<img alt="_images/workflow2a.png" src="_images/workflow2a.png" />
+</div>
+<div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">slicematrixIO</span> <span class="k">import</span> <span class="n">SliceMatrix</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sm</span>  <span class="o">=</span> <span class="n">SliceMatrix</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
 </pre></div>
@@ -84,20 +102,6 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pnn</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="o">...</span><span class="p">])</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="core-concepts">
-<h1>Core Concepts<a class="headerlink" href="#core-concepts" title="Permalink to this headline">¶</a></h1>
-<p>The 2 core concepts for SliceMatrix-IO are:</p>
-<ol class="arabic simple">
-<li>The Analytical Pipeline</li>
-<li>The Model</li>
-</ol>
-<img alt="_images/workflow.png" src="_images/workflow.png" />
-<p>AP&#8217;s can be thought of as assembly lines of code which can train machine learning models. AP&#8217;s are reusable, meaning you can use the
-same AP to train multiple machine learning models using different input data.</p>
-<p>Model&#8217;s are where the real magic happens. After the Pipeline trains a Model, the Model live&#8217;s on SliceMatrix-IO&#8217;s machine learning
-infrastructure in the cloud. That means you can access you model after you create it in a distributed fasion. You can also train models
-in parallel subject to your usage plan&#8217;s request / throttling limits.</p>
 </div>
 <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
@@ -219,6 +223,14 @@ in parallel subject to your usage plan&#8217;s request / throttling limits.</p>
 </dd>
 </dl>
 </li>
+<li><dl class="first docutils">
+<dt>Simulating Correlated Random Walks for the S&amp;P 500</dt>
+<dd><ul class="first last">
+<li><a class="reference external" href="https://slicematrix.github.io/simulating_random_walks.html">https://slicematrix.github.io/simulating_random_walks.html</a></li>
+</ul>
+</dd>
+</dl>
+</li>
 </ol>
 <div class="toctree-wrapper compound">
 </div>
@@ -242,6 +254,7 @@ in parallel subject to your usage plan&#8217;s request / throttling limits.</p>
   <ul>
 <li><a class="reference internal" href="#">Welcome to the documentation for slicematrixIO-python</a></li>
 <li><a class="reference internal" href="#core-concepts">Core Concepts</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#package-structure">Package Structure</a></li>
 <li><a class="reference internal" href="#examples-use-cases">Examples / Use Cases</a></li>

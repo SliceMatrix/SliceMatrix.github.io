@@ -263,7 +263,7 @@
 <p class="rubric">Examples</p>
 <p>Create a KalmanOLSPipeline for processing multiple datasets</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">KalmanOLSPipeline</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">KalmanOLSPipeline</span><span class="p">(</span><span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
 </pre></div>
@@ -2150,6 +2150,7 @@ learning model.</p>
 </div>
 <div class="section" id="module-slicematrixIO.graphs">
 <span id="slicematrixio-graphs-module"></span><h2>slicematrixIO.graphs module<a class="headerlink" href="#module-slicematrixIO.graphs" title="Permalink to this headline">¶</a></h2>
+<p>Classes for creating network graph models</p>
 <dl class="class">
 <dt id="slicematrixIO.graphs.CorrelationFilteredGraph">
 <em class="property">class </em><code class="descclassname">slicematrixIO.graphs.</code><code class="descname">CorrelationFilteredGraph</code><span class="sig-paren">(</span><em>dataset=None</em>, <em>name=None</em>, <em>pipeline=None</em>, <em>K=3</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.CorrelationFilteredGraph" title="Permalink to this definition">¶</a></dt>
@@ -2157,27 +2158,109 @@ learning model.</p>
 <dl class="method">
 <dt id="slicematrixIO.graphs.CorrelationFilteredGraph.edges">
 <code class="descname">edges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.CorrelationFilteredGraph.edges" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get a list of all the edges in the graph model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>edges</strong> : list</p>
+<blockquote class="last">
+<div><p>list of all edge / link tuples. Source is edge[0] Target is edge[1]</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.CorrelationFilteredGraph.neighborhood">
 <code class="descname">neighborhood</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.CorrelationFilteredGraph.neighborhood" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the nearest neighbors of the given node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>node</strong> : string</p>
+<blockquote>
+<div><p>The name of the target node we want to find the neighbors (shared edges)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>neighbors</strong> : dict</p>
+<blockquote class="last">
+<div><p>Dictionary of nearest neighbors with distances to target node</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.CorrelationFilteredGraph.nodes">
 <code class="descname">nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.CorrelationFilteredGraph.nodes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the names of the data points / nodes that make of the training dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>nodes</strong> : list</p>
+<blockquote class="last">
+<div><p>Data point names / indices</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.CorrelationFilteredGraph.rankLinks">
 <code class="descname">rankLinks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.CorrelationFilteredGraph.rankLinks" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Rank the links by weight, if applicable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>links</strong> : dict</p>
+<blockquote class="last">
+<div><p>dictionary of links with associated weight, if applicable</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.CorrelationFilteredGraph.rankNodes">
 <code class="descname">rankNodes</code><span class="sig-paren">(</span><em>statistic='closeness_centrality'</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.CorrelationFilteredGraph.rankNodes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Rank the model&#8217;s nodes by the given network graph statistic / factor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>statistic</strong> : string [&#8216;degree_centrality&#8217; | &#8216;eigen_centrality&#8217; | &#8216;closeness_centrality&#8217; | &#8216;betweenness_centrality&#8217; | &#8216;is_connected&#8217; |</p>
+<blockquote>
+<div><blockquote>
+<div><p>&#8216;curr_flow_centrality&#8217; | &#8216;pagerank&#8217; | &#8216;hits&#8217; | &#8216;communicability&#8217; | &#8216;clustering&#8217; | &#8216;square_clustering&#8217; |
+&#8216;greedy_colors&#8217; | &#8216;eccentricity&#8217; | &#8216;clique_numbers&#8217; | &#8216;number_of_cliques&#8217; | &#8216;estrada_index&#8217; | &#8216;assortivity&#8217; |
+&#8216;transitivity&#8217; | &#8216;avg_clustering&#8217; | &#8216;maximal_matching&#8217; | &#8216;max_weight_matching&#8217; | &#8216;dispersion&#8217;]</p>
+</div></blockquote>
+<p>The desired graph statistic</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>stats</strong> : array-like</p>
+<blockquote class="last">
+<div><p>Depending on the statistic this will be an array or a single float value</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -2185,6 +2268,45 @@ learning model.</p>
 <dt id="slicematrixIO.graphs.CorrelationFilteredGraphPipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.graphs.</code><code class="descname">CorrelationFilteredGraphPipeline</code><span class="sig-paren">(</span><em>name</em>, <em>K=3</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.CorrelationFilteredGraphPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#slicematrixIO.core.BasePipeline" title="slicematrixIO.core.BasePipeline"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.core.BasePipeline</span></code></a></p>
+<p>Create a Pipeline for training <a class="reference internal" href="#slicematrixIO.graphs.CorrelationFilteredGraph" title="slicematrixIO.graphs.CorrelationFilteredGraph"><code class="xref py py-class docutils literal"><span class="pre">CorrelationFilteredGraph</span></code></a> models.</p>
+<p>CFG&#8217;s are similar to MST&#8217;s, in that both graph&#8217;s begin with a distance matrix, but whereas
+MST&#8217;s are limited to constructing a tree, CFG&#8217;s draw links between a node and its closests K
+neighbors based on correlation distance. CFG&#8217;s are like KNN networks, but optimized for
+using correlation distance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>K</strong> : integer greater than 1, optional</p>
+<blockquote>
+<div><p>The number of nearest neighbors to use for constructing the CFG</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a Pipeline for training multiple <a class="reference internal" href="#slicematrixIO.graphs.CorrelationFilteredGraph" title="slicematrixIO.graphs.CorrelationFilteredGraph"><code class="xref py py-class docutils literal"><span class="pre">CorrelationFilteredGraph</span></code></a> models</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">CorrelationFilteredGraphPipeline</span><span class="p">(</span><span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.graphs.CorrelationFilteredGraphPipeline.run">
@@ -2200,27 +2322,109 @@ learning model.</p>
 <dl class="method">
 <dt id="slicematrixIO.graphs.MinimumSpanningTree.edges">
 <code class="descname">edges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.MinimumSpanningTree.edges" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get a list of all the edges in the graph model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>edges</strong> : list</p>
+<blockquote class="last">
+<div><p>list of all edge / link tuples. Source is edge[0] Target is edge[1]</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.MinimumSpanningTree.neighborhood">
 <code class="descname">neighborhood</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.MinimumSpanningTree.neighborhood" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the nearest neighbors of the given node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>node</strong> : string</p>
+<blockquote>
+<div><p>The name of the target node we want to find the neighbors (shared edges)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>neighbors</strong> : dict</p>
+<blockquote class="last">
+<div><p>Dictionary of nearest neighbors with distances to target node</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.MinimumSpanningTree.nodes">
 <code class="descname">nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.MinimumSpanningTree.nodes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the names of the data points / nodes that make of the training dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>nodes</strong> : list</p>
+<blockquote class="last">
+<div><p>Data point names / indices</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.MinimumSpanningTree.rankLinks">
 <code class="descname">rankLinks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.MinimumSpanningTree.rankLinks" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Rank the links by weight, if applicable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>links</strong> : dict</p>
+<blockquote class="last">
+<div><p>dictionary of links with associated weight, if applicable</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.MinimumSpanningTree.rankNodes">
 <code class="descname">rankNodes</code><span class="sig-paren">(</span><em>statistic='closeness_centrality'</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.MinimumSpanningTree.rankNodes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Rank the model&#8217;s nodes by the given network graph statistic / factor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>statistic</strong> : string [&#8216;degree_centrality&#8217; | &#8216;eigen_centrality&#8217; | &#8216;closeness_centrality&#8217; | &#8216;betweenness_centrality&#8217; | &#8216;is_connected&#8217; |</p>
+<blockquote>
+<div><blockquote>
+<div><p>&#8216;curr_flow_centrality&#8217; | &#8216;pagerank&#8217; | &#8216;hits&#8217; | &#8216;communicability&#8217; | &#8216;clustering&#8217; | &#8216;square_clustering&#8217; |
+&#8216;greedy_colors&#8217; | &#8216;eccentricity&#8217; | &#8216;clique_numbers&#8217; | &#8216;number_of_cliques&#8217; | &#8216;estrada_index&#8217; | &#8216;assortivity&#8217; |
+&#8216;transitivity&#8217; | &#8216;avg_clustering&#8217; | &#8216;maximal_matching&#8217; | &#8216;max_weight_matching&#8217; | &#8216;dispersion&#8217;]</p>
+</div></blockquote>
+<p>The desired graph statistic</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>stats</strong> : array-like</p>
+<blockquote class="last">
+<div><p>Depending on the statistic this will be an array or a single float value</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -2228,6 +2432,46 @@ learning model.</p>
 <dt id="slicematrixIO.graphs.MinimumSpanningTreePipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.graphs.</code><code class="descname">MinimumSpanningTreePipeline</code><span class="sig-paren">(</span><em>name</em>, <em>corr_method='pearson'</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.MinimumSpanningTreePipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#slicematrixIO.core.BasePipeline" title="slicematrixIO.core.BasePipeline"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.core.BasePipeline</span></code></a></p>
+<p>Create a Pipeline for training <a class="reference internal" href="#slicematrixIO.graphs.MinimumSpanningTree" title="slicematrixIO.graphs.MinimumSpanningTree"><code class="xref py py-class docutils literal"><span class="pre">MinimumSpanningTree</span></code></a> models.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>corr_method</strong> : string [&#8220;pearson&#8221; | &#8220;spearman&#8221; | &#8220;kendall&#8221; ]</p>
+<blockquote>
+<div><blockquote>
+<div><p>Which method should we use for computing the correlation matrix?</p>
+</div></blockquote>
+<p>&#8220;pearson&#8221; : use the Pearson correlation coefficient</p>
+<p>&#8220;spearman&#8221; : use Spearman&#8217;s rho</p>
+<p>&#8220;kendall&#8221; : use Kendall&#8217;s tau</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a Pipeline for training multiple <a class="reference internal" href="#slicematrixIO.graphs.MinimumSpanningTree" title="slicematrixIO.graphs.MinimumSpanningTree"><code class="xref py py-class docutils literal"><span class="pre">MinimumSpanningTree</span></code></a> models</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">MinimumSpanningTreePipeline</span><span class="p">(</span><span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.graphs.MinimumSpanningTreePipeline.run">
@@ -2243,27 +2487,109 @@ learning model.</p>
 <dl class="method">
 <dt id="slicematrixIO.graphs.NeighborNetworkGraph.edges">
 <code class="descname">edges</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.NeighborNetworkGraph.edges" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get a list of all the edges in the graph model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>edges</strong> : list</p>
+<blockquote class="last">
+<div><p>list of all edge / link tuples. Source is edge[0] Target is edge[1]</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.NeighborNetworkGraph.neighborhood">
 <code class="descname">neighborhood</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.NeighborNetworkGraph.neighborhood" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the nearest neighbors of the given node</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>node</strong> : string</p>
+<blockquote>
+<div><p>The name of the target node we want to find the neighbors (shared edges)</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>neighbors</strong> : dict</p>
+<blockquote class="last">
+<div><p>Dictionary of nearest neighbors with distances to target node</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.NeighborNetworkGraph.nodes">
 <code class="descname">nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.NeighborNetworkGraph.nodes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the names of the data points / nodes that make of the training dataset</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>nodes</strong> : list</p>
+<blockquote class="last">
+<div><p>Data point names / indices</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.NeighborNetworkGraph.rankLinks">
 <code class="descname">rankLinks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.NeighborNetworkGraph.rankLinks" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Rank the links by weight, if applicable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>links</strong> : dict</p>
+<blockquote class="last">
+<div><p>dictionary of links with associated weight, if applicable</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="slicematrixIO.graphs.NeighborNetworkGraph.rankNodes">
 <code class="descname">rankNodes</code><span class="sig-paren">(</span><em>statistic='closeness_centrality'</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.NeighborNetworkGraph.rankNodes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Rank the model&#8217;s nodes by the given network graph statistic / factor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>statistic</strong> : string [&#8216;degree_centrality&#8217; | &#8216;eigen_centrality&#8217; | &#8216;closeness_centrality&#8217; | &#8216;betweenness_centrality&#8217; | &#8216;is_connected&#8217; |</p>
+<blockquote>
+<div><blockquote>
+<div><p>&#8216;curr_flow_centrality&#8217; | &#8216;pagerank&#8217; | &#8216;hits&#8217; | &#8216;communicability&#8217; | &#8216;clustering&#8217; | &#8216;square_clustering&#8217; |
+&#8216;greedy_colors&#8217; | &#8216;eccentricity&#8217; | &#8216;clique_numbers&#8217; | &#8216;number_of_cliques&#8217; | &#8216;estrada_index&#8217; | &#8216;assortivity&#8217; |
+&#8216;transitivity&#8217; | &#8216;avg_clustering&#8217; | &#8216;maximal_matching&#8217; | &#8216;max_weight_matching&#8217; | &#8216;dispersion&#8217;]</p>
+</div></blockquote>
+<p>The desired graph statistic</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>stats</strong> : array-like</p>
+<blockquote class="last">
+<div><p>Depending on the statistic this will be an array or a single float value</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </dd></dl>
 
@@ -2271,6 +2597,45 @@ learning model.</p>
 <dt id="slicematrixIO.graphs.NeighborNetworkGraphPipeline">
 <em class="property">class </em><code class="descclassname">slicematrixIO.graphs.</code><code class="descname">NeighborNetworkGraphPipeline</code><span class="sig-paren">(</span><em>name</em>, <em>K=3</em>, <em>kernel='euclidean'</em>, <em>client=None</em><span class="sig-paren">)</span><a class="headerlink" href="#slicematrixIO.graphs.NeighborNetworkGraphPipeline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#slicematrixIO.core.BasePipeline" title="slicematrixIO.core.BasePipeline"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.core.BasePipeline</span></code></a></p>
+<p>Create a Pipeline for training <a class="reference internal" href="#slicematrixIO.graphs.NeighborNetworkGraph" title="slicematrixIO.graphs.NeighborNetworkGraph"><code class="xref py py-class docutils literal"><span class="pre">NeighborNetworkGraph</span></code></a> models.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote>
+<div><p>The desired name of the Pipeline.</p>
+</div></blockquote>
+<p><strong>K</strong> : integer greater than 1, optional</p>
+<blockquote>
+<div><p>The number of nearest neighbors to use for constructing the CFG</p>
+</div></blockquote>
+<p><strong>kernel</strong> : string, optional</p>
+<blockquote>
+<div><p>The distance kernel / metric to use in constructing the distance matrix. Default is euclidean.</p>
+</div></blockquote>
+<p><strong>client</strong> : <a class="reference internal" href="#slicematrixIO.connect.ConnectIO" title="slicematrixIO.connect.ConnectIO"><code class="xref py py-class docutils literal"><span class="pre">slicematrixIO.connect.ConnectIO</span></code></a></p>
+<blockquote>
+<div><p>Low level client for dispatching requests to SliceMatrix-IO</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to Pipeline creation request</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Create a Pipeline for training multiple <a class="reference internal" href="#slicematrixIO.graphs.NeighborNetworkGraph" title="slicematrixIO.graphs.NeighborNetworkGraph"><code class="xref py py-class docutils literal"><span class="pre">NeighborNetworkGraph</span></code></a> models</p>
+<div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pipe</span> <span class="o">=</span> <span class="n">NeighborNetworkGraphPipeline</span><span class="p">(</span><span class="n">K</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="slicematrixIO.graphs.NeighborNetworkGraphPipeline.run">
@@ -2542,7 +2907,7 @@ the number of edges in a shortest path between two points on the graph.</p>
 <p class="rubric">Examples</p>
 <p>Create a Isomap Pipeline for processing multiple datasets</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">iso_pipe</span> <span class="o">=</span> <span class="n">KernelPCAPipeline</span><span class="p">(</span><span class="n">D</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iso_pipe</span> <span class="o">=</span> <span class="n">KernelPCAPipeline</span><span class="p">(</span><span class="n">D</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">iso_pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
 </pre></div>
@@ -2557,10 +2922,16 @@ the number of edges in a shortest path between two points on the graph.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
-<blockquote class="last">
+<blockquote>
 <div><p>The dataset to pass into the Pipeline which will train an <a class="reference internal" href="#slicematrixIO.manifolds.Isomap" title="slicematrixIO.manifolds.Isomap"><code class="xref py py-class docutils literal"><span class="pre">Isomap</span></code></a> model using the parameters
 defined upon Pipeline creation. Pipelines are reusable sets of instructions to train a machine
 learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to model creation request</p>
 </div></blockquote>
 </td>
 </tr>
@@ -2813,7 +3184,7 @@ cloud.</p>
 <p class="rubric">Examples</p>
 <p>Create a KernelPCA Pipeline for processing multiple datasets</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">kpca_pipe</span> <span class="o">=</span> <span class="n">KernelPCAPipeline</span><span class="p">(</span><span class="n">D</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">kernel</span> <span class="o">=</span> <span class="s2">&quot;rbf&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kpca_pipe</span> <span class="o">=</span> <span class="n">KernelPCAPipeline</span><span class="p">(</span><span class="n">D</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">kernel</span> <span class="o">=</span> <span class="s2">&quot;rbf&quot;</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_kpca_model</span> <span class="o">=</span> <span class="n">kpca_pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
 </pre></div>
@@ -2828,10 +3199,16 @@ cloud.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
-<blockquote class="last">
+<blockquote>
 <div><p>The dataset to pass into the Pipeline which will train a KernelPCA model using the parameters
 defined upon Pipeline creation. Pipelines are reusable sets of instructions to train a machine
 learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to model creation request</p>
 </div></blockquote>
 </td>
 </tr>
@@ -3049,7 +3426,7 @@ training datasets</p>
 <p class="rubric">Examples</p>
 <p>Create a Pipeline for processing multiple datasets into <a class="reference internal" href="#slicematrixIO.manifolds.LaplacianEigenmapper" title="slicematrixIO.manifolds.LaplacianEigenmapper"><code class="xref py py-class docutils literal"><span class="pre">LaplacianEigenmapper</span></code></a> models</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">spectral_pipe</span> <span class="o">=</span> <span class="n">LaplacianEigenmapperPipeline</span><span class="p">(</span><span class="n">D</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">kernel</span> <span class="o">=</span> <span class="s2">&quot;rbf&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spectral_pipe</span> <span class="o">=</span> <span class="n">LaplacianEigenmapperPipeline</span><span class="p">(</span><span class="n">D</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">spectral_pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
 </pre></div>
@@ -3064,10 +3441,16 @@ training datasets</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
-<blockquote class="last">
+<blockquote>
 <div><p>The dataset to pass into the Pipeline which will train a KernelPCA model using the parameters
 defined upon Pipeline creation. Pipelines are reusable sets of instructions to train a machine
 learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to model creation request</p>
 </div></blockquote>
 </td>
 </tr>
@@ -3280,7 +3663,7 @@ learning model.</p>
 <p class="rubric">Examples</p>
 <p>Create a <a class="reference internal" href="#slicematrixIO.manifolds.LocalLinearEmbedder" title="slicematrixIO.manifolds.LocalLinearEmbedder"><code class="xref py py-class docutils literal"><span class="pre">LocalLinearEmbedder</span></code></a> Pipeline for processing multiple datasets</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lle_pipe</span> <span class="o">=</span> <span class="n">LocalLinearEmbedderPipeline</span><span class="p">(</span><span class="n">D</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lle_pipe</span> <span class="o">=</span> <span class="n">LocalLinearEmbedderPipeline</span><span class="p">(</span><span class="n">D</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">lle_pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
 </pre></div>
@@ -3295,10 +3678,16 @@ learning model.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>dataset</strong> : pandas.DataFrame</p>
-<blockquote class="last">
+<blockquote>
 <div><p>The dataset to pass into the Pipeline which will train a LocalLinearEmbedder model using the 
 parameters defined upon Pipeline creation. Pipelines are reusable sets of instructions to train 
 a machine learning model.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>response</strong> : dict</p>
+<blockquote class="last">
+<div><p>success or failure response to model creation request</p>
 </div></blockquote>
 </td>
 </tr>
@@ -3448,7 +3837,7 @@ the number of edges in a shortest path between two points on the graph.</p>
 <p class="rubric">Examples</p>
 <p>Create a Pipeline for processing multiple datasets into <a class="reference internal" href="#slicematrixIO.matrices.DistanceMatrix" title="slicematrixIO.matrices.DistanceMatrix"><code class="xref py py-class docutils literal"><span class="pre">DistanceMatrix</span></code></a> models</p>
 <div class="highlight-default"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">io</span> <span class="o">=</span> <span class="n">ConnectIO</span><span class="p">(</span><span class="n">api_key</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">matrix_pipe</span> <span class="o">=</span> <span class="n">DistanceMatrixPipeline</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="s2">&quot;correlation&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matrix_pipe</span> <span class="o">=</span> <span class="n">DistanceMatrixPipeline</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="s2">&quot;correlation&quot;</span><span class="p">,</span> <span class="n">client</span> <span class="o">=</span> <span class="n">io</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">dataframe</span> <span class="ow">in</span> <span class="n">dataframes</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">current_model</span> <span class="o">=</span> <span class="n">matrix_pipe</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">slicematrixIO</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">rando_name</span><span class="p">())</span>
 </pre></div>
@@ -4436,6 +4825,8 @@ a machine learning model.</p>
 </div>
 <div class="section" id="module-slicematrixIO">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-slicematrixIO" title="Permalink to this headline">¶</a></h2>
+<p>slicematrixIO-python is the Python SDK for the SliceMatrix-IO 
+Machine Learning Platform as a Service</p>
 </div>
 </div>
 

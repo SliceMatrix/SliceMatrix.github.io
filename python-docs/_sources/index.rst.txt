@@ -11,6 +11,29 @@ Welcome to the documentation for slicematrixIO-python
 
 SliceMatrix-IO_ is a Platform as a Service (PaaS) where you can easily create and store machine learning models in our global cloud  
 
+Core Concepts
+=============
+
+The 2 core concepts for SliceMatrix-IO are:
+
+1) The Analytical Pipeline
+2) The Model
+
+.. _SliceMatrix-IO: https://www.slicematrix.com
+
+.. image:: workflow.png
+
+AP's can be thought of as assembly lines of code which can train machine learning models. AP's are reusable, meaning you can use the
+same AP to train multiple machine learning models using different input data.
+
+Model's are where the real magic happens. After the Pipeline trains a Model, the Model live's on SliceMatrix-IO's machine learning
+infrastructure in the cloud. That means you can access your model after you create it in a distributed manner. You can also train models
+in parallel subject to your usage plan's request / throttling limits.
+
+.. image:: workflow2a.png
+
+Examples
+========
 >>> from slicematrixIO import SliceMatrix
 >>> sm  = SliceMatrix(api_key)
 
@@ -36,25 +59,6 @@ Train a probabilistic neural network classifer:
 
 >>> pnn = sm.PNNClassifier(dataset = bc_data)
 >>> pnn.predict([...])
-
-Core Concepts
-=============
-
-The 2 core concepts for SliceMatrix-IO are: 
-
-1) The Analytical Pipeline
-2) The Model
-
-.. _SliceMatrix-IO: https://www.slicematrix.com
-
-.. image:: workflow.png
-
-AP's can be thought of as assembly lines of code which can train machine learning models. AP's are reusable, meaning you can use the 
-same AP to train multiple machine learning models using different input data. 
-
-Model's are where the real magic happens. After the Pipeline trains a Model, the Model live's on SliceMatrix-IO's machine learning 
-infrastructure in the cloud. That means you can access you model after you create it in a distributed fasion. You can also train models
-in parallel subject to your usage plan's request / throttling limits.
 
 Installation
 ============
@@ -109,6 +113,8 @@ Examples / Use Cases
     - https://slicematrix.github.io/bloomberg_and_slicematrix
 8) Integrating D3, NodeJS, and SliceMatrix-IO to Visualize the S&P 500
     - http://www.slicematrix.io/finetwork 
+9) Simulating Correlated Random Walks for the S&P 500
+    - https://slicematrix.github.io/simulating_random_walks.html
 
 .. toctree::
    :maxdepth: 2
